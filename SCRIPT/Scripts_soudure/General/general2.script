@@ -27,6 +27,4 @@ def General():
         end
     end
 
-
-
 end
