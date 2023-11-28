@@ -42,6 +42,7 @@ global soudure_on = 0
 global vitesse_lente = 0.002
 global pose_depart = [0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204]
 
+global tps_init_soud = 1
 global vitesseHorsSoudure = 1
 global accelerationHorsSoudure = 0.6
 

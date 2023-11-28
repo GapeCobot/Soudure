@@ -1,10 +1,5 @@
 def fun_execution_d(): 
     ######################## INITIALISATION #########################################
-    #adressage
-    adresse_bp_cobot = 2                                    #adresse cobot bp_cobot
-    adresse_bp_d = 3                                        #adresse cobot bp_g
-#VARIABLES CI DESSUS UTILES ????? 
-
 
     local index_soudure_point = 1
     local index_soudure_lin = 1
@@ -45,8 +40,11 @@ def fun_execution_d():
             fun_soudure_cercle(index_soudure_cercle,2)
             index_soudure_cercle = index_soudure_cercle +1 
         elif (typeSoudure ==6):
-            Recopie_Table_Droite()
-            #appeler le sous prog 
+            Recopie_Table_Droite() #appeler le sous prog 
+            debug = 5000
+            fun_deplacement_pose_inter(2)  
+            sync()
+            
         else:
         end 
         soudureEnCours = soudureEnCours +1 

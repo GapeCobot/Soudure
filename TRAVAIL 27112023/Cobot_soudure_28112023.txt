@@ -63,16 +63,19 @@
      'Popup: Recopie sur la table de droite '
      MoveJ
        App_RecopieD
+       Deb_RecopieD
      fun_activer_soudure()
      'Missing: Path'
      'faire une recopie de mvt'
      fun_fin_soudure(2)
      MoveJ
        Ret_RecopieD
+     sync()
    Recopie_Table_Gauche
      'Popup: Recopie sur la table de gauche'
      MoveJ
        App_RecopieG
+       Deb_RecopieG
      fun_activer_soudure()
      'faire une recopie de mvt'
      'Missing: Path'
