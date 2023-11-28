@@ -1,0 +1,8 @@
+ Program
+   BeforeStart
+     MoveJ
+       Waypoint_2
+   Robot Program
+     MoveJ
+       machine
+       magasin

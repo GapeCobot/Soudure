@@ -1,0 +1,332 @@
+def attente_carters_ouverts():
+    # vérifier que les carter sont ouverts,
+    # sinon attendre en faisant clignoter les leds
+
+    while ((get_configurable_digital_in(add_SecuGaucheOk) == True) or (get_configurable_digital_in(add_SecuDroiteOK) == True)):
+
+        sync()
+        # 94 "'clingottement pour signifier qu'il y  un defaut sur un des carters '"
+        set_standard_digital_out(add_Dcy_Voyant, False)
+        set_configurable_digital_out(add_Led_Arret, False)
+        sleep(0.5)
+        set_standard_digital_out(add_Dcy_Voyant, True)
+        set_configurable_digital_out(add_Led_Arret, True)
+        sleep(0.5)
+        sync()
+    end
+
+    #carter OK, RAZ des sorties
+    set_standard_digital_out(add_Dcy_Voyant, False)
+    set_configurable_digital_out(add_Led_Arret, False)
+    sleep(2)
+    sync()
+
+end
+
+def deplacement_depart_init():
+
+    global angle_base = get_actual_joint_positions ()
+    if (angle_base[0] <= 0.7):
+        if (angle_base[0] >= 1.6):
+            # 116 "Départ"        A CHANGER PAR UNE POSTION ENREGISTREE
+            movej(pose_depart, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+        else:
+            if (angle_base[0] > 1.6):
+                movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+                movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            else:
+                if (angle_base[0] < 0.7):
+                    movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+                end
+            end
+        end
+    else:
+        # 124 "SinonSi angle_base[0]>1.6"
+        if (angle_base[0] > 1.6):
+
+            movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+        else:
+            if (angle_base[0] < 0.7):
+                movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            end
+        end
+    end
+    # 131 "Départ"             A CHANGER PAR UNE POSTION ENREGISTREE
+    movej(pose_depart, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+    #global angle_base= get_actual_joint_positions ()
+    sync()
+end
+
+
+
+
+
+def mode_configuration():
+    #nouveau
+
+    if ((config_g == 1) and (config_d == 1)):
+        pop_up_config_g_et_d()
+    elif ((config_g == 1) and (config_d == 0)):
+        pop_up_config_g()
+    elif ((config_g == 0) and (config_d == 1)):
+        pop_up_config_d()
+    elif ((config_g == 0) and (config_d == 0)):
+        pop_up_config()
+    end
+
+    while ((get_configurable_digital_in(add_ModeManu) == False  ) and (get_standard_digital_in(add_bp_ConfigReglage) == False  )):
+        thread Thread_while_145():
+            while (True):  # faire clignoter les voyants des tables, pour informer de l'attente d'une action
+                set_standard_digital_out(add_VoyantTableDroite, True)
+                set_standard_digital_out(add_VoyantTableGauche, False)
+                sleep(0.5)
+                set_standard_digital_out(add_VoyantTableDroite, False)
+                set_standard_digital_out(add_VoyantTableGauche, True)
+                sleep(0.5)
+                sync()
+            end
+        end
+        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
+            global thread_handler_145 = run Thread_while_145()
+            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
+                sync()
+            end
+            kill thread_handler_145
+        end
+        if (get_standard_digital_in(adresse_bp_g) == True): #table gauche
+            set_standard_digital_out(add_VoyantTableGauche, True)
+            set_standard_digital_out(add_VoyantTableDroite, False)
+            movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_Attente_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_config_g, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            global led_cobot = 1
+            fun_config_g()
+            global led_cobot = 0
+            fun_valid_config_g()
+            movej(Point_Attente_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            # 170 "Départ"         A CHANGER PAR UNE POSTION ENREGISTREE
+            movej(pose_depart, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+        end
+
+        if (get_standard_digital_in(adresse_bp_d) == True): #table droite
+            set_standard_digital_out(add_VoyantTableDroite, True)
+            set_standard_digital_out(add_VoyantTableGauche, False)
+            movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            movej(Point_Attente_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_config_d, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            global led_cobot = 1
+            fun_config_d()
+            global led_cobot = 0
+            fun_valid_config_d()
+            movej(Point_Attente_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            # 190 "Départ"         A CHANGER PAR UNE POSTION ENREGISTREE
+            movej(pose_depart, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+        end
+    end
+
+    sync()
+end
+
+
+
+
+def mode_Reglage():
+    #Pas à Pas
+    if ((config_g == 1) and (config_d == 1)):
+        pop_up_reg_gd()
+        global boucle = 1
+    elif ((config_g == 1) and (config_d == 0)):
+        pop_up_reg_gd()
+        global boucle = 1
+    elif ((config_g == 0) and (config_d == 1)):
+        pop_up_reg_d()
+        global boucle = 1
+    else:
+        close_popup()
+        while (get_standard_digital_in(add_bp_ConfigReglage) == True):
+            popup("Aucune configuration n'est actuellement detectée.", "Erreur", False, True, blocking = True)
+        end
+    end
+end
+
+end
+global boucle = 1
+while ((get_configurable_digital_in(add_ModeManu) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
+    thread Thread_while_208():
+        while (True):
+            if (config_g == 1):
+                set_standard_digital_out(add_VoyantTableGauche, True)
+            end
+            if (config_d == 1):
+                set_standard_digital_out(add_VoyantTableDroite, True)
+            end
+            sleep(0.5)
+            set_standard_digital_out(add_VoyantTableGauche, False)
+            set_standard_digital_out(add_VoyantTableDroite, False)
+            sleep(0.5)
+        end
+    end
+    if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+        global thread_handler_208 = run Thread_while_208()
+        while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+            sync()
+        end
+        kill thread_handler_208
+    end
+    if (get_standard_digital_in(adresse_bp_g) == True): #table gauche
+        global safe_mode = 1
+        set_standard_digital_out(add_VoyantTableGauche, True)
+        set_standard_digital_out(add_VoyantTableDroite, False)
+        movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+        movej(Point_Attente_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+        movej(pose_inter_g, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+        global led_cobot = 1
+        fun_Pas_A_Pas_g()
+        global led_cobot = 0
+        global safe_mode = 0
+        global boucle = 0
+    end
+    if (get_standard_digital_in(adresse_bp_d) == True): #table droite
+        global safe_mode = 1
+        set_standard_digital_out(add_VoyantTableDroite, True)
+        set_standard_digital_out(add_VoyantTableGauche, False)
+        movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+        movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+        movej(pose_inter_d, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+        global led_cobot = 1
+        fun_Pas_A_Pas_d()
+        global led_cobot = 0
+        global safe_mode = 0
+        global boucle = 0
+    end
+end
+
+sync()
+end
+
+def mode_Execution():
+
+    if ((config_g == 1) and (config_d == 1)):
+        pop_up_exe()
+        global boucle = 1
+    elif ((config_g == 1) and (config_d == 0)):
+        pop_up_exe_g()
+        global boucle = 1
+    elif ((config_g == 0) and (config_d == 1)):
+        pop_up_exe_d()
+        global boucle = 1
+    else:
+        close_popup()
+        while (get_configurable_digital_in(add_ModeManu) == True):
+            popup("Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
+        end
+    end
+
+    while (( get_configurable_digital_in(add_ModeManu) == True  ) and (boucle == 1)):
+        thread Thread_while_259():
+            while (True):
+                if (config_g == 1):
+                    set_standard_digital_out(add_VoyantTableGauche, True)
+                end
+                if (config_d == 1):
+                    set_standard_digital_out(add_VoyantTableDroite, True)
+                end
+                sleep(0.5)
+                set_standard_digital_out(add_VoyantTableGauche, False)
+                set_standard_digital_out(add_VoyantTableDroite, False)
+                sleep(0.5)
+            end
+        end
+        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == True):
+            global thread_handler_259 = run Thread_while_259()
+            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == True):
+                sync()
+            end
+            kill thread_handler_259
+        end
+        if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == True  )):
+            global boucle_g = 1
+            while (boucle_g == 1):
+                set_configurable_digital_out(add_CmdCarterBit1, True)
+                set_standard_digital_out(add_VoyantTableGauche, True)
+                set_standard_digital_out(add_VoyantTableDroite, False)
+                sleep(0.25)
+                set_standard_digital_out(add_VoyantTableGauche, False)
+                sleep(0.25)
+                if (get_configurable_digital_in(add_SecuGaucheOk) == False):
+                    set_standard_digital_out(add_VoyantTableGauche, True)
+                    if (get_configurable_digital_in(add_SecuGaucheOk) == False):
+                        close_popup()
+                        while (get_configurable_digital_in(add_SecuGaucheOk) == False):
+                            sync()
+                        end
+                    end
+                end
+                if (get_configurable_digital_in(add_SecuGaucheOk) == True):
+                    global secu_g = 1
+                    set_standard_digital_out(add_VoyantTableGauche, True)
+                    movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+                    fun_execution_g()
+                    movej(Point_Attente_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+                    movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+                    # 294 "Départ"         A CHANGER PAR UNE POSTION ENREGISTREE
+                    movej(pose_depart, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+                    set_configurable_digital_out(add_CmdCarterBit1, False)
+                    global secu_g = 0
+                    global boucle_g = 0
+                end
+            end
+            global boucle = 0
+        else:
+            if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == False  )):
+                close_popup()
+                popup("Aucune programmation n'est actuellement detectée sur la table gauche, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
+                global boucle = 0
+            end
+        end
+        if ((get_standard_digital_in(adresse_bp_d) == True  ) and (config_d == True  )):
+            global boucle_d = 1
+            pop_up_deb_exe_d()
+            while (boucle_d == 1):
+                set_configurable_digital_out(add_CmdCarterBit2, True)
+                set_standard_digital_out(add_VoyantTableGauche, False)
+                set_standard_digital_out(add_VoyantTableDroite, True)
+                sleep(0.25)
+                set_standard_digital_out(add_VoyantTableDroite, False)
+                sleep(0.25)
+                if (get_configurable_digital_in(add_SecuDroiteOK) == False):
+                    set_standard_digital_out(add_VoyantTableDroite, True)
+                    sleep(6.0)
+                    if (get_configurable_digital_in(add_SecuDroiteOK) == False):
+                        close_popup()
+                        while (get_configurable_digital_in(add_SecuDroiteOK) == False):
+                            sync()
+                        end
+                    end
+                end
+                if (get_configurable_digital_in(add_SecuDroiteOK) == True):
+                    global secu_d = 1
+                    set_standard_digital_out(add_VoyantTableDroite, True)
+                    movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+                    fun_execution_d()
+                    set_configurable_digital_out(add_CmdCarterBit2, False)
+                    global secu_d = 0
+                    global boucle_d = 0
+                end
+            end
+            global boucle = 0
+        else:
+            if ((get_standard_digital_in(adresse_bp_d) == True  ) and (config_d == False  )):
+                close_popup()
+                popup("Aucune programmation n'est actuellement detectée sur la table droite, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
+                global boucle = 0
+            end
+        end
+    end
+    sync()
+end

@@ -1,0 +1,14 @@
+#fermeture popup
+
+def close_popup():
+	closepop = "close popup"
+    	socket_send_string(closepop,"internal")
+    	socket_send_byte(10,"internal")
+    	socket_close()
+
+	closepop = "close popup"
+    	socket_send_string(closepop,"internal")
+    	socket_send_byte(10,"internal")
+    	socket_close()
+	return(False)
+end

@@ -1,0 +1,75 @@
+#type : 1=point 2=lineaire 3= arc de cercle 4=cercle 
+
+#sens 2=avant 3=apres
+
+#table 1=gauche 2=droite 
+
+def fun_decaler_tableaux( index_tab_pose,typeSoudure,table):
+
+
+
+    if(table == 1): #table gauche 
+
+        if(typeSoudure ==1): 
+            tab_point_app_g[index_tab_pose +1] = tab_point_app_g[index_tab_pose]
+            tab_point_deb_g[index_tab_pose +1] = tab_point_deb_g[index_tab_pose]
+            tab_point_ret_g[index_tab_pose +1] = tab_point_ret_g[index_tab_pose]
+        elif(typeSoudure == 2):
+            tab_lin_app_g[index_tab_pose +1]   = tab_lin_app_g[index_tab_pose]
+            tab_lin_deb_g[index_tab_pose +1]   = tab_lin_deb_g[index_tab_pose]
+            tab_lin_fin_g[index_tab_pose +1]   = tab_lin_fin_g[index_tab_pose]
+            tab_lin_ret_g[index_tab_pose +1]   = tab_lin_ret_g[index_tab_pose]
+            vit_lin_g[index_tab_pose +1]       = vit_lin_g[index_tab_pose]
+        elif(typeSoudure ==3): 
+            tab_arc_app_g[index_tab_pose +1]   = tab_arc_app_g[index_tab_pose]
+            tab_arc_deb_g[index_tab_pose +1]   = tab_arc_deb_g[index_tab_pose]
+            tab_arc_mil_g[index_tab_pose +1]   = tab_arc_mil_g[index_tab_pose]
+            tab_arc_fin_g[index_tab_pose +1]   = tab_arc_fin_g[index_tab_pose]
+            tab_arc_ret_g[index_tab_pose +1]   = tab_arc_ret_g[index_tab_pose]
+            vit_arc_g[index_tab_pose +1]       = vit_arc_g[index_tab_pose]
+        elif(typeSoudure ==4): 
+            tab_cer_app_g[index_tab_pose +1]   = tab_cer_app_g[index_tab_pose]
+            tab_cer_deb_g[index_tab_pose +1]   = tab_cer_deb_g[index_tab_pose]
+            tab_cer_quart_g[index_tab_pose +1] = tab_cer_quart_g[index_tab_pose]
+            tab_cer_mil_g[index_tab_pose +1]   = tab_cer_mil_g[index_tab_pose]
+            tab_cer_tro_g[index_tab_pose +1]   = tab_cer_tro_g[index_tab_pose]
+            tab_cer_fin_g[index_tab_pose +1]   = tab_cer_fin_g[index_tab_pose]
+            tab_cer_ret_g[index_tab_pose +1]   = tab_cer_ret_g[index_tab_pose]
+            vit_cer_g[index_tab_pose +1]       = vit_cer_g[index_tab_pose]
+        end 
+
+    elif(table == 2): #table droite 
+
+        
+        if(typeSoudure ==1): 
+            tab_point_app_d[index_tab_pose +1] = tab_point_app_d[index_tab_pose]
+            tab_point_deb_d[index_tab_pose +1] = tab_point_deb_d[index_tab_pose]
+            tab_point_ret_d[index_tab_pose +1] = tab_point_ret_d[index_tab_pose]
+        elif(typeSoudure == 2):
+            tab_lin_app_d[index_tab_pose +1]   = tab_lin_app_d[index_tab_pose]
+            tab_lin_deb_d[index_tab_pose +1]   = tab_lin_deb_d[index_tab_pose]
+            tab_lin_fin_d[index_tab_pose +1]   = tab_lin_fin_d[index_tab_pose]
+            tab_lin_ret_d[index_tab_pose +1]   = tab_lin_ret_d[index_tab_pose]
+            vit_lin_d[index_tab_pose +1]       = vit_lin_d[index_tab_pose]
+        elif(typeSoudure ==3): 
+            tab_arc_app_d[index_tab_pose +1]   = tab_arc_app_d[index_tab_pose]
+            tab_arc_deb_d[index_tab_pose +1]   = tab_arc_deb_d[index_tab_pose]
+            tab_arc_mil_d[index_tab_pose +1]   = tab_arc_mil_d[index_tab_pose]
+            tab_arc_fin_d[index_tab_pose +1]   = tab_arc_fin_d[index_tab_pose]
+            tab_arc_ret_d[index_tab_pose +1]   = tab_arc_ret_d[index_tab_pose]
+            vit_arc_d[index_tab_pose +1]       = vit_arc_d[index_tab_pose]
+        elif(typeSoudure ==4): 
+            tab_cer_app_d[index_tab_pose +1]   = tab_cer_app_d[index_tab_pose]
+            tab_cer_deb_d[index_tab_pose +1]   = tab_cer_deb_d[index_tab_pose]
+            tab_cer_quart_d[index_tab_pose +1] = tab_cer_quart_d[index_tab_pose]
+            tab_cer_mil_d[index_tab_pose +1]   = tab_cer_mil_d[index_tab_pose]
+            tab_cer_tro_d[index_tab_pose +1]   = tab_cer_tro_d[index_tab_pose]
+            tab_cer_fin_d[index_tab_pose +1]   = tab_cer_fin_d[index_tab_pose]
+            tab_cer_ret_d[index_tab_pose +1]   = tab_cer_ret_d[index_tab_pose]
+            vit_cer_d[index_tab_pose +1]       = vit_cer_d[index_tab_pose]
+        end 
+
+
+    end 
+
+end 

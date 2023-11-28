@@ -1,0 +1,45 @@
+def barriere():
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_gravity([0.0, 0.0, 9.82])
+  step_count_6d214d02_79c0_4022_9aad_02ba4047dda2 = 0.0
+  thread Step_Counter_Thread_53f2ed8e_95d8_4234_938c_8ee3fe809965():
+    while (True):
+      step_count_6d214d02_79c0_4022_9aad_02ba4047dda2 = step_count_6d214d02_79c0_4022_9aad_02ba4047dda2 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_53f2ed8e_95d8_4234_938c_8ee3fe809965()
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_safety_mode_transition_hardness(1)
+  set_target_payload(0.001000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  global Magasin=p[0.029376546537214842,-0.6097062373626966,0.5000163917999046,1.5707963266680818,1.2975335506409602E-10,8.409230064547015E-11]
+  global Waypoint_2_from_p=p[.350518879840, -.609706237290, .727358725135, -.033043282534, -2.209816828479, 2.202956762159]
+  global Waypoint_2_to_p=p[.350518879840, -.609706237290, .727358725135, -.033043282534, -2.209816828479, 2.202956762159]
+  global machine_p=p[.624788630339, .141964952587, .977916180230, 1.189540878046, .177617055300, 1.704344195024]
+  global machine_q=[0.6495204739078531, -1.6805796756886, -1.3596089895287253, 0.8287838757204105, 0.6794301313055973, 3.1377432958339866]
+  global magasin_p=p[.549946296894, -.670019714056, .977916180156, 1.189540878120, .177617055307, 1.704344195006]
+  global magasin_q=[-0.709044393000589, -1.9930720065553107, -1.0136482601125678, 0.40556270721127863, 1.7754859361247504, 4.065795903761395]
+  $ 1 "BeforeStart"
+  $ 2 "MoveJ"
+  $ 3 "Waypoint_2" "breakAfter"
+  movej(pose_add(get_target_tcp_pose(), pose_sub(Waypoint_2_to_p, Waypoint_2_from_p)), a=1.3962634015954636, v=1.0471975511965976)
+  while (True):
+    $ 4 "Robot Program"
+    $ 5 "MoveJ"
+    $ 6 "machine" "breakAfter"
+    movej(get_inverse_kin(machine_p, qnear=machine_q), a=1.3962634015954636, v=1.0471975511965976)
+    $ 7 "magasin" "breakAfter"
+    movej(get_inverse_kin(magasin_p, qnear=magasin_q), a=1.3962634015954636, v=1.0471975511965976)
+  end
+end

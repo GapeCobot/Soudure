@@ -1,0 +1,39 @@
+def fun_soudure_arc(Index,table):
+    a_fun = 0.5
+    v_fun = 1.1
+    r_fun= 0.00
+    t_fun = 0
+    if (table == 1): #si 1 -> Table de gauche 
+
+        movej(tab_arc_app_g[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+        set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+        movej(tab_arc_deb_g[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+    
+        fun_activer_soudure()                        #appel de la fonction activer la soudure 
+    
+        movec(tab_arc_mil_g[Index], tab_arc_fin_g[Index], a_fun,v=vit_arc_g[Index], r=0.002)
+    
+        fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+    
+        movej(tab_arc_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+    
+        fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire 
+
+    else: #sinon table de droite   
+
+        movej(tab_arc_app_d[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+        set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+        movej(tab_arc_deb_d[Index],a_fun,v=v_fun,t=t_fun,r =r_fun)
+    
+        fun_activer_soudure()                        #appel de la fonction activer la soudure 
+    
+        movec(tab_arc_mil_d[Index], tab_arc_fin_d[Index], a_fun,v=vit_arc_d[Index], r=0.002)
+    
+        fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+    
+        movej(tab_arc_ret_d[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+    
+        fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire 
+    end 
+    sync()
+end 

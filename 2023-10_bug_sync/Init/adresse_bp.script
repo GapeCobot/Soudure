@@ -1,0 +1,17 @@
+#def fun_adresse_bp():
+	adresse_bp_g = 2
+	adresse_bp_d = 3
+	adresse_bp_cobot = 8
+	global secu = 0
+	config_g = 0
+	config_d = 0
+	led_cobot = 0
+	soudure_on = 0
+
+	if ((nb_soud_point_g >= 1) or (nb_soud_lin_g >= 1) or (nb_soud_arc_g >= 1) or (nb_soud_cer_g >= 1)):
+		config_g = 1
+	end
+	if ((nb_soud_point_d >= 1) or (nb_soud_lin_d >= 1) or (nb_soud_arc_d >= 1) or (nb_soud_cer_d >= 1)):
+		config_d = 1
+	end
+#end 

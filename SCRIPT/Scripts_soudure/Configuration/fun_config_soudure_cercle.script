@@ -1,0 +1,89 @@
+def fun_config_soudure_cercle(index,table): 
+    teach_mode()
+
+    if(table == 1):  # sur la table de gauche 
+
+        fun_popup_soud(1, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_app_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(2, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_deb_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(3, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_quart_g[index] =  get_actual_tcp_pose()   	#Enregistrer position dans tableau d'approche des soudures arc de cercle quand appui Bp_d
+        close_popup()
+        
+        fun_popup_soud(4, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_mil_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(5, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_tro_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(6, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_fin_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(7, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_ret_g[index] =  get_actual_tcp_pose()    	#position de retrait est la meme que position d approche
+        close_popup()
+        
+        end_teach_mode()
+        vit_cer_g[index] = fun_demande_vit(4)
+        
+        nb_soud_cer_g= nb_soud_cer_g + 1
+    else: #sur la table de droite
+
+        fun_popup_soud(1, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_app_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(2, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_deb_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(3, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_quart_d[index] =  get_actual_tcp_pose()   	#Enregistrer position dans tableau d'approche des soudures arc de cercle quand appui Bp_d
+        close_popup()
+        
+        fun_popup_soud(4, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_mil_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(5, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_tro_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(6, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_fin_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(7, 4, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_cer_ret_d[index] =  get_actual_tcp_pose()    	#position de retrait est la meme que position d approche
+        close_popup()
+
+        end_teach_mode()
+        vit_cer_d[index] = fun_demande_vit(4)
+
+        nb_soud_cer_d = nb_soud_cer_d +1
+    end 
+    sync()
+
+end 

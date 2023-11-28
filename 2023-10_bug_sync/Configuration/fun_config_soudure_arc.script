@@ -1,0 +1,63 @@
+def fun_config_soudure_arc(index,table): 
+    if(table == 1):  # sur la table de gauche 
+
+        fun_popup_soud(1, 3, index)                           
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_app_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(2, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_deb_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau debut quand appui Bp_d
+        close_popup()
+    
+        fun_popup_soud(4, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_mil_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(6, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_fin_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+        close_popup()
+    
+        vit_arc_g[index] = fun_demande_vit(3)           #demande de vitesse des soudures lineaire
+    
+        fun_popup_soud(7, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_ret_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+        close_popup()
+
+        nb_soud_arc_g = nb_soud_arc_g +1 
+
+    else: #sur la table de droite
+        fun_popup_soud(1, 3, index)                           
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_app_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(2, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_deb_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau debut quand appui Bp_d
+        close_popup()
+
+        fun_popup_soud(4, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_mil_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(6, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_fin_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+        close_popup()
+
+        vit_arc_d[index] = fun_demande_vit(3)           #demande de vitesse des soudures lineaire
+
+        fun_popup_soud(7, 3, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_arc_ret_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+        close_popup()
+
+        nb_soud_arc_d = nb_soud_arc_d +1
+    end 
+end 

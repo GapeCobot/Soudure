@@ -1,0 +1,16 @@
+def fun_inserer_soudure(type,index,table):
+    teach_mode()
+    #configurer une nouvelle soudure en fonction du type -> utiliser les fonction déjà développée  
+    if (type == 1):
+        fun_config_soudure_point(index,table)   
+    elif (type == 2):
+        fun_config_soudure_lineaire(index,table)
+    elif (type == 3):
+        fun_config_soudure_arc(index,table)
+    elif (type ==4): 
+        fun_config_soudure_cercle(index,table)        
+    end
+    end_teach_mode()
+    sync()
+
+end 

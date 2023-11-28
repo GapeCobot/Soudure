@@ -1,0 +1,58 @@
+def testForce():
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  step_count_cc9b7a7f_df05_4553_9d6a_90f647bd6907 = 0.0
+  thread Step_Counter_Thread_40be2d3b_e6fe_4292_bfbb_44249b43b0f5():
+    while (True):
+      step_count_cc9b7a7f_df05_4553_9d6a_90f647bd6907 = step_count_cc9b7a7f_df05_4553_9d6a_90f647bd6907 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_40be2d3b_e6fe_4292_bfbb_44249b43b0f5()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_safety_mode_transition_hardness(1)
+  set_gravity([0.0, 0.0, 9.82])
+  global Start_from_p=p[-.189631536923, -.609683881651, .260971148694, -.001221359682, 3.116276528482, .038891915637]
+  global Start_to_p=p[-.189631536923, -.609683881651, .260971148694, -.001221359682, 3.116276528482, .038891915637]
+  global pDebut_p=p[.450826065525, .111488220743, .274847806296, -2.781898644003, 1.436679596707, .052698543031]
+  global pDebut_q=[0.6174835094263766, -1.4031461509175926, -2.4959472670431815, -0.8196994289504147, 1.6053717785693773, 0.0]
+  global pMilieu_p=p[.631610717396, .166250557189, .274847806213, -2.781898644003, 1.436679596710, .052698543033]
+  global pMilieu_q=[0.5210341717831701, -1.729810791402052, -2.1704023969259847, -0.821880685508372, 1.6045943435488947, -0.09650263791967184]
+  global pFin_p=p[.533243417041, .354885587379, .274847806212, -2.781898644002, 1.436679596710, .052698543036]
+  global pFin_q=[0.8559250886767137, -1.7110097075397164, -2.196736000110521, -0.8026962933596016, 1.6059056683059776, 0.2385864810531495]
+  $ 1 "BeforeStart"
+  $ 2 "MoveJ"
+  $ 3 "Start" "breakAfter"
+  movej(pose_add(get_target_tcp_pose(), pose_sub(Start_to_p, Start_from_p)), a=1.3962634015954636, v=1.0471975511965976)
+  while (True):
+    $ 4 "Robot Program"
+    $ 5 "MoveJ"
+    $ 6 "pDebut" "breakAfter"
+    movej(get_inverse_kin(pDebut_p, qnear=pDebut_q), a=1.3962634015954636, v=1.0471975511965976)
+    $ 7 "Force"
+    sleep(0.02)
+    zero_ftsensor()
+    force_mode(tool_pose(), [0, 1, 0, 0, 0, 0], [0.0, 10.0, 0.0, 0.0, 0.0, 0.0], 3, [0.1, 0.15, 0.1, 0.3490658503988659, 0.3490658503988659, 0.3490658503988659])
+    $ 8 "Wait: 1.0" "noBreak"
+    sleep(1.0)
+    $ 9 "MoveL" "noBreak"
+    $ 10 "pMilieu" "noBreak"
+    movel(pMilieu_p, a=1.2, v=0.25)
+    $ 11 "MoveL" "noBreak"
+    $ 12 "pFin" "noBreak"
+    movel(pFin_p, a=1.2, v=0.25)
+    end_force_mode()
+    stopl(5.0)
+  end
+end

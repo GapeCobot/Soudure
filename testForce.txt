@@ -1,0 +1,13 @@
+ Program
+   BeforeStart
+     MoveJ
+       Start
+   Robot Program
+     MoveJ
+       pDebut
+     Force
+       Wait: 1.0
+       MoveL
+         pMilieu
+       MoveL
+         pFin

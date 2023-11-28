@@ -1,0 +1,132 @@
+def fun_ajouter_soudure(sens,soudureEnCours, index_soudure_point, index_soudure_lin,index_soudure_arc,index_soudure_cercle,table): 
+    #pour le moment pas de vérif de trop de mouvements (doit etre inferiruer à 9par par type)
+    
+    if (table ==1):
+        nbSoudures = nbSoudure_glo_g
+    elif(table ==2):
+        nbSoudures = nbSoudure_glo_d
+    end 
+    local nbDecalage = 0
+    local index = soudureEnCours
+    local typeSoudure = 0
+    local nb_soudure_type = 0
+    typeSoudure = fun_demande_type_soudure()
+
+    if (typeSoudure == 1):
+      indexTypeSoudure = index_soudure_point
+      if (table ==1):
+          nb_soudure_type = nb_soud_point_g
+      elif(table ==2):
+          nb_soudure_type = nb_soud_point_d
+      end 
+    elif ( (typeSoudure == 2) or (typeSoudure ==5)):
+        indexTypeSoudure = index_soudure_lin
+        if (table ==1):
+            nb_soudure_type = nb_soud_lin_g
+        elif(table ==2):
+            nb_soudure_type = nb_soud_lin_d
+        end 
+    elif(typeSoudure == 3):
+        indexTypeSoudure = index_soudure_arc
+        if (table ==1):
+            nb_soudure_type = nb_soud_arc_g
+        elif(table ==2):
+            nb_soudure_type = nb_soud_arc_d
+        end 
+    elif(typeSoudure == 4):
+        indexTypeSoudure = index_soudure_cercle
+        if (table ==1):
+            nb_soudure_type = nb_soud_cer_g
+        elif(table ==2):
+            nb_soudure_type = nb_soud_cer_d
+        end 
+    elif(typeSoudure == 6 ):
+        #1 seul recopie possible, pas de tableau 
+    end 
+       
+    if (sens == 2):  #AJOUTER AVANT 
+
+        
+        #pour les tableaux qui type & job 
+        index_tab_typejob = nbSoudures -1
+        while(index_tab_typejob >= soudureEnCours ):
+            if (table ==1):
+                tab_job_g[index_tab_typejob +1] = tab_job_g[index_tab_typejob]
+                tab_type_g[index_tab_typejob +1] = tab_type_g[index_tab_typejob]
+            else: 
+                tab_job_d[index_tab_typejob +1] = tab_job_d[index_tab_typejob]
+                tab_type_d[index_tab_typejob +1] = tab_type_d[index_tab_typejob]
+            end 
+
+            index_tab_typejob = index_tab_typejob - 1
+            sync()
+        end 
+
+        #pour les tableaux de positions
+        index_tab_pos = nb_soudure_type
+        while(index_tab_pos >= nb_soudure_type ):
+            fun_decaler_tableaux(index_tab_pos,typeSoudure,table)         
+            index_tab_pos = index_tab_pos -1 
+            sync()
+        end 
+
+        #maintenant enregistrer les infos à l'index : soudureEnCoursType      
+        
+        fun_inserer_soudure(typeSoudure, indexTypeSoudure, table)
+        if (table ==1):
+            tab_type_g[soudureEnCours]= typeSoudure
+            tab_job_g[soudureEnCours] = fun_demande_job(typeSoudure)
+        elif(table ==2):
+            tab_type_d[soudureEnCours]= typeSoudure
+            tab_job_d[soudureEnCours] = fun_demande_job(typeSoudure)
+        end
+    
+
+    elif (sens ==3): #AJOUTER APRES
+
+       #pour les tableaux qui type & job 
+       index_tab_typejob = nbSoudures
+       while(index_tab_typejob >= soudureEnCours ):
+            if (table ==1):
+                tab_job_g[index_tab_typejob +1] = tab_job_g[index_tab_typejob]
+                tab_type_g[index_tab_typejob +1] = tab_type_g[index_tab_typejob]
+            else:
+                tab_job_d[index_tab_typejob +1] = tab_job_d[index_tab_typejob]
+                tab_type_d[index_tab_typejob +1] = tab_type_d[index_tab_typejob]
+            end        
+           index_tab_typejob = index_tab_typejob - 1
+           sync()
+       end 
+
+       #pour les tableaux de positions
+       index_tab_pos = nb_soudure_type
+       while(index_tab_pos >= nb_soudure_type ):
+           fun_decaler_tableaux(index_tab_pos,typeSoudure,table)         
+           index_tab_pos = index_tab_pos -1 
+           sync()
+       end 
+
+
+       #maintenant enregistrer les infos à l'index : soudureEnCoursType  
+       #incrémenter la soudureEnCours type 
+       if (nb_soudure_type != 1): # dans le cas de la première l'incérement est deja a jour 
+            nb_soudure_type = nb_soudure_type +1
+       end
+
+       fun_inserer_soudure(typeSoudure, indexTypeSoudure, table)    
+       if (table ==1):
+           tab_type_g[soudureEnCours+1]= typeSoudure
+           tab_job_g[soudureEnCours+1] = fun_demande_job(typeSoudure)
+       elif(table ==2):
+           tab_type_d[soudureEnCours+1]= typeSoudure
+           tab_job_d[soudureEnCours+1] = fun_demande_job(typeSoudure)
+       end
+
+
+    end 
+
+    sync()
+
+    return typeSoudure
+    end 
+     

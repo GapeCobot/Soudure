@@ -1,0 +1,7 @@
+def fun_debut_soudure():
+    Valide_Gaz = False
+    if  ((Test_Ordre_Mar == False) and (Test_Job == False)):
+        Arc_On = True
+        Test_Gaz = True
+    end
+end 

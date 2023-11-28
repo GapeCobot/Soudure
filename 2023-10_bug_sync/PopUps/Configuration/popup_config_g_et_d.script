@@ -1,0 +1,7 @@
+def pop_up_config_g_et_d():
+    close_popup()
+    popup3 = "popup CONFIGURATION : Les deux tables sont configurées."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup3,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 

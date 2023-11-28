@@ -1,0 +1,25 @@
+#fonction ecriture des jobs vers rob3000 
+def fun_commande_job(int):
+
+    if (int == 1):
+        set_digital_out(2,True)
+        set_digital_out(3,False)
+
+    
+    elif(int == 2):
+        set_digital_out(2,False)
+        set_digital_out(3,True)
+
+    elif(int == 3):
+        set_digital_out(2,True)
+        set_digital_out(3,True)
+
+    elif(int == 4):
+        set_digital_out(2,False)
+        set_digital_out(3,False)
+    
+   # else:
+   #     set_digital_out(2,False)
+     #   set_digital_out(3,False)
+    end 
+end 

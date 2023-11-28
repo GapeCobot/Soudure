@@ -1,0 +1,12 @@
+def fun_deplacement_pose_inter(table):
+    a_fun = 0.2
+    v_fun = 1.1
+    r_fun= 0
+    t_fun = 0
+    if (table == 1): #si 1 -> Table de gauche 
+        movej(pose_inter_g,a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+    else: #sinon table de droite
+        movej(pose_inter_d,a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+    end
+    sync()
+end 

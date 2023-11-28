@@ -1,0 +1,66 @@
+def fun_soudure_lineaire(Index,table,typeSoudure):
+    a_fun = 2
+    v_fun = 4
+    r_fun= 0.00
+    t_fun = 0
+
+    local balayage = False 
+
+    if (typeSoudure == 5):
+        balayage = True
+    end 
+
+    if (table == 1): #si 1 -> Table de gauche 
+        local p_inter = fct_calcul_point_inter(tab_lin_deb_g[Index], tab_lin_fin_g[Index]) # calcul de la position de début de ralentissement 
+
+        movej(tab_lin_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+        set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+        movej(tab_lin_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+    
+        if (balayage == True):
+            fct_activerBalayage(tab_lin_deb_g[Index], tab_lin_fin_g[Index])
+        end 
+        
+        fun_activer_soudure()                         #appel de la fonction activer la soudure 
+        movel(tab_lin_fin_g[Index],a=a_fun,v=vit_lin_g[Index],t=t_fun)
+        movel(tab_lin_fin_g[Index],a=a_fun,v=vitesse_lente,t=t_fun)
+    
+        fun_fin_soudure(1) 
+                                  #appel de la fonction désactiver la soudure
+        if (balayage == True):
+            fct_desactiverBalayage()
+        end 
+    
+        movej(tab_lin_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+    
+        fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire 
+
+
+    else: #sinon table de droite
+        local p_inter = fct_calcul_point_inter(tab_lin_deb_d[Index], tab_lin_fin_d[Index]) # calcul de la position de début de ralentissement 
+
+        movej(tab_lin_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+        set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+        movej(tab_lin_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+
+        if (balayage == True):
+            fct_activerBalayage(tab_lin_deb_d[Index], tab_lin_fin_d[Index])
+        end 
+    
+        fun_activer_soudure()                         #appel de la fonction activer la soudure 
+    
+        movel(tab_lin_fin_d[Index],a=a_fun,v=vit_lin_d[Index],t=t_fun)
+        movel(tab_lin_fin_d[Index],a=a_fun,v=vitesse_lente,t=t_fun)
+    
+        fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+        
+        if (balayage == True):
+            fct_desactiverBalayage()
+        end 
+        movej(tab_lin_ret_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+    
+        fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire 
+  
+    end 
+    sync()
+end 

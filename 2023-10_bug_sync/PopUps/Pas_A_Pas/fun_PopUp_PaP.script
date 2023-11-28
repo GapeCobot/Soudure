@@ -1,0 +1,35 @@
+def fun_PopUp_PaP(index,type,numPopUP):
+    index = index +1 
+    char_numeroDeSoudure = to_str(index)
+    
+    local resultat = False 
+    local resultat2  = 0 
+
+    if (type == 1):
+		char_soudure = "point"					#si type = 1, la demande sera sur une soudure point 
+	elif (type == 2):							
+		char_soudure = "lineaire"				#si type = 2, la demande sera sur une soudure linéaire 
+	elif (type == 3): 
+		char_soudure = "arc de cercle"			#si type = 3, la demande sera sur une soudure arc de cercle 
+	elif (type == 4):
+		char_soudure = "cercle"					#si type = 4, la demande sera sur une soudure cercle 
+	else :
+		char_soudure = "erreur de saisie"
+	end
+
+    if (numPopUP == 1): 
+        resultat  = request_boolean_from_primary_client("Soudure numero : " + char_numeroDeSoudure + ", de type : "+ char_soudure + ". Voulez vous effectuer la soudure ?(securité desactivée) Appuyer sur non pour passer à la soudure suivante. ")
+        return resultat
+    elif (numPopUP ==2 ):
+        resultat = request_boolean_from_primary_client("Voulez vous modifier la soudure numéro :" + char_numeroDeSoudure + " ? Appuyez sur non pour continuer")
+        return resultat
+    elif (numPopUP ==3 ):
+        resultat2 = request_integer_from_primary_client("       1-> Point SUIVANT                     Ajouter :    2-> AVANT      3-> APRES")
+        return resultat2
+    elif (numPopUP ==4 ):
+         esultat = request_boolean_from_primary_client("Voulez vous refaire une simulation? Appuyez sur non pour continuer.")
+        return resultat
+    end
+
+
+end 

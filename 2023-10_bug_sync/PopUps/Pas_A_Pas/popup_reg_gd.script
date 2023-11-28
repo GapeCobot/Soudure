@@ -1,0 +1,7 @@
+def pop_up_reg_gd():
+    close_popup()
+    popup3 = "popup PAS_A_PAS : Les deux tables sont programmées"#"popup Les deux tables sont programmées. Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée ou passez en mode éxécution à l'aide du commutateur superieur gauche pour effectuer un ou plusieurs cycle(s) de soudure(s)."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup3,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 

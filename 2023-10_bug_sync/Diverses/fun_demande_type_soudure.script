@@ -1,0 +1,11 @@
+#demande le type de soudure à enregistrer (entre 1 et 5)
+def fun_demande_type_soudure():
+    sync()
+	reponse = request_integer_from_primary_client("1->POINT     2->LINEAIRE    3->ARC    4->CERCLE  5->FIN")
+    sync()
+    if ((reponse == 0) or (reponse > 5)):
+        reponse = 5 
+    end
+    sync()
+return(reponse)
+end

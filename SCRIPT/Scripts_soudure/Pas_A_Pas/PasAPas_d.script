@@ -1,0 +1,143 @@
+#######################################-_-#############################################
+def fun_Pas_A_Pas_d(): 
+
+    global reglage_d = 0
+    global attente = False
+    global reconfig = 0
+    close_popup()
+
+    fun_deplacement_pose_inter(2)
+    
+    local index_soudure_point = 1
+    local index_soudure_lin = 1
+    local index_soudure_arc = 1
+    local index_soudure_cer = 1
+    
+    local nbSoudures = nbSoudure_glo_d 
+    local soudureEnCours = 0 #soudure en cours 
+    local job = 0
+    local typeSoudure = 0
+    local TypeSoudureAjoutee = 0 
+    local effectuerSoudure = False 
+    local nouvelleSimulation = False 
+
+    while (soudureEnCours < nbSoudures):
+        job = tab_job_d[soudureEnCours]
+        fun_commande_job(job)
+
+        typeSoudure = tab_type_d[soudureEnCours]
+        ###
+        # (1) PopUp demande simulation 
+        ###
+        if (nouvelleSimulation == False):
+            effectuerSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,1) #appel de la fonction qui gère les PopUp
+        end 
+        
+        if ((effectuerSoudure == True) or(nouvelleSimulation == True)):   
+            ###
+            # (2) Simuler() 
+            ###
+            nouvelleSimulation  = False 
+            effectuerSoudure    = False 
+
+            #REALISATION DELA SOUDURE 
+            fun_deplacement_pose_inter(2) 
+            if (typeSoudure == 1 ):
+                fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+            elif ((typeSoudure == 2 ) or (typeSoudure ==5)): 
+                fun_soudure_lineaire(index_soudure_lin,2,typeSoudure)
+            elif (typeSoudure == 3 ):
+                fun_soudure_arc(index_soudure_arc,2)
+            elif (typeSoudure == 4 ):
+                fun_soudure_cercle(index_soudure_cer,2)
+            elif(typeSoudure ==6):
+                Recopie_Table_Droite()
+            else:
+            end 
+            #FIN DE LA REALISATION DE LA SOUDURE 
+            sync()
+        end 
+        ###
+        # (3)PopUp demande modification 
+        ###
+        modifierSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,2) #appel de la fonction qui gère les PopUp
+          
+        if (modifierSoudure == True):    
+            ###
+            # (4) Modifier()
+            ###
+            #fun_deplacement_pose_inter(2) 
+            teach_mode()
+            
+            if (typeSoudure == 1 ):
+                fun_config_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+            elif ((typeSoudure == 2 ) or (typeSoudure ==5)): 
+                fun_config_soudure_lineaire(index_soudure_lin,2)
+            elif (typeSoudure == 3 ):
+                fun_config_soudure_arc(index_soudure_arc,2)
+            elif (typeSoudure == 4 ):
+                fun_config_soudure_cercle(index_soudure_cer,2)
+            elif(typeSoudure == 6):
+                #faire un popUp d'avertissement 
+            else:
+            end
+            end_teach_mode()
+            sync()
+        end
+        # (5) PopUp demande ajout 
+        ### 
+        nouvelleSimulation = False
+        ajouterSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,3)
+        if ((ajouterSoudure == 2) or (ajouterSoudure == 3)):
+            ###
+            # (6) Ajouter()
+            ###
+            TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 2)
+
+            if (TypeSoudureAjoutee != 7): #5 est le code retourné s'il n'y a pas d'ajout de soudure 
+                nbSoudures =  nbSoudures +1 
+                nbSoudure_glo_d = nbSoudures
+
+                
+                typeSoudure = tab_type_d[soudureEnCours]
+                job = tab_job_d[soudureEnCours]
+
+                nouvelleSimulation = fun_PopUp_PaP(soudureEnCours,typeSoudure,4)
+
+                sync()
+            end 
+            sync()
+        end 
+
+        if (nouvelleSimulation == True):
+            ###
+            #(2) refaire une simulation sur cette pièce 
+            ###
+ 
+            # pas d'incrément pour recommencer la boucle avec cette soudure 
+            soudureEnCours = soudureEnCours 
+        else:   
+            soudureEnCours = soudureEnCours +1 
+            if (typeSoudure == 1 )  :
+                index_soudure_point =index_soudure_point +1
+            elif ((typeSoudure == 2 ) or (typeSoudure ==5)): 
+                index_soudure_lin = index_soudure_lin +1
+            elif (typeSoudure == 3 ):
+                index_soudure_arc = index_soudure_arc +1
+            elif (typeSoudure == 4 ):
+                index_soudure_cer = index_soudure_cer+ 1
+            else:
+            end 
+
+        end 
+        sync()
+    end 
+    sync()
+end 
+
+
+
+
+
+    
+ 

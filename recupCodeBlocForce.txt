@@ -1,0 +1,15 @@
+ Program
+   BeforeStart
+     MoveJ
+       Waypoint_1
+     Home
+   Robot Program
+     'pDebut≔p[-0.63954,0.13407,1.14222,-1.4606,-0.30368,0.28119]'
+     'pFin≔p[-0.1,0.1,1.14222,-1.4606,-0.30368,0.28119]'
+     'MoveL'
+     MoveJ
+       Waypoint_3
+     Force
+       MoveL
+         Waypoint_2
+           Until (reached_waypoint)

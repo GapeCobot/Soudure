@@ -1,0 +1,16 @@
+ Program
+   BeforeStart
+     Text≔"ERREUR CODE :"
+     write_report≔0
+     Autor_ecrire≔ False 
+   Robot Program
+     write_report≔'Entrer un nombre '
+     Autor_ecrire≔ True 
+   Thread_1
+     If Autor_ecrire≟ True 
+       If write_report≟1
+         textmsg(Text,write_report)
+         Autor_ecrire≔ False 
+       ElseIf write_report≟3
+         textmsg(Text,write_report)
+         Autor_ecrire≔ False 

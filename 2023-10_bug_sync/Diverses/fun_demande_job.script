@@ -1,0 +1,24 @@
+#demande le job à utiliser (mode de soudure régler sur le poste à souder) (compris entre 0 et 3, pour 1 et 4 sur le poste a souder)
+def fun_demande_job(type):
+	if (1==type):
+		soudure = "point"
+	elif (2==type):
+		soudure = "lineaire"
+	elif (3==type): 
+		soudure = "arc de cercle"
+	elif (4==type):
+		soudure = "cercle"
+	else :
+		return(False)
+	end
+
+  job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+  job = job-1 #adapter la saisie aux besoins du code 
+  
+  while ((job!=0) and (job!=1) and (job!=2) and (job!=3)): #reboucler si mauvaise saisie 
+	  job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+      job = job-1 #adapter la saisie aux besoins du code 
+  end 
+
+return(job)
+end

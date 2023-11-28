@@ -1,0 +1,47 @@
+def pop_up_deb_exe_d():
+    close_popup()
+    popup3 = "popup Table droite, éxecution... Veillez à bien fermer la porte."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup3,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 
+
+def pop_up_deb_exe_g():
+    close_popup()
+    popup3 = "popup Table gauche, éxecution... Veillez à bien fermer la porte."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup3,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 
+
+def pop_up_exe_d():
+    close_popup()
+    popup1 = "popup EXECUTION : Table droite prête à éxécution"#"popup Appuyer sur le bouton droit pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup1,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 
+
+def pop_up_exe_g():
+    close_popup()
+    popup1 = "popup EXECUTION : Table gauche prête à éxécution"#"popup Appuyer sur le bouton gauche pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup1,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 
+
+def pop_up_fermer_porte():
+    close_popup()
+    popup3 = "popup Fermer la porte pour éxecution."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup3,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 
+
+def pop_up_exe():
+    close_popup()
+    popup1 ="popup EXECUTION : Les deux tables sont prêtes à l'éxécution" #"popup Appuyer sur le bouton gauche ou droit pour commencer l'éxécution de la pièce sur la table associée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup1,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 

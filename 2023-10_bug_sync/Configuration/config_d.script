@@ -1,0 +1,77 @@
+def fun_config_d(): 
+
+    teach_mode()    
+
+        ################### RAZ_des_tableaux ###########################################
+
+    fun_raz_d() 
+
+            # Init des variables de traitement 
+    local type = 0 
+    local index_soudure_point = 1
+    local index_soudure_lin = 1
+    local index_soudure_arc = 1
+    local index_soudure_cer = 1
+
+    local nbSoudures = 0
+    local ajout = False
+    close_popup()
+    type = fun_demande_type_soudure()
+    sync()
+    while (type != 5): 
+        sync()
+        if (type == 1):
+            if (nb_soud_point_d <10):
+                ajout = True 
+                fun_config_soudure_point(index_soudure_point,2) #  le ( ,2) indique la table de droite 
+                index_soudure_point = index_soudure_point +1 
+            else:
+                ajout = False
+                popUp_tropSoudures()
+            end
+
+        elif (type == 2):
+            if (nb_soud_lin_d <10):
+                ajout = True
+                fun_config_soudure_lineaire(index_soudure_lin,2)
+                index_soudure_lin = index_soudure_lin +1
+            else:
+                ajout = False
+                popUp_tropSoudures()
+            end
+
+        elif (type == 3):
+            if (nb_soud_arc_d <10):
+                ajout = True
+                fun_config_soudure_arc(index_soudure_arc,2)
+                index_soudure_arc = index_soudure_arc +1 
+            else:
+                ajout = False
+                popUp_tropSoudures()
+            end
+
+        elif (type ==4): 
+            if (nb_soud_cer_d <10):
+                ajout = True 
+                fun_config_soudure_cercle(index_soudure_cer,2)        
+                index_soudure_cer = index_soudure_cer +1 
+            else:
+                ajout = False
+                popUp_tropSoudures()
+            end
+
+        end
+
+        if (ajout == True):
+            tab_type_d[nbSoudures] = type 
+            tab_job_d[nbSoudures] = fun_demande_job(type)
+            nbSoudures = nbSoudures +1 
+        end 
+
+        sync()
+        type = fun_demande_type_soudure()
+    end 
+    end_teach_mode()
+    global nbSoudure_glo_d = nbSoudures 
+end 
+

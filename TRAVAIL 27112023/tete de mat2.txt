@@ -1,0 +1,440 @@
+ Programme
+   Init variables
+   AvantDémarrage
+     fonctions
+       Init
+         Script: adresse_bp.script
+       Diverses
+         Script: close_popup.script
+         Script: debut_soud.script
+         Script: fin_soudure.script
+         Script: fun_demande().script
+         Script: fun_demande_job.script
+         Script: fun_demande_type_soudure.script
+         Script: fun_demande_vit.script
+         Script: fun_front_down.script
+         Script: fun_front_up.script
+         Script: fun_popup_soud().script
+         Script: fun_raz_d.script
+         Script: fun_raz_g.script
+       Demande
+         Script: demande_d.script
+         Script: demande_g.script
+       Configuration
+         Script: config_d.script
+         Script: config_g.script
+         Script: fun_config_soudure_arc.script
+         Script: fun_config_soudure_cercle.script
+         Script: fun_config_soudure_lineaire.script
+         Script: fun_config_soudure_point.script
+         Script: popUp_tropSoudures.script
+         Script: valid_config_d.script
+         Script: valid_config_g.script
+       Execution
+         Script: execution_d.script
+         Script: execution_g.script
+         Script: fun_activer_soudure.script
+         Script: fun_fin_soudure.script
+         Script: fun_commande_job.script
+         Script: fun_deplacement_pose_inter.script
+         Script: fun_soudure_arc.script
+         Script: fun_soudure_cercle.script
+         Script: fun_soudure_lineaire.script
+         Script: fun_soudure_point.script
+       Pas_A_Pas
+         Script: fun_ajouter_soudure.script
+         Script: fun_decaler_tableau.script
+         Script: fun_inserer_soudure.script
+         Script: PasAPas_d.script
+         Script: PasAPas_g.script
+       PopUps
+         Configuration
+           Script: popup_config.script
+           Script: popup_config_d.script
+           Script: popup_config_g.script
+           Script: popup_config_g_et_d.script
+         Execution
+           Script: popup_deb_exe_d.script
+           Script: popup_deb_exe_g.script
+           Script: popup_exe.script
+           Script: popup_exe_d.script
+           Script: popup_exe_g.script
+           Script: popup_fermer_porte.script
+         Pas_A_Pas
+           Script: fun_PopUp_PaP.script
+           Script: popup_reg.script
+           Script: popup_reg_d.script
+           Script: popup_reg_g.script
+           Script: popup_reg_gd.script
+   Programme de robot
+     'Initialisation'
+     'DéplacementA'
+     safe_mode≔0
+     Deplacement vers position initial
+       'Pop-up: debut deplacement vers position initiale'
+       Régler Cmd_Carter_Bit1=Off
+       Régler Cmd_Carter_Bit2=Off
+       Boucle SecuGaucheOk≟ True  or SecuDroiteOk≟ True 
+         sync()
+         'clingottement pour signifier qu'il y  un defaut sur un des carters '
+         Régler Dcy_Voyant=Off
+         Régler Led_Arret=Off
+         Attendre: 0.5
+         Régler Dcy_Voyant=On
+         Régler Led_Arret=On
+         Attendre: 0.5
+       Régler Led_Arret=Off
+       Régler Dcy_Voyant=Off
+       Attendre: 2.0
+       'etre sur de l'ouverture complete du carter '
+       DéplacementL
+         PointPassage_12
+         'Pos_cobot a etait affectuer a la position init (l3)'
+         'Pos_cobot[2] correspond a la valeur Z de la postion init (l4)'
+       'DéplacementA'
+       angle_base≔get_actual_joint_positions()
+       Si angle_base[0] ≤0.7
+         Si angle_base[0]≥1.6
+           Départ
+         SinonSi angle_base[0]>1.6
+           DéplacementA
+             Point_init_D
+             Point_avt_initD
+         SinonSi angle_base[0]<0.7
+           DéplacementA
+             Point_init_G
+       SinonSi angle_base[0]>1.6
+         DéplacementA
+           Point_init_D
+           Point_avt_initD
+       SinonSi angle_base[0]<0.7
+         DéplacementA
+           Point_init_G
+       Départ
+       angle_base≔get_actual_joint_positions()
+     'mode config'
+     Si Mode_manu ≟ False  and config_reglage ≟ False 
+       Si (config_g ≟ 1)  and  (config_d ≟ 1)
+         pop_up_config_g_et_d()
+       SinonSi (config_g ≟1)
+         pop_up_config_g()
+       SinonSi config_d ≟ 1
+         pop_up_config_d()
+       SinonSi (config_g ≟ 0) and (config_d ≟ 0)
+         pop_up_config()
+       boucle≔1
+       Boucle (Mode_manu ≟ False ) and (boucle ≟ 1)  and (config_reglage≟ False )
+         Boucle Pret_Table_Droi≟ False  and Pret_Table_Gauc≟ False  and Mode_manu ≟  False  and config_reglage≟ False 
+           Régler Voyant_Table_Ga=On
+           Régler Voyant_Table_Dr=Off
+           Attendre: 0.5
+           Régler Voyant_Table_Ga=Off
+           Régler Voyant_Table_Dr=On
+           Attendre: 0.5
+           sync()
+         Si Pret_Table_Gauc ≟ True 
+           Régler Voyant_Table_Ga=On
+           Régler Voyant_Table_Dr=Off
+           'plus de demande du nombre de point a saisir'
+           DéplacementA
+             Point_init_G
+             Point_Attente_G
+             Point_config_g
+             led_cobot≔1
+             fun_config_g()
+             led_cobot≔0
+             fun_valid_config_g()
+             DéplacementA
+               'anti_poq_g'
+               Point_Attente_G
+               Point_init_G
+               'Point_init'
+               Départ
+         Si Pret_Table_Droi ≟ True 
+           Régler Voyant_Table_Dr=On
+           Régler Voyant_Table_Ga=Off
+           DéplacementA
+             Point_avt_initD
+             Point_init_D
+             Point_Attente_D
+             Point_config_d
+           led_cobot≔1
+           fun_config_d()
+           led_cobot≔0
+           fun_valid_config_d()
+           DéplacementA
+             'anti_poq_1_d'
+             'anti_poq_2_d'
+             'Point_init'
+             Point_Attente_D
+             Point_init_D
+             Point_avt_initD
+             Départ
+     '"Reg"'
+     Si Mode_manu ≟ False  and config_reglage ≟ True 
+       Si (config_g ≟ 1)  and  (config_d ≟ 1)
+         pop_up_reg_gd()
+         boucle≔1
+       SinonSi config_g ≟ 1
+         pop_up_reg_gd()
+         boucle≔1
+       SinonSi config_d ≟ 1
+         pop_up_reg_d()
+         boucle≔1
+       Sinon
+         close_popup()
+         Boucle config_reglage ≟ True 
+           Pop-up: Aucune configuration n'est actuellement detectée.
+       boucle≔1
+       Boucle (Mode_manu ≟ False ) and (boucle ≟ 1)  and (config_reglage≟ True )
+         Boucle Pret_Table_Droi≟ False  and Pret_Table_Gauc≟ False  and Mode_manu ≟  False  and config_reglage ≟ True 
+           Si config_g ≟ 1
+             Régler Voyant_Table_Ga=On
+           Si config_d ≟ 1
+             Régler Voyant_Table_Dr=On
+           Attendre: 0.5
+           Régler Voyant_Table_Ga=Off
+           Régler Voyant_Table_Dr=Off
+           Attendre: 0.5
+         Si Pret_Table_Gauc ≟ True 
+           safe_mode≔1
+           Régler Voyant_Table_Ga=On
+           Régler Voyant_Table_Dr=Off
+           DéplacementA
+             Point_init_G
+             Point_Attente_G
+             pose_inter_g
+           led_cobot≔1
+           fun_Pas_A_Pas_g()
+           led_cobot≔0
+           safe_mode≔0
+           boucle≔0
+         Si Pret_Table_Droi ≟ True 
+           safe_mode≔1
+           Régler Voyant_Table_Dr=On
+           Régler Voyant_Table_Ga=Off
+           DéplacementA
+             Point_avt_initD
+             Point_init_D
+             pose_inter_d
+           led_cobot≔1
+           fun_Pas_A_Pas_d()
+           led_cobot≔0
+           safe_mode≔0
+           boucle≔0
+     'mode exe'
+     Si Mode_manu ≟ True 
+       Si (config_g ≟ 1)  and  (config_d ≟ 1)
+         pop_up_exe()
+         boucle≔1
+       SinonSi config_g ≟ 1
+         pop_up_exe_g()
+         boucle≔1
+       SinonSi config_d ≟ 1
+         pop_up_exe_d()
+         boucle≔1
+       Sinon
+         close_popup()
+         Boucle Mode_manu ≟ True 
+           Pop-up: Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter.
+       Boucle ( Mode_manu ≟ True )  and (boucle ≟ 1)
+         Boucle Pret_Table_Droi≟ False  and Pret_Table_Gauc≟ False  and Mode_manu≟ True 
+           Si config_g ≟ 1
+             Régler Voyant_Table_Ga=On
+           Si config_d ≟ 1
+             Régler Voyant_Table_Dr=On
+           Attendre: 0.5
+           Régler Voyant_Table_Ga=Off
+           Régler Voyant_Table_Dr=Off
+           Attendre: 0.5
+         Si (Pret_Table_Gauc ≟ True ) and (config_g ≟ True )
+           boucle_g≔1
+           'pop_up_deb_exe_g()'
+           Boucle boucle_g ≟ 1
+             Régler Cmd_Carter_Bit1=On
+             Régler Voyant_Table_Ga=On
+             Régler Voyant_Table_Dr=Off
+             Attendre: 0.25
+             Régler Voyant_Table_Ga=Off
+             Attendre: 0.25
+             Si SecuGaucheOk ≟  False 
+               Régler Voyant_Table_Ga=On
+               'Attendre: 6.0'
+               Si SecuGaucheOk ≟  False 
+                 close_popup()
+                 Attendre SecuGaucheOk=HAUT
+             Si SecuGaucheOk ≟  True 
+               secu_g≔1
+               Régler Voyant_Table_Ga=On
+               DéplacementA
+                 Point_init_G
+                 'Point_Attente_G'
+               fun_execution_g()
+               DéplacementA
+                 Point_Attente_G
+                 Point_init_G
+                 Départ
+               Régler Cmd_Carter_Bit1=Off
+               secu_g≔0
+               boucle_g≔0
+           boucle≔0
+         SinonSi (Pret_Table_Gauc ≟ True ) and (config_g ≟ False )
+           close_popup()
+           Pop-up: Aucune programmation n'est actuellement detectée sur la table gauche, veillez à programmer une pièce avant de vouloir l'éxécuter.
+           boucle≔0
+         Si (Pret_Table_Droi ≟ True ) and (config_d ≟ True )
+           boucle_d≔1
+           pop_up_deb_exe_d()
+           Boucle boucle_d ≟ 1
+             Régler Cmd_Carter_Bit2=On
+             Régler Voyant_Table_Ga=Off
+             Régler Voyant_Table_Dr=On
+             Attendre: 0.25
+             Régler Voyant_Table_Dr=Off
+             Attendre: 0.25
+             Si SecuDroiteOk ≟  False 
+               Régler Voyant_Table_Dr=On
+               Attendre: 6.0
+               Si SecuDroiteOk ≟  False 
+                 close_popup()
+                 Attendre SecuDroiteOk=HAUT
+             Si SecuDroiteOk ≟  True 
+               secu_d≔1
+               Régler Voyant_Table_Dr=On
+               DéplacementA
+                 Point_avt_initD
+                 'Point_init_D'
+               fun_execution_d()
+               Régler Cmd_Carter_Bit2=Off
+               secu_d≔0
+               boucle_d≔0
+           boucle≔0
+         SinonSi (Pret_Table_Droi ≟ True ) and (config_d ≟ False )
+           close_popup()
+           Pop-up: Aucune programmation n'est actuellement detectée sur la table droite, veillez à programmer une pièce avant de vouloir l'éxécuter.
+           boucle≔0
+   Thread_1
+     Test_Ordre_Marche
+       Si Test_Ordre_Mar≟ True 
+         Si config_d ≟ 1  or  config_g ≟ 1
+           Régler Ordre_Marche=On
+           Attendre: 0.5
+           Si Reponse_Ordre≟ False 
+             'Si aucune reponse n'a etait recue, arret du programme'
+             close_popup()
+             Pop-up: Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) 
+           Test_Ordre_Mar≔ False 
+           sync()
+       Erreur ordre marche pendant utilisation
+         Si Arc_On≟ True   and Reponse_Arc≟ True  and Reponse_Ordre≟ False 
+           'Test pour savoir si ordre marche a ete coupe pendant utilisation'
+           close_popup()
+           Pop-up: Defaut : Mise sous puissance coupee pendant la trajectoire
+     sync()
+   Thread_2
+     mode_soudure
+       Si Mode_soudure ≟  True 
+         Si Mode_soudure≟ True  and soudure_on ≟ True 
+           fin_soud≔0
+           Test_Ordre_Mar≔ True 
+           Test_Job≔ True 
+           Attendre Test_Ordre_Mar≟ False 
+           Attendre Test_Job≟ False 
+           Régler Arc_On=On
+           Test_Gaz≔ True 
+           'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'
+           Attendre Valide_Gaz≟ True 
+           'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'
+         SinonSi Mode_soudure ≟ True  and soudure_on ≟ False 
+           'Attente post debit gaz'
+           Régler Arc_On=Off
+           Test_Gaz≔ False 
+           Boucle Reponse_Arc ≟ 1
+             fin_soud≔0
+             sync()
+           fin_soud≔1
+     sync()
+   Thread_3
+     led_cobot_2
+       Si led_cobot ≟ True 
+         Si valider_bp_co ≟ True 
+           Régler TO[1]=On
+           Attendre: 0.25
+           Régler TO[1]=Off
+           Attendre: 0.25
+           Régler TO[1]=On
+           Attendre: 0.25
+           Régler TO[1]=Off
+           Attendre: 0.25
+           Régler TO[1]=On
+           Attendre: 0.25
+           Régler TO[1]=Off
+           Attendre: 0.25
+           sync()
+         sync()
+       sync()
+     sync()
+   Thread_4
+     led_cobot
+       Si led_cobot ≟ True 
+         Boucle led_cobot ≟  True 
+           Régler TO[0]=On
+           Attendre: 0.5
+           Régler TO[0]=Off
+           Attendre: 0.5
+           sync()
+         sync()
+       Sinon
+         Régler TO[0]=Off
+         Régler TO[1]=Off
+     sync()
+   Thread_5
+     Test_Arc_On
+       Erreur gaz pendant utilisation
+         Timer_gaz
+           Si Test_Gaz≟ True 
+             Attendre: 1.0
+             Boucle Reponse_Arc≟ False  and Arc_On≟ True 
+               'La boucle permet d'activer le timer et tester deux condition pour les Defaults'
+               timer_ret_gaz: Démarrer
+               Si timer_ret_gaz>0.5
+                 'Le timer permet de realiser une attente '
+                 close_popup()
+                 Pop-up: Defaut : Pas de retour flux, stabilisation gaz
+               SinonSi Reponse_Ordre≟ False 
+                 'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'
+                 close_popup()
+                 Pop-up: Defaut : Perte retour de signal, mise sous puissance generateur
+             Valide_Gaz≔ True 
+             timer_ret_gaz: Réinitialiser
+     sync()
+   Thread_6
+     Test_Job
+       Si Test_Job≟ True 
+         'Si Program_Soudure≟1'
+         Test_Job≔ False 
+     sync()
+   Thread_7
+     secu
+       Si SecuGaucheOk ≟  False  and secu_g ≟ 1
+         close_popup()
+         Pop-up: ATTENTION : Defaut carter !
+       SinonSi SecuDroiteOk ≟ False  and secu_d ≟ 1
+         close_popup()
+         Pop-up: ATTENTION : Defaut carter !
+     sync()
+   Thread_8
+     bloq_soud_arret
+       Si Mode_soudure≟ False  and Test_Gaz ≟ True 
+         close_popup()
+         Pop-up: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation.
+     'freedrive_droit'
+     sync()
+   'Thread_9'
+   Thread_10
+     reglage
+       Si safe_mode ≟ 1  and Mode_manu ≟  True 
+         close_popup()
+         Pop-up: STOP !!!!
+       sync()
+     sync()

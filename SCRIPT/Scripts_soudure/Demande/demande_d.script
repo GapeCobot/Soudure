@@ -1,0 +1,12 @@
+def fun_demande_d():
+
+    close_popup()
+    nb_soud_point_d = fun_demande(1)
+    if (nb_soud_point_d > 0):
+            tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
+    end
+    nb_soud_lin_d = fun_demande(2)
+    nb_soud_arc_d = fun_demande(3)
+    nb_soud_cer_d = fun_demande(4)
+     
+end 

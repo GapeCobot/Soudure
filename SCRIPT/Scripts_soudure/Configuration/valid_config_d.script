@@ -1,0 +1,29 @@
+
+def fun_valid_config_d():
+    #on demande la validation de la configuration 
+
+    validation_d = request_boolean_from_primary_client("Valider la configuration de la table droite ? Cliquer sur non pour effacer les paramètres.")
+        
+        if(validation_d ==True):
+
+            popup2 = "popup La programmation de la pièce droite est terminée."
+            socket_open("127.0.0.1",29999,"internal") # open internal socket
+            socket_send_line(popup2,"internal")     #Affichage message
+            socket_send_byte(10,"internal")
+            config_d = 1
+
+        else:
+        nb_soud_point_d = 0
+        nb_soud_lin_d = 0
+        nb_soud_arc_d = 0
+        nb_soud_cer_d = 0
+        config_d = 0
+
+        fun_raz_d() 
+
+        popup3 = "popup La programmation de la pièce droite a été effacée."
+        socket_open("127.0.0.1",29999,"internal") # open internal socket
+        socket_send_line(popup3,"internal")     #Affichage message
+        socket_send_byte(10,"internal")
+    end
+end 

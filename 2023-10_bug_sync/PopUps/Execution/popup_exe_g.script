@@ -1,0 +1,7 @@
+def pop_up_exe_g():
+    close_popup()
+    popup1 = "popup EXECUTION : Table gauche prête à éxécution"#"popup Appuyer sur le bouton gauche pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup1,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+end 

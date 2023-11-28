@@ -1,0 +1,178 @@
+#ouvre un pop-up "configuration soudure (type_soud) n°(num_soud): placer le robot (etape_soud) et valider la position. (bp_cobot)". fermeture popup a l'aide de close_popup()
+#pour la definition de la fonction :
+    #etape :
+    #   1 : approche
+    #   2 : depart
+    #   3 : premier quart
+    #   4 : milieu
+    #   5 : trois-quart
+    #   6 : fin
+    #   7 : retrait
+
+    #type :
+    #   1 : soudure point
+    #   2 : soudure lineaire
+    #   3 : soudure arc de cercle
+    #   4 : soudure cercle
+    #   5 : plus de soudure
+    #num : i, j, k ou l correspondant au numero de la soudure ( i pour type = 1, j pour type = 2, k pour type = 3, l pour type = 4)
+
+def fun_popup_soud(etape, type, num):
+    sync()
+    switch_1 = etape
+    switch_2 = type
+        ##############################################################################
+
+    ####################### POPUP-approche #######################################
+
+##############################################################################
+    #switch etape
+    if (1 == switch_1) : #point d'approche
+        etape_soud = " en APPROCHE"
+        #switch type
+        if (1 == switch_2) : #soudure point
+            type_soud = "point"
+
+       elif (2 == switch_2) : #soudure lineaire
+            type_soud = "lineaire"
+
+        elif (3 == switch_2) : #soudure arc de cerlce
+            type_soud = "arc de cercle"
+
+        elif (4 == switch_2) : #soudure cercle
+           type_soud = "cercle"
+
+        else :
+            return (False)
+        end
+
+        ##############################################################################
+
+    ####################### POPUP-debut ##########################################
+
+##############################################################################
+
+    elif (2 == switch_1): #point de soudure/debut
+        #switch type
+        if (1 == switch_2) : #soudure point
+           etape_soud = "sur le POINT"
+            type_soud = "point"
+
+        elif (2 == switch_2): #soudure lineaire
+            etape_soud = "sur le DEBUT"
+            type_soud = "lineaire"
+
+        elif (3 == switch_2) : #soudure arc de cerlce
+            etape_soud = "sur le DEBUT"
+            type_soud = "arc de cercle"
+
+        elif (4 == switch_2) : #soudure cercle
+            etape_soud = "sur le DEBUT"
+           type_soud = "cercle"
+
+        else :
+            return (False)
+        end
+
+        ##############################################################################
+
+    ####################### POPUP-quart ##########################################
+
+##############################################################################
+
+    elif (3 == switch_1): #point de quart
+        etape_soud = "sur 1er QUART"
+        #switch type
+        if (4 == switch_2) : #soudure cercle
+            type_soud = "cercle" 
+        end
+
+        ##############################################################################
+
+    ####################### POPUP-milieu ########################################
+
+#############################################################################
+
+    elif (4 == switch_1): #point de milieu
+        etape_soud = "à la MOITIE"
+        #switch type
+        if (3 == switch_2) : #soudure arc de cercle
+            type_soud = "arc de cercle" 
+        elif (4 == switch_2): #soudure arc de cercle
+            type_soud = "cercle" 
+        end
+
+        ##############################################################################
+
+    ####################### POPUP-trois_quart ####################################
+
+##############################################################################
+
+    elif (5 == switch_1): #point trois_quart
+        etape_soud = "sur le 3e QUART"
+        #switch type
+        if (4 == switch_2) : #soudure cercle
+            type_soud = "cercle" 
+        end
+
+        ##############################################################################
+
+    ####################### POPUP-fin ############################################
+
+##############################################################################
+
+    elif (6 == switch_1): #point de fin
+        etape_soud = "sur la FIN"
+        #switch type
+        if (2 == switch_2) : #soudure lineaire
+            type_soud = "lineaire"
+
+        elif (3 == switch_2) : #soudure arc de cerlce
+            type_soud = "arc de cercle"
+
+        elif (4 == switch_2) : #soudure cercle
+            type_soud = "cercle"
+
+        else :
+            return (False)
+        end
+
+        ##############################################################################
+
+    ####################### POPUP-retrait ########################################
+
+##############################################################################
+
+    elif (7 == switch_1): #point de retrait
+        etape_soud = "en RETRAIT"
+        #switch type
+        if (2 == switch_2) : #soudure lineaire
+            type_soud = "lineaire"
+
+        elif (3 == switch_2) : #soudure arc de cerlce
+           type_soud = "arc de cercle"
+
+        elif (4 == switch_2) : #soudure cercle
+           type_soud = "cercle"
+
+        else :
+           return (False)
+        end
+
+    else :
+        return(False)
+    end
+
+        ##############################################################################
+
+    ######################## affichage_POPUP #####################################
+
+##############################################################################
+    sync()
+    num_soud = to_str(num)
+    popup1 = "popup Config. : " + type_soud + " n°" + num_soud + " : placer " + etape_soud + " & Valider"             #on ouvre un popup 
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup1,"internal")     #Affichage message
+    socket_send_byte(10,"internal") 
+    sync()
+end

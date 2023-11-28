@@ -1,0 +1,20 @@
+def fct_calcul_point_inter(p_debut,p_fin):
+
+    local p_inter = p_fin
+  
+    local poucentage = 0.95
+    local inc = 0 
+    local vecteur_global = p[0,0,0,0,0,0]
+    local vecteur_reduit = p[0,0,0,0,0,0]
+  
+    while (inc < 6):   #a valider avec d'autres tests (peut etre faire une moyenne)
+        vecteur_global[inc] = p_fin[inc] - p_debut[inc] 
+        vecteur_reduit[inc] = vecteur_global[inc]*poucentage
+        p_inter[inc] = p_debut[inc] + vecteur_reduit[inc]
+        inc = inc +1 
+    end 
+  
+    return p_inter
+  end 
+
+  

@@ -1,0 +1,64 @@
+def unnamed():
+  set_gravity([0.0, 0.0, 9.82])
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_safety_mode_transition_hardness(1)
+  step_count_9a375e3f_343b_45c3_84ff_83ed596a8f43 = 0.0
+  thread Step_Counter_Thread_2317470a_9aa1_4729_a1f5_c3536d76d835():
+    while (True):
+      step_count_9a375e3f_343b_45c3_84ff_83ed596a8f43 = step_count_9a375e3f_343b_45c3_84ff_83ed596a8f43 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_2317470a_9aa1_4729_a1f5_c3536d76d835()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  $ 1 "BeforeStart"
+  $ 2 "Text≔'ERREUR CODE :'"
+  global Text="ERREUR CODE :"
+  $ 3 "write_report≔0"
+  global write_report=0
+  $ 4 "Autor_ecrire≔ False "
+  global Autor_ecrire=  False  
+  $ 8 "Thread_1"
+  thread Thread_1():
+    while (True):
+      $ 9 "If Autor_ecrire≟ True "
+      if (Autor_ecrire ==   True  ):
+        $ 10 "If write_report≟1"
+        if (write_report == 1):
+          $ 11 "textmsg(Text,write_report)"
+          textmsg(Text,write_report)
+          $ 12 "Autor_ecrire≔ False "
+          global Autor_ecrire=  False  
+        else:
+          $ 13 "ElseIf write_report≟3"
+          if (write_report == 3):
+            $ 14 "textmsg(Text,write_report)"
+            textmsg(Text,write_report)
+            $ 15 "Autor_ecrire≔ False "
+            global Autor_ecrire=  False  
+          end
+        end
+      end
+    end
+  end
+  threadId_Thread_1 = run Thread_1()
+  while (True):
+    $ 5 "Robot Program"
+    $ 6 "write_report≔'Entrer un nombre '"
+    global write_report=request_integer_from_primary_client("Entrer un nombre ")
+    $ 7 "Autor_ecrire≔ True "
+    global Autor_ecrire=  True  
+  end
+end

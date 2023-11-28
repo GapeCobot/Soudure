@@ -1,0 +1,30 @@
+def fun_valid_config_g():
+#on demande la validation de la configuration 
+
+    alidation_g = request_boolean_from_primary_client("Valider la programmation de la table gauche ? Cliquer sur non pour effacer les paramètres.")
+
+    if(validation_g ==True):
+
+        popup2 = "popup La programmation de la pièce gauche est terminée."
+        socket_open("127.0.0.1",29999,"internal") # open internal socket
+        socket_send_line(popup2,"internal")     #Affichage message
+        socket_send_byte(10,"internal")
+    config_g =1
+    else:
+
+    nb_soud_point_g = 0
+    nb_soud_lin_g = 0 
+    nb_soud_arc_g = 0 
+    nb_soud_cer_g = 0
+    config_g = 0
+
+    fun_raz_g()
+    
+
+    popup3 = "popup La programmation de la pièce gauche a été effacée."
+    socket_open("127.0.0.1",29999,"internal") # open internal socket
+    socket_send_line(popup3,"internal")     #Affichage message
+    socket_send_byte(10,"internal")
+
+    end
+end 

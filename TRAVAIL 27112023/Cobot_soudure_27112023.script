@@ -1,0 +1,2977 @@
+def Cobot_soudure_27112023():
+  set_tcp(p[3.9268782491800464E-4,0.010870476277026558,0.31436572226962645,-0.5061477319867888,-0.4813511797025432,1.4393264113232132])
+  set_safety_mode_transition_hardness(1)
+  set_gravity([8.503688472232543E-16, -8.503688472232545E-16, -9.82])
+  set_target_payload(2.720000, [-0.067000, 0.195000, 0.106000], [0.008159, 0.008159, 0.008159, 0.000000, 0.000000, 0.000000])
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  set_runstate_standard_digital_outputs([0,1,2,3,4,5,6,7])
+  set_runstate_configurable_digital_outputs([6])
+  set_runstate_standard_digital_output_to_value(0, 1)
+  set_runstate_standard_digital_output_to_value(1, 1)
+  set_runstate_standard_digital_output_to_value(2, 1)
+  set_runstate_standard_digital_output_to_value(3, 1)
+  set_runstate_standard_digital_output_to_value(4, 1)
+  set_runstate_standard_digital_output_to_value(5, 1)
+  set_runstate_standard_digital_output_to_value(6, 1)
+  set_runstate_standard_digital_output_to_value(7, 1)
+  set_runstate_configurable_digital_output_to_value(6, 1)
+  step_count_0f8f1bb3_6edb_497f_acb6_6c8d93052f9a = 0.0
+  thread Step_Counter_Thread_f3eb26b1_75cd_428d_9f44_ef7053aa9272():
+    while (True):
+      step_count_0f8f1bb3_6edb_497f_acb6_6c8d93052f9a = step_count_0f8f1bb3_6edb_497f_acb6_6c8d93052f9a + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_f3eb26b1_75cd_428d_9f44_ef7053aa9272()
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 2)
+  set_tool_digital_output_mode(1, 2)
+  set_tool_voltage(24)
+  global validation_d=True
+  global tab_lin_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global vit_arc_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_arc_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global vit_arc_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_lin_fin_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_fin_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_point_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_point_app_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_app_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tps_point_g=0
+  global tab_arc_app_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tps_point_d=0
+  global boucle_g=0
+  global boucle_d=0
+  global debug=0
+  global tab_cer_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global Timeout_Ftc_Gen=0.008
+  global tab_cer_fin_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global boucle=1
+  global Vitesse_Nominal=100
+  global nb_soud_cer_g=0
+  global reglage_g=0
+  global nb_soud_cer_d=0
+  global reglage_d=0
+  global tab_cer_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_app_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global led_cobot=0
+  global nb_soud_point_g=0
+  global nb_soud_point_d=0
+  global Def_Gaz_InTjt_1=0.0016
+  global vit_lin_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global vit_lin_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global safe_mode=0
+  global tab_point_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_arc_g=0
+  global tab_point_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tps_init_soud=0.72
+  global nb_soud_arc_d=0
+  global tab_lin_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global soudure_on=0
+  global tab_arc_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global reconfig_g=0
+  global tab_lin_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global reconfig_d=0
+  global nbSoudure_glo_g=0
+  global nbSoudure_glo_d=1
+  global tab_type_g=[6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_point_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_type_d=[6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_point_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_quart_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_quart_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_tro_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_lin_g=0
+  global tab_arc_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_tro_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_lin_d=0
+  global vit_cer_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global vit_cer_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_cer_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global config_g=0
+  global tab_job_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global config_d=0
+  global tab_job_d=[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_cer_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global validation_g=True
+  global Plan_1=p[0.2765977407058651,0.441662975488158,-0.354025576257956,0.010335746863727192,-2.2593603669607853,-2.1763123278249075]
+  global Plan_2=p[-0.6850900144682162,0.05409388116672237,0.7275351534620245,-0.17766457951264733,3.135611439555076,0.015300324138438761]
+  global Point_Attente_D=p[0.8075097707138287,-0.5559573939980813,0.6503504177938426,-0.016593826733406727,0.9796907122869005,-1.3148705972812706]
+  global Point_Attente_G=p[-0.8302518840605669,-0.5690889661896592,0.5808986974917729,0.1131174117177478,0.8542258792983665,-1.3535814942507707]
+  global Point_avt_initD=p[0.06657254429526571,-0.06943749992615326,0.5843775497859096,-0.8098969788818392,-0.44585655944978064,-0.46114333540420704]
+  global Point_config_d=p[0.8154692737529835,-0.07461670665559308,0.7748160279634002,-0.22357745079049834,0.7295723650394397,-1.442467128485814]
+  global Point_config_g=p[-0.7722398141985307,-0.27957025230496113,0.7194731293881862,-0.03779800848772952,0.8705012662336749,-1.3831247702678935]
+  global Point_init=p[-0.0773212862772821,-0.11665990006080137,0.5799833321342134,-0.9411224866019001,0.11835809996979532,-1.6105031841921134]
+  global Point_init_D=p[0.41379723593906503,-0.2487447409313,0.609219683499068,-0.1517636340068292,0.740977578455324,-1.635183930612981]
+  global Point_init_G=p[-0.3270218949609456,-0.19730489052646938,0.6929144790039665,-0.10965157774330407,0.9094075339117493,-1.3512769166594598]
+  global Pose_init=p[0.10115046162491018,0.33113269584382493,0.584736039619858,-0.0552927155927057,0.04469732737714283,3.052039811979926]
+  global anti_Poq_g=p[-1.097025715801607,-0.38262125709671024,0.4630882557259996,0.6943947424801681,0.8954400591646011,-1.8454309397506856]
+  global anti_poq_d_1=p[1.091150772472228,-0.4064122051576539,0.3929143378071873,0.2718147357272883,1.0703533600823625,-0.8574463352779282]
+  global anti_poq_d_2=p[1.09116262983301,-0.4064187115408435,0.3929258400274398,0.27175875102530844,1.0703634659082542,-0.8574488139433778]
+  global pose_inter_d=p[0.7984873482135377,-0.4600472350561827,0.469112798390943,-0.33000528303228815,0.9472744675294403,-1.2733605379612758]
+  global pose_inter_g=p[-0.6825210658885911,-0.4853058131725645,0.5214431732529188,0.29678124271750056,1.0767670517936672,-1.329036215162201]
+  # begin: URCap Installation Node
+  #   Source: Robotiq_Copilot, 1.14.3.2973, Robotiq Inc.
+  #   Type: Copilot
+  # end: URCap Installation Node
+  global Test_Gaz=  False  
+  global Test_Job=  False  
+  global Test_Ordre_Mar=  False  
+  global Valide_Gaz=  False  
+  global fin_soud=1
+  global secu_d=0
+  global secu_g=0
+  global timer_ret_gaz=0
+  global timer_ret_gaz_is_counting=False
+  thread Timer_Thread():
+    while (True):
+      if (timer_ret_gaz_is_counting):
+        timer_ret_gaz = timer_ret_gaz + get_steptime()
+      end
+      sync()
+    end
+  end
+  run Timer_Thread()
+  def Recopie_Table_Droite():
+    $ 341 "Recopie_Table_Droite" "noBreak"
+    $ 345 "Popup: Recopie sur la table de droite "
+    popup("Recopie sur la table de droite ", "Message", False, False, blocking=True)
+  end
+  def Recopie_Table_Gauche():
+    $ 346 "Recopie_Table_Gauche" "noBreak"
+    $ 350 "Popup: Recopie sur la table de gauche"
+    popup("Recopie sur la table de gauche", "Message", False, False, blocking=True)
+  end
+  $ 2 "BeforeStart"
+  $ 3 "fonctions"
+  $ 4 "Init"
+  $ 5 "Script: Init_Variables.script"
+  #def fun_adresse_bp():
+  	adresse_bp_g = 2
+  	adresse_bp_d = 3
+  	adresse_bp_cobot = 8
+  	global secu = 0
+  	config_g = 0
+  	config_d = 0
+  	led_cobot = 0
+  	soudure_on = 0
+  	vitesse_lente = 0.002
+  
+  	if ((nb_soud_point_g >= 1) or (nb_soud_lin_g >= 1) or (nb_soud_arc_g >= 1) or (nb_soud_cer_g >= 1)):
+  		config_g = 1
+  	end
+  	if ((nb_soud_point_d >= 1) or (nb_soud_lin_d >= 1) or (nb_soud_arc_d >= 1) or (nb_soud_cer_d >= 1)):
+  		config_d = 1
+  	end
+  #end
+  $ 6 "Diverses"
+  $ 7 "Script: close_popup.script"
+  #fermeture popup
+  
+  def close_popup():
+  	closepop = "close popup"
+      	socket_send_string(closepop,"internal")
+      	socket_send_byte(10,"internal")
+      	socket_close()
+  
+  	closepop = "close popup"
+      	socket_send_string(closepop,"internal")
+      	socket_send_byte(10,"internal")
+      	socket_close()
+  	return(False)
+  end
+  $ 8 "Script: debut_soud.script"
+  def fun_debut_soudure():
+      Valide_Gaz = False
+      if  ((Test_Ordre_Mar == False) and (Test_Job == False)):
+          Arc_On = True
+          Test_Gaz = True
+      end
+  end
+  $ 9 "Script: fin_soudure.script"
+  def fin_soudure():
+          Arc_On = False
+          Test_Gaz = False
+          Test_Job = True
+          Test_Ordre_Mar = True
+  end
+  $ 10 "Script: fun_demande_job.script"
+  #demande le job à utiliser (mode de soudure régler sur le poste à souder) (compris entre 0 et 3, pour 1 et 4 sur le poste a souder)
+  def fun_demande_job(type):
+  	if (1==type):
+  		soudure = "point"
+  	elif (2==type):
+  		soudure = "lineaire"
+  	elif (3==type):
+  		soudure = "arc de cercle"
+  	elif (4==type):
+  		soudure = "cercle"
+  	elif (5==type):
+  		soudure = "lineaire + balayage"
+  	elif (6==type):
+  		soudure = "Recopie"
+  	else :
+  		return(False)
+  	end
+  
+    job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+    #job = job-1 #adapter la saisie aux besoins du code
+  
+    while ((job!=4) and (job!=1) and (job!=2) and (job!=3)): #reboucler si mauvaise saisie
+  	  job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+        #job = job-1 #adapter la saisie aux besoins du code
+    end
+  
+  return(job)
+  end
+  $ 11 "Script: fun_demande_type_soudure.script"
+  #demande le type de soudure à enregistrer (entre 1 et 5)
+  def fun_demande_type_soudure():
+      sync()
+  	reponse = request_integer_from_primary_client("1->POINT     2->LINEAIRE    3->ARC    4->CERCLE  5->LINEAIRE BALAYAGE     6->RECOPIE     7->FIN")
+      sync()
+      if ((reponse == 0) or (reponse >= 7)):
+          reponse = 7
+      end
+      sync()
+  return(reponse)
+  end
+  $ 12 "Script: fun_demande().script"
+  #demande nombre soudures par type (compris entre 0 et 6)
+  
+  def fun_demande(type):
+  	if (1==type):
+  		soudure = "point"					#si type = 1, la demande sera sur une soudure point
+  	elif (2==type):
+  		soudure = "lineaire"				#si type = 2, la demande sera sur une soudure linéaire
+  	elif (3==type):
+  		soudure = "arc de cercle"			#si type = 3, la demande sera sur une soudure arc de cercle
+  	elif (4==type):
+  		soudure = "cercle"					#si type = 4, la demande sera sur une soudure cercle
+  	elif (5==type):
+  		soudure = "lineaire + balayage"
+  	else :
+  		return(False)
+  	end
+  
+  	nb_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ?")			#la demande
+  	if (nb_soud >6):																									#si la reponse est superieur a 6
+  		popup1 = "popup le robot ne peut pas effectuer plus de 6 soudures "+ soudure + " sur la même pièce, réessayer."	#popup
+  		socket_open("127.0.0.1",29999,"internal") # open internal socket
+  
+  		socket_send_line(popup1,"internal")         #Affichage Popup
+  
+  		socket_send_byte(10,"internal")
+  		sleep(5.0)
+  		closepop = "close popup"					#fermer popup
+  		socket_send_string(closepop,"internal")
+  		socket_send_byte(10,"internal")
+  		socket_close()
+  
+  		while(nb_soud >6):
+  			nb_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ? (compris entre 0 et 6 ;)")	#on redemande tant que le nombre est superieur a 6
+  		end
+  end
+  return(nb_soud)        #on retourne le nombre de soudure à effectuer dans le type
+  end
+  $ 13 "Script: fun_demande_vit.script"
+  #demande nombre soudures par type (compris entre 0 et 6)
+  def fun_demande_vit(type):
+  	if (1==type):
+  		soudure = "point"
+  	elif (2==type):
+  		soudure = "lineaire"
+  	elif (3==type):
+  		soudure = "arc de cercle"
+  	elif (4==type):
+  		soudure = "cercle"
+  	else :
+  		return(False)
+  	end
+  
+  vit_soud = request_float_from_primary_client("vitesse de la soudure "+ soudure + " ? (mm/s)")
+  	#if (vit_soud >6):
+  	#	popup1 = "popup le robot ne peut pas effectuer plus de 6 soudures "+ soudure + " sur la même pièce, réessayer."
+  	#	socket_open("127.0.0.1",29999,"internal") # open internal socket
+  
+  	#	socket_send_line(popup1,"internal")         #Affichage Popup
+  
+  	#	socket_send_byte(10,"internal")
+  	#	sleep(5.0)
+  	#	closepop = "close popup"
+  	#	socket_send_string(closepop,"internal")
+  	#	socket_send_byte(10,"internal")
+  	#	socket_close()
+  
+  	#	while(vit_soud >6):
+  	#		vit_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ? (compris entre 0 et 6 ;)")
+  	#	end
+  #end
+  return(vit_soud/1000)
+  end
+  $ 14 "Script: fun_front_down.script"
+  #attente front montant sur add_bp
+  
+  def fun_front_do(add_bp):
+  bp = get_digital_in(add_bp)
+      while not bp :
+          bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 1
+          #attente relachement bouton
+     end
+  
+      while bp :                              #dans la boucle tant que l'entrée add_bp est a 0
+          bp = get_digital_in(add_bp)
+          #attente
+      end
+  
+      #while not bp :
+             #bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 1
+       #end
+  
+      return(False)
+  end
+  $ 15 "Script: fun_front_up.script"
+  #attente front montant sur add_bp
+  
+  def fun_front_up(add_bp):
+  bp = get_digital_in(add_bp)
+      while bp :
+          bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 14
+          sync()
+          #attente relachement bouton
+      end
+      sync()
+      while not bp :                              #dans la boucle tant que l'entrée add_bp est a 0
+          bp = get_digital_in(add_bp)
+          sync()
+          #attente
+      end
+      sync()
+      return(False)
+  end
+  $ 16 "Script: fun_popup_soud().script"
+  #ouvre un pop-up "configuration soudure (type_soud) n°(num_soud): placer le robot (etape_soud) et valider la position. (bp_cobot)". fermeture popup a l'aide de close_popup()
+  #pour la definition de la fonction :
+      #etape :
+      #   1 : approche
+      #   2 : depart
+      #   3 : premier quart
+      #   4 : milieu
+      #   5 : trois-quart
+      #   6 : fin
+      #   7 : retrait
+  
+      #type :
+      #   1 : soudure point
+      #   2 : soudure lineaire
+      #   3 : soudure arc de cercle
+      #   4 : soudure cercle
+      #   5 : plus de soudure
+      #num : i, j, k ou l correspondant au numero de la soudure ( i pour type = 1, j pour type = 2, k pour type = 3, l pour type = 4)
+  
+  def fun_popup_soud(etape, type, num):
+      sync()
+      switch_1 = etape
+      switch_2 = type
+          ##############################################################################
+  
+      ####################### POPUP-approche #######################################
+  
+  ##############################################################################
+      #switch etape
+      if (1 == switch_1) : #point d'approche
+          etape_soud = " en APPROCHE"
+          #switch type
+          if (1 == switch_2) : #soudure point
+              type_soud = "point"
+  
+         elif (2 == switch_2) : #soudure lineaire
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+              type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+             type_soud = "cercle"
+  
+          else :
+              return (False)
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-debut ##########################################
+  
+  ##############################################################################
+  
+      elif (2 == switch_1): #point de soudure/debut
+          #switch type
+          if (1 == switch_2) : #soudure point
+             etape_soud = "sur le POINT"
+              type_soud = "point"
+  
+          elif (2 == switch_2): #soudure lineaire
+              etape_soud = "sur le DEBUT"
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+              etape_soud = "sur le DEBUT"
+              type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+              etape_soud = "sur le DEBUT"
+             type_soud = "cercle"
+  
+          else :
+              return (False)
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-quart ##########################################
+  
+  ##############################################################################
+  
+      elif (3 == switch_1): #point de quart
+          etape_soud = "sur 1er QUART"
+          #switch type
+          if (4 == switch_2) : #soudure cercle
+              type_soud = "cercle"
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-milieu ########################################
+  
+  #############################################################################
+  
+      elif (4 == switch_1): #point de milieu
+          etape_soud = "à la MOITIE"
+          #switch type
+          if (3 == switch_2) : #soudure arc de cercle
+              type_soud = "arc de cercle"
+          elif (4 == switch_2): #soudure arc de cercle
+              type_soud = "cercle"
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-trois_quart ####################################
+  
+  ##############################################################################
+  
+      elif (5 == switch_1): #point trois_quart
+          etape_soud = "sur le 3e QUART"
+          #switch type
+          if (4 == switch_2) : #soudure cercle
+              type_soud = "cercle"
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-fin ############################################
+  
+  ##############################################################################
+  
+      elif (6 == switch_1): #point de fin
+          etape_soud = "sur la FIN"
+          #switch type
+          if (2 == switch_2) : #soudure lineaire
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+              type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+              type_soud = "cercle"
+  
+          else :
+              return (False)
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-retrait ########################################
+  
+  ##############################################################################
+  
+      elif (7 == switch_1): #point de retrait
+          etape_soud = "en RETRAIT"
+          #switch type
+          if (2 == switch_2) : #soudure lineaire
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+             type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+             type_soud = "cercle"
+  
+          else :
+             return (False)
+          end
+  
+      else :
+          return(False)
+      end
+  
+          ##############################################################################
+  
+      ######################## affichage_POPUP #####################################
+  
+  ##############################################################################
+      sync()
+      num_soud = to_str(num)
+      popup1 = "popup Config. : " + type_soud + " n°" + num_soud + " : placer " + etape_soud + " & Valider"             #on ouvre un popup
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+      sync()
+  end
+  $ 17 "Script: fun_raz_d.script"
+  def fun_raz_d():
+      #taille des tableaux de positions = nombre de soudures maximum par type + 1 (car commence à enregistrer à l'index 1)
+      global tab_point_app_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_deb_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_ret_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_lin_app_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_deb_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_fin_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_ret_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_arc_app_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_deb_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_mil_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_fin_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_ret_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_cer_app_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_deb_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_quart_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_mil_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_tro_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_fin_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_ret_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+       #2 nouveaux tableaux modif V2.1 (longueur 40 si 4(type)*10(nb soudures max par type) ) -> mis 45 (permettre décalage + marge)
+      global tab_type_d = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      global tab_job_d  = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  
+      #vitesses de soudure
+      global tps_point_d = 0
+      global vit_arc_d = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_cer_d = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_lin_d = [0,0,0,0,0,0,0,0,0,0,0]
+  
+      global nb_soud_point_d  = 0
+      global nb_soud_lin_d    = 0
+      global nb_soud_arc_d    = 0
+      global nb_soud_cer_d    = 0
+  
+      global nbSoudure_glo_d  = 0
+  
+  end
+  $ 18 "Script: fun_raz_g.script"
+  def fun_raz_g():
+      #taille des tableaux de positions = nombre de soudures maximum par type + 1 (car commence à enregistrer à l'index 1)
+      global tab_point_app_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_deb_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_ret_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_lin_app_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_deb_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_fin_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_ret_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_arc_app_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_deb_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_mil_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_fin_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_ret_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_cer_app_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_deb_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_quart_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_mil_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_tro_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_fin_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_ret_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+       #2 nouveaux tableaux modif V2.1 (longueur 40 si 4(type)*10(nb soudures max par type) ) -> mis 45 (permettre décalage + marge)
+      global tab_type_g = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      global tab_job_g  = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  
+      #vitesses de soudure
+      global tps_point_g = 0
+      global vit_arc_g = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_cer_g = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_lin_g = [0,0,0,0,0,0,0,0,0,0,0]
+  
+      global nb_soud_point_g  = 0
+      global nb_soud_lin_g    = 0
+      global nb_soud_arc_g    = 0
+      global nb_soud_cer_g    = 0
+  
+      global nbSoudure_glo_g  = 0
+  end
+  $ 19 "Demande"
+  $ 20 "Script: demande_d.script"
+  def fun_demande_d():
+  
+      close_popup()
+      nb_soud_point_d = fun_demande(1)
+      if (nb_soud_point_d > 0):
+              tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
+      end
+      nb_soud_lin_d = fun_demande(2)
+      nb_soud_arc_d = fun_demande(3)
+      nb_soud_cer_d = fun_demande(4)
+  
+  end
+  $ 21 "Script: demande_g.script"
+  def fun_demande_g():
+       close_popup()
+       nb_soud_point_g = fun_demande(1)
+       nb_soud_lin_g = fun_demande(2)
+       if nb_soud_lin_g > 0:
+            vit_lin_g = fun_demande_vit(2)
+       end
+       nb_soud_arc_g = fun_demande(3)
+       if nb_soud_arc_g > 0:
+            vit_arc_g = fun_demande_vit(3)
+       end
+       nb_soud_cer_g = fun_demande(4)
+       if nb_soud_arc_g > 0:
+            vit_cer_g = fun_demande_vit(4)
+       end
+  end
+  $ 22 "Configuration"
+  $ 23 "Script: config_d.script"
+  def fun_config_d():
+  
+     # teach_mode()
+  
+          ################### RAZ_des_tableaux ###########################################
+  
+      fun_raz_d()
+  
+              # Init des variables de traitement
+      local type = 0
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = 0
+      local ajout = False
+      close_popup()
+      type = fun_demande_type_soudure()
+      sync()
+      while (type < 7):
+          sync()
+          if (type == 1):
+              if (nb_soud_point_d <10):
+                  ajout = True
+                  fun_config_soudure_point(index_soudure_point,2) #  le ( ,2) indique la table de droite
+                  index_soudure_point = index_soudure_point +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif ( (type == 2) or (type == 5)):
+              if (nb_soud_lin_d <10):
+                  ajout = True
+                  fun_config_soudure_lineaire(index_soudure_lin,2)
+                  index_soudure_lin = index_soudure_lin +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type == 3):
+              if (nb_soud_arc_d <10):
+                  ajout = True
+                  fun_config_soudure_arc(index_soudure_arc,2)
+                  index_soudure_arc = index_soudure_arc +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type ==4):
+              if (nb_soud_cer_d <10):
+                  ajout = True
+                  fun_config_soudure_cercle(index_soudure_cer,2)
+                  index_soudure_cer = index_soudure_cer +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+          elif(type == 6 ):
+              ajout = True
+          end
+  
+          if (ajout == True):
+              tab_type_d[nbSoudures] = type
+              tab_job_d[nbSoudures] = fun_demande_job(type)
+              nbSoudures = nbSoudures +1
+          end
+  
+          sync()
+          type = fun_demande_type_soudure()
+      end
+    #  end_teach_mode()
+      global nbSoudure_glo_d = nbSoudures
+  end
+  
+  $ 24 "Script: config_g.script"
+  def fun_config_g():
+  
+   #  teach_mode()
+  
+  ######################## Initialisation #######################################
+  
+      fun_raz_g()
+  
+  
+              # Init des variables de traitement
+      local type = 0
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = 0
+      local ajout = False
+      close_popup()
+      type = fun_demande_type_soudure()
+      sync()
+      while (type < 7):
+          sync()
+          if (type == 1):
+              if (nb_soud_point_g <10):
+                  ajout = True
+                  fun_config_soudure_point(index_soudure_point,1) # ( ,1 indique la table de gauche)
+                  index_soudure_point = index_soudure_point +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif ( (type == 2) or (type ==5)):
+              if (nb_soud_lin_g <10):
+                  ajout = True
+                  fun_config_soudure_lineaire(index_soudure_lin,1)
+                  index_soudure_lin = index_soudure_lin +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type == 3):
+              if (nb_soud_arc_g <10):
+                  ajout = True
+                  fun_config_soudure_arc(index_soudure_arc,1)
+                  index_soudure_arc = index_soudure_arc +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type ==4):
+              if (nb_soud_cer_g <10):
+                  ajout = True
+                  fun_config_soudure_cercle(index_soudure_cer,1)
+                  index_soudure_cer = index_soudure_cer +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+          elif(type == 6 ):
+              ajout = True
+          end
+  
+          if (ajout == True):
+              tab_type_g[nbSoudures] = type
+              tab_job_g[nbSoudures] = fun_demande_job(type)
+              nbSoudures = nbSoudures +1
+          end
+  
+          sync()
+          type = fun_demande_type_soudure()
+      end
+  
+    # end_teach_mode()
+     global nbSoudure_glo_g = nbSoudures
+  end
+  $ 25 "Script: fun_config_soudure_arc.script"
+  def fun_config_soudure_arc(index,table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+          fun_popup_soud(1, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_app_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_deb_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau debut quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_mil_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_fin_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+  
+  
+          fun_popup_soud(7, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_ret_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          end_teach_mode()
+          vit_arc_g[index] = fun_demande_vit(3)           #demande de vitesse des soudures lineaire
+  
+          nb_soud_arc_g = nb_soud_arc_g +1
+  
+      else: #sur la table de droite
+          fun_popup_soud(1, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_app_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_deb_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau debut quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_mil_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_fin_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+  
+          fun_popup_soud(7, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_ret_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          end_teach_mode()
+          vit_arc_d[index] = fun_demande_vit(3)           #demande de vitesse des soudures lineaire
+  
+  
+          nb_soud_arc_d = nb_soud_arc_d +1
+      end
+  
+      sync()
+  
+  end
+  $ 26 "Script: fun_config_soudure_cercle.script"
+  def fun_config_soudure_cercle(index,table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+          fun_popup_soud(1, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_app_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_deb_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(3, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_quart_g[index] =  get_actual_tcp_pose()   	#Enregistrer position dans tableau d'approche des soudures arc de cercle quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_mil_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(5, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_tro_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_fin_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_ret_g[index] =  get_actual_tcp_pose()    	#position de retrait est la meme que position d approche
+          close_popup()
+  
+          end_teach_mode()
+          vit_cer_g[index] = fun_demande_vit(4)
+  
+          nb_soud_cer_g= nb_soud_cer_g + 1
+      else: #sur la table de droite
+  
+          fun_popup_soud(1, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_app_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_deb_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(3, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_quart_d[index] =  get_actual_tcp_pose()   	#Enregistrer position dans tableau d'approche des soudures arc de cercle quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_mil_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(5, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_tro_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_fin_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_ret_d[index] =  get_actual_tcp_pose()    	#position de retrait est la meme que position d approche
+          close_popup()
+  
+          end_teach_mode()
+          vit_cer_d[index] = fun_demande_vit(4)
+  
+          nb_soud_cer_d = nb_soud_cer_d +1
+      end
+      sync()
+  
+  end
+  $ 27 "Script: fun_config_soudure_lineaire.script"
+  def fun_config_soudure_lineaire(index, table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+          fun_popup_soud(1, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_app_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures lineaire quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_deb_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_fin_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_ret_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          end_teach_mode()
+          vit_lin_g[index] = fun_demande_vit(2)
+  
+          nb_soud_lin_g = nb_soud_lin_g +1
+  
+      else: #sur la table de droite
+  
+          fun_popup_soud(1, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_app_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures lineaire quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_deb_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_fin_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_ret_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          end_teach_mode()
+          vit_lin_d[index] = fun_demande_vit(2)
+  
+          nb_soud_lin_d = nb_soud_lin_d +1
+      end
+  
+      sync()
+  
+  
+  end
+  $ 28 "Script: fun_config_soudure_point.script"
+  def fun_config_soudure_point(index,table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+  
+          fun_popup_soud(1, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_app_g[index] =  get_actual_tcp_pose()   #Enregistrer position dans tableau d'approche des soudue points quand appui bouton
+          close_popup()
+  
+          fun_popup_soud(2, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_deb_g[index] =  get_actual_tcp_pose()   #Enregistrer position debut quand appui bouton bp_cobot
+          close_popup()
+  
+          tab_point_ret_g[index] = tab_point_app_g[index]         #point de retrait est le meme que le point d approche
+  
+          end_teach_mode()
+          nb_soud_point_g = nb_soud_point_g +1
+  
+          if (nb_soud_point_g <= 1 ):
+              tps_point_g = request_float_from_primary_client("temps des soudures points ? (s)")
+          end
+  
+          sync()
+      else: #sur la table de droite
+  
+          fun_popup_soud(1, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_app_d[index] =  get_actual_tcp_pose()   #Enregistrer position dans tableau d'approche des soudue points quand appui bouton
+          close_popup()
+  
+          fun_popup_soud(2, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_deb_d[index] =  get_actual_tcp_pose()   #Enregistrer position debut quand appui bouton bp_cobot
+          close_popup()
+  
+          tab_point_ret_d[index] = tab_point_app_d[index]         #point de retrait est le meme que le point d approche
+  
+          end_teach_mode()
+  
+          nb_soud_point_d = nb_soud_point_d +1
+  
+          if (nb_soud_point_d <= 1 ):
+              tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
+          end
+  
+  
+          sync()
+      end
+  
+      sync()
+  
+  
+  end
+  $ 29 "Script: popUp_tropSoudures.script"
+  def popUp_tropSoudures():
+      close_popup()
+      popUp_tropSoudures = "Ajout impossible, deja 10 soudures de ce type"
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popUp_tropSoudures,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 30 "Script: valid_config_d.script"
+  
+  def fun_valid_config_d():
+      #on demande la validation de la configuration
+  
+      validation_d = request_boolean_from_primary_client("Valider la configuration de la table droite ? Cliquer sur non pour effacer les paramètres.")
+  
+          if(validation_d ==True):
+  
+              popup2 = "popup La programmation de la pièce droite est terminée."
+              socket_open("127.0.0.1",29999,"internal") # open internal socket
+              socket_send_line(popup2,"internal")     #Affichage message
+              socket_send_byte(10,"internal")
+              config_d = 1
+  
+          else:
+          nb_soud_point_d = 0
+          nb_soud_lin_d = 0
+          nb_soud_arc_d = 0
+          nb_soud_cer_d = 0
+          config_d = 0
+  
+          fun_raz_d()
+  
+          popup3 = "popup La programmation de la pièce droite a été effacée."
+          socket_open("127.0.0.1",29999,"internal") # open internal socket
+          socket_send_line(popup3,"internal")     #Affichage message
+          socket_send_byte(10,"internal")
+      end
+  end
+  $ 31 "Script: valid_config_g.script"
+  def fun_valid_config_g():
+  #on demande la validation de la configuration
+  
+      alidation_g = request_boolean_from_primary_client("Valider la programmation de la table gauche ? Cliquer sur non pour effacer les paramètres.")
+  
+      if(validation_g ==True):
+  
+          popup2 = "popup La programmation de la pièce gauche est terminée."
+          socket_open("127.0.0.1",29999,"internal") # open internal socket
+          socket_send_line(popup2,"internal")     #Affichage message
+          socket_send_byte(10,"internal")
+      config_g =1
+      else:
+  
+      nb_soud_point_g = 0
+      nb_soud_lin_g = 0
+      nb_soud_arc_g = 0
+      nb_soud_cer_g = 0
+      config_g = 0
+  
+      fun_raz_g()
+  
+  
+      popup3 = "popup La programmation de la pièce gauche a été effacée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  
+      end
+  end
+  $ 32 "Execution"
+  $ 33 "Script: execution_d.script"
+  def fun_execution_d():
+      ######################## INITIALISATION #########################################
+      #adressage
+      adresse_bp_cobot = 2                                    #adresse cobot bp_cobot
+      adresse_bp_d = 3                                        #adresse cobot bp_g
+  #VARIABLES CI DESSUS UTILES ?????
+  
+  
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cercle = 1
+  
+      close_popup()
+      #config popup
+      popup1 = "popup Table droite, éxécution..."
+      socket_open("127.0.0.1",29999,"internal")
+      socket_send_line(popup1,"internal")
+      socket_send_byte(10,"internal")
+  
+      fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée
+  
+      local nbSoudures = nbSoudure_glo_d
+      local soudureEnCours = 0 #soudure en cours
+      local job = 0
+      local typeSoudure = 0
+  
+      while (soudureEnCours<nbSoudures): #pour le moment début a 0 donc < (a voir si changement necessaire)
+          job = tab_job_d[soudureEnCours]
+          fun_commande_job(job)
+          typeSoudure = tab_type_d[soudureEnCours]
+  
+          #switch de tous les types avec appel aux fonctions correspondantes
+          if (typeSoudure == 1 ):
+              fun_soudure_point(index_soudure_point,2,typeSoudure) # ( , 2 pour signifier table de droite )
+              #fun_soudure_point(index_soudure_point)
+              index_soudure_point = index_soudure_point + 1
+          elif ((typeSoudure == 2 )or (typeSoudure ==5)):
+              fun_soudure_lineaire(index_soudure_lin,2)
+              index_soudure_lin = index_soudure_lin + 1
+          elif (typeSoudure == 3 ):
+              fun_soudure_arc(index_soudure_arc,2)
+              index_soudure_arc = index_soudure_arc +1
+          elif (typeSoudure == 4 ):
+              fun_soudure_cercle(index_soudure_cercle,2)
+              index_soudure_cercle = index_soudure_cercle +1
+          elif (typeSoudure ==6):
+              Recopie_Table_Droite()
+              #appeler le sous prog
+          else:
+          end
+          soudureEnCours = soudureEnCours +1
+          sync()
+      end
+          #movej(anti_poq_d_1, a=1.4,v=1.1,t=0,r=0.005)
+          #movej(anti_poq_d_2, a=1.4,v=1.1,t=0,r=0.005)
+          movej(Point_Attente_D, a=0.8,v=1.05,t=0,r=0.005)
+          movej(Point_init_D, a=0.8,v=1.05,t=0,r=0.005)
+          movej(Point_avt_initD, a=0.8,v=1.05,t=0,r=0.005)
+          movej(Point_init, a=0.8,v=1.05,t=0,r=0)
+  end
+  $ 34 "Script: execution_g.script"
+  def fun_execution_g():
+  ######################## INITIALISATION #######################################
+  
+  #adressage
+  adresse_bp_cobot = 2                                    #adresse cobot bp_cobot
+  adresse_bp_g = 2                                        #adresse cobot bp_g
+  #VARIABLES CI DESSUS UTILES ?????
+  
+  
+  local index_soudure_point = 1
+  local index_soudure_lin = 1
+  local index_soudure_arc = 1
+  local index_soudure_cercle = 1
+  
+  close_popup()
+  #config popup
+  #popup1 = "popup Table gauche, éxécution..."
+  #socket_open("127.0.0.1",29999,"internal")
+  #socket_send_line(popup1,"internal")
+  #socket_send_byte(10,"internal")
+  
+  #fun_deplacement_pose_inter(1)
+  
+  local nbSoudures = nbSoudure_glo_g
+  local soudureEnCours = 0 #soudure en cours
+  local job = 0
+  local typeSoudure = 0
+  
+  while (soudureEnCours<nbSoudures): #pour le moment début a 0 donc < (a voir si changement necessaire)
+      job = tab_job_g[soudureEnCours]
+      fun_commande_job(job)
+      typeSoudure = tab_type_g[soudureEnCours]
+  
+      #switch de tous les types avec appel aux fonctions correspondantes
+      if (typeSoudure == 1 ):
+          #fun_soudure_point(index_soudure_point)
+          fun_soudure_point(index_soudure_point,1, typeSoudure) # ( , 1 pour signifier table de gauche )
+          index_soudure_point = index_soudure_point + 1
+      elif ((typeSoudure == 2 )or (typeSoudure ==5)):
+          fun_soudure_lineaire(index_soudure_lin,1)
+          index_soudure_lin = index_soudure_lin + 1
+      elif (typeSoudure == 3 ):
+          fun_soudure_arc(index_soudure_arc,1)
+          index_soudure_arc = index_soudure_arc +1
+      elif (typeSoudure == 4 ):
+          fun_soudure_cercle(index_soudure_cercle,1)
+          index_soudure_cercle = index_soudure_cercle +1
+      elif (typeSoudure ==6):
+          Recopie_Table_Gauche()
+          #appeler le sous prog
+      else:
+      end
+      soudureEnCours = soudureEnCours +1
+      sync()
+  end
+      #movej(anti_Poq_g, a=1.4,v=1.1,t=0,r=0.005)
+      #movej(Point_init, a=1.4,v=1.1,t=0,r=0.005)
+  
+     # movej(Point_Attente_G, a=0.8,v=1.05,t=0,r=0.005)
+      #movej(Point_init_G, a=0.8,v=1.05,t=0,r=0.005)
+     # movej(Point_init, a=0.8,v=1.05,t=0,r=0)
+  
+  end
+  $ 35 "Script: fun_activer_soudure.script"
+  def fun_activer_soudure():
+      soudure_on = 1
+      sleep(tps_init_soud)
+      sync()
+  end
+  $ 36 "Script: fun_commande_job.script"
+  #fonction ecriture des jobs vers rob3000
+  def fun_commande_job(int):
+  
+      if (int == 1):
+          set_digital_out(2,True)
+          set_digital_out(3,False)
+  
+  
+      elif(int == 2):
+          set_digital_out(2,False)
+          set_digital_out(3,True)
+  
+      elif(int == 3):
+          set_digital_out(2,True)
+          set_digital_out(3,True)
+  
+      elif(int == 4):
+          set_digital_out(2,False)
+          set_digital_out(3,False)
+  
+     # else:
+     #     set_digital_out(2,False)
+       #   set_digital_out(3,False)
+      end
+  end
+  $ 37 "Script: fun_deplacement_pose_inter.script"
+  def fun_deplacement_pose_inter(table):
+      a_fun = 0.2
+      v_fun = 1.1
+      r_fun= 0
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+        #  movej(pose_inter_g,a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+      else: #sinon table de droite
+       #   movej(pose_inter_d,a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+      end
+      sync()
+  end
+  $ 38 "Script: fun_fin_soudure.script"
+  def fun_fin_soudure(table):
+  
+      soudure_on = 0
+      while(fin_soud == 0):
+      end
+      set_digital_out(table+4,False)                 #eteindre la lumiere pour dire que l'on soude plus
+  
+      #table +4 : les sorties numériques sont respectivements 5 table gauche & 6 table droite
+      #le décalage permet d'écrire directement au bon endroit
+      sync()
+  
+  end
+  $ 39 "Script: fun_soudure_arc.script"
+  def fun_soudure_arc(Index,table):
+      a_fun = 0.5
+      v_fun = 1.1
+      r_fun= 0.00
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+  
+          movej(tab_arc_app_g[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_arc_deb_g[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                        #appel de la fonction activer la soudure
+  
+          movec(tab_arc_mil_g[Index], tab_arc_fin_g[Index], a_fun,v=vit_arc_g[Index], r=0.002)
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_arc_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      else: #sinon table de droite
+  
+          movej(tab_arc_app_d[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_arc_deb_d[Index],a_fun,v=v_fun,t=t_fun,r =r_fun)
+  
+          fun_activer_soudure()                        #appel de la fonction activer la soudure
+  
+          movec(tab_arc_mil_d[Index], tab_arc_fin_d[Index], a_fun,v=vit_arc_d[Index], r=0.002)
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_arc_ret_d[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+      end
+      sync()
+  end
+  $ 40 "Script: fun_soudure_cercle.script"
+  def fun_soudure_cercle(Index,table):
+      a_fun = 0.5
+      v_fun = 1.1
+      r_fun= 0.0
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+          movej(tab_cer_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_cer_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                        #appel de la fonction activer la soudure
+  
+          movec(tab_cer_quart_g[Index], tab_cer_mil_g[Index], a=a_fun,v=vit_cer_g[Index], r=0.002)
+          movec(tab_cer_tro_g[Index], tab_cer_fin_g[Index], a=a_fun,v=vit_cer_g[Index], r=0.002)
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_cer_ret_g[Index],a=a_fun, v=v_fun, t=t_fun, r=r_fun)
+  
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      else: #sinon table de droite
+          movej(tab_cer_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_cer_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                       #appel de la fonction activer la soudure
+  
+          movec(tab_cer_quart_d[Index], tab_cer_mil_d[Index], a=a_fun,v=vit_cer_d[Index], r=0.002)
+          movec(tab_cer_tro_d[Index], tab_cer_fin_d[Index], a=a_fun, v=vit_cer_d[Index], r=0.002)
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_cer_ret_d[Index],a=a_fun, v=v_fun, t=t_fun, r=r_fun)
+  
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      end
+      sync()
+  end
+  $ 41 "Script: fun_soudure_lineaire.script"
+  def fun_soudure_lineaire(Index,table,typeSoudure):
+      a_fun = 2
+      v_fun = 4
+      r_fun= 0.00
+      t_fun = 0
+  
+      local balayage = False
+  
+      if (typeSoudure == 5):
+          balayage = True
+      end
+  
+      if (table == 1): #si 1 -> Table de gauche
+          local p_inter = fct_calcul_point_inter(tab_lin_deb_g[Index], tab_lin_fin_g[Index]) # calcul de la position de début de ralentissement
+  
+          movej(tab_lin_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_lin_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          if (balayage == True):
+              fct_activerBalayage(tab_lin_deb_g[Index], tab_lin_fin_g[Index])
+          end
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+          movel(tab_lin_fin_g[Index],a=a_fun,v=vit_lin_g[Index],t=t_fun)
+          movel(tab_lin_fin_g[Index],a=a_fun,v=vitesse_lente,t=t_fun)
+  
+          fun_fin_soudure(1)
+                                    #appel de la fonction désactiver la soudure
+          if (balayage == True):
+              fct_desactiverBalayage()
+          end
+  
+          movej(tab_lin_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+  
+      else: #sinon table de droite
+          local p_inter = fct_calcul_point_inter(tab_lin_deb_d[Index], tab_lin_fin_d[Index]) # calcul de la position de début de ralentissement
+  
+          movej(tab_lin_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_lin_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          if (balayage == True):
+              fct_activerBalayage(tab_lin_deb_d[Index], tab_lin_fin_d[Index])
+          end
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          movel(tab_lin_fin_d[Index],a=a_fun,v=vit_lin_d[Index],t=t_fun)
+          movel(tab_lin_fin_d[Index],a=a_fun,v=vitesse_lente,t=t_fun)
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          if (balayage == True):
+              fct_desactiverBalayage()
+          end
+          movej(tab_lin_ret_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      end
+      sync()
+  end
+  $ 42 "Script: fun_soudure_point.script"
+  def fun_soudure_point(Index,table):
+      a_fun = 0.5
+      v_fun = 1.1
+      r_fun= 0.00
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+          movej(tab_point_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_point_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          sleep(tps_point_g)                          #temps de soudure
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_point_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      else: #sinon table de droite
+          movej(tab_point_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_point_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          sleep(tps_point_d)                          #temps de soudure
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_point_ret_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      end
+      sync()
+  end
+  $ 43 "Pas_A_Pas"
+  $ 44 "Script: fun_ajouter_soudure.script"
+  def fun_ajouter_soudure(sens,soudureEnCours, index_soudure_point, index_soudure_lin,index_soudure_arc,index_soudure_cercle,table):
+      #pour le moment pas de vérif de trop de mouvements (doit etre inferiruer à 9par par type)
+  
+      if (table ==1):
+          nbSoudures = nbSoudure_glo_g
+      elif(table ==2):
+          nbSoudures = nbSoudure_glo_d
+      end
+      local nbDecalage = 0
+      local index = soudureEnCours
+      local typeSoudure = 0
+      local nb_soudure_type = 0
+      typeSoudure = fun_demande_type_soudure()
+  
+      if (typeSoudure == 1):
+        indexTypeSoudure = index_soudure_point
+        if (table ==1):
+            nb_soudure_type = nb_soud_point_g
+        elif(table ==2):
+            nb_soudure_type = nb_soud_point_d
+        end
+      elif ( (typeSoudure == 2) or (typeSoudure ==5)):
+          indexTypeSoudure = index_soudure_lin
+          if (table ==1):
+              nb_soudure_type = nb_soud_lin_g
+          elif(table ==2):
+              nb_soudure_type = nb_soud_lin_d
+          end
+      elif(typeSoudure == 3):
+          indexTypeSoudure = index_soudure_arc
+          if (table ==1):
+              nb_soudure_type = nb_soud_arc_g
+          elif(table ==2):
+              nb_soudure_type = nb_soud_arc_d
+          end
+      elif(typeSoudure == 4):
+          indexTypeSoudure = index_soudure_cercle
+          if (table ==1):
+              nb_soudure_type = nb_soud_cer_g
+          elif(table ==2):
+              nb_soudure_type = nb_soud_cer_d
+          end
+      elif(typeSoudure == 6 ):
+          #1 seul recopie possible, pas de tableau
+      end
+  
+      if (sens == 2):  #AJOUTER AVANT
+  
+  
+          #pour les tableaux qui type & job
+          index_tab_typejob = nbSoudures -1
+          while(index_tab_typejob >= soudureEnCours ):
+              if (table ==1):
+                  tab_job_g[index_tab_typejob +1] = tab_job_g[index_tab_typejob]
+                  tab_type_g[index_tab_typejob +1] = tab_type_g[index_tab_typejob]
+              else:
+                  tab_job_d[index_tab_typejob +1] = tab_job_d[index_tab_typejob]
+                  tab_type_d[index_tab_typejob +1] = tab_type_d[index_tab_typejob]
+              end
+  
+              index_tab_typejob = index_tab_typejob - 1
+              sync()
+          end
+  
+          #pour les tableaux de positions
+          index_tab_pos = nb_soudure_type
+          while(index_tab_pos >= nb_soudure_type ):
+              fun_decaler_tableaux(index_tab_pos,typeSoudure,table)
+              index_tab_pos = index_tab_pos -1
+              sync()
+          end
+  
+          #maintenant enregistrer les infos à l'index : soudureEnCoursType
+  
+          fun_inserer_soudure(typeSoudure, indexTypeSoudure, table)
+          if (table ==1):
+              tab_type_g[soudureEnCours]= typeSoudure
+              tab_job_g[soudureEnCours] = fun_demande_job(typeSoudure)
+          elif(table ==2):
+              tab_type_d[soudureEnCours]= typeSoudure
+              tab_job_d[soudureEnCours] = fun_demande_job(typeSoudure)
+          end
+  
+  
+      elif (sens ==3): #AJOUTER APRES
+  
+         #pour les tableaux qui type & job
+         index_tab_typejob = nbSoudures
+         while(index_tab_typejob >= soudureEnCours ):
+              if (table ==1):
+                  tab_job_g[index_tab_typejob +1] = tab_job_g[index_tab_typejob]
+                  tab_type_g[index_tab_typejob +1] = tab_type_g[index_tab_typejob]
+              else:
+                  tab_job_d[index_tab_typejob +1] = tab_job_d[index_tab_typejob]
+                  tab_type_d[index_tab_typejob +1] = tab_type_d[index_tab_typejob]
+              end
+             index_tab_typejob = index_tab_typejob - 1
+             sync()
+         end
+  
+         #pour les tableaux de positions
+         index_tab_pos = nb_soudure_type
+         while(index_tab_pos >= nb_soudure_type ):
+             fun_decaler_tableaux(index_tab_pos,typeSoudure,table)
+             index_tab_pos = index_tab_pos -1
+             sync()
+         end
+  
+  
+         #maintenant enregistrer les infos à l'index : soudureEnCoursType
+         #incrémenter la soudureEnCours type
+         if (nb_soudure_type != 1): # dans le cas de la première l'incérement est deja a jour
+              nb_soudure_type = nb_soudure_type +1
+         end
+  
+         fun_inserer_soudure(typeSoudure, indexTypeSoudure, table)
+         if (table ==1):
+             tab_type_g[soudureEnCours+1]= typeSoudure
+             tab_job_g[soudureEnCours+1] = fun_demande_job(typeSoudure)
+         elif(table ==2):
+             tab_type_d[soudureEnCours+1]= typeSoudure
+             tab_job_d[soudureEnCours+1] = fun_demande_job(typeSoudure)
+         end
+  
+  
+      end
+  
+      sync()
+  
+      return typeSoudure
+      end
+  
+  $ 45 "Script: fun_decaler_tableau.script"
+  #type : 1=point 2=lineaire 3= arc de cercle 4=cercle
+  
+  #sens 2=avant 3=apres
+  
+  #table 1=gauche 2=droite
+  
+  def fun_decaler_tableaux( index_tab_pose,typeSoudure,table):
+  
+  
+  
+      if(table == 1): #table gauche
+  
+          if(typeSoudure ==1):
+              tab_point_app_g[index_tab_pose +1] = tab_point_app_g[index_tab_pose]
+              tab_point_deb_g[index_tab_pose +1] = tab_point_deb_g[index_tab_pose]
+              tab_point_ret_g[index_tab_pose +1] = tab_point_ret_g[index_tab_pose]
+          elif(typeSoudure == 2):
+              tab_lin_app_g[index_tab_pose +1]   = tab_lin_app_g[index_tab_pose]
+              tab_lin_deb_g[index_tab_pose +1]   = tab_lin_deb_g[index_tab_pose]
+              tab_lin_fin_g[index_tab_pose +1]   = tab_lin_fin_g[index_tab_pose]
+              tab_lin_ret_g[index_tab_pose +1]   = tab_lin_ret_g[index_tab_pose]
+              vit_lin_g[index_tab_pose +1]       = vit_lin_g[index_tab_pose]
+          elif(typeSoudure ==3):
+              tab_arc_app_g[index_tab_pose +1]   = tab_arc_app_g[index_tab_pose]
+              tab_arc_deb_g[index_tab_pose +1]   = tab_arc_deb_g[index_tab_pose]
+              tab_arc_mil_g[index_tab_pose +1]   = tab_arc_mil_g[index_tab_pose]
+              tab_arc_fin_g[index_tab_pose +1]   = tab_arc_fin_g[index_tab_pose]
+              tab_arc_ret_g[index_tab_pose +1]   = tab_arc_ret_g[index_tab_pose]
+              vit_arc_g[index_tab_pose +1]       = vit_arc_g[index_tab_pose]
+          elif(typeSoudure ==4):
+              tab_cer_app_g[index_tab_pose +1]   = tab_cer_app_g[index_tab_pose]
+              tab_cer_deb_g[index_tab_pose +1]   = tab_cer_deb_g[index_tab_pose]
+              tab_cer_quart_g[index_tab_pose +1] = tab_cer_quart_g[index_tab_pose]
+              tab_cer_mil_g[index_tab_pose +1]   = tab_cer_mil_g[index_tab_pose]
+              tab_cer_tro_g[index_tab_pose +1]   = tab_cer_tro_g[index_tab_pose]
+              tab_cer_fin_g[index_tab_pose +1]   = tab_cer_fin_g[index_tab_pose]
+              tab_cer_ret_g[index_tab_pose +1]   = tab_cer_ret_g[index_tab_pose]
+              vit_cer_g[index_tab_pose +1]       = vit_cer_g[index_tab_pose]
+          end
+  
+      elif(table == 2): #table droite
+  
+  
+          if(typeSoudure ==1):
+              tab_point_app_d[index_tab_pose +1] = tab_point_app_d[index_tab_pose]
+              tab_point_deb_d[index_tab_pose +1] = tab_point_deb_d[index_tab_pose]
+              tab_point_ret_d[index_tab_pose +1] = tab_point_ret_d[index_tab_pose]
+          elif(typeSoudure == 2):
+              tab_lin_app_d[index_tab_pose +1]   = tab_lin_app_d[index_tab_pose]
+              tab_lin_deb_d[index_tab_pose +1]   = tab_lin_deb_d[index_tab_pose]
+              tab_lin_fin_d[index_tab_pose +1]   = tab_lin_fin_d[index_tab_pose]
+              tab_lin_ret_d[index_tab_pose +1]   = tab_lin_ret_d[index_tab_pose]
+              vit_lin_d[index_tab_pose +1]       = vit_lin_d[index_tab_pose]
+          elif(typeSoudure ==3):
+              tab_arc_app_d[index_tab_pose +1]   = tab_arc_app_d[index_tab_pose]
+              tab_arc_deb_d[index_tab_pose +1]   = tab_arc_deb_d[index_tab_pose]
+              tab_arc_mil_d[index_tab_pose +1]   = tab_arc_mil_d[index_tab_pose]
+              tab_arc_fin_d[index_tab_pose +1]   = tab_arc_fin_d[index_tab_pose]
+              tab_arc_ret_d[index_tab_pose +1]   = tab_arc_ret_d[index_tab_pose]
+              vit_arc_d[index_tab_pose +1]       = vit_arc_d[index_tab_pose]
+          elif(typeSoudure ==4):
+              tab_cer_app_d[index_tab_pose +1]   = tab_cer_app_d[index_tab_pose]
+              tab_cer_deb_d[index_tab_pose +1]   = tab_cer_deb_d[index_tab_pose]
+              tab_cer_quart_d[index_tab_pose +1] = tab_cer_quart_d[index_tab_pose]
+              tab_cer_mil_d[index_tab_pose +1]   = tab_cer_mil_d[index_tab_pose]
+              tab_cer_tro_d[index_tab_pose +1]   = tab_cer_tro_d[index_tab_pose]
+              tab_cer_fin_d[index_tab_pose +1]   = tab_cer_fin_d[index_tab_pose]
+              tab_cer_ret_d[index_tab_pose +1]   = tab_cer_ret_d[index_tab_pose]
+              vit_cer_d[index_tab_pose +1]       = vit_cer_d[index_tab_pose]
+          end
+  
+  
+      end
+  
+  end
+  $ 46 "Script: fun_inserer_soudure.script"
+  def fun_inserer_soudure(type,index,table):
+      teach_mode()
+      #configurer une nouvelle soudure en fonction du type -> utiliser les fonction déjà développée
+      if (type == 1):
+          fun_config_soudure_point(index,table)
+      elif ((type == 2) or(type ==5)):
+          fun_config_soudure_lineaire(index,table)
+      elif (type == 3):
+          fun_config_soudure_arc(index,table)
+      elif (type ==4):
+          fun_config_soudure_cercle(index,table)
+      elif(type == 6):
+          #pas d'action, peut etre faire un PopP d'avertissement !!!! enregistrer le mouvement !!
+      end
+      end_teach_mode()
+      sync()
+  
+  end
+  $ 47 "Script: PasAPas_d.script"
+  #######################################-_-#############################################
+  def fun_Pas_A_Pas_d():
+  
+      global reglage_d = 0
+      global attente = False
+      global reconfig = 0
+      close_popup()
+  
+      fun_deplacement_pose_inter(2)
+  
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = nbSoudure_glo_d
+      local soudureEnCours = 0 #soudure en cours
+      local job = 0
+      local typeSoudure = 0
+      local TypeSoudureAjoutee = 0
+      local effectuerSoudure = False
+      local nouvelleSimulation = False
+  
+      while (soudureEnCours < nbSoudures):
+          job = tab_job_d[soudureEnCours]
+          fun_commande_job(job)
+  
+          typeSoudure = tab_type_d[soudureEnCours]
+          ###
+          # (1) PopUp demande simulation
+          ###
+          if (nouvelleSimulation == False):
+              effectuerSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,1) #appel de la fonction qui gère les PopUp
+          end
+  
+          if ((effectuerSoudure == True) or(nouvelleSimulation == True)):
+              ###
+              # (2) Simuler()
+              ###
+              nouvelleSimulation  = False
+              effectuerSoudure    = False
+  
+              #REALISATION DELA SOUDURE
+              fun_deplacement_pose_inter(2)
+              if (typeSoudure == 1 ):
+                  fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+              elif ((typeSoudure == 2 ) or (typeSoudure ==5)):
+                  fun_soudure_lineaire(index_soudure_lin,2)
+              elif (typeSoudure == 3 ):
+                  fun_soudure_arc(index_soudure_arc,2)
+              elif (typeSoudure == 4 ):
+                  fun_soudure_cercle(index_soudure_cer,2)
+              elif(typeSoudure ==6):
+                  Recopie_Table_Droite()
+              else:
+              end
+              #FIN DE LA REALISATION DE LA SOUDURE
+              sync()
+          end
+          ###
+          # (3)PopUp demande modification
+          ###
+          modifierSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,2) #appel de la fonction qui gère les PopUp
+  
+          if (modifierSoudure == True):
+              ###
+              # (4) Modifier()
+              ###
+              #fun_deplacement_pose_inter(2)
+              teach_mode()
+  
+              if (typeSoudure == 1 ):
+                  fun_config_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+              elif ((typeSoudure == 2 ) or (typeSoudure ==5)):
+                  fun_config_soudure_lineaire(index_soudure_lin,2)
+              elif (typeSoudure == 3 ):
+                  fun_config_soudure_arc(index_soudure_arc,2)
+              elif (typeSoudure == 4 ):
+                  fun_config_soudure_cercle(index_soudure_cer,2)
+              elif(typeSoudure == 6):
+                  #faire un popUp d'avertissement
+              else:
+              end
+              end_teach_mode()
+              sync()
+          end
+          # (5) PopUp demande ajout
+          ###
+          nouvelleSimulation = False
+          ajouterSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,3)
+          if ((ajouterSoudure == 2) or (ajouterSoudure == 3)):
+              ###
+              # (6) Ajouter()
+              ###
+              TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 2)
+  
+              if (TypeSoudureAjoutee != 7): #5 est le code retourné s'il n'y a pas d'ajout de soudure
+                  nbSoudures =  nbSoudures +1
+                  nbSoudure_glo_d = nbSoudures
+  
+  
+                  typeSoudure = tab_type_d[soudureEnCours]
+                  job = tab_job_d[soudureEnCours]
+  
+                  nouvelleSimulation = fun_PopUp_PaP(soudureEnCours,typeSoudure,4)
+  
+                  sync()
+              end
+              sync()
+          end
+  
+          if (nouvelleSimulation == True):
+              ###
+              #(2) refaire une simulation sur cette pièce
+              ###
+  
+              # pas d'incrément pour recommencer la boucle avec cette soudure
+              soudureEnCours = soudureEnCours
+          else:
+              soudureEnCours = soudureEnCours +1
+              if (typeSoudure == 1 )  :
+                  index_soudure_point =index_soudure_point +1
+              elif ((typeSoudure == 2 ) or (typeSoudure ==5)):
+                  index_soudure_lin = index_soudure_lin +1
+              elif (typeSoudure == 3 ):
+                  index_soudure_arc = index_soudure_arc +1
+              elif (typeSoudure == 4 ):
+                  index_soudure_cer = index_soudure_cer+ 1
+              else:
+              end
+  
+          end
+          sync()
+      end
+      sync()
+  end
+  
+  
+  
+  
+  
+  
+  
+  $ 48 "Script: PasAPas_g.script"
+  #######################################-_-#############################################
+  def fun_Pas_A_Pas_g():
+  
+      global reglage_d = 0
+      global attente = False
+      global reconfig = 0
+      close_popup()
+  
+      fun_deplacement_pose_inter(1)
+  
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = nbSoudure_glo_g
+      local soudureEnCours = 0 #soudure en cours
+      local job = 0
+      local typeSoudure = 0
+      local TypeSoudureAjoutee = 0
+      local effectuerSoudure = False
+      local nouvelleSimulation = False
+  
+      while (soudureEnCours < nbSoudures):
+          job = tab_job_g[soudureEnCours]
+          fun_commande_job(job)
+  
+          typeSoudure = tab_type_g[soudureEnCours]
+          ###
+          # (1) PopUp demande simulation
+          ###
+          if (nouvelleSimulation == False):
+              effectuerSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,1) #appel de la fonction qui gère les PopUp
+          end
+  
+          if ((effectuerSoudure == True) or(nouvelleSimulation == True)):
+              ###
+              # (2) Simuler()
+              ###
+              nouvelleSimulation  = False
+              effectuerSoudure    = False
+  
+              #REALISATION DELA SOUDURE
+              fun_deplacement_pose_inter(1)
+              if (typeSoudure == 1 ):
+                  fun_soudure_point(index_soudure_point,1) # ( , 2 pour signifier table de droite )
+              elif (typeSoudure == 2 ):
+                  fun_soudure_lineaire(index_soudure_lin,1)
+              elif (typeSoudure == 3 ):
+                  fun_soudure_arc(index_soudure_arc,1)
+              elif (typeSoudure == 4 ):
+                  fun_soudure_cercle(index_soudure_cer,1)
+              elif(typeSoudure ==6):
+                  Recopie_Table_Gauche()
+              else:
+              end
+              #FIN DE LA REALISATION DE LA SOUDURE
+              sync()
+          end
+          ###
+          # (3)PopUp demande modification
+          ###
+          modifierSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,2) #appel de la fonction qui gère les PopUp
+  
+          if (modifierSoudure == True):
+              ###
+              # (4) Modifier()
+              ###
+              fun_deplacement_pose_inter(1)
+              #teach_mode()
+  
+              if (typeSoudure == 1 ):
+                  fun_config_soudure_point(index_soudure_point,1) # ( , 2 pour signifier table de droite )
+              elif (typeSoudure == 2 ):
+                  fun_config_soudure_lineaire(index_soudure_lin,1)
+              elif (typeSoudure == 3 ):
+                  fun_config_soudure_arc(index_soudure_arc,1)
+              elif (typeSoudure == 4 ):
+                  fun_config_soudure_cercle(index_soudure_cer,1)
+              elif(typeSoudure == 6):
+                  #faire un popUp d'avertissement
+              else:
+              end
+             # end_teach_mode()
+              sync()
+          end
+          # (5) PopUp demande ajout
+          ###
+          nouvelleSimulation = False
+          ajouterSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,3)
+          if ((ajouterSoudure == 2) or (ajouterSoudure == 3)):
+              ###
+              # (6) Ajouter()
+              ###
+              TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 1)
+  
+              if (TypeSoudureAjoutee != 5): #5 est le code retourné s'il n'y a pas d'ajout de soudure
+                  nbSoudures =  nbSoudures +1
+                  nbSoudure_glo_g = nbSoudures
+  
+  
+                  typeSoudure = tab_type_g[soudureEnCours]
+                  job = tab_job_g[soudureEnCours]
+  
+                  nouvelleSimulation = fun_PopUp_PaP(soudureEnCours,typeSoudure,4)
+  
+              sync()
+          end
+              sync()
+          end
+  
+          if (nouvelleSimulation == True):
+              ###
+              #(2) refaire une simulation sur cette pièce
+              ###
+  
+              # pas d'incrément pour recommencer la boucle avec cette soudure
+              soudureEnCours = soudureEnCours
+          else:
+          soudureEnCours = soudureEnCours +1
+              if (typeSoudure == 1 )  :
+                  index_soudure_point =index_soudure_point +1
+              elif (typeSoudure == 2 ):
+                  index_soudure_lin = index_soudure_lin +1
+              elif (typeSoudure == 3 ):
+                  index_soudure_arc = index_soudure_arc +1
+              elif (typeSoudure == 4 ):
+                  index_soudure_cer = index_soudure_cer+ 1
+              else:
+              end
+  
+          end
+          sync()
+      end
+      sync()
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  $ 49 "PopUps"
+  $ 55 "Script: Pops_up_PAsAPas.script"
+  def pop_up_reg_d():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Table droite programmée"#"popup La table droite est programmée. Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée. La gestion des modes programmation, éxécution et reglage se fait à l'aide des commutateurs superieurs."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_reg_g():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Table gauche programmée"#"popup La table gauche est programmée. Appuyer sur le bouton gauche ou droite pour commencer mode pas a pas et le reglage d'une pièce sur la table associée. La gestion des modes programmation, éxécution et reglage se fait à l'aide des commutateurs superieurs."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_reg_gd():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Les deux tables sont programmées"#"popup Les deux tables sont programmées. Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée ou passez en mode éxécution à l'aide du commutateur superieur gauche pour effectuer un ou plusieurs cycle(s) de soudure(s)."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_reg():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Aucune table n'est programmée"#"popup Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée. La gestion des modes configuration, éxécution et reglage se fait à l'aide des commutateurs superieurs."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def fun_PopUp_PaP(index,type,numPopUP):
+      index = index +1
+      char_numeroDeSoudure = to_str(index)
+  
+      local resultat = False
+      local resultat2  = 0
+  
+      if (type == 1):
+  		char_soudure = "point"					#si type = 1, la demande sera sur une soudure point
+  	elif ((type == 2) or (type ==5)):
+  		char_soudure = "lineaire"				#si type = 2, la demande sera sur une soudure linéaire
+  	elif (type == 3):
+  		char_soudure = "arc de cercle"			#si type = 3, la demande sera sur une soudure arc de cercle
+  	elif (type == 4):
+  		char_soudure = "cercle"					#si type = 4, la demande sera sur une soudure cercle
+      elif (type == 6):
+          char_soudure = "recopie"                #si type = 5, la demande sera sur une recopie de mouvement
+  	else :
+  		char_soudure = "erreur de saisie"
+  	end
+  
+      if (numPopUP == 1):
+          resultat  = request_boolean_from_primary_client("Soudure numero : " + char_numeroDeSoudure + ", de type : "+ char_soudure + ". Voulez vous effectuer la soudure ?(securité desactivée) Appuyer sur non pour passer à la soudure suivante. ")
+          return resultat
+      elif (numPopUP ==2 ):
+          resultat = request_boolean_from_primary_client("Voulez vous modifier la soudure numéro :" + char_numeroDeSoudure + " ? Appuyez sur non pour continuer")
+          return resultat
+      elif (numPopUP ==3 ):
+          resultat2 = request_integer_from_primary_client("       1-> Point SUIVANT                     Ajouter :    2-> AVANT      3-> APRES")
+          return resultat2
+      elif (numPopUP ==4 ):
+           esultat = request_boolean_from_primary_client("Voulez vous refaire une simulation? Appuyez sur non pour continuer.")
+          return resultat
+      end
+  
+  
+  end
+  $ 56 "Script: Pops_up_Execution.script"
+  def pop_up_deb_exe_d():
+      close_popup()
+      popup3 = "popup Table droite, éxecution... Veillez à bien fermer la porte."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_deb_exe_g():
+      close_popup()
+      popup3 = "popup Table gauche, éxecution... Veillez à bien fermer la porte."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_exe_d():
+      close_popup()
+      popup1 = "popup EXECUTION : Table droite prête à éxécution"#"popup Appuyer sur le bouton droit pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_exe_g():
+      close_popup()
+      popup1 = "popup EXECUTION : Table gauche prête à éxécution"#"popup Appuyer sur le bouton gauche pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_fermer_porte():
+      close_popup()
+      popup3 = "popup Fermer la porte pour éxecution."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_exe():
+      close_popup()
+      popup1 ="popup EXECUTION : Les deux tables sont prêtes à l'éxécution" #"popup Appuyer sur le bouton gauche ou droit pour commencer l'éxécution de la pièce sur la table associée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 57 "Script: Pops_up_Configuration.script"
+  def pop_up_config():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Aucune table de configurée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_config_d():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Table droite configurée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_config_g_et_d():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Les deux tables sont configurées."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  
+  def pop_up_config_g():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Table droite configurée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 71 "Mouvements soudures"
+  $ 72 "Script: fcts_balayage.script"
+  def fct_determineAxeBalayage(p_start,p_stop):
+  
+      global  diff_x = norm(p_start[0]-p_stop[0])
+      global  diff_y = norm(p_start[1]-p_stop[1])
+      global  diff_z = norm(p_start[2]-p_stop[2])
+  
+      global offset_x =  0
+      global offset_y =  0
+      global offset_z = 0
+  
+      local tolerance = 0.02
+  
+  
+  
+      if ( (diff_z >0.05) ):
+          offset_z = 1
+      end
+  
+      if ( (diff_x >tolerance) or (offset_z == 1)):
+          offset_y = 1
+      end
+  
+      if ( (diff_y >tolerance) or (offset_z == 1)):
+          offset_x = 1
+      end
+  
+  end
+  
+  def fct_set_offset():
+  
+      if (offset_x == 1):
+          offset[0] = sin((i/cycle_duration)*2.0*pi) * amplitude
+      end
+  
+      if (offset_y == 1):
+          offset[1] = sin((i/cycle_duration)*2.0*pi) * amplitude
+      end
+  
+  end
+  
+  thread runBalayage():
+    while (True):
+        global ctrl_frequency=350.0
+        global weave_frequency=1.2
+        global amplitude=0.003
+        global cycle_duration=(ctrl_frequency / weave_frequency)
+        global pi=3.14159
+        global offset=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        global i=0
+        path_offset_enable()
+        global alpha=0.1
+        path_offset_set_alpha_filter(alpha)
+  
+        while (True):
+          fct_set_offset()
+          path_offset_set(offset, 2)
+          global i=i+1
+          sync()
+        end
+      end
+  
+  end
+  
+  def fct_activerBalayage(p_start, p_stop):
+  
+      fct_determineAxeBalayage(p_start,p_stop)
+      global thr_runBalayage = run runBalayage()
+  
+  end
+  
+  def fct_desactiverBalayage():
+  
+      kill thr_runBalayage
+  
+  end
+  $ 73 "Script: fcts_ralentir_fin_ligne.script"
+  def fct_calcul_point_inter(p_debut,p_fin):
+  
+      local p_inter = p_fin
+  
+      local poucentage = 0.95
+      local inc = 0
+      local vecteur_global = p[0,0,0,0,0,0]
+      local vecteur_reduit = p[0,0,0,0,0,0]
+  
+      while (inc < 6):   #a valider avec d'autres tests (peut etre faire une moyenne)
+          vecteur_global[inc] = p_fin[inc] - p_debut[inc]
+          vecteur_reduit[inc] = vecteur_global[inc]*poucentage
+          p_inter[inc] = p_debut[inc] + vecteur_reduit[inc]
+          inc = inc +1
+      end
+  
+      return p_inter
+    end
+  
+  
+  $ 351 "Thread_1"
+  thread Thread_1():
+    while (True):
+      $ 352 "Test_Ordre_Marche"
+      $ 353 "If Test_Ordre_Mar≟ True "
+      if (Test_Ordre_Mar ==   True  ):
+        $ 354 "If config_d ≟ 1  or  config_g ≟ 1"
+        if (config_d  ==  1   or   config_g  ==  1):
+          $ 355 "Set Ordre_Marche=On"
+          set_standard_digital_out(0, True)
+          $ 356 "Wait: 0.5"
+          sleep(0.5)
+          $ 357 "If Reponse_Ordre≟ False "
+          if (get_standard_digital_in(4) ==   False  ):
+            $ 358 "'Si aucune reponse n'a etait recue, arret du programme'"
+            # 'Si aucune reponse n'a etait recue, arret du programme'
+            $ 359 "close_popup()"
+            close_popup()
+            $ 360 "Popup: Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) "
+            popup("Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) ", "Error", False, True, blocking=False)
+            halt
+          end
+          $ 361 "Test_Ordre_Mar≔ False "
+          global Test_Ordre_Mar=  False  
+          $ 362 "sync()"
+          sync()
+        end
+      end
+      $ 363 "Erreur ordre marche pendant utilisation"
+      $ 364 "If Arc_On≟ True   and Reponse_Arc≟ True  and Reponse_Ordre≟ False "
+      if (get_standard_digital_out(1) ==   True     and  get_standard_digital_in(5) ==   True    and  get_standard_digital_in(4) ==   False  ):
+        $ 365 "'Test pour savoir si ordre marche a ete coupe pendant utilisation'"
+        # 'Test pour savoir si ordre marche a ete coupe pendant utilisation'
+        $ 366 "close_popup()"
+        close_popup()
+        $ 367 "Popup: Defaut : Mise sous puissance coupee pendant la trajectoire"
+        popup("Defaut : Mise sous puissance coupee pendant la trajectoire", "Error", False, True, blocking=False)
+        halt
+      end
+      $ 368 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_1 = run Thread_1()
+  $ 369 "Thread_2"
+  thread Thread_2():
+    while (True):
+      $ 370 "mode_soudure"
+      $ 371 "If Mode_soudure ≟  True "
+      if (get_configurable_digital_in(3)  ==    True  ):
+        $ 372 "If Mode_soudure≟ True  and soudure_on ≟ True "
+        if (get_configurable_digital_in(3) ==   True    and  soudure_on  ==   True  ):
+          $ 373 "fin_soud≔0"
+          global fin_soud=0
+          $ 374 "Test_Ordre_Mar≔ True "
+          global Test_Ordre_Mar=  True  
+          $ 375 "Test_Job≔ True "
+          global Test_Job=  True  
+          $ 376 "Wait Test_Ordre_Mar≟ False "
+          while (not(Test_Ordre_Mar ==   False  )):
+            sync()
+          end
+          $ 377 "Wait Test_Job≟ False "
+          while (not(Test_Job ==   False  )):
+            sync()
+          end
+          $ 378 "Set Arc_On=On"
+          set_standard_digital_out(1, True)
+          $ 379 "Test_Gaz≔ True "
+          global Test_Gaz=  True  
+          $ 380 "'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'"
+          # 'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'
+          $ 381 "Wait Valide_Gaz≟ True "
+          while (not(Valide_Gaz ==   True  )):
+            sync()
+          end
+          $ 382 "'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'"
+          # 'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'
+        else:
+          $ 383 "ElseIf Mode_soudure ≟ True  and soudure_on ≟ False "
+          if (get_configurable_digital_in(3)  ==   True    and  soudure_on  ==   False  ):
+            $ 384 "'Attente post debit gaz'"
+            # 'Attente post debit gaz'
+            $ 385 "Set Arc_On=Off"
+            set_standard_digital_out(1, False)
+            $ 386 "Test_Gaz≔ False "
+            global Test_Gaz=  False  
+            $ 387 "Loop Reponse_Arc ≟ 1"
+            while (get_standard_digital_in(5)  ==  1):
+              $ 388 "fin_soud≔0"
+              global fin_soud=0
+              $ 389 "sync()"
+              sync()
+            end
+            $ 390 "fin_soud≔1"
+            global fin_soud=1
+          end
+        end
+      end
+      $ 391 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_2 = run Thread_2()
+  $ 392 "Thread_3"
+  thread Thread_3():
+    while (True):
+      $ 393 "led_cobot_2"
+      $ 394 "If led_cobot ≟ True "
+      if (led_cobot  ==   True  ):
+        $ 395 "If valider_bp_co ≟ True "
+        if (get_tool_digital_in(0)  ==   True  ):
+          $ 396 "Set TO[1]=On"
+          set_tool_digital_out(1, True)
+          $ 397 "Wait: 0.25"
+          sleep(0.25)
+          $ 398 "Set TO[1]=Off"
+          set_tool_digital_out(1, False)
+          $ 399 "Wait: 0.25"
+          sleep(0.25)
+          $ 400 "Set TO[1]=On"
+          set_tool_digital_out(1, True)
+          $ 401 "Wait: 0.25"
+          sleep(0.25)
+          $ 402 "Set TO[1]=Off"
+          set_tool_digital_out(1, False)
+          $ 403 "Wait: 0.25"
+          sleep(0.25)
+          $ 404 "Set TO[1]=On"
+          set_tool_digital_out(1, True)
+          $ 405 "Wait: 0.25"
+          sleep(0.25)
+          $ 406 "Set TO[1]=Off"
+          set_tool_digital_out(1, False)
+          $ 407 "Wait: 0.25"
+          sleep(0.25)
+          $ 408 "sync()"
+          sync()
+        end
+        $ 409 "sync()"
+        sync()
+      end
+      $ 410 "sync()"
+      sync()
+      $ 411 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_3 = run Thread_3()
+  $ 412 "Thread_4"
+  thread Thread_4():
+    while (True):
+      $ 413 "led_cobot"
+      $ 414 "If led_cobot ≟ True "
+      if (led_cobot  ==   True  ):
+        $ 415 "Loop led_cobot ≟  True "
+        while (led_cobot  ==    True  ):
+          $ 416 "Set TO[0]=On"
+          set_tool_digital_out(0, True)
+          $ 417 "Wait: 0.5"
+          sleep(0.5)
+          $ 418 "Set TO[0]=Off"
+          set_tool_digital_out(0, False)
+          $ 419 "Wait: 0.5"
+          sleep(0.5)
+          $ 420 "sync()"
+          sync()
+        end
+        $ 421 "sync()"
+        sync()
+      else:
+        $ 422 "Else" "noBreak"
+        $ 423 "Set TO[0]=Off"
+        set_tool_digital_out(0, False)
+        $ 424 "Set TO[1]=Off"
+        set_tool_digital_out(1, False)
+      end
+      $ 425 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_4 = run Thread_4()
+  $ 426 "Thread_5"
+  thread Thread_5():
+    while (True):
+      $ 427 "Test_Arc_On"
+      $ 428 "Erreur gaz pendant utilisation"
+      $ 429 "Timer_gaz"
+      $ 430 "If Test_Gaz≟ True "
+      if (Test_Gaz ==   True  ):
+        $ 431 "Wait: 1.0"
+        sleep(1.0)
+        $ 432 "Loop Reponse_Arc≟ False  and Arc_On≟ True "
+        thread Thread_while_432():
+          while (True):
+            $ 433 "'La boucle permet d'activer le timer et tester deux condition pour les Defaults'"
+            # 'La boucle permet d'activer le timer et tester deux condition pour les Defaults'
+            $ 434 "timer_ret_gaz: Start"
+            timer_ret_gaz_is_counting = True
+            $ 435 "If timer_ret_gaz>0.5"
+            global thread_flag_435=0
+            thread Thread_if_435():
+              $ 436 "'Le timer permet de realiser une attente '"
+              # 'Le timer permet de realiser une attente '
+              $ 437 "close_popup()"
+              close_popup()
+              $ 438 "Popup: Defaut : Pas de retour flux, stabilisation gaz"
+              popup("Defaut : Pas de retour flux, stabilisation gaz", "Error", False, True, blocking=False)
+              halt
+              thread_flag_435 = 1
+            end
+            if (timer_ret_gaz>0.5):
+              global thread_handler_435=run Thread_if_435()
+              while (thread_flag_435 == 0):
+                if not(timer_ret_gaz>0.5):
+                  kill thread_handler_435
+                  thread_flag_435 = 2
+                else:
+                  sync()
+                end
+              end
+            else:
+              thread_flag_435 = 2
+            end
+            if (thread_flag_435 == 2):
+              $ 439 "ElseIf Reponse_Ordre≟ False "
+              if (get_standard_digital_in(4) ==   False  ):
+                $ 440 "'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'"
+                # 'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'
+                $ 441 "close_popup()"
+                close_popup()
+                $ 442 "Popup: Defaut : Perte retour de signal, mise sous puissance generateur"
+                popup("Defaut : Perte retour de signal, mise sous puissance generateur", "Error", False, True, blocking=False)
+                halt
+              end
+            end
+          end
+        end
+        if (get_standard_digital_in(5) ==   False    and  get_standard_digital_out(1) ==   True  ):
+          global thread_handler_432=run Thread_while_432()
+          while (get_standard_digital_in(5) ==   False    and  get_standard_digital_out(1) ==   True  ):
+            sync()
+          end
+          kill thread_handler_432
+        end
+        $ 443 "Valide_Gaz≔ True "
+        global Valide_Gaz=  True  
+        $ 444 "timer_ret_gaz: Reset"
+        timer_ret_gaz = 0
+      end
+      $ 445 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_5 = run Thread_5()
+  $ 446 "Thread_6"
+  thread Thread_6():
+    while (True):
+      $ 447 "Test_Job"
+      $ 448 "If Test_Job≟ True "
+      if (Test_Job ==   True  ):
+        $ 452 "Test_Job≔ False "
+        global Test_Job=  False  
+      end
+      $ 453 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_6 = run Thread_6()
+  $ 454 "Thread_7"
+  thread Thread_7():
+    while (True):
+      $ 455 "secu"
+      $ 456 "If SecuGaucheOk ≟  False  and secu_g ≟ 1"
+      if (get_configurable_digital_in(4)  ==    False    and  secu_g  ==  1):
+        $ 457 "close_popup()"
+        close_popup()
+        $ 458 "Popup: ATTENTION : Defaut carter !"
+        popup("ATTENTION : Defaut carter !", "Error", False, True, blocking=False)
+        halt
+      else:
+        $ 459 "ElseIf SecuDroiteOk ≟ False  and secu_d ≟ 1"
+        if (get_configurable_digital_in(5)  ==   False    and  secu_d  ==  1):
+          $ 460 "close_popup()"
+          close_popup()
+          $ 461 "Popup: ATTENTION : Defaut carter !"
+          popup("ATTENTION : Defaut carter !", "Error", False, True, blocking=False)
+          halt
+        end
+      end
+      $ 462 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_7 = run Thread_7()
+  $ 463 "Thread_8"
+  thread Thread_8():
+    while (True):
+      $ 464 "bloq_soud_arret"
+      $ 465 "If Mode_soudure≟ False  and Test_Gaz ≟ True "
+      if (get_configurable_digital_in(3) ==   False    and  Test_Gaz  ==   True  ):
+        $ 466 "close_popup()"
+        close_popup()
+        $ 467 "Popup: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation."
+        popup("Defaut : L'ordre de soudure a ete coupe pendant l'utilisation.", "Error", False, True, blocking=False)
+        halt
+      end
+      $ 474 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_8 = run Thread_8()
+  $ 485 "Thread_10"
+  thread Thread_10():
+    while (True):
+      $ 486 "reglage"
+      $ 487 "If safe_mode ≟ 1  and Mode_manu ≟  True "
+      if (safe_mode  ==  1   and  get_configurable_digital_in(7)  ==    True  ):
+        $ 488 "close_popup()"
+        close_popup()
+        $ 489 "Popup: STOP !!!!"
+        popup("STOP !!!!", "Error", False, True, blocking=False)
+        halt
+      end
+      $ 490 "sync()"
+      sync()
+      $ 491 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_10 = run Thread_10()
+  $ 74 "Robot Program"
+  $ 78 "Script: general.script"
+  while (True):
+    # 68 "Programme de robot"
+    global safe_mode=0
+  
+    set_configurable_digital_out(0, False)
+  
+    set_configurable_digital_out(1, False)
+  
+    while (get_configurable_digital_in(4) ==   True    or  get_configurable_digital_in(5) ==   True  ):
+  
+      sync()
+      # 94 "'clingottement pour signifier qu'il y  un defaut sur un des carters '"
+      set_standard_digital_out(4, False)
+      set_configurable_digital_out(6, False)
+      sleep(0.5)
+      set_standard_digital_out(4, True)
+      set_configurable_digital_out(6, True)
+      sleep(0.5)
+      sync()
+    end
+  
+    set_configurable_digital_out(6, False)
+    set_standard_digital_out(4, False)
+    sleep(2.0)
+    #movel(pose_add(get_target_tcp_pose(), pose_sub(PointPassage_12_to_p, PointPassage_12_from_p)), a=0.01, v=2.0E-4)
+    global angle_base= get_actual_joint_positions ()
+    if (angle_base[0]  <= 0.7):
+      if (angle_base[0] >= 1.6):
+        # 116 "Départ"        A CHANGER PAR UNE POSTION ENREGISTREE
+        movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+      else:
+        if (angle_base[0]>1.6):
+          movej(Point_init_D, a=1.3962634015954636, v=1.7453292519943295)
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.7453292519943295)
+        else:
+          if (angle_base[0]<0.7):
+            movej(Point_init_G, a=1.3962634015954636, v=1.7453292519943295)
+          end
+        end
+      end
+    else:
+      # 124 "SinonSi angle_base[0]>1.6"
+      if (angle_base[0]>1.6):
+  
+        movej(Point_init_D, a=1.3962634015954636, v=1.7453292519943295)
+        movej(Point_avt_initD, a=1.3962634015954636, v=1.7453292519943295)
+      else:
+        if (angle_base[0]<0.7):
+          movej(Point_init_G, a=1.3962634015954636, v=1.7453292519943295)
+        end
+      end
+    end
+    # 131 "Départ"             A CHANGER PAR UNE POSTION ENREGISTREE
+    movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+    global angle_base= get_actual_joint_positions ()
+    # 'mode config'
+    if (get_configurable_digital_in(7)  ==   False    and  get_standard_digital_in(7)  ==   False  ):
+      if ((config_g  ==  1)   and   (config_d  ==  1)):
+        pop_up_config_g_et_d()
+      else:
+        if ((config_g  == 1)):
+          pop_up_config_g()
+        else:
+          if (config_d  ==  1):
+            pop_up_config_d()
+          else:
+            if ((config_g  ==  0)  and  (config_d  ==  0)):
+              pop_up_config()
+            end
+          end
+        end
+      end
+      global boucle=1
+      while ((get_configurable_digital_in(7)  ==   False  )  and  (boucle  ==  1)   and  (get_standard_digital_in(7) ==   False  )):
+        thread Thread_while_145():
+          while (True):
+            set_standard_digital_out(5, True)
+            set_standard_digital_out(6, False)
+            sleep(0.5)
+            set_standard_digital_out(5, False)
+            set_standard_digital_out(6, True)
+            sleep(0.5)
+            sync()
+          end
+        end
+        if (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7) ==   False  ):
+          global thread_handler_145=run Thread_while_145()
+          while (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7) ==   False  ):
+            sync()
+          end
+          kill thread_handler_145
+        end
+        if (get_standard_digital_in(2)  ==   True  ):
+          set_standard_digital_out(5, True)
+          set_standard_digital_out(6, False)
+          movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_config_g, a=0.6981317007977318, v=0.5235987755982988)
+          global led_cobot=1
+          fun_config_g()
+          global led_cobot=0
+          fun_valid_config_g()
+          movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          # 170 "Départ"         A CHANGER PAR UNE POSTION ENREGISTREE
+          movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+        end
+  
+        if (get_standard_digital_in(3)  ==   True  ):
+          set_standard_digital_out(6, True)
+          set_standard_digital_out(5, False)
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_init_D, a=1.3962634015954636, v=1.0471975511965976)
+          movej(Point_Attente_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_config_d, a=0.6981317007977318, v=0.5235987755982988)
+          global led_cobot=1
+          fun_config_d()
+          global led_cobot=0
+          fun_valid_config_d()
+          movej(Point_Attente_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_init_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          # 190 "Départ"         A CHANGER PAR UNE POSTION ENREGISTREE
+          movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+        end
+      end
+    end
+    # '"Reglage"'
+  
+    if (get_configurable_digital_in(7)  ==   False    and  get_standard_digital_in(7)  ==   True  ):
+      if ((config_g  ==  1)   and   (config_d  ==  1)):
+        pop_up_reg_gd()
+        global boucle=1
+      else:
+        if (config_g  ==  1):
+          pop_up_reg_gd()
+          global boucle=1
+        else:
+          if (config_d  ==  1):
+            pop_up_reg_d()
+            global boucle=1
+          else:
+            close_popup()
+            while (get_standard_digital_in(7)  ==   True  ):
+              popup("Aucune configuration n'est actuellement detectée.", "Erreur", False, True, blocking=True)
+            end
+          end
+        end
+      end
+      global boucle=1
+      while ((get_configurable_digital_in(7)  ==   False  )  and  (boucle  ==  1)   and  (get_standard_digital_in(7) ==   True  )):
+        thread Thread_while_208():
+          while (True):
+            if (config_g  ==  1):
+              set_standard_digital_out(5, True)
+            end
+            if (config_d  ==  1):
+              set_standard_digital_out(6, True)
+            end
+            sleep(0.5)
+            set_standard_digital_out(5, False)
+            set_standard_digital_out(6, False)
+            sleep(0.5)
+          end
+        end
+        if (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7)  ==   True  ):
+          global thread_handler_208=run Thread_while_208()
+          while (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7)  ==   True  ):
+            sync()
+          end
+          kill thread_handler_208
+        end
+        if (get_standard_digital_in(2)  ==   True  ):
+          global safe_mode=1
+          set_standard_digital_out(5, True)
+          set_standard_digital_out(6, False)
+          movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(pose_inter_g, a=0.6981317007977318, v=0.5235987755982988)
+          global led_cobot=1
+          fun_Pas_A_Pas_g()
+          global led_cobot=0
+          global safe_mode=0
+          global boucle=0
+        end
+        if (get_standard_digital_in(3)  ==   True  ):
+          global safe_mode=1
+          set_standard_digital_out(6, True)
+          set_standard_digital_out(5, False)
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(Point_init_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          movej(pose_inter_d, a=0.6981317007977318, v=0.5235987755982988)
+          global led_cobot=1
+          fun_Pas_A_Pas_d()
+          global led_cobot=0
+          global safe_mode=0
+          global boucle=0
+        end
+      end
+    end
+    # 'mode execution'
+    if (get_configurable_digital_in(7)  ==   True  ):
+      if ((config_g  ==  1)   and   (config_d  ==  1)):
+        pop_up_exe()
+        global boucle=1
+      else:
+        if (config_g  ==  1):
+          pop_up_exe_g()
+          global boucle=1
+        else:
+          if (config_d  ==  1):
+            pop_up_exe_d()
+            global boucle=1
+          else:
+            close_popup()
+            while (get_configurable_digital_in(7)  ==   True  ):
+              popup("Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking=True)
+            end
+          end
+        end
+      end
+      while (( get_configurable_digital_in(7)  ==   True  )   and  (boucle  ==  1)):
+        thread Thread_while_259():
+          while (True):
+            if (config_g  ==  1):
+              set_standard_digital_out(5, True)
+            end
+            if (config_d  ==  1):
+              set_standard_digital_out(6, True)
+            end
+            sleep(0.5)
+            set_standard_digital_out(5, False)
+            set_standard_digital_out(6, False)
+            sleep(0.5)
+          end
+        end
+        if (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7) ==   True  ):
+          global thread_handler_259=run Thread_while_259()
+          while (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7) ==   True  ):
+            sync()
+          end
+          kill thread_handler_259
+        end
+        if ((get_standard_digital_in(2)  ==   True  )  and  (config_g  ==   True  )):
+          global boucle_g=1
+          while (boucle_g  ==  1):
+            set_configurable_digital_out(0, True)
+            set_standard_digital_out(5, True)
+            set_standard_digital_out(6, False)
+            sleep(0.25)
+            set_standard_digital_out(5, False)
+            sleep(0.25)
+            if (get_configurable_digital_in(4)  ==    False  ):
+              set_standard_digital_out(5, True)
+              if (get_configurable_digital_in(4)  ==    False  ):
+                close_popup()
+                while (get_configurable_digital_in(4) == False):
+                  sync()
+                end
+              end
+            end
+            if (get_configurable_digital_in(4)  ==    True  ):
+              global secu_g=1
+              set_standard_digital_out(5, True)
+              movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+              fun_execution_g()
+              movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+              movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+              # 294 "Départ"         A CHANGER PAR UNE POSTION ENREGISTREE
+              movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+              set_configurable_digital_out(0, False)
+              global secu_g=0
+              global boucle_g=0
+            end
+          end
+          global boucle=0
+        else:
+          if ((get_standard_digital_in(2)  ==   True  )  and  (config_g  ==   False  )):
+            close_popup()
+            popup("Aucune programmation n'est actuellement detectée sur la table gauche, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking=True)
+            global boucle=0
+          end
+        end
+        if ((get_standard_digital_in(3)  ==   True  )  and  (config_d  ==   True  )):
+          global boucle_d=1
+          pop_up_deb_exe_d()
+          while (boucle_d  ==  1):
+            set_configurable_digital_out(1, True)
+            set_standard_digital_out(5, False)
+            set_standard_digital_out(6, True)
+            sleep(0.25)
+            set_standard_digital_out(6, False)
+            sleep(0.25)
+            if (get_configurable_digital_in(5)  ==    False  ):
+              set_standard_digital_out(6, True)
+              sleep(6.0)
+              if (get_configurable_digital_in(5)  ==    False  ):
+                close_popup()
+                while (get_configurable_digital_in(5) == False):
+                  sync()
+                end
+              end
+            end
+            if (get_configurable_digital_in(5)  ==    True  ):
+              global secu_d=1
+              set_standard_digital_out(6, True)
+              movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976)
+              fun_execution_d()
+              set_configurable_digital_out(1, False)
+              global secu_d=0
+              global boucle_d=0
+            end
+          end
+          global boucle=0
+        else:
+          if ((get_standard_digital_in(3)  ==   True  )  and  (config_d  ==   False  )):
+            close_popup()
+            popup("Aucune programmation n'est actuellement detectée sur la table droite, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking=True)
+            global boucle=0
+          end
+        end
+      end
+    end
+  end
+  end
+end

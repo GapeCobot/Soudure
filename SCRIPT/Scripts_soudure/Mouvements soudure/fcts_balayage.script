@@ -1,0 +1,75 @@
+def fct_determineAxeBalayage(p_start,p_stop): 
+
+    global  diff_x = norm(p_start[0]-p_stop[0])
+    global  diff_y = norm(p_start[1]-p_stop[1])
+    global  diff_z = norm(p_start[2]-p_stop[2])
+
+    global offset_x =  0
+    global offset_y =  0
+    global offset_z = 0
+
+    local tolerance = 0.02
+    
+
+
+    if ( (diff_z >0.05) ):
+        offset_z = 1
+    end 
+
+    if ( (diff_x >tolerance) or (offset_z == 1)):
+        offset_y = 1 
+    end 
+
+    if ( (diff_y >tolerance) or (offset_z == 1)):
+        offset_x = 1
+    end 
+    
+end
+
+def fct_set_offset(): 
+
+    if (offset_x == 1):
+        offset[0] = sin((i/cycle_duration)*2.0*pi) * amplitude
+    end 
+    
+    if (offset_y == 1):
+        offset[1] = sin((i/cycle_duration)*2.0*pi) * amplitude
+    end 
+
+end 
+
+thread runBalayage():
+  while (True):
+      global ctrl_frequency=350.0
+      global weave_frequency=1.2
+      global amplitude=0.003
+      global cycle_duration=(ctrl_frequency / weave_frequency)
+      global pi=3.14159
+      global offset=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      global i=0
+      path_offset_enable()
+      global alpha=0.1
+      path_offset_set_alpha_filter(alpha)
+
+      while (True):
+        fct_set_offset()
+        path_offset_set(offset, 2)
+        global i=i+1
+        sync()
+      end
+    end
+
+end
+
+def fct_activerBalayage(p_start, p_stop):
+
+    fct_determineAxeBalayage(p_start,p_stop)
+    global thr_runBalayage = run runBalayage() 
+
+end 
+
+def fct_desactiverBalayage():
+
+    kill thr_runBalayage
+    
+end 

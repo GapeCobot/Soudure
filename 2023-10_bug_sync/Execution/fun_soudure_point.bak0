@@ -1,0 +1,36 @@
+def fun_soudure_point(Index,table):
+    a_fun = 0.5
+    v_fun = 1.1
+    r_fun= 0.005
+    t_fun = 0
+    if (table == 1): #si 1 -> Table de gauche 
+        movej(tab_point_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+        set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+        movej(tab_point_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+    
+        fun_activer_soudure()                         #appel de la fonction activer la soudure 
+    
+        sleep(tps_point_g)                          #temps de soudure
+    
+        fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure 
+    
+        movej(tab_point_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+        fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+
+    else: #sinon table de droite 
+        movej(tab_point_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+        set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+        movej(tab_point_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+    
+        fun_activer_soudure()                         #appel de la fonction activer la soudure 
+    
+        sleep(tps_point_d)                          #temps de soudure
+    
+        fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure 
+    
+        movej(tab_point_ret_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+        fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+
+    end
+    sync()
+end 

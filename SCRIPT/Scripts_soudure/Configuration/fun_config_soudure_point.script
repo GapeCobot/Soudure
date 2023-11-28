@@ -1,0 +1,56 @@
+def fun_config_soudure_point(index,table):
+    teach_mode()
+
+    if(table == 1):  # sur la table de gauche 
+
+
+        fun_popup_soud(1, 1, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_point_app_g[index] =  get_actual_tcp_pose()   #Enregistrer position dans tableau d'approche des soudue points quand appui bouton
+        close_popup()
+    
+        fun_popup_soud(2, 1, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_point_deb_g[index] =  get_actual_tcp_pose()   #Enregistrer position debut quand appui bouton bp_cobot
+        close_popup()
+    
+        tab_point_ret_g[index] = tab_point_app_g[index]         #point de retrait est le meme que le point d approche
+        
+        end_teach_mode()
+        nb_soud_point_g = nb_soud_point_g +1 
+
+        if (nb_soud_point_g <= 1 ):
+            tps_point_g = request_float_from_primary_client("temps des soudures points ? (s)")
+        end 
+
+        sync()
+    else: #sur la table de droite
+
+        fun_popup_soud(1, 1, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_point_app_d[index] =  get_actual_tcp_pose()   #Enregistrer position dans tableau d'approche des soudue points quand appui bouton
+        close_popup()
+
+        fun_popup_soud(2, 1, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_point_deb_d[index] =  get_actual_tcp_pose()   #Enregistrer position debut quand appui bouton bp_cobot
+        close_popup()
+
+        tab_point_ret_d[index] = tab_point_app_d[index]         #point de retrait est le meme que le point d approche
+
+        end_teach_mode()
+
+        nb_soud_point_d = nb_soud_point_d +1 
+
+        if (nb_soud_point_d <= 1 ):
+            tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
+        end 
+
+        
+        sync()
+    end
+    
+    sync()
+
+
+end 

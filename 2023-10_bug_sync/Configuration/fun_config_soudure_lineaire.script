@@ -1,0 +1,54 @@
+def fun_config_soudure_lineaire(index, table):
+    if(table == 1):  # sur la table de gauche 
+
+        fun_popup_soud(1, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_app_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures lineaire quand appui Bp_cobot
+        close_popup()
+        
+        fun_popup_soud(2, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_deb_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+        close_popup()
+    
+        fun_popup_soud(6, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_fin_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+        close_popup()
+    
+        vit_lin_g[index] = fun_demande_vit(2)
+    
+        fun_popup_soud(7, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_ret_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+        close_popup()
+
+        nb_soud_lin_g = nb_soud_lin_g +1 
+
+    else: #sur la table de droite
+
+        fun_popup_soud(1, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_app_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures lineaire quand appui Bp_cobot
+        close_popup()
+        
+        fun_popup_soud(2, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_deb_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+        close_popup()
+
+        fun_popup_soud(6, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_fin_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+        close_popup()
+
+        vit_lin_d[index] = fun_demande_vit(2)
+
+        fun_popup_soud(7, 2, index)
+        fun_front_up(adresse_bp_cobot)
+        tab_lin_ret_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+        close_popup()
+
+        nb_soud_lin_d = nb_soud_lin_d +1 
+    end 
+end 

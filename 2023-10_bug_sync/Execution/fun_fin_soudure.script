@@ -1,0 +1,12 @@
+def fun_fin_soudure(table):
+
+    soudure_on = 0 
+    while(fin_soud == 0):
+    end
+    set_digital_out(table+4,False)                 #eteindre la lumiere pour dire que l'on soude plus 
+    
+    #table +4 : les sorties numériques sont respectivements 5 table gauche & 6 table droite 
+    #le décalage permet d'écrire directement au bon endroit
+    sync()
+
+end 

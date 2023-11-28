@@ -1,0 +1,4584 @@
+def tete_de_mat2():
+  step_count_5da9c471_904c_4ece_9370_e0429d2874a3 = 0.0
+  thread Step_Counter_Thread_ac56be99_dbe7_4234_ac8c_3b11c28d8876():
+    while (True):
+      step_count_5da9c471_904c_4ece_9370_e0429d2874a3 = step_count_5da9c471_904c_4ece_9370_e0429d2874a3 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_ac56be99_dbe7_4234_ac8c_3b11c28d8876()
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 2)
+  set_tool_digital_output_mode(1, 2)
+  set_tool_voltage(24)
+  set_tcp(p[3.9268782491800464E-4,0.010870476277026558,0.31436572226962645,-0.5061477319867888,-0.4813511797025432,1.4393264113232132])
+  set_target_payload(2.720000, [-0.067000, 0.195000, 0.106000], [0.008159, 0.008159, 0.008159, 0.000000, 0.000000, 0.000000])
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  set_runstate_standard_digital_outputs([0,1,2,3,4,5,6,7])
+  set_runstate_configurable_digital_outputs([6])
+  set_runstate_standard_digital_output_to_value(0, 1)
+  set_runstate_standard_digital_output_to_value(1, 1)
+  set_runstate_standard_digital_output_to_value(2, 1)
+  set_runstate_standard_digital_output_to_value(3, 1)
+  set_runstate_standard_digital_output_to_value(4, 1)
+  set_runstate_standard_digital_output_to_value(5, 1)
+  set_runstate_standard_digital_output_to_value(6, 1)
+  set_runstate_standard_digital_output_to_value(7, 1)
+  set_runstate_configurable_digital_output_to_value(6, 1)
+  set_safety_mode_transition_hardness(1)
+  set_gravity([8.503688472232543E-16, -8.503688472232545E-16, -9.82])
+  global validation_d=True
+  global tab_lin_fin_g=[p[0, 0, 0, 0, 0, 0], p[-0.45226, 0.0951, 0.87894, -1.14678, 0.61648, -0.02557], p[-1.16104, 0.00606, 0.82175, -0.0879, 0.36786, -1.60296], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global vit_arc_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_arc_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global vit_arc_d=[0, 0.005, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_lin_fin_d=[p[0, 0, 0, 0, 0, 0], p[0.99246, 0.12102, 0.89948, -0.6531, 0.24948, 0.95774], p[0.98604, 0.05091, 0.90343, -0.7493, 0.92897, -0.93201], p[0.68679, 0.02841, 0.86279, -0.50582, -0.72866, 1.28137], p[0.68025, -0.04088, 0.86453, -0.88297, 0.52384, -1.55277], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_fin_d=[p[0, 0, 0, 0, 0, 0], p[0.68606, -0.03634, 0.80529, -0.93579, 0.82266, -0.71424], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_point_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_point_app_d=[p[0, 0, 0, 0, 0, 0], p[1.03147, 0.18318, 0.72617, -0.84113, 0.4427, 0.83816], p[1.08649, -0.06134, 0.69075, -0.85064, 0.97475, -0.92565], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_app_g=[p[0, 0, 0, 0, 0, 0], p[-0.48433, -0.01604, 0.75688, -1.02823, 0.62815, -0.23063], p[-1.16056, 0.00692, 0.79263, -0.09397, 0.21194, -1.58515], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_app_d=[p[0, 0, 0, 0, 0, 0], p[1.04349, 0.18143, 0.72114, -0.57688, 0.34586, 0.85297], p[1.05348, -0.04663, 0.68369, -0.81617, 0.92649, -1.15105], p[0.70502, 0.0785, 0.68892, -0.75495, -0.51747, 1.54135], p[0.65173, -0.18817, 0.71837, -0.65142, 0.98967, -1.23889], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tps_point_g=0
+  global tab_arc_app_d=[p[0, 0, 0, 0, 0, 0], p[0.79798, 0.13961, 0.61162, -1.45457, 0.18041, 0.29881], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tps_point_d=3
+  global boucle_g=0
+  global boucle_d=0
+  global debug=0
+  global tab_cer_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global Timeout_Ftc_Gen=0.008
+  global tab_cer_fin_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global boucle=1
+  global Vitesse_Nominal=100
+  global nb_soud_cer_g=0
+  global reglage_g=0
+  global nb_soud_cer_d=0
+  global reglage_d=0
+  global tab_cer_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_app_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global led_cobot=0
+  global nb_soud_point_g=0
+  global nb_soud_point_d=2
+  global Def_Gaz_InTjt_1=0.0016
+  global vit_lin_g=[0, 0.005, 0.005, 0, 0, 0, 0, 0, 0, 0, 0]
+  global vit_lin_d=[0, 0.005, 0.005, 0.005, 0.005, 0, 0, 0, 0, 0, 0]
+  global safe_mode=0
+  global tab_point_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_arc_g=0
+  global tab_point_ret_d=[p[0, 0, 0, 0, 0, 0], p[1.03147, 0.18318, 0.72617, -0.84113, 0.4427, 0.83816], p[1.08649, -0.06134, 0.69075, -0.85064, 0.97475, -0.92565], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tps_init_soud=0.72
+  global nb_soud_arc_d=1
+  global tab_lin_ret_g=[p[0, 0, 0, 0, 0, 0], p[-0.49337, 0.0226, 0.71029, -1.0479, 0.69262, -0.28422], p[-0.9867, -0.06953, 0.55562, -0.01741, 0.70717, -1.83189], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global soudure_on=0
+  global tab_arc_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global reconfig_g=0
+  global tab_lin_ret_d=[p[0, 0, 0, 0, 0, 0], p[1.03326, 0.18295, 0.72502, -0.83986, 0.44456, 0.83978], p[0.99146, -0.02976, 0.71338, -0.57497, 0.96124, -0.96883], p[0.71842, 0.04046, 0.66604, -0.54903, -0.74449, 1.36595], p[0.75248, -0.21452, 0.71869, -0.66795, 0.86587, -1.3195], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_ret_d=[p[0, 0, 0, 0, 0, 0], p[0.76164, -0.08407, 0.62041, -0.78142, 0.92416, -0.24934], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global reconfig_d=0
+  global nbSoudure_glo_g=2
+  global nbSoudure_glo_d=7
+  global tab_type_g=[2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_point_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_type_d=[2, 1, 1, 2, 2, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_point_deb_d=[p[0, 0, 0, 0, 0, 0], p[1.08236, 0.12462, 0.86232, -0.25348, 0.02221, 1.47696], p[1.08101, 0.04778, 0.86757, -0.94954, 0.81312, -1.17147], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_deb_g=[p[0, 0, 0, 0, 0, 0], p[-0.47742, 0.09488, 0.84904, -1.14867, 0.60475, -0.02502], p[-1.16164, 0.00933, 0.78912, -0.09863, 0.35584, -1.60731], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_deb_d=[p[0, 0, 0, 0, 0, 0], p[1.05988, 0.1219, 0.8957, -0.6377, 0.32163, 0.99761], p[1.04896, 0.04996, 0.90343, -0.80379, 0.95514, -0.92465], p[0.68584, 0.02615, 0.81234, -0.51366, -0.69632, 1.28416], p[0.67864, -0.04043, 0.81285, -0.88974, 0.54313, -1.55311], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_deb_d=[p[0, 0, 0, 0, 0, 0], p[0.69836, 0.01183, 0.79797, -1.22105, 0.1832, 0.74796], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_quart_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_quart_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_arc_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_tro_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_lin_g=2
+  global tab_arc_mil_d=[p[0, 0, 0, 0, 0, 0], p[0.70649, -0.01264, 0.79807, -1.38807, 0.51025, 0.33656], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_tro_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_lin_d=4
+  global vit_cer_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global vit_cer_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_cer_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global config_g=1
+  global tab_job_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global config_d=1
+  global tab_job_d=[1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_cer_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_cer_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global validation_g=True
+  global Plan_1=p[0.2765977407058651,0.441662975488158,-0.354025576257956,0.010335746863727192,-2.2593603669607853,-2.1763123278249075]
+  global Plan_2=p[-0.6850900144682162,0.05409388116672237,0.7275351534620245,-0.17766457951264733,3.135611439555076,0.015300324138438761]
+  global Point_Attente_D=p[0.8075097707138287,-0.5559573939980813,0.6503504177938426,-0.016593826733406727,0.9796907122869005,-1.3148705972812706]
+  global Point_Attente_G=p[-0.8302518840605669,-0.5690889661896592,0.5808986974917729,0.1131174117177478,0.8542258792983665,-1.3535814942507707]
+  global Point_avt_initD=p[0.06657254429526571,-0.06943749992615326,0.5843775497859096,-0.8098969788818392,-0.44585655944978064,-0.46114333540420704]
+  global Point_config_d=p[0.8154692737529835,-0.07461670665559308,0.7748160279634002,-0.22357745079049834,0.7295723650394397,-1.442467128485814]
+  global Point_config_g=p[-0.7722398141985307,-0.27957025230496113,0.7194731293881862,-0.03779800848772952,0.8705012662336749,-1.3831247702678935]
+  global Point_init=p[-0.0773212862772821,-0.11665990006080137,0.5799833321342134,-0.9411224866019001,0.11835809996979532,-1.6105031841921134]
+  global Point_init_D=p[0.41379723593906503,-0.2487447409313,0.609219683499068,-0.1517636340068292,0.740977578455324,-1.635183930612981]
+  global Point_init_G=p[-0.3270218949609456,-0.19730489052646938,0.6929144790039665,-0.10965157774330407,0.9094075339117493,-1.3512769166594598]
+  global Pose_init=p[0.10115046162491018,0.33113269584382493,0.584736039619858,-0.0552927155927057,0.04469732737714283,3.052039811979926]
+  global anti_Poq_g=p[-1.097025715801607,-0.38262125709671024,0.4630882557259996,0.6943947424801681,0.8954400591646011,-1.8454309397506856]
+  global anti_poq_d_1=p[1.091150772472228,-0.4064122051576539,0.3929143378071873,0.2718147357272883,1.0703533600823625,-0.8574463352779282]
+  global anti_poq_d_2=p[1.09116262983301,-0.4064187115408435,0.3929258400274398,0.27175875102530844,1.0703634659082542,-0.8574488139433778]
+  global pose_inter_d=p[0.7984873482135377,-0.4600472350561827,0.469112798390943,-0.33000528303228815,0.9472744675294403,-1.2733605379612758]
+  global pose_inter_g=p[-0.6825210658885911,-0.4853058131725645,0.5214431732529188,0.29678124271750056,1.0767670517936672,-1.329036215162201]
+  # begin: URCap Installation Node
+  #   Source: Robotiq_Copilot, 1.14.3.2973, Robotiq Inc.
+  #   Type: Copilot
+  ###############################################################
+  # Script file used to communicate with Robotiq's ft sensor
+  # Version: 0.0.1
+  ###############################################################
+
+  node_rpc_server = rpc_factory("xmlrpc","http://127.0.0.1:4251/node")
+  linalg = rpc_factory("xmlrpc","http://127.0.0.1:4251/linalg")
+  storevar = rpc_factory("xmlrpc","http://127.0.0.1:4251/storevariable")
+
+  global Fx = 0.0
+  global Fy = 0.0
+  global Fz = 0.0
+  global Mx = 0.0
+  global My = 0.0
+  global Mz = 0.0
+  global T_base_sensor = p[0,0,0,0,0,0]
+  global tcp_wrench = [0,0,0,0,0,0]
+  global base_wrench = [0,0,0,0,0,0]
+  global rq_target_joint_positions = get_actual_joint_positions()
+  global rq_ft_sensor_connected = False
+  global rq_active_node = 0
+  global rq_elapsed_time = 0
+  rq_force_protect_urcap = 0.0
+  rq_torque_protect_urcap = 0.0
+  rq_collision_detection_enabled = False
+  rq_collision_detection_active_time = 0.0
+  rq_halt_on_collision_detection = True
+  sensor_wrench = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  rq_node_executor_thread_running = False
+  rq_lookahead_time = 0.05
+
+  rq_controller_time_step = get_steptime()
+
+  def pose_to_list(p):
+    return [p[0], p[1], p[2], p[3], p[4], p[5]]
+  end
+
+  def rq_init_path(pathId):
+     initPathAnswer = node_rpc_server.initpath(pathId)
+     verify_path_answer(initPathAnswer)
+     return initPathAnswer[0]
+  end
+
+  def setup_force_node_on_server(generic_rq_insertion_force_node_id = 1,
+                                 feature=1,
+                                 targetforce = [0,0,0,0,0,0],
+                                 force_control_enabled_axes = [False, False, False, False, False, False],
+                                 max_negative_deviation_vector = [-0.1, -0.1, -0.1, -0.1, -0.1, -0.1],
+                                 max_positive_deviation_vector = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+                                 adaptiveStiffness = True):
+    node_rpc_server.setforcecontrolfeature(generic_rq_insertion_force_node_id, feature)
+    node_rpc_server.setforcecontroltargetforce(generic_rq_insertion_force_node_id, targetforce)
+    node_rpc_server.setforcecontrolenabledaxes(generic_rq_insertion_force_node_id, force_control_enabled_axes)
+    node_rpc_server.setforcecontrolmaximaldeviation(generic_rq_insertion_force_node_id, max_negative_deviation_vector, max_positive_deviation_vector)
+    node_rpc_server.setforcecontroladaptivestiffnessenabledaxes(generic_rq_insertion_force_node_id, True)
+  end
+
+  def verify_path_answer(path_answer):
+   initPathStatusCode = path_answer[1]
+   handle_path_node_error_code(initPathStatusCode)
+  end
+
+  def handle_path_node_error_code(initPathStatusCode):
+    if initPathStatusCode == -1:
+      popup("Could not compute path with the selected options.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 1:
+      popup("Joint solution impossible. Change your starting position.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 2:
+      popup("Discontinuous path detected. Change your starting position.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 3:
+      popup("Path time limit has been reached. Increase the speed of your path or break it down in multiple shorter paths.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 4:
+      popup("Could not compute path with the selected options. Computing path timeout.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 5:
+      popup("Path computation was aborted.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 6:
+      popup("A previous path computation is still in progress. Please try again in a few seconds.", "Robotiq's FT Sensor", error=True)
+    elif initPathStatusCode == 7:
+      textmsg("Path initialization error: Invalid path id.") # No popup needed in this case.
+    elif initPathStatusCode == 8:
+      popup("Palletizer error: box number out of range.")
+    elif initPathStatusCode == 9:
+      popup("Palletizer error: collision detected.")
+    end
+    if initPathStatusCode != 0:
+      halt
+    end
+  end
+
+
+  def rq_wait_ft_sensor_steady(timeout = 2000):
+
+    max_mean_squared_error = [0.1, 0.1, 0.1, 0.0001, 0.0001, 0.0001]
+    mean = sensor_wrench
+
+    mean_squared_error = sensor_wrench
+    i=0
+    while i<6:
+      mean_squared_error[i] = mean_squared_error[i] * mean_squared_error[i]
+      i=i+1
+    end
+
+    is_sensor_steady = False
+    alpha = 0.9
+    timer = 0
+
+    while (not is_sensor_steady) and (timer < timeout):
+      sleep(0.008)
+      timer = timer + 8
+
+      i = 0
+      while i < 6:
+        mean[i] = alpha * mean[i] + (1.0 - alpha) * sensor_wrench[i]
+        error = sensor_wrench[i] - mean[i]
+        mean_squared_error[i] = alpha * mean_squared_error[i] + ((1.0 - alpha) * error * error)
+        i = i+1
+      end
+
+      is_sensor_steady = True
+      i = 0
+      while (i < 6) and is_sensor_steady:
+        is_sensor_steady = mean_squared_error[i] < max_mean_squared_error[i]
+        i = i+1
+      end
+    end
+
+    return is_sensor_steady
+  end
+
+  thread rq_elapsed_timer_ms():
+    rq_elapsed_time = 0
+  dt = 1000/500
+    while True:
+      rq_elapsed_time =  rq_elapsed_time + dt
+      sync()
+    end
+  end
+
+  def get_sensor_fx():
+    return Fx
+  end
+
+  def get_sensor_fy():
+    return Fy
+  end
+
+  def get_sensor_fz():
+    return Fz
+  end
+
+  def get_sensor_mx():
+    return Mx
+  end
+
+  def get_sensor_my():
+    return My
+  end
+
+  def get_sensor_mz():
+    return Mz
+  end
+
+  def get_applied_tcp_force(index):
+    return -1.0 * tcp_wrench[index]
+  end
+
+  def get_applied_base_force(index):
+    return -1.0 * base_wrench[index]
+  end
+
+  def express_vector_in_new_frame(T_from_to, V_from):
+    Q_from_to = p[0, 0, 0, T_from_to[3], T_from_to[4], T_from_to[5]]
+    V_to = pose_trans(pose_inv(Q_from_to), p[V_from[0], V_from[1], V_from[2], 0, 0, 0])
+    return [V_to[0], V_to[1], V_to[2]]
+  end
+
+  def express_force_in_frame(T_from_to, wrench_from):
+    F = express_vector_in_new_frame(T_from_to, [wrench_from[0], wrench_from[1], wrench_from[2]])
+    T = express_vector_in_new_frame(T_from_to, [wrench_from[3], wrench_from[4], wrench_from[5]])
+    return [F[0], F[1], F[2], T[0], T[1], T[2]]
+  end
+
+  thread read_force():
+
+
+    if (not socket_open("127.0.0.1", 29999, "RQDashboardClient")):
+      popup("Can't connect to the Dashboard server", "Robotiq's FT Sensor", error=True)
+      halt
+    end
+
+    rq_collision_detection_active_count = 0
+    rq_collision_detection_active = False
+
+    while True:
+
+        T_base_tcp = get_actual_tcp_pose()
+        T_base_flange = get_actual_tool_flange_pose()
+        T_flange_sensor = p[0, 0, 0, 0, 0, 0]
+        T_base_sensor = pose_trans(T_base_flange, T_flange_sensor)
+
+        T_flange_tcp = pose_trans( pose_inv(T_base_flange), T_base_tcp)
+        T_sensor_tcp = pose_trans( pose_inv(T_flange_sensor), T_flange_tcp)
+
+        sensor_wrench = express_force_in_frame(T_base_sensor, get_tcp_force())
+        tcp_wrench = wrench_trans(pose_inv(T_sensor_tcp), sensor_wrench)
+        base_wrench = express_force_in_frame(pose_inv(T_base_tcp), tcp_wrench)
+
+        Fx = sensor_wrench[0]
+        Fy = sensor_wrench[1]
+        Fz = sensor_wrench[2]
+        Mx = sensor_wrench[3]
+        My = sensor_wrench[4]
+        Mz = sensor_wrench[5]
+
+        write_output_float_register(TCP_FX_ACTUAL_OUTPUT_DOUBLE, tcp_wrench[0])
+        write_output_float_register(TCP_FY_ACTUAL_OUTPUT_DOUBLE, tcp_wrench[1])
+        write_output_float_register(TCP_FZ_ACTUAL_OUTPUT_DOUBLE, tcp_wrench[2])
+        write_output_float_register(TCP_MX_ACTUAL_OUTPUT_DOUBLE, tcp_wrench[3])
+        write_output_float_register(TCP_MY_ACTUAL_OUTPUT_DOUBLE, tcp_wrench[4])
+        write_output_float_register(TCP_MZ_ACTUAL_OUTPUT_DOUBLE, tcp_wrench[5])
+
+        if rq_collision_detection_enabled:
+            if rq_collision_detection_active_time < (0.5*rq_controller_time_step):
+                if norm([Fx, Fy, Fz]) > rq_force_protect_urcap:
+                    rq_on_collision_detection("Force limit value exceeded.")
+                elif norm([Mx, My, Mz]) > rq_torque_protect_urcap:
+                    rq_on_collision_detection("Torque limit value exceeded.")
+                end
+            else:
+                rq_collision_detection_active_time = rq_collision_detection_active_time + rq_controller_time_step
+                if rq_collision_detection_active_time >= 1.0:
+                    rq_collision_detection_active_time = 0.0
+                end
+            end
+        end
+
+        sync()
+
+    end
+  end
+
+  def rq_get_ft_sensor_state():
+    socket_open("127.0.0.1",63350,"rq_ft_sensor_state")
+    socket_send_string("CURRENT STATE", "rq_ft_sensor_state")
+    rq_sensor_state = socket_read_string("rq_ft_sensor_state")
+    socket_close("rq_ft_sensor_state")
+
+    if rq_sensor_state == "":
+      rq_sensor_state = "RQ_STATE_INIT"
+    end
+
+    return rq_sensor_state
+  end
+
+  def rq_ft_sensor_disconnected_warn_user():
+    socket_open("127.0.0.1",29999,"SensorWarning")
+    socket_send_string("popup FT Sensor must be connected to run this program.","SensorWarning")
+    socket_send_byte(10,"SensorWarning")
+    socket_close("SensorWarning")
+  end
+
+  def rq_ft_sensor_disconnected_stop_program():
+    socket_open("127.0.0.1", 30002, "rq_ft_sensor_stop_socket")
+
+    socket_send_string("def rq_ft_sensor_stop_program():", "rq_ft_sensor_stop_socket")
+    socket_send_byte(10, "rq_ft_sensor_stop_socket")
+    socket_send_string("  stopj(5.0)", "rq_ft_sensor_stop_socket")
+    socket_send_byte(10, "rq_ft_sensor_stop_socket")
+    socket_send_string("end", "rq_ft_sensor_stop_socket")
+    socket_send_byte(10, "rq_ft_sensor_stop_socket")
+
+    socket_close("rq_ft_sensor_stop_socket")
+  end
+
+  def rq_ft_sensor_disconnected_check():
+    if rq_get_ft_sensor_state() == "RQ_STATE_INIT":
+      rq_ft_sensor_disconnected_stop_program()
+      rq_ft_sensor_disconnected_warn_user()
+
+      return True
+    else:
+      return False
+    end
+  end
+
+  #RTDE input registers
+  TARGET_JOINT_0_INPUT_REGISTER_DOUBLE = 40
+  TARGET_JOINT_1_INPUT_REGISTER_DOUBLE = 41
+  TARGET_JOINT_2_INPUT_REGISTER_DOUBLE = 42
+  TARGET_JOINT_3_INPUT_REGISTER_DOUBLE = 43
+  TARGET_JOINT_4_INPUT_REGISTER_DOUBLE = 44
+  TARGET_JOINT_5_INPUT_REGISTER_DOUBLE = 45
+  FINISH_NODE_INPUT_REGISTER_INT32 = 40
+  LICENSING_ERROR_INPUT_REGISTER_INT32 = 41
+  ACTIVATION_NODE_COUNT_INPUT_REGISTER_INT32 = 42
+
+  #RTDE output registers
+  ACTIVE_NODE_OUTPUT_REGISTER_INT32 = 0
+  NODE_EXECUTION_OUTPUT_COUNT_INT32 = 1
+  ACTIVATION_NODE_COUNT_OUTPUT_REGISTER_INT32 = 2
+  TCP_FX_ACTUAL_OUTPUT_DOUBLE = 0
+  TCP_FY_ACTUAL_OUTPUT_DOUBLE = 1
+  TCP_FZ_ACTUAL_OUTPUT_DOUBLE = 2
+  TCP_MX_ACTUAL_OUTPUT_DOUBLE = 3
+  TCP_MY_ACTUAL_OUTPUT_DOUBLE = 4
+  TCP_MZ_ACTUAL_OUTPUT_DOUBLE = 5
+  GENERAL_OUTPUT_DOUBLE_6 = 6
+  GENERAL_OUTPUT_DOUBLE_7 = 7
+  GENERAL_OUTPUT_DOUBLE_8 = 8
+  GENERAL_OUTPUT_DOUBLE_9 = 9
+  GENERAL_OUTPUT_DOUBLE_10 = 10
+  GENERAL_OUTPUT_DOUBLE_11 = 11
+
+  write_output_integer_register(ACTIVE_NODE_OUTPUT_REGISTER_INT32, 0)
+  write_output_integer_register(NODE_EXECUTION_OUTPUT_COUNT_INT32, 0)
+  write_output_integer_register(ACTIVATION_NODE_COUNT_OUTPUT_REGISTER_INT32, 0)
+  write_output_float_register(TCP_FX_ACTUAL_OUTPUT_DOUBLE, 0)
+  write_output_float_register(TCP_FY_ACTUAL_OUTPUT_DOUBLE, 0)
+  write_output_float_register(TCP_FZ_ACTUAL_OUTPUT_DOUBLE, 0)
+  write_output_float_register(TCP_MX_ACTUAL_OUTPUT_DOUBLE, 0)
+  write_output_float_register(TCP_MY_ACTUAL_OUTPUT_DOUBLE, 0)
+  write_output_float_register(TCP_MZ_ACTUAL_OUTPUT_DOUBLE, 0)
+
+  global activation_node_count = 0
+  global node_execution_count = 0
+
+  def element_wise_subtract(l1, l2):
+    global r = l1
+    i=0
+    while i<length(r):
+      r[i]=l1[i]-l2[i]
+      i=i+1
+    end
+    return r
+  end
+
+  def list_by_scalar_multiply(l1, scalar):
+      global r = l1
+      i=0
+      while i<length(r):
+        r[i]=l1[i]*scalar
+        i=i+1
+      end
+      return r
+   end
+
+  def norm_inf(v):
+    norm = 0
+    i=0
+    while i<length(v):
+        n = norm(v[i])
+        if(n > norm):
+          norm = n
+        end
+      i=i+1
+    end
+    return norm
+  end
+
+  def active_and_reset_node(nodeId):
+    server_activation_node_count = read_input_integer_register(ACTIVATION_NODE_COUNT_INPUT_REGISTER_INT32)
+
+    activation_node_count = activation_node_count + 1
+    node_execution_count = 0
+    write_output_integer_register(NODE_EXECUTION_OUTPUT_COUNT_INT32, node_execution_count)
+    rq_active_node = nodeId
+    write_output_integer_register(ACTIVE_NODE_OUTPUT_REGISTER_INT32, nodeId)
+    write_output_integer_register(ACTIVATION_NODE_COUNT_OUTPUT_REGISTER_INT32, activation_node_count)
+
+    while server_activation_node_count == read_input_integer_register(ACTIVATION_NODE_COUNT_INPUT_REGISTER_INT32):
+      sync()
+    end
+  end
+
+  def execute_node(nodeId, startThread = False):
+    node_execution_thread = 0
+    active_and_reset_node(nodeId)
+    if startThread:
+      rq_target_joint_positions = get_actual_joint_positions()
+      movej(rq_target_joint_positions) # This movej is used to prevent the "another thread is already controlling the robot" error.
+      node_execution_thread = run execute_node_thread()
+    end
+    while not active_node_completed():
+      sync()
+    end
+    return node_execution_thread
+  end
+
+  def setup_node_execution_related_variables():
+    activation_node_count = 0
+    node_execution_count = 0
+    write_output_integer_register(ACTIVE_NODE_OUTPUT_REGISTER_INT32, 0)
+    write_output_integer_register(ACTIVATION_NODE_COUNT_OUTPUT_REGISTER_INT32, activation_node_count)
+    write_output_integer_register(NODE_EXECUTION_OUTPUT_COUNT_INT32, node_execution_count)
+    sync()
+  end
+
+  def start_node_executor():
+    setup_node_execution_related_variables()
+
+    succeeded = node_rpc_server.startnodeexecutor()
+    if not succeeded:
+      node_rpc_server.stopnodeexecutor()
+      succeeded = node_rpc_server.startnodeexecutor()
+      if not succeeded:
+        popup("RTDE interface cannot initialize. Make sure that Ethernet/IP adapter and Profinet are disabled, and that no other URCaps use the RTDE interface.", "Robotiq Copilot", error=True)
+        halt
+      end
+    end
+
+    hand_shake_xmlrpcserver()
+  end
+
+  def reset_node_executor():
+    setup_node_execution_related_variables()
+
+    succeeded = node_rpc_server.resetnodeexecutor()
+    if not succeeded:
+      popup("RTDE interface cannot initialize. Make sure that Ethernet/IP adapter and Profinet are disabled, and that no other URCaps use the RTDE interface.", "Robotiq Copilot", error=True)
+      halt
+    end
+
+    hand_shake_xmlrpcserver()
+  end
+
+  def hand_shake_xmlrpcserver():
+    timer_thread = run rq_elapsed_timer_ms()
+    sync()
+    node_execution_initialized = False
+    while (not node_execution_initialized) and (rq_elapsed_time < 100):
+      node_execution_initialized = (read_input_integer_register(FINISH_NODE_INPUT_REGISTER_INT32) == -1)
+      sync()
+    end
+    kill timer_thread
+
+    if (not node_execution_initialized):
+      popup("Node Execution initialization failed.", "Robotiq Copilot", error=True)
+      halt
+    end
+  end
+
+  thread execute_node_thread():
+    rq_target_joint_positions = get_actual_joint_positions()
+    servoj(rq_target_joint_positions)
+    while True:
+      new_rq_target_joint_positions = update_target_position()
+      joint_target_distances = element_wise_subtract(rq_target_joint_positions, new_rq_target_joint_positions)
+      max_joint_target_displacement = norm_inf(joint_target_distances)
+      if max_joint_target_displacement > 0.2:
+          textmsg("previous target position: ", rq_target_joint_positions)
+          textmsg("next target position: ", new_rq_target_joint_positions)
+          textmsg("max joint target displacement: ", max_joint_target_displacement)
+          popup("Node executor error: see Log tab for details", "Robotiq Copilot", False, True, True)
+          halt
+      end
+      servoj(new_rq_target_joint_positions, t=0.008, lookahead_time=rq_lookahead_time, gain=500)
+      rq_target_joint_positions = new_rq_target_joint_positions
+    end
+  end
+
+  # The thread below is used to prevent "another thread is already controlling the robot error".
+  # In some occasions, even a sleep(0.05) will not work so this is necessary (until fixed by UR).
+  # The thread is immediately killed to avoid unnecessary motion for the case of a parent node
+  # that modifies the servoj target joint positions.
+  def kill_thread( thread_id ):
+    kill thread_id
+    run_movej_thread = run movej_thread()
+    sync()
+    kill run_movej_thread
+  end
+
+  thread movej_thread():
+    movej(rq_target_joint_positions)
+  end
+
+  def active_node_completed():
+    return (read_input_integer_register(ACTIVATION_NODE_COUNT_INPUT_REGISTER_INT32) == activation_node_count) and
+           (read_input_integer_register(FINISH_NODE_INPUT_REGISTER_INT32) == rq_active_node)
+  end
+
+  def update_target_position():
+
+    if read_input_integer_register(LICENSING_ERROR_INPUT_REGISTER_INT32):
+        popup("Robotiq license error!", "Robotiq Copilot", error=True)
+        halt
+    end
+
+    new_rq_target_joint_positions = [0,0,0,0,0,0]
+    new_rq_target_joint_positions[0] = read_input_float_register(TARGET_JOINT_0_INPUT_REGISTER_DOUBLE)
+    new_rq_target_joint_positions[1] = read_input_float_register(TARGET_JOINT_1_INPUT_REGISTER_DOUBLE)
+    new_rq_target_joint_positions[2] = read_input_float_register(TARGET_JOINT_2_INPUT_REGISTER_DOUBLE)
+    new_rq_target_joint_positions[3] = read_input_float_register(TARGET_JOINT_3_INPUT_REGISTER_DOUBLE)
+    new_rq_target_joint_positions[4] = read_input_float_register(TARGET_JOINT_4_INPUT_REGISTER_DOUBLE)
+    new_rq_target_joint_positions[5] = read_input_float_register(TARGET_JOINT_5_INPUT_REGISTER_DOUBLE)
+
+    node_execution_count = node_execution_count + 1
+    write_output_integer_register(NODE_EXECUTION_OUTPUT_COUNT_INT32, node_execution_count)
+    return new_rq_target_joint_positions
+  end
+
+  def set_servoj_node_cmd(q):
+    write_output_float_register(GENERAL_OUTPUT_DOUBLE_6, q[0])
+    write_output_float_register(GENERAL_OUTPUT_DOUBLE_7, q[1])
+    write_output_float_register(GENERAL_OUTPUT_DOUBLE_8, q[2])
+    write_output_float_register(GENERAL_OUTPUT_DOUBLE_9, q[3])
+    write_output_float_register(GENERAL_OUTPUT_DOUBLE_10, q[4])
+    write_output_float_register(GENERAL_OUTPUT_DOUBLE_11, q[5])
+  end
+
+  def rq_collision_detection_start(force_limit = 140, torque_limit = 14, halt_on_collision = True):
+    rq_force_protect_urcap = force_limit
+    rq_torque_protect_urcap = torque_limit
+    rq_collision_detection_active_time = 0.0
+    rq_collision_detection_enabled = True
+    rq_halt_on_collision_detection = halt_on_collision
+  end
+
+  def rq_collision_detection_stop():
+    rq_collision_detection_enabled = False
+  end
+
+  def rq_on_collision_detection(message):
+    textmsg("Collision Detection. " + message)
+    popupTitle = "Collision Detection"
+    if rq_halt_on_collision_detection:
+      popup(message + " Program halt.", popupTitle, False, True, False)
+      halt
+    else:
+      popup(message + " Program suspend.", popupTitle, True, False, False)
+      socket_send_line("pause", "RQDashboardClient")
+      rq_collision_detection_active_time = rq_controller_time_step
+    end
+  end
+
+  ################################
+  # MAIN
+  ################################
+
+  run read_force()
+  start_node_executor()
+  
+  #***********************************************************************************************
+  # verify tap detection
+  #***********************************************************************************************
+  
+  def rq_tap_count(forces, high_threshold):
+  
+    low_threshold = 2
+    tapCount = 0
+    lookingForPeak = True
+    indexDown = 0
+  
+    i = 1
+    lastIndex = length(forces) - 1
+    while i <= lastIndex:
+  
+      deltaForce = forces[i] - forces[0]
+  
+     if lookingForPeak:
+        if deltaForce >  high_threshold:
+          lookingForPeak = False
+        end
+      else:
+        if deltaForce < low_threshold:
+          tapCount = tapCount + 1
+          lookingForPeak = True
+          indexDown = i
+        end
+      end
+      i = i + 1
+  
+    end
+  
+    if indexDown != lastIndex:
+      tapCount = 0
+    end
+  
+    return tapCount
+  
+  end
+  def shift_right(list, default_value = 0):
+  
+     i = length(list)-1
+     while (i > 0):
+        list[i]=list[i-1]
+        i=i-1
+     end
+     list[0] = default_value
+  
+     return list
+  end
+  
+  #***********************************************************************************************
+  # Wait for force reached
+  #***********************************************************************************************
+  # desired_wrench : desired wrench
+  # is_active      : list of 0 and 1, 1 : axis is controlled
+  # feature        : 0:base, 1:tcp
+  # timeout        : timeout in miliseconds
+  #***********************************************************************************************
+  def rq_wait_for_force_reached(desired_wrench, is_active, feature, timeout):
+  
+    feature_base = 0
+    feature_tool = 1
+    time_constant = 0.025
+    alpha = 1 - pow(2.718, -1.0 * get_steptime() / time_constant)
+  
+    thresholds = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    minimal_thresholds = [1.0, 1.0, 1.0, 0.1, 0.1, 0.1]
+  
+    applied_wrench = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    filtered_wrench = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+    if (feature == feature_base):
+      applied_wrench = list_by_scalar_multiply(base_wrench, -1.0)
+    else:
+      applied_wrench = list_by_scalar_multiply(tcp_wrench, -1.0)
+    end
+    filtered_wrench = applied_wrench
+  
+    i = 0
+    while (i < 6):
+      if (is_active[i]):
+        thresholds[i] = 0.05 * norm(desired_wrench[i])
+        if thresholds[i] < minimal_thresholds[i]:
+          thresholds[i] = minimal_thresholds[i]
+        end
+      else:
+        thresholds[i] = 10000
+      end
+      i = i+1
+    end
+  
+   force_reached = False
+  
+   timer = 0
+  
+   while ((not force_reached) and (timer < timeout)):
+  
+      if (feature == feature_base):
+         applied_wrench = list_by_scalar_multiply(base_wrench, -1.0)
+      else:
+         applied_wrench = list_by_scalar_multiply(tcp_wrench, -1.0)
+      end
+  
+      i = 0
+      while (i < 6):
+        filtered_wrench[i] = (alpha * applied_wrench[i]) + ((1.0 - alpha) * filtered_wrench[i])
+        i = i+1
+      end
+  
+      force_reached = True
+  
+      i = 0
+      while ((i < 6) and force_reached):
+        error = norm(desired_wrench[i] - filtered_wrench[i])
+        if (error > thresholds[i]):
+          force_reached = False
+        end
+        i = i + 1
+      end
+  
+      timer = timer + get_steptime()
+  
+      sync()
+  
+    end
+  
+    return force_reached
+  end
+  #***********************************************************************************************
+  # verify click detection
+  #***********************************************************************************************
+  click_detection_children_ended = False
+  
+  def rq_click_detection(force_drop_threshold = 10, torque_drop_threshold = 1, force_radio_button_selected = True):
+  
+    current_norm = 0
+    drop_threshold = 0
+    norms = [0.0, 0.0, 0.0, 0.0, 0.0]
+    click_detected = False
+    wrench_indices = [0,0,0]
+  
+    if(force_radio_button_selected):
+      drop_threshold = force_drop_threshold
+      wrench_indices = [0,1,2]
+    else:
+      drop_threshold =torque_drop_threshold
+      wrench_indices = [3,4,5]
+    end
+  
+    while ((not click_detection_children_ended) and (not click_detected)):
+  
+      current_norm = norm([sensor_wrench[wrench_indices[0]], sensor_wrench[wrench_indices[1]], sensor_wrench[wrench_indices[2]]])
+  
+      norms[4] = norms[3]
+      norms[3] = norms[2]
+      norms[2] = norms[1]
+      norms[1] = norms[0]
+      norms[0] = current_norm
+  
+      avg_norm = (norms[2] + norms[3] + norms[4]) / 3.0
+  
+      #Check if clicking is detected with force
+      norm_drop = avg_norm - current_norm
+      if(norm_drop > drop_threshold):
+        textmsg("Click detected")
+        click_detected=True
+      else:
+        sleep(0.008)
+      end
+    end
+  
+    return click_detected
+  end
+  ###############################################################
+  # Script file used to define Robotiq functions for the Insertion node
+  # Version: 0.0.2
+  ###############################################################
+  
+  rq_ins_offset = p[0, 0, 0, 0, 0, 0]
+  rq_ins_start_pose = p[0, 0, 0, 0, 0, 0]
+  rq_actual_to_destination = p[0, 0, 0, 0, 0, 0]
+  rq_ins_destination =p[0, 0, 0, 0, 0, 0]
+  rq_ins_speed_setting = 0
+  rq_rotation_not_completed = False
+  rq_find_bottom_not_completed = False
+  rq_spiral_not_completed = False
+  
+  def ins_actual_force_urcap(direction="X+"):
+    axis = str_at(direction, 0)
+    if (axis == "x") or (axis == "X"):
+      return norm(get_applied_tcp_force(0))
+    elif (axis == "y") or (axis == "Y"):
+      return norm(get_applied_tcp_force(1))
+    elif (axis == "z") or (axis == "Z"):
+      return norm(get_applied_tcp_force(2))
+    else:
+      textmsg("ins_actual_force_urcap, invalid direction ", direction)
+    end
+  end
+  
+  def ins_actual_torque_urcap(direction = "Z+"):
+    if (direction == "X+") or (direction == "X-") or (direction == "X"):
+      return get_applied_tcp_force(3)
+    elif (direction == "Y+") or (direction == "Y-") or (direction == "Y"):
+      return get_applied_tcp_force(4)
+    else:
+      return get_applied_tcp_force(5)
+    end
+  
+  end
+  
+  def square(a):
+    return a*a
+  end
+  
+  def update_servoj_node_target(target_joint_pos):
+    set_servoj_node_cmd(target_joint_pos)
+    sync()
+  end
+  
+  def create_all_insertion_nodes():
+    global rq_insertion_force_node_id = node_rpc_server.createnewforcenode()
+    global rq_insertion_movej_node_id = node_rpc_server.createnewmovejnode()
+    global rq_insertion_servoj_node_id = node_rpc_server.createnewservojnode()
+    node_rpc_server.setparentid(rq_insertion_movej_node_id, rq_insertion_force_node_id)
+    node_rpc_server.setparentid(rq_insertion_servoj_node_id, rq_insertion_force_node_id)
+  end
+  
+  def get_offset_projected_in_spiral_plane(direction, current_pose, pose_ref):
+    axis = str_at(direction, 0)
+    axis_index = 0
+    if axis == "X":
+      axis_index = 0
+    elif axis == "Y":
+      axis_index = 1
+    elif axis == "Z":
+      axis_index = 2
+    else:
+      textmsg("get_offset_projected_in_spiral_plane, invalid direction ", direction)
+    end
+  
+    pose_offset = pose_trans( pose_inv(pose_ref), current_pose ) # current_pose and pose_ref should have the same orientations.
+                                                                 # pose_offset is returned expressed in pose_ref frame
+  
+    pose_offset[axis_index] = 0 # valeur en direction mise a zero
+    pose_offset[3] = 0 # valeur en Rx mise a zero
+    pose_offset[4] = 0 # valeur en Ry mise a zero
+    pose_offset[5] = 0 # valeur en Rz mise a zero
+  
+    return pose_offset
+  end
+  
+  def update_spiral_offset(direction, spiral_initial_pose, spiral_initial_pose_offset, spiral_initial_pose_offset_name):
+    pos_diff_tcp = get_offset_projected_in_spiral_plane(direction, get_actual_tcp_pose(), spiral_initial_pose)
+    spiral_initial_pose_offset = interpolate_pose(spiral_initial_pose_offset, pos_diff_tcp, 0.35)
+    storevar.setvariable(spiral_initial_pose_offset_name, spiral_initial_pose_offset)
+  end
+  
+  def determine_max_spiral_radius_from_actual_position(direction, spiral_initial_pose, max_radius):
+      dist_to_initial_pose = norm( get_offset_projected_in_spiral_plane(direction, get_actual_tcp_pose(), spiral_initial_pose))
+      if (max_radius > dist_to_initial_pose):
+        new_max_radius = max_radius - dist_to_initial_pose
+      else:
+        new_max_radius = 0
+      end
+  
+      return new_max_radius
+  end
+  
+  def insertion_compliant_move_urcap(axis = "Z",
+                                     direction_sign = 1,
+                                     compliant_insert_force_threshold = 20,
+                                     speed = 0.04,
+                                     feature = 1,
+                                     max_position_deviation = 0.1):
+    feature_base = 0
+    feature_tool = 1
+  
+    if axis == "X":
+      axis_index = 0
+    elif axis == "Y":
+      axis_index = 1
+    elif axis == "Z":
+      axis_index = 2
+    else:
+      textmsg("insertion_compliant_move_urcap, invalid direction ", axis)
+    end
+  
+    current_pose = get_actual_tcp_pose()
+    insertion_offset = p[0,0,0,0,0,0]
+    rq_actual_to_destination = pose_trans(pose_inv(current_pose), rq_ins_destination)
+    insertion_offset[axis_index] = rq_actual_to_destination[axis_index]
+    insertion_pose = pose_trans(current_pose, insertion_offset)
+    distance = point_dist(current_pose, insertion_pose)
+    number_of_steps = floor( distance / (speed * get_steptime()) ) + 1
+    alpha_step  = 1.0 / number_of_steps
+  
+    # initialize forcenode
+    node_execution_thread = initialise_force_node(position_controlled_direction = axis_index,
+                                                  feature = feature_tool,
+                                                  max_position_deviation = max_position_deviation)
+  
+    alpha = 0.0
+    surface_found = False
+    while (alpha <= 1.0) and (not surface_found):
+      alpha = alpha + alpha_step
+      interpolated_pose = interpolate_pose(current_pose, insertion_pose, alpha)
+      q0 = get_inverse_kin(interpolated_pose) # define waypoint target
+      update_servoj_node_target(q0)
+      force = 0
+      if feature == feature_base:
+        force = get_applied_base_force(axis_index)
+      elif feature == feature_tool:
+        force = get_applied_tcp_force(axis_index)
+      end
+      if (direction_sign * force) >= compliant_insert_force_threshold:
+        surface_found = True
+      end
+    end
+  
+    final_pos_reached = (alpha >= 1)
+  
+    kill_thread( node_execution_thread )
+  
+    return final_pos_reached
+  end # insertion_compliant_move_urcap
+  
+  def insert_spiral_find_hole(axis = "Z", direction_sign = 1,
+                              stop_force_threshold = 3,
+                              max_radius = 0.005,
+                              radius_incr_per_turn = 0.0003,
+                              peck_mode = False,
+                              tangential_speed = 0.005):
+  
+    if (stop_force_threshold < 0) or (stop_force_threshold > 40):
+      popup("stop_force_threshold parameter in Newton must be between 0 and 40 Newtons","ERROR rq_insert_spiral_urcap")
+      halt
+    end
+    if (max_radius < 0) or (max_radius > 0.05):
+      popup("max_radius parameter must be between 0 mm and 50 mm","ERROR rq_insert_spiral_urcap")
+      halt
+    end
+    if (radius_incr_per_turn < 0.00001) or (radius_incr_per_turn > 0.005):
+      popup("radius_incr_per_turn parameter in mm must be between 0.01 mm and 5 mm","ERROR rq_insert_spiral_urcap")
+      halt
+    end
+  
+    rq_spiral_not_completed = False
+  
+    ins_x = 0
+    ins_y = 0
+    ins_z = 0
+    ins_pose = p[0, 0, 0, 0, 0, 0]
+    ins_current_pos = p[0, 0, 0, 0, 0, 0]
+    ins_actual_angle = 0
+    ins_search_result = False
+    ins_radius_offset = 0
+    ins_PI = 3.14159
+    radius_inc_per_rad = radius_incr_per_turn / (2*ins_PI)
+    ins_actual_radius = 0.0001  #Start radius
+    ins_desired_arc_length = tangential_speed * rq_controller_time_step
+  
+    sync()
+    #Find the bore of the part
+    ins_current_pos = get_actual_tcp_pose()
+    sync()
+  
+    # if axis == "Z"
+    search_axis = 2
+    other_axis_A = 0
+    other_axis_B = 1
+    if (axis == "X"):
+      search_axis = 0
+      other_axis_A = 1
+      other_axis_B = 2
+    elif (axis == "Y"):
+      search_axis = 1
+      other_axis_A = 2
+      other_axis_B = 0
+    end
+  
+    #********************************************************************************************************************
+    #Spiral Search using any Axis
+    #********************************************************************************************************************
+    while ((ins_actual_radius <= max_radius) and (ins_actual_force_urcap(axis) >= stop_force_threshold)):
+      if peck_mode:
+        #Fragile mode, the robot rises between each new point
+        #Retreat from position
+        ins_pose[search_axis] = -0.002 * direction_sign
+        next_tcp_pose = pose_trans(ins_current_pos,ins_pose)
+        movej(next_tcp_pose)
+        sleep(0.1)
+        #Rotate
+        ins_desired_arc_length = 0.0005
+        delta_angle = ins_desired_arc_length / ins_actual_radius #small angle approximation
+        ins_actual_angle = ins_actual_angle + delta_angle
+  
+        ins_pose[other_axis_A] = cos( ins_actual_angle ) * ins_actual_radius
+        ins_pose[other_axis_B] = sin( ins_actual_angle ) * ins_actual_radius
+  
+        ins_actual_radius = ins_actual_angle * radius_inc_per_rad + ins_radius_offset
+        next_tcp_pose = pose_trans(ins_current_pos, ins_pose)
+        movej(next_tcp_pose)
+        sleep(0.1)
+        #Re-establish contact with the part
+        ins_pose[search_axis] = 0.0005 * direction_sign
+        next_tcp_pose = pose_trans(ins_current_pos, ins_pose)
+        movel(next_tcp_pose, a=0.6, v=rq_ins_speed_setting)
+        sleep(0.2)
+      else:
+        #standard mode: the Spiral_Search function will maintain contact between both mating parts at all times
+        ins_pose[other_axis_A] = cos( ins_actual_angle ) * ins_actual_radius
+        ins_pose[other_axis_B] = sin( ins_actual_angle ) * ins_actual_radius
+  
+        delta_angle = ins_desired_arc_length / ins_actual_radius
+        ins_actual_angle = ins_actual_angle + delta_angle
+        ins_actual_radius = ins_actual_angle * radius_inc_per_rad + ins_radius_offset
+        next_tcp_pose = pose_trans(ins_current_pos,ins_pose)
+        next_joint_pos = get_inverse_kin(next_tcp_pose)
+        servoj(next_joint_pos, 0.1, 0.1, rq_controller_time_step, 0.05, 500)
+      end
+    end # while loop
+    if (ins_actual_radius <= max_radius ):
+      ins_search_result = True
+    else:
+      ins_search_result = False
+      rq_spiral_not_completed = True
+    end
+    stopj(2)
+    return ins_search_result
+  
+  end # insert_spiral_find_hole
+  
+  ####################  SPIRAL #############################
+  def rq_insert_spiral_urcap(direction = "Z",
+                             stop_force_threshold = 3,
+                             max_radius = 0.005,
+                             radius_incr = 0.0003,
+                             peck_mode = False,
+                             tangential_speed = 0.005,
+                             compliant_insert_force_threshold = 10,
+                             spiral_initial_pose_offset_name = "defaultname",
+                             intelligent_approach_enabled = False):
+  
+    max_radius = max_radius / 1000 #TODO: change unit to meters and remove this line
+    radius_incr = radius_incr / 1000 #TODO: change unit to meters and remove this line
+  
+    if (rq_insertion_force_node_id == -1):
+      create_all_insertion_nodes()
+    end
+  
+    hole_found = False
+    spiral_bottom_target_reached = False
+    number_of_failed_spiral_tries = 0
+    number_of_spiral_tries_max = 5
+    max_position_deviation = max_radius
+  
+    # define the direction sign from rq_ins_destination
+    current_pose = get_actual_tcp_pose()
+    rq_actual_to_destination = pose_trans(pose_inv(current_pose), rq_ins_destination)
+    axis = str_at(direction, 0)
+    direction_sign = 1
+    direction = str_cat(axis,"+")
+    if axis == "X":
+      axis_index = 0
+    elif axis == "Y":
+      axis_index = 1
+    elif axis == "Z":
+      axis_index = 2
+    else:
+      textmsg("spiral insert, invalid direction ", direction)
+    end
+    if (rq_actual_to_destination[axis_index] < 0):
+      direction_sign = -1
+      direction = str_cat(axis,"-")
+    end
+  
+    # linearsearch param
+    lin_search_stop_force_threshold = compliant_insert_force_threshold
+    spiral_initial_pose = get_actual_tcp_pose()
+    if intelligent_approach_enabled:
+      #adjust position using previous succesfull insertion final position
+      spiral_initial_pose_offset = storevar.getvariable(spiral_initial_pose_offset_name, p[0,0,0,0,0,0])
+      spiral_initial_pose_refined = pose_trans(spiral_initial_pose, spiral_initial_pose_offset)
+      movel(spiral_initial_pose_refined, a = 0.1, v = 0.01)
+      sleep(0.01)
+    end
+    while ( (spiral_bottom_target_reached == False) and (number_of_failed_spiral_tries < number_of_spiral_tries_max) ):
+      rq_actual_to_destination = pose_trans(pose_inv(get_actual_tcp_pose()), rq_ins_destination)
+      max_distance = norm( rq_actual_to_destination[axis_index] )
+      contact_initiated = rq_linear_search_urcap(direction, lin_search_stop_force_threshold, tangential_speed, max_distance, 1)
+      if contact_initiated:
+        new_max_radius = determine_max_spiral_radius_from_actual_position(direction, spiral_initial_pose, max_radius)
+        hole_found = insert_spiral_find_hole(axis, direction_sign, stop_force_threshold, new_max_radius, radius_incr, peck_mode, tangential_speed)
+        if (hole_found == True): # if hole is found, try to insert
+          max_force_control_position_deviation = determine_max_spiral_radius_from_actual_position(direction, spiral_initial_pose, max_radius)
+          spiral_bottom_target_reached = insertion_compliant_move_urcap(axis, direction_sign, compliant_insert_force_threshold, tangential_speed, 1, max_force_control_position_deviation)
+          if spiral_bottom_target_reached:
+            if intelligent_approach_enabled:
+              update_spiral_offset(direction, spiral_initial_pose, spiral_initial_pose_offset, spiral_initial_pose_offset_name) # update actual hole position.
+            end
+          else:
+            textmsg("Insertion spiral: could not reach hole bottom")
+          end
+        else:
+          textmsg("Insertion error: hole was not found after contact")
+          break
+        end
+      else: # linear_search reached the teach position without contact
+          spiral_bottom_target_reached = True
+      end # if contact_initiated
+      number_of_failed_spiral_tries = number_of_failed_spiral_tries + 1
+    end # while
+    return (not spiral_bottom_target_reached)
+  end # rq_insert_spiral_urcap
+  
+  def insertion_finish_move_urcap(direction = "Z+"):
+    insertion_offset = p[0,0,0,0,0,0]
+    current_pose = get_actual_tcp_pose()
+    rq_actual_to_destination = pose_trans(pose_inv(current_pose), rq_ins_destination)
+    axis = str_at(direction, 0)
+    if axis == "X":
+      insertion_offset = p[rq_actual_to_destination[0],0,0,0,0,0]
+    elif axis == "Y":
+      insertion_offset = p[0,rq_actual_to_destination[1],0,0,0,0]
+    elif axis == "Z":
+      insertion_offset = p[0,0,rq_actual_to_destination[2],0,0,0]
+    else:
+      textmsg("insertion_finish_move_urcap, invalid direction ", direction)
+    end
+    insertion_pose = pose_trans(current_pose, insertion_offset)
+    movel(insertion_pose, a=0.05, v=rq_ins_speed_setting)
+  end
+  
+  def rq_xor(a, b):
+    return (a and not(b)) or (not(a) and b)
+  end
+  
+  def rq_adapt_force_control_to_direction(position_controlled_direction = 2, feature = 1, max_position_deviation = 0.1):
+    force_control_enabled_vector = [True, True, True, False, False, False]
+    force_control_enabled_vector[position_controlled_direction] = False
+    targetForce = [0, 0, 0, 0, 0, 0]
+    max_negative_deviation_vector = [-max_position_deviation, -max_position_deviation, -max_position_deviation, 0, 0, 0]
+    max_positive_deviation_vector = [max_position_deviation, max_position_deviation, max_position_deviation, 0, 0, 0]
+    max_negative_deviation_vector[position_controlled_direction] = 0
+    max_positive_deviation_vector[position_controlled_direction] = 0
+    adaptiveStiffness = True
+    setup_force_node_on_server(rq_insertion_force_node_id,
+                               feature, targetForce,
+                               force_control_enabled_vector,
+                               max_negative_deviation_vector,
+                               max_positive_deviation_vector,
+                               adaptiveStiffness)
+  end
+  
+  def initialise_force_node(position_controlled_direction = 2, feature = 1, max_position_deviation = 0.1):
+    movej(get_actual_joint_positions()) # This moveJ is used to prevent "another thread is already controlling the robot error".
+    rq_adapt_force_control_to_direction(position_controlled_direction = position_controlled_direction,
+                                        feature = 1,
+                                        max_position_deviation = max_position_deviation)
+    set_servoj_node_cmd(get_actual_joint_positions())
+    reset_node_executor()
+    active_and_reset_node(rq_insertion_force_node_id)
+    active_and_reset_node(rq_insertion_servoj_node_id)
+    node_execution_thread = run execute_node_thread()
+    return node_execution_thread
+  end
+  
+  ####################  ROTATIONAL #############################
+  def rq_insert_rotation_urcap(positive_rotation_desired = True,
+                               direction="Z",
+                               speed = 0.004,
+                               force_threshold = 10,
+                               rotation_speed = 5,
+                               max_angle_deg = 360,
+                               peck_mode = False,
+                               max_rotation_torque=1):
+  
+    speed = speed / 1000 # TODO: change speed input units to meters instead of mm and remove this line
+    max_force_control_position_deviation = 0.002 # TODO: add a parameter for this in the interface
+    max_torque_reached_counter_fail_threshold = 1/get_steptime() # try for about one second
+  
+    if (rq_insertion_force_node_id == -1):
+        create_all_insertion_nodes()
+    end
+  
+    # define the direction sign
+    rq_actual_to_destination = pose_trans(pose_inv(get_actual_tcp_pose()), rq_ins_destination)
+    axis = str_at(direction, 0)
+    direction_sign = 1
+    direction = str_cat(axis,"+")
+    if axis == "X":
+      rq_ins_offset = p[rq_actual_to_destination[0], 0, 0, 0, 0, 0]
+      rot_axe = 3
+      axis_index = 0
+    elif axis == "Y":
+      rq_ins_offset = p[0, rq_actual_to_destination[1], 0, 0, 0, 0]
+      rot_axe = 4
+      axis_index = 1
+    elif axis == "Z":
+      rq_ins_offset = p[0, 0, rq_actual_to_destination[2], 0, 0, 0]
+      rot_axe = 5
+      axis_index = 2
+    else:
+      textmsg("insertion: invalid direction ", direction)
+    end
+    if (rq_actual_to_destination[axis_index] < 0):
+      direction_sign = -1
+      direction = str_cat(axis,"-")
+      positive_rotation_desired = not positive_rotation_desired
+    end
+  
+    distance_to_destination = norm( rq_actual_to_destination[axis_index] )
+  
+    contact_with_piece_initiated = rq_linear_search_urcap(direction, force_threshold, speed, distance_to_destination, feature = 1)
+  
+    if( contact_with_piece_initiated ):
+  
+      # verify validity of user inputs
+      if ((rotation_speed <= 0) or (rotation_speed > 60)):
+        popup("rotation speed parameter in degrees / second must be between 0.01 and 60","ERROR rq_insert_rotation_urcap")
+        halt
+      elif ((max_rotation_torque < 0.01) or (max_rotation_torque > 15)):
+        popup("max_rotation_torque parameter in Newton-meter must be between 0.01 and 15","ERROR rq_insert_rotation_urcap")
+        halt
+      elif ((max_angle_deg <= 1) or (max_angle_deg > 360)):
+        popup("max angle parameter in degree must be between 1 and 360","ERROR rq_insert_rotation_urcap")
+        halt
+      end
+  
+      # initialize forcenode: adapt to direction
+      node_execution_thread = initialise_force_node(position_controlled_direction = axis_index,
+                                                    feature = 1,
+                                                    max_position_deviation = max_force_control_position_deviation)
+  
+      if positive_rotation_desired:
+        rot_direction_sign = 1
+      else:
+        rot_direction_sign = -1
+      end
+      rq_ins_speed_setting = speed
+      posrot = p[0,0,0,0,0,0]
+      max_rot_angle = d2r(max_angle_deg)
+      time_step_signed = rq_controller_time_step * rot_direction_sign * direction_sign
+      rot_step = d2r(rotation_speed) * time_step_signed
+      rot_step_5deg_per_second = d2r(5) * time_step_signed
+  
+      line_step = rq_ins_speed_setting * rq_controller_time_step * direction_sign
+      rot_actual_angle = 0
+      rot_actual_mode = 1 #1= linear, 2 = rotation
+      rot_actual_distance = 0
+      ins_rotation_initial_pose = get_actual_tcp_pose()
+      rq_actual_to_destination = pose_trans( pose_inv(ins_rotation_initial_pose), rq_ins_destination )
+      distance_to_destination = norm( rq_actual_to_destination[axis_index] )
+      global rq_insertion_max_torque_reached_counter = 0
+  
+      if peck_mode:
+        #peck mode
+        positive_rotation_computed = positive_rotation_desired
+        while ( (norm(rot_actual_distance) < distance_to_destination) and
+                (norm(rot_actual_angle) <= max_rot_angle) and
+                (rq_insertion_max_torque_reached_counter < max_torque_reached_counter_fail_threshold) ):
+          is_max_torque_reached = norm(get_applied_tcp_force(rot_axe)) > max_rotation_torque
+          if (ins_actual_force_urcap(direction) >= force_threshold):
+            #goes up
+            posrot[axis_index] = rot_actual_distance - 0.002 * direction_sign
+            next_tcp_pose = pose_trans(ins_rotation_initial_pose, posrot)
+            next_joint_pos = get_inverse_kin(next_tcp_pose)
+            node_rpc_server.movejdefinewaypoint(rq_insertion_movej_node_id, next_joint_pos, 0.4, 0.4)
+            execute_node(rq_insertion_movej_node_id, False )
+            #rotate
+            rot_actual_angle = compute_rotation_next_angle(rot_actual_angle, 285 * rot_step, is_max_torque_reached) # value of 285 define the peck mode "step size". determined ad oc
+            posrot[rot_axe] = rot_actual_angle
+            next_tcp_pose = pose_trans(ins_rotation_initial_pose, posrot)
+            next_joint_pos = get_inverse_kin(next_tcp_pose)
+            node_rpc_server.movejdefinewaypoint(rq_insertion_movej_node_id, next_joint_pos, 1, 1)
+            execute_node(rq_insertion_movej_node_id, False )
+            #go back in touch with the part
+            posrot[axis_index] = rot_actual_distance
+            next_tcp_pose = pose_trans(ins_rotation_initial_pose, posrot)
+            next_joint_pos = get_inverse_kin(next_tcp_pose)
+            node_rpc_server.movejdefinewaypoint(rq_insertion_movej_node_id, next_joint_pos, 0.4, 0.3)
+            execute_node(rq_insertion_movej_node_id, False )
+            sleep(0.1)
+          else:
+            rq_insertion_max_torque_reached_counter = 0
+            rot_actual_distance = rot_actual_distance + line_step
+            posrot[axis_index] = rot_actual_distance
+            next_tcp_pose = pose_trans(ins_rotation_initial_pose, posrot)
+            next_joint_pos = get_inverse_kin(next_tcp_pose)
+            update_servoj_node_target(next_joint_pos)
+            if (rq_active_node != rq_insertion_servoj_node_id):
+              active_and_reset_node(rq_insertion_servoj_node_id)
+            end
+          end # if
+        end # while
+      else:
+        #normal mode
+        while ( (norm(rot_actual_distance) <= distance_to_destination) and
+                (norm(rot_actual_angle) <= max_rot_angle) and
+                (rq_insertion_max_torque_reached_counter < max_torque_reached_counter_fail_threshold) ):
+          is_max_torque_reached = norm(get_applied_tcp_force(rot_axe)) > max_rotation_torque
+          if ( norm(get_applied_tcp_force(axis_index)) >= force_threshold ):
+            if (rot_actual_mode == 1):
+              rot_actual_distance = rot_actual_distance - line_step
+              posrot[axis_index] = rot_actual_distance
+            end
+            limited_rotation_step = limit_rotation_step_when_close_to_max_angle(rot_step, rot_step_5deg_per_second, max_rot_angle, rot_actual_angle)
+            rot_actual_angle = compute_rotation_next_angle(rot_actual_angle, limited_rotation_step, is_max_torque_reached)
+            posrot[rot_axe] = rot_actual_angle
+            rot_actual_mode = 2
+          else:
+            rq_insertion_max_torque_reached_counter = 0
+            rot_actual_distance = rot_actual_distance + line_step
+            posrot[axis_index] = rot_actual_distance
+            rot_actual_mode = 1
+          end # if
+          next_tcp_pose = pose_trans(ins_rotation_initial_pose, posrot)
+          next_joint_pos = get_inverse_kin(next_tcp_pose)
+          update_servoj_node_target(next_joint_pos)
+        end # while
+      end # if peck_mode
+  
+      kill_thread( node_execution_thread )
+      stopj(2)
+      rq_rotation_not_completed = ( (norm(rot_actual_angle) > max_rot_angle) or
+                                    (rq_insertion_max_torque_reached_counter >= max_torque_reached_counter_fail_threshold) )
+    else: # initial find_surface was unsuccessfull, assume a direct hit to target, which is a success
+      rq_rotation_not_completed = False
+    end # if contact_with_piece_initiated
+  
+    return rq_rotation_not_completed
+  end # insert rotation 2
+  
+  def limit_rotation_step_when_close_to_max_angle(rot_step, minimal_rot_step, max_rot_angle, rot_actual_angle):
+    rot_deceleration_angle_distance = d2r(3)
+    rot_direction = 1
+    if( rot_step < 0 ):
+      rot_direction = -1
+      rot_step = -1 * rot_step # get positive rot_step for calculation. Direction sign is re-introduced at the end.
+    end
+    angle_distance_to_max_rot_angle = max_rot_angle - norm(rot_actual_angle)
+    if( (angle_distance_to_max_rot_angle < rot_deceleration_angle_distance) and (rot_step > minimal_rot_step) ):
+      decelaration_slope = (rot_step - minimal_rot_step) / rot_deceleration_angle_distance
+      rot_step_limited = decelaration_slope * angle_distance_to_max_rot_angle + minimal_rot_step
+    else:
+      rot_step_limited = rot_step
+    end
+    return ( rot_direction * rot_step_limited )
+  end
+  
+  def compute_rotation_next_angle(current_angle, step, is_max_torque_reached):
+  #This function compute the rotation angle for rotational insertion by
+  # incrementing the current angle by the desired step size.
+  # If the maximal torque is reached, the rotation goes backward to
+  # return to a admissible torque. In the backward direction,
+  # a smaller step size is used to prevent constant oscillation between to steps
+    if (is_max_torque_reached):
+        rq_insertion_max_torque_reached_counter = rq_insertion_max_torque_reached_counter + 1
+        new_angle = current_angle - 0.8 * step
+    else:
+        new_angle = current_angle + step
+    end
+    return new_angle
+  end
+  
+  def center_one_axis(axis, lin_search_stop_force_threshold, speed, max_distance, feature):
+    # Initiate contact in forward direction
+    contact_initiated = rq_linear_search_urcap( str_cat(axis, "+"), lin_search_stop_force_threshold, speed, max_distance, feature)
+    if contact_initiated:
+      forward_contact_pose = get_actual_tcp_pose()
+      # Initiate contact in reverse direction
+      contact_initiated = rq_linear_search_urcap(str_cat(axis, "-"), lin_search_stop_force_threshold, speed, max_distance, feature)
+      if contact_initiated:
+        reverse_contact_pose = get_actual_tcp_pose()
+        # Go to average of contact points
+        pose_center_1 = interpolate_pose(forward_contact_pose, reverse_contact_pose, 0.5)
+        movel(pose_center_1, a=0.6, v=speed)
+      end
+    end
+    return contact_initiated
+  end
+  
+  def rq_insert_recenter_urcap(axis = "Z", max_distance = 0.1, speed = 0.005, feature = 1, lin_search_stop_force_threshold = 5):
+  
+    if (max_distance < 0) or (max_distance > 1):
+      popup("max_distance parameter in m must be between 0 and 1","ERROR rq_insert_recenter_urcap")
+      halt
+    elif (speed < 0.0001) or (speed > 0.5):
+      popup("max_radius parameter in mm must be between 0.0001m/s and 0.5m/s","ERROR rq_insert_recenter_urcap")
+      halt
+    end
+  
+    #--------------------------------------------------------------------------------------------------------------------
+    #For insertion in the X axis
+    #--------------------------------------------------------------------------------------------------------------------
+    if (axis == "X"):
+      recenter_axis_1 = "Y"
+      recenter_axis_2 = "Z"
+    #--------------------------------------------------------------------------------------------------------------------
+    #For insertion in the Y axis
+    #--------------------------------------------------------------------------------------------------------------------
+    elif (axis == "Y"):
+      recenter_axis_1 = "X"
+      recenter_axis_2 = "Z"
+    #--------------------------------------------------------------------------------------------------------------------
+    #For insertion in the Z axis
+    #--------------------------------------------------------------------------------------------------------------------
+    elif (axis == "Z"):
+      recenter_axis_1 = "X"
+      recenter_axis_2 = "Y"
+    end
+  
+    recenter_successfull = center_one_axis(recenter_axis_1, lin_search_stop_force_threshold, speed, max_distance, feature)
+    if recenter_successfull:
+      recenter_successfull = center_one_axis(recenter_axis_2, lin_search_stop_force_threshold, speed, max_distance, feature)
+    end
+  
+    if (recenter_successfull == False):
+      textmsg("rq_insert_recenter_urcap failed, could not initiate contact with piece")
+    end
+  
+    return recenter_successfull
+  end # rq_insert_recenter_urcap
+  
+  # ******************* MAIN of Insertion Preamble *******************
+  storevar.clearall()
+  global rq_insertion_force_node_id = -1
+  #************************************************
+  #Function:  rq_linear_search_urcap(direction="Z+", force[N] = 10, speed[m/s] = 0.004, max_distance[m] = 0.02)
+  #   Find a specific force in the direction of "direction".
+  #   Robot will move towards a max_distance from the current position in the tool frame
+  #   Return True if the force is detected during the robot motion
+  #
+  #************************************************
+  def rq_linear_search_urcap(direction="Z+", force_threshold = 10, speed = 0.004, max_distance = 0.02, feature = 0 ):
+  
+    if (max_distance > 2.0):
+      popup("maximum distance parameter in meters must be between 0 and 2.0","ERROR rq_linear_search_urcap")
+      halt
+    elif (speed < 0.0001) or (speed > 0.15):
+      popup("speed parameter in mm/s must be between 0.1 and 150","ERROR rq_linear_search_urcap")
+      halt
+    elif (force_threshold < 0.0) or (force_threshold > 200):
+      popup("Force parameter in Newtons must be between 0 and 200","ERROR rq_linear_search_urcap")
+      halt
+    elif (feature != 0) and (feature != 1):
+      popup("feature value should be 0 for base or 1 for tool","ERROR rq_linear_search_urcap")
+      halt
+    end
+  
+    feature_base = 0
+    feature_tool = 1
+    steptime = get_steptime()
+    force_index = 0
+  
+    axis = str_at(direction, 0)
+    sign = str_at(direction, 1)
+  
+    direction_sign = 1
+    if sign == "-":
+      direction_sign = -1
+      max_distance = max_distance * direction_sign
+    end
+  
+    pose_offset = p[0,0,0,0,0,0]
+    if (axis == "X") or (axis == "x"):
+      pose_offset = p[max_distance,0,0,0,0,0]
+      force_index = 0
+    elif (axis == "Y") or (axis == "y"):
+      pose_offset = p[0,max_distance,0,0,0,0]
+      force_index = 1
+    elif (axis == "Z") or (axis == "z"):
+      pose_offset = p[0,0,max_distance,0,0,0]
+      force_index = 2
+    else:
+      popup("direction parameter must be X+, X-, Y+, Y-, Z+ or Z-","ERROR rq_linear_search_urcap")
+      halt
+    end
+  
+    pose_from = get_actual_tcp_pose()
+    pose_to = pose_from
+    if feature == feature_base:
+      pose_to = pose_add(pose_from, pose_offset)
+    elif feature == feature_tool:
+      pose_to = pose_trans(pose_from, pose_offset)
+    end
+  
+    distance = point_dist(pose_from, pose_to)
+    number_pose_interpolate = floor(distance / (speed * steptime)) + 1
+    delta_alpha = 1.0 / number_pose_interpolate
+  
+    alpha = 0.0
+    local surface_found = False
+  
+    while (alpha <= 1.0) and (not surface_found):
+      alpha = alpha + delta_alpha
+      pose_interpolate = interpolate_pose(pose_from, pose_to, alpha)
+      servoj(get_inverse_kin(pose_interpolate), 0.1, 0.1, steptime, 0.05, 500)
+  
+      force = 0
+      if feature == feature_base:
+        force = get_applied_base_force(force_index)
+      elif feature == feature_tool:
+        force = get_applied_tcp_force(force_index)
+      end
+  
+      if (direction_sign * force) >= force_threshold:
+        surface_found = True
+      end
+    end
+  
+    return surface_found
+  
+  end
+  
+    ##############################################
+    # OFFSET FEATURE-RELATED VARIABLES AND METHODS
+    ##############################################
+    def cross_product(vector1,vector2):
+      v_temp=[0,0,0]
+      v_temp[0]=vector1[1]*vector2[2]-vector1[2]*vector2[1]
+      v_temp[1]=vector1[2]*vector2[0]-vector1[0]*vector2[2]
+      v_temp[2]=vector1[0]*vector2[1]-vector1[1]*vector2[0]
+      return v_temp
+    end
+  
+    def relocate_xyzr(init_feature, init_touch_pose, touch_pose):
+      init_touch_pose_2_init_feature = pose_trans( pose_inv(init_touch_pose), init_feature)
+      new_feature = pose_trans( touch_pose, init_touch_pose_2_init_feature )
+  
+      return new_feature
+    end
+  
+    def relocate_orientation(touch1_init_pose, touch2_init_pose, feature_init_pose, touch1_pose, touch2_pose):
+      #when relocating using 2 touch, the center of rotation is around touch point 1 (this could be changed)
+  
+      # initial touch2 pose in initial touch 1 pose frame:
+      touch2_initial_pose_in_touch1_initial_pose_frame = pose_trans(pose_inv(touch1_init_pose), touch2_init_pose)
+  
+      # find theoric touch2_pose if no rotation
+      touch2_pose_if_no_rotation = pose_trans(touch1_pose, touch2_initial_pose_in_touch1_initial_pose_frame)
+  
+      # vectors touch1 to touch2
+      touch1_pose_to_touch2_pose = pose_trans(pose_inv(touch1_pose), touch2_pose)
+      touch1_pose_to_touch2_pose_if_no_rotation = pose_trans(pose_inv(touch1_pose), touch2_pose_if_no_rotation)
+  
+      #angle axis calculation
+      normal_vector = cross_product(touch1_pose_to_touch2_pose_if_no_rotation, touch1_pose_to_touch2_pose)
+      normal_vector_norm = norm(normal_vector)
+      if (normal_vector_norm > 10e-6):
+        rotation_angle_rad = asin( normal_vector_norm / (norm(touch1_pose_to_touch2_pose_if_no_rotation) * norm(touch1_pose_to_touch2_pose) ) )
+        normal_vector_to_angle_axis_multiply_norm_factor = rotation_angle_rad / normal_vector_norm
+        angle_axis = [normal_vector[0] * normal_vector_to_angle_axis_multiply_norm_factor, normal_vector[1] * normal_vector_to_angle_axis_multiply_norm_factor, normal_vector[2] * normal_vector_to_angle_axis_multiply_norm_factor]
+        rotation_offset_pose = p[0, 0, 0, angle_axis[0], angle_axis[1], angle_axis[2]]
+  
+        #rotate touch1 pose using touch2 information
+        touch1_pose_rotated = pose_trans(touch1_pose, rotation_offset_pose)
+      else:
+        touch1_pose_rotated = touch1_pose
+      end
+  
+      # relocate the feature using touch1_rotated_pose
+      return relocate_xyzr(feature_init_pose, touch1_init_pose, touch1_pose_rotated)
+    end
+  
+    def relocate_1_touch(touch_init_pose, touch_pose, feature_init_pose, feature_actual_pose):
+      touch_initial_pose_in_initial_feature_frame = pose_trans(pose_inv(feature_init_pose), touch_init_pose)
+      touch_actual_pose_in_actual_feature_frame = pose_trans(pose_inv(feature_actual_pose), touch_pose)
+  
+      # difference between touch poses in their respective feature frame
+      touch_pose_offset = pose_sub(touch_actual_pose_in_actual_feature_frame, touch_initial_pose_in_initial_feature_frame)
+  
+      # remove all rotation from offset
+      touch_pose_offset[3] = 0
+      touch_pose_offset[4] = 0
+      touch_pose_offset[5] = 0
+  
+      # apply pose offset to actual feature
+      return pose_trans(feature_actual_pose, touch_pose_offset)
+    end
+    ##############################################
+    # PALLETIZER-RELATED VARIABLES AND METHODS
+    ##############################################
+    rq_total_box_count = 0
+    rq_current_box_count = 0
+    rq_pallet_one_current_box_count = 0
+    rq_pallet_two_current_box_count = 0
+    rq_pallet_one_current_box_count_updated = False
+    rq_pallet_two_current_box_count_updated = False
+    rq_is_pallet_program_started_once = False
+  
+    def rq_is_last_box_of_layer(box_id, end_of_layer_boxes):
+      number_of_layers = length(end_of_layer_boxes)
+      i = 0
+      while i < number_of_layers:
+        if box_id == end_of_layer_boxes[i]:
+          return True
+          break
+        end
+        i = i + 1
+      end
+      return False
+    end
+  
+    def rq_is_palletOne_activated(pallet_one_current_box_count, pallet_two_current_box_count, second_pallet_activated):
+      return ((pallet_one_current_box_count == 0) and (pallet_two_current_box_count == 0) and (not second_pallet_activated)) or (pallet_one_current_box_count > pallet_two_current_box_count)
+    end
+    global servojId = 2
+  rq_collision_detection_stop()
+  contactOffsetXmlRpcClient = rpc_factory("xmlrpc","http://localhost:33787")
+  palletizerXmlRpcClient = rpc_factory("xmlrpc","http://localhost:46441")
+  # end: URCap Installation Node
+  global Test_Gaz=  False  
+  global Test_Job=  False  
+  global Test_Ordre_Mar=  False  
+  global Valide_Gaz=  False  
+  global fin_soud=1
+  global secu_d=0
+  global secu_g=0
+  global timer_ret_gaz=0
+  global PointPassage_12_from_p=p[.100467652217, .319613478034, .576469894939, -.021360608037, -.012247574574, 1.541549107821]
+  global PointPassage_12_to_p=p[.100463256751, .319639243948, .576462031418, -.021419895058, -.012236338996, 1.541569421604]
+  global timer_ret_gaz_is_counting=False
+  thread Timer_Thread():
+    while (True):
+      if (timer_ret_gaz_is_counting):
+        timer_ret_gaz = timer_ret_gaz + get_steptime()
+      end
+      sync()
+    end
+  end
+  run Timer_Thread()
+  $ 2 "AvantDémarrage"
+  $ 3 "fonctions"
+  $ 4 "Init"
+  $ 5 "Script: adresse_bp.script"
+  #def fun_adresse_bp():
+  	adresse_bp_g = 2
+  	adresse_bp_d = 3
+  	adresse_bp_cobot = 8
+  	global secu = 0
+  	config_g = 0
+  	config_d = 0
+  	led_cobot = 0
+  	soudure_on = 0
+  
+  	if ((nb_soud_point_g >= 1) or (nb_soud_lin_g >= 1) or (nb_soud_arc_g >= 1) or (nb_soud_cer_g >= 1)):
+  		config_g = 1
+  	end
+  	if ((nb_soud_point_d >= 1) or (nb_soud_lin_d >= 1) or (nb_soud_arc_d >= 1) or (nb_soud_cer_d >= 1)):
+  		config_d = 1
+  	end
+  #end
+  $ 6 "Diverses"
+  $ 7 "Script: close_popup.script"
+  #fermeture popup
+  
+  def close_popup():
+  	closepop = "close popup"
+      	socket_send_string(closepop,"internal")
+      	socket_send_byte(10,"internal")
+      	socket_close()
+  
+  	closepop = "close popup"
+      	socket_send_string(closepop,"internal")
+      	socket_send_byte(10,"internal")
+      	socket_close()
+  	return(False)
+  end
+  $ 8 "Script: debut_soud.script"
+  def fun_debut_soudure():
+      Valide_Gaz = False
+      if  ((Test_Ordre_Mar == False) and (Test_Job == False)):
+          Arc_On = True
+          Test_Gaz = True
+      end
+  end
+  $ 9 "Script: fin_soudure.script"
+  def fin_soudure():
+          Arc_On = False
+          Test_Gaz = False
+          Test_Job = True
+          Test_Ordre_Mar = True
+  end
+  $ 10 "Script: fun_demande().script"
+  #demande nombre soudures par type (compris entre 0 et 6)
+  
+  def fun_demande(type):
+  	if (1==type):
+  		soudure = "point"					#si type = 1, la demande sera sur une soudure point
+  	elif (2==type):
+  		soudure = "lineaire"				#si type = 2, la demande sera sur une soudure linéaire
+  	elif (3==type):
+  		soudure = "arc de cercle"			#si type = 3, la demande sera sur une soudure arc de cercle
+  	elif (4==type):
+  		soudure = "cercle"					#si type = 4, la demande sera sur une soudure cercle
+  	else :
+  		return(False)
+  	end
+  
+  nb_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ?")			#la demande
+  	if (nb_soud >6):																									#si la reponse est superieur a 6
+  		popup1 = "popup le robot ne peut pas effectuer plus de 6 soudures "+ soudure + " sur la même pièce, réessayer."	#popup
+  		socket_open("127.0.0.1",29999,"internal") # open internal socket
+  
+  		socket_send_line(popup1,"internal")         #Affichage Popup
+  
+  		socket_send_byte(10,"internal")
+  		sleep(5.0)
+  		closepop = "close popup"					#fermer popup
+  		socket_send_string(closepop,"internal")
+  		socket_send_byte(10,"internal")
+  		socket_close()
+  
+  		while(nb_soud >6):
+  			nb_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ? (compris entre 0 et 6 ;)")	#on redemande tant que le nombre est superieur a 6
+  		end
+  end
+  return(nb_soud)        #on retourne le nombre de soudure à effectuer dans le type
+  end
+  $ 11 "Script: fun_demande_job.script"
+  #demande le job à utiliser (mode de soudure régler sur le poste à souder) (compris entre 0 et 3, pour 1 et 4 sur le poste a souder)
+  def fun_demande_job(type):
+  	if (1==type):
+  		soudure = "point"
+  	elif (2==type):
+  		soudure = "lineaire"
+  	elif (3==type):
+  		soudure = "arc de cercle"
+  	elif (4==type):
+  		soudure = "cercle"
+  	else :
+  		return(False)
+  	end
+  
+    job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+    #job = job-1 #adapter la saisie aux besoins du code
+  
+    while ((job!=4) and (job!=1) and (job!=2) and (job!=3)): #reboucler si mauvaise saisie
+  	  job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+        #job = job-1 #adapter la saisie aux besoins du code
+    end
+  
+  return(job)
+  end
+  $ 12 "Script: fun_demande_type_soudure.script"
+  #demande le type de soudure à enregistrer (entre 1 et 5)
+  def fun_demande_type_soudure():
+      sync()
+  	reponse = request_integer_from_primary_client("1->POINT     2->LINEAIRE    3->ARC    4->CERCLE  5->FIN")
+      sync()
+      if ((reponse == 0) or (reponse > 5)):
+          reponse = 5
+      end
+      sync()
+  return(reponse)
+  end
+  $ 13 "Script: fun_demande_vit.script"
+  #demande nombre soudures par type (compris entre 0 et 6)
+  def fun_demande_vit(type):
+  	if (1==type):
+  		soudure = "point"
+  	elif (2==type):
+  		soudure = "lineaire"
+  	elif (3==type):
+  		soudure = "arc de cercle"
+  	elif (4==type):
+  		soudure = "cercle"
+  	else :
+  		return(False)
+  	end
+  
+  vit_soud = request_float_from_primary_client("vitesse de la soudure "+ soudure + " ? (mm/s)")
+  	#if (vit_soud >6):
+  	#	popup1 = "popup le robot ne peut pas effectuer plus de 6 soudures "+ soudure + " sur la même pièce, réessayer."
+  	#	socket_open("127.0.0.1",29999,"internal") # open internal socket
+  
+  	#	socket_send_line(popup1,"internal")         #Affichage Popup
+  
+  	#	socket_send_byte(10,"internal")
+  	#	sleep(5.0)
+  	#	closepop = "close popup"
+  	#	socket_send_string(closepop,"internal")
+  	#	socket_send_byte(10,"internal")
+  	#	socket_close()
+  
+  	#	while(vit_soud >6):
+  	#		vit_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ? (compris entre 0 et 6 ;)")
+  	#	end
+  #end
+  return(vit_soud/1000)
+  end
+  $ 14 "Script: fun_front_down.script"
+  #attente front montant sur add_bp
+  
+  def fun_front_do(add_bp):
+  bp = get_digital_in(add_bp)
+      while not bp :
+          bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 1
+          #attente relachement bouton
+     end
+  
+      while bp :                              #dans la boucle tant que l'entrée add_bp est a 0
+          bp = get_digital_in(add_bp)
+          #attente
+      end
+  
+      #while not bp :
+             #bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 1
+       #end
+  
+      return(False)
+  end
+  $ 15 "Script: fun_front_up.script"
+  #attente front montant sur add_bp
+  
+  def fun_front_up(add_bp):
+  bp = get_digital_in(add_bp)
+      while bp :
+          bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 14
+          sync()
+          #attente relachement bouton
+      end
+      sync()
+      while not bp :                              #dans la boucle tant que l'entrée add_bp est a 0
+          bp = get_digital_in(add_bp)
+          sync()
+          #attente
+      end
+      sync()
+      return(False)
+  end
+  $ 16 "Script: fun_popup_soud().script"
+  #ouvre un pop-up "configuration soudure (type_soud) n°(num_soud): placer le robot (etape_soud) et valider la position. (bp_cobot)". fermeture popup a l'aide de close_popup()
+  #pour la definition de la fonction :
+      #etape :
+      #   1 : approche
+      #   2 : depart
+      #   3 : premier quart
+      #   4 : milieu
+      #   5 : trois-quart
+      #   6 : fin
+      #   7 : retrait
+  
+      #type :
+      #   1 : soudure point
+      #   2 : soudure lineaire
+      #   3 : soudure arc de cercle
+      #   4 : soudure cercle
+      #   5 : plus de soudure
+      #num : i, j, k ou l correspondant au numero de la soudure ( i pour type = 1, j pour type = 2, k pour type = 3, l pour type = 4)
+  
+  def fun_popup_soud(etape, type, num):
+      sync()
+      switch_1 = etape
+      switch_2 = type
+          ##############################################################################
+  
+      ####################### POPUP-approche #######################################
+  
+  ##############################################################################
+      #switch etape
+      if (1 == switch_1) : #point d'approche
+          etape_soud = " en APPROCHE"
+          #switch type
+          if (1 == switch_2) : #soudure point
+              type_soud = "point"
+  
+         elif (2 == switch_2) : #soudure lineaire
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+              type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+             type_soud = "cercle"
+  
+          else :
+              return (False)
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-debut ##########################################
+  
+  ##############################################################################
+  
+      elif (2 == switch_1): #point de soudure/debut
+          #switch type
+          if (1 == switch_2) : #soudure point
+             etape_soud = "sur le POINT"
+              type_soud = "point"
+  
+          elif (2 == switch_2): #soudure lineaire
+              etape_soud = "sur le DEBUT"
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+              etape_soud = "sur le DEBUT"
+              type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+              etape_soud = "sur le DEBUT"
+             type_soud = "cercle"
+  
+          else :
+              return (False)
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-quart ##########################################
+  
+  ##############################################################################
+  
+      elif (3 == switch_1): #point de quart
+          etape_soud = "sur 1er QUART"
+          #switch type
+          if (4 == switch_2) : #soudure cercle
+              type_soud = "cercle"
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-milieu ########################################
+  
+  #############################################################################
+  
+      elif (4 == switch_1): #point de milieu
+          etape_soud = "à la MOITIE"
+          #switch type
+          if (3 == switch_2) : #soudure arc de cercle
+              type_soud = "arc de cercle"
+          elif (4 == switch_2): #soudure arc de cercle
+              type_soud = "cercle"
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-trois_quart ####################################
+  
+  ##############################################################################
+  
+      elif (5 == switch_1): #point trois_quart
+          etape_soud = "sur le 3e QUART"
+          #switch type
+          if (4 == switch_2) : #soudure cercle
+              type_soud = "cercle"
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-fin ############################################
+  
+  ##############################################################################
+  
+      elif (6 == switch_1): #point de fin
+          etape_soud = "sur la FIN"
+          #switch type
+          if (2 == switch_2) : #soudure lineaire
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+              type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+              type_soud = "cercle"
+  
+          else :
+              return (False)
+          end
+  
+          ##############################################################################
+  
+      ####################### POPUP-retrait ########################################
+  
+  ##############################################################################
+  
+      elif (7 == switch_1): #point de retrait
+          etape_soud = "en RETRAIT"
+          #switch type
+          if (2 == switch_2) : #soudure lineaire
+              type_soud = "lineaire"
+  
+          elif (3 == switch_2) : #soudure arc de cerlce
+             type_soud = "arc de cercle"
+  
+          elif (4 == switch_2) : #soudure cercle
+             type_soud = "cercle"
+  
+          else :
+             return (False)
+          end
+  
+      else :
+          return(False)
+      end
+  
+          ##############################################################################
+  
+      ######################## affichage_POPUP #####################################
+  
+  ##############################################################################
+      sync()
+      num_soud = to_str(num)
+      popup1 = "popup Config. : " + type_soud + " n°" + num_soud + " : placer " + etape_soud + " & Valider"             #on ouvre un popup
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+      sync()
+  end
+  $ 17 "Script: fun_raz_d.script"
+  def fun_raz_d():
+      #taille des tableaux de positions = nombre de soudures maximum par type + 1 (car commence à enregistrer à l'index 1)
+      global tab_point_app_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_deb_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_ret_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_lin_app_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_deb_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_fin_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_ret_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_arc_app_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_deb_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_mil_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_fin_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_ret_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_cer_app_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_deb_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_quart_d =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_mil_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_tro_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_fin_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_ret_d =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+       #2 nouveaux tableaux modif V2.1 (longueur 40 si 4(type)*10(nb soudures max par type) ) -> mis 45 (permettre décalage + marge)
+      global tab_type_d = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      global tab_job_d  = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  
+      #vitesses de soudure
+      global tps_point_d = 0
+      global vit_arc_d = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_cer_d = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_lin_d = [0,0,0,0,0,0,0,0,0,0,0]
+  
+      global nb_soud_point_d  = 0
+      global nb_soud_lin_d    = 0
+      global nb_soud_arc_d    = 0
+      global nb_soud_cer_d    = 0
+  
+      global nbSoudure_glo_d  = 0
+  
+  end
+  $ 18 "Script: fun_raz_g.script"
+  def fun_raz_g():
+      #taille des tableaux de positions = nombre de soudures maximum par type + 1 (car commence à enregistrer à l'index 1)
+      global tab_point_app_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_deb_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_point_ret_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_lin_app_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_deb_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_fin_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_lin_ret_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_arc_app_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_deb_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_mil_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_fin_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_arc_ret_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+      global tab_cer_app_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_deb_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_quart_g =    [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_mil_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_tro_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_fin_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+      global tab_cer_ret_g =      [p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0], p[0,0,0,0,0,0]]
+  
+       #2 nouveaux tableaux modif V2.1 (longueur 40 si 4(type)*10(nb soudures max par type) ) -> mis 45 (permettre décalage + marge)
+      global tab_type_g = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      global tab_job_g  = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  
+      #vitesses de soudure
+      global tps_point_g = 0
+      global vit_arc_g = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_cer_g = [0,0,0,0,0,0,0,0,0,0,0]
+      global vit_lin_g = [0,0,0,0,0,0,0,0,0,0,0]
+  
+      global nb_soud_point_g  = 0
+      global nb_soud_lin_g    = 0
+      global nb_soud_arc_g    = 0
+      global nb_soud_cer_g    = 0
+  
+      global nbSoudure_glo_g  = 0
+  end
+  $ 19 "Demande"
+  $ 20 "Script: demande_d.script"
+  def fun_demande_d():
+  
+      close_popup()
+      nb_soud_point_d = fun_demande(1)
+      if (nb_soud_point_d > 0):
+              tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
+      end
+      nb_soud_lin_d = fun_demande(2)
+      nb_soud_arc_d = fun_demande(3)
+      nb_soud_cer_d = fun_demande(4)
+  
+  end
+  $ 21 "Script: demande_g.script"
+  def fun_demande_g():
+       close_popup()
+       nb_soud_point_g = fun_demande(1)
+       nb_soud_lin_g = fun_demande(2)
+       if nb_soud_lin_g > 0:
+            vit_lin_g = fun_demande_vit(2)
+       end
+       nb_soud_arc_g = fun_demande(3)
+       if nb_soud_arc_g > 0:
+            vit_arc_g = fun_demande_vit(3)
+       end
+       nb_soud_cer_g = fun_demande(4)
+       if nb_soud_arc_g > 0:
+            vit_cer_g = fun_demande_vit(4)
+       end
+  end
+  $ 22 "Configuration"
+  $ 23 "Script: config_d.script"
+  def fun_config_d():
+  
+     # teach_mode()
+  
+          ################### RAZ_des_tableaux ###########################################
+  
+      fun_raz_d()
+  
+              # Init des variables de traitement
+      local type = 0
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = 0
+      local ajout = False
+      close_popup()
+      type = fun_demande_type_soudure()
+      sync()
+      while (type != 5):
+          sync()
+          if (type == 1):
+              if (nb_soud_point_d <10):
+                  ajout = True
+                  fun_config_soudure_point(index_soudure_point,2) #  le ( ,2) indique la table de droite
+                  index_soudure_point = index_soudure_point +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type == 2):
+              if (nb_soud_lin_d <10):
+                  ajout = True
+                  fun_config_soudure_lineaire(index_soudure_lin,2)
+                  index_soudure_lin = index_soudure_lin +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type == 3):
+              if (nb_soud_arc_d <10):
+                  ajout = True
+                  fun_config_soudure_arc(index_soudure_arc,2)
+                  index_soudure_arc = index_soudure_arc +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type ==4):
+              if (nb_soud_cer_d <10):
+                  ajout = True
+                  fun_config_soudure_cercle(index_soudure_cer,2)
+                  index_soudure_cer = index_soudure_cer +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          end
+  
+          if (ajout == True):
+              tab_type_d[nbSoudures] = type
+              tab_job_d[nbSoudures] = fun_demande_job(type)
+              nbSoudures = nbSoudures +1
+          end
+  
+          sync()
+          type = fun_demande_type_soudure()
+      end
+    #  end_teach_mode()
+      global nbSoudure_glo_d = nbSoudures
+  end
+  
+  $ 24 "Script: config_g.script"
+  def fun_config_g():
+  
+   #  teach_mode()
+  
+  ######################## Initialisation #######################################
+  
+      fun_raz_g()
+  
+  
+              # Init des variables de traitement
+      local type = 0
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = 0
+      local ajout = False
+      close_popup()
+      type = fun_demande_type_soudure()
+      sync()
+      while (type != 5):
+          sync()
+          if (type == 1):
+              if (nb_soud_point_g <10):
+                  ajout = True
+                  fun_config_soudure_point(index_soudure_point,1) # ( ,1 indique la table de gauche)
+                  index_soudure_point = index_soudure_point +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type == 2):
+              if (nb_soud_lin_g <10):
+                  ajout = True
+                  fun_config_soudure_lineaire(index_soudure_lin,1)
+                  index_soudure_lin = index_soudure_lin +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type == 3):
+              if (nb_soud_arc_g <10):
+                  ajout = True
+                  fun_config_soudure_arc(index_soudure_arc,1)
+                  index_soudure_arc = index_soudure_arc +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+  
+          elif (type ==4):
+              if (nb_soud_cer_g <10):
+                  ajout = True
+                  fun_config_soudure_cercle(index_soudure_cer,1)
+                  index_soudure_cer = index_soudure_cer +1
+              else:
+                  ajout = False
+                  popUp_tropSoudures()
+              end
+          end
+  
+          if (ajout == True):
+              tab_type_g[nbSoudures] = type
+              tab_job_g[nbSoudures] = fun_demande_job(type)
+              nbSoudures = nbSoudures +1
+  
+          end
+  
+          sync()
+          type = fun_demande_type_soudure()
+      end
+  
+    # end_teach_mode()
+     global nbSoudure_glo_g = nbSoudures
+  end
+  $ 25 "Script: fun_config_soudure_arc.script"
+  def fun_config_soudure_arc(index,table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+          fun_popup_soud(1, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_app_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_deb_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau debut quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_mil_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_fin_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+  
+  
+          fun_popup_soud(7, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_ret_g[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          vit_arc_g[index] = fun_demande_vit(3)           #demande de vitesse des soudures lineaire
+  
+          nb_soud_arc_g = nb_soud_arc_g +1
+  
+      else: #sur la table de droite
+          fun_popup_soud(1, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_app_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_deb_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau debut quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_mil_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_fin_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+  
+          fun_popup_soud(7, 3, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_arc_ret_d[index] =  get_actual_tcp_pose() 	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          vit_arc_d[index] = fun_demande_vit(3)           #demande de vitesse des soudures lineaire
+  
+  
+          nb_soud_arc_d = nb_soud_arc_d +1
+      end
+  
+      sync()
+      end_teach_mode()
+  end
+  $ 26 "Script: fun_config_soudure_cercle.script"
+  def fun_config_soudure_cercle(index,table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+          fun_popup_soud(1, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_app_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_deb_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(3, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_quart_g[index] =  get_actual_tcp_pose()   	#Enregistrer position dans tableau d'approche des soudures arc de cercle quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_mil_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(5, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_tro_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_fin_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_ret_g[index] =  get_actual_tcp_pose()    	#position de retrait est la meme que position d approche
+          close_popup()
+  
+          vit_cer_g[index] = fun_demande_vit(4)
+  
+          nb_soud_cer_g= nb_soud_cer_g + 1
+      else: #sur la table de droite
+  
+          fun_popup_soud(1, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_app_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures arc de cercle quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_deb_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(3, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_quart_d[index] =  get_actual_tcp_pose()   	#Enregistrer position dans tableau d'approche des soudures arc de cercle quand appui Bp_d
+          close_popup()
+  
+          fun_popup_soud(4, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_mil_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(5, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_tro_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau milieu quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_fin_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 4, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_cer_ret_d[index] =  get_actual_tcp_pose()    	#position de retrait est la meme que position d approche
+          close_popup()
+  
+          vit_cer_d[index] = fun_demande_vit(4)
+  
+          nb_soud_cer_d = nb_soud_cer_d +1
+      end
+      sync()
+      end_teach_mode()
+  end
+  $ 27 "Script: fun_config_soudure_lineaire.script"
+  def fun_config_soudure_lineaire(index, table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+          fun_popup_soud(1, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_app_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures lineaire quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_deb_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_fin_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_ret_g[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          vit_lin_g[index] = fun_demande_vit(2)
+  
+          nb_soud_lin_g = nb_soud_lin_g +1
+  
+      else: #sur la table de droite
+  
+          fun_popup_soud(1, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_app_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau d approche des soudures lineaire quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(2, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_deb_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau debut quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(6, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_fin_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans un tableau fin quand appui Bp_cobot
+          close_popup()
+  
+          fun_popup_soud(7, 2, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_lin_ret_d[index] =  get_actual_tcp_pose()     	#Enregistrer position dans tableau retrait quand appui Bp_cobot
+          close_popup()
+  
+          vit_lin_d[index] = fun_demande_vit(2)
+  
+          nb_soud_lin_d = nb_soud_lin_d +1
+      end
+  
+      sync()
+      end_teach_mode()
+  
+  end
+  $ 28 "Script: fun_config_soudure_point.script"
+  def fun_config_soudure_point(index,table):
+      teach_mode()
+  
+      if(table == 1):  # sur la table de gauche
+  
+  
+          fun_popup_soud(1, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_app_g[index] =  get_actual_tcp_pose()   #Enregistrer position dans tableau d'approche des soudue points quand appui bouton
+          close_popup()
+  
+          fun_popup_soud(2, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_deb_g[index] =  get_actual_tcp_pose()   #Enregistrer position debut quand appui bouton bp_cobot
+          close_popup()
+  
+          tab_point_ret_g[index] = tab_point_app_g[index]         #point de retrait est le meme que le point d approche
+  
+          nb_soud_point_g = nb_soud_point_g +1
+  
+          if (nb_soud_point_g <= 1 ):
+              tps_point_g = request_float_from_primary_client("temps des soudures points ? (s)")
+          end
+  
+          sync()
+      else: #sur la table de droite
+  
+          fun_popup_soud(1, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_app_d[index] =  get_actual_tcp_pose()   #Enregistrer position dans tableau d'approche des soudue points quand appui bouton
+          close_popup()
+  
+          fun_popup_soud(2, 1, index)
+          fun_front_up(adresse_bp_cobot)
+          tab_point_deb_d[index] =  get_actual_tcp_pose()   #Enregistrer position debut quand appui bouton bp_cobot
+          close_popup()
+  
+          tab_point_ret_d[index] = tab_point_app_d[index]         #point de retrait est le meme que le point d approche
+  
+          nb_soud_point_d = nb_soud_point_d +1
+  
+          if (nb_soud_point_d <= 1 ):
+              tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
+          end
+  
+  
+          sync()
+      end
+  
+      sync()
+      end_teach_mode()
+  
+  end
+  $ 29 "Script: popUp_tropSoudures.script"
+  def popUp_tropSoudures():
+      close_popup()
+      popUp_tropSoudures = "Ajout impossible, deja 10 soudures de ce type"
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popUp_tropSoudures,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 30 "Script: valid_config_d.script"
+  
+  def fun_valid_config_d():
+      #on demande la validation de la configuration
+  
+      validation_d = request_boolean_from_primary_client("Valider la configuration de la table droite ? Cliquer sur non pour effacer les paramètres.")
+  
+          if(validation_d ==True):
+  
+              popup2 = "popup La programmation de la pièce droite est terminée."
+              socket_open("127.0.0.1",29999,"internal") # open internal socket
+              socket_send_line(popup2,"internal")     #Affichage message
+              socket_send_byte(10,"internal")
+          config_d = 1
+  
+          else:
+          nb_soud_point_d = 0
+          nb_soud_lin_d = 0
+          nb_soud_arc_d = 0
+          nb_soud_cer_d = 0
+          config_d = 0
+  
+          fun_raz_d()
+  
+          popup3 = "popup La programmation de la pièce droite a été effacée."
+          socket_open("127.0.0.1",29999,"internal") # open internal socket
+          socket_send_line(popup3,"internal")     #Affichage message
+          socket_send_byte(10,"internal")
+      end
+  end
+  $ 31 "Script: valid_config_g.script"
+  def fun_valid_config_g():
+  #on demande la validation de la configuration
+  
+      alidation_g = request_boolean_from_primary_client("Valider la programmation de la table gauche ? Cliquer sur non pour effacer les paramètres.")
+  
+      if(validation_g ==True):
+  
+          popup2 = "popup La programmation de la pièce gauche est terminée."
+          socket_open("127.0.0.1",29999,"internal") # open internal socket
+          socket_send_line(popup2,"internal")     #Affichage message
+          socket_send_byte(10,"internal")
+      config_g =1
+      else:
+  
+      nb_soud_point_g = 0
+      nb_soud_lin_g = 0
+      nb_soud_arc_g = 0
+      nb_soud_cer_g = 0
+      config_g = 0
+  
+      fun_raz_g()
+  
+  
+      popup3 = "popup La programmation de la pièce gauche a été effacée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  
+      end
+  end
+  $ 32 "Execution"
+  $ 33 "Script: execution_d.script"
+  def fun_execution_d():
+      ######################## INITIALISATION #########################################
+      #adressage
+      adresse_bp_cobot = 2                                    #adresse cobot bp_cobot
+      adresse_bp_d = 3                                        #adresse cobot bp_g
+  #VARIABLES CI DESSUS UTILES ?????
+  
+  
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cercle = 1
+  
+      close_popup()
+      #config popup
+      popup1 = "popup Table droite, éxécution..."
+      socket_open("127.0.0.1",29999,"internal")
+      socket_send_line(popup1,"internal")
+      socket_send_byte(10,"internal")
+  
+      fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée
+  
+      local nbSoudures = nbSoudure_glo_d
+      local soudureEnCours = 0 #soudure en cours
+      local job = 0
+      local typeSoudure = 0
+  
+      while (soudureEnCours<nbSoudures): #pour le moment début a 0 donc < (a voir si changement necessaire)
+          job = tab_job_d[soudureEnCours]
+          fun_commande_job(job)
+          typeSoudure = tab_type_d[soudureEnCours]
+  
+          #switch de tous les types avec appel aux fonctions correspondantes
+          if (typeSoudure == 1 ):
+              fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+              #fun_soudure_point(index_soudure_point)
+              index_soudure_point = index_soudure_point + 1
+          elif (typeSoudure == 2 ):
+              fun_soudure_lineaire(index_soudure_lin,2)
+              index_soudure_lin = index_soudure_lin + 1
+          elif (typeSoudure == 3 ):
+              fun_soudure_arc(index_soudure_arc,2)
+              index_soudure_arc = index_soudure_arc +1
+          elif (typeSoudure == 4 ):
+              fun_soudure_cercle(index_soudure_cercle,2)
+              index_soudure_cercle = index_soudure_cercle +1
+          else:
+          end
+          soudureEnCours = soudureEnCours +1
+          sync()
+      end
+          #movej(anti_poq_d_1, a=1.4,v=1.1,t=0,r=0.005)
+          #movej(anti_poq_d_2, a=1.4,v=1.1,t=0,r=0.005)
+          movej(Point_Attente_D, a=0.8,v=1.05,t=0,r=0.005)
+          movej(Point_init_D, a=0.8,v=1.05,t=0,r=0.005)
+          movej(Point_avt_initD, a=0.8,v=1.05,t=0,r=0.005)
+          movej(Point_init, a=0.8,v=1.05,t=0,r=0)
+  end
+  $ 34 "Script: execution_g.script"
+  def fun_execution_g():
+  ######################## INITIALISATION #######################################
+  
+  #adressage
+  adresse_bp_cobot = 2                                    #adresse cobot bp_cobot
+  adresse_bp_g = 2                                        #adresse cobot bp_g
+  #VARIABLES CI DESSUS UTILES ?????
+  
+  
+  local index_soudure_point = 1
+  local index_soudure_lin = 1
+  local index_soudure_arc = 1
+  local index_soudure_cercle = 1
+  
+  close_popup()
+  #config popup
+  #popup1 = "popup Table gauche, éxécution..."
+  #socket_open("127.0.0.1",29999,"internal")
+  #socket_send_line(popup1,"internal")
+  #socket_send_byte(10,"internal")
+  
+  #fun_deplacement_pose_inter(1)
+  
+  local nbSoudures = nbSoudure_glo_g
+  local soudureEnCours = 0 #soudure en cours
+  local job = 0
+  local typeSoudure = 0
+  
+  while (soudureEnCours<nbSoudures): #pour le moment début a 0 donc < (a voir si changement necessaire)
+      job = tab_job_g[soudureEnCours]
+      fun_commande_job(job)
+      typeSoudure = tab_type_g[soudureEnCours]
+  
+      #switch de tous les types avec appel aux fonctions correspondantes
+      if (typeSoudure == 1 ):
+          #fun_soudure_point(index_soudure_point)
+          fun_soudure_point(index_soudure_point,1) # ( , 1 pour signifier table de gauche )
+          index_soudure_point = index_soudure_point + 1
+      elif (typeSoudure == 2 ):
+          fun_soudure_lineaire(index_soudure_lin,1)
+          index_soudure_lin = index_soudure_lin + 1
+      elif (typeSoudure == 3 ):
+          fun_soudure_arc(index_soudure_arc,1)
+          index_soudure_arc = index_soudure_arc +1
+      elif (typeSoudure == 4 ):
+          fun_soudure_cercle(index_soudure_cercle,1)
+          index_soudure_cercle = index_soudure_cercle +1
+      else:
+      end
+      soudureEnCours = soudureEnCours +1
+      sync()
+  end
+      #movej(anti_Poq_g, a=1.4,v=1.1,t=0,r=0.005)
+      #movej(Point_init, a=1.4,v=1.1,t=0,r=0.005)
+  
+     # movej(Point_Attente_G, a=0.8,v=1.05,t=0,r=0.005)
+      #movej(Point_init_G, a=0.8,v=1.05,t=0,r=0.005)
+     # movej(Point_init, a=0.8,v=1.05,t=0,r=0)
+  
+  end
+  $ 35 "Script: fun_activer_soudure.script"
+  def fun_activer_soudure():
+      soudure_on = 1
+      sleep(tps_init_soud)
+      sync()
+  end
+  $ 36 "Script: fun_fin_soudure.script"
+  def fun_fin_soudure(table):
+  
+      soudure_on = 0
+      while(fin_soud == 0):
+      end
+      set_digital_out(table+4,False)                 #eteindre la lumiere pour dire que l'on soude plus
+  
+      #table +4 : les sorties numériques sont respectivements 5 table gauche & 6 table droite
+      #le décalage permet d'écrire directement au bon endroit
+      sync()
+  
+  end
+  $ 37 "Script: fun_commande_job.script"
+  #fonction ecriture des jobs vers rob3000
+  def fun_commande_job(int):
+  
+      if (int == 1):
+          set_digital_out(2,True)
+          set_digital_out(3,False)
+  
+  
+      elif(int == 2):
+          set_digital_out(2,False)
+          set_digital_out(3,True)
+  
+      elif(int == 3):
+          set_digital_out(2,True)
+          set_digital_out(3,True)
+  
+      elif(int == 4):
+          set_digital_out(2,False)
+          set_digital_out(3,False)
+  
+     # else:
+     #     set_digital_out(2,False)
+       #   set_digital_out(3,False)
+      end
+  end
+  $ 38 "Script: fun_deplacement_pose_inter.script"
+  def fun_deplacement_pose_inter(table):
+      a_fun = 0.2
+      v_fun = 1.1
+      r_fun= 0
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+        #  movej(pose_inter_g,a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+      else: #sinon table de droite
+       #   movej(pose_inter_d,a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+      end
+      sync()
+  end
+  $ 39 "Script: fun_soudure_arc.script"
+  def fun_soudure_arc(Index,table):
+      a_fun = 0.5
+      v_fun = 1.1
+      r_fun= 0.00
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+  
+          movej(tab_arc_app_g[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_arc_deb_g[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                        #appel de la fonction activer la soudure
+  
+          movec(tab_arc_mil_g[Index], tab_arc_fin_g[Index], a_fun,v=vit_arc_g[Index], r=0.002)
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_arc_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      else: #sinon table de droite
+  
+          movej(tab_arc_app_d[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_arc_deb_d[Index],a_fun,v=v_fun,t=t_fun,r =r_fun)
+  
+          fun_activer_soudure()                        #appel de la fonction activer la soudure
+  
+          movec(tab_arc_mil_d[Index], tab_arc_fin_d[Index], a_fun,v=vit_arc_d[Index], r=0.002)
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_arc_ret_d[Index],a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+      end
+      sync()
+  end
+  $ 40 "Script: fun_soudure_cercle.script"
+  def fun_soudure_cercle(Index,table):
+      a_fun = 0.5
+      v_fun = 1.1
+      r_fun= 0.0
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+          movej(tab_cer_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_cer_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                        #appel de la fonction activer la soudure
+  
+          movec(tab_cer_quart_g[Index], tab_cer_mil_g[Index], a=a_fun,v=vit_cer_g[Index], r=0.002)
+          movec(tab_cer_tro_g[Index], tab_cer_fin_g[Index], a=a_fun,v=vit_cer_g[Index], r=0.002)
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_cer_ret_g[Index],a=a_fun, v=v_fun, t=t_fun, r=r_fun)
+  
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      else: #sinon table de droite
+          movej(tab_cer_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_cer_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                       #appel de la fonction activer la soudure
+  
+          movec(tab_cer_quart_d[Index], tab_cer_mil_d[Index], a=a_fun,v=vit_cer_d[Index], r=0.002)
+          movec(tab_cer_tro_d[Index], tab_cer_fin_d[Index], a=a_fun, v=vit_cer_d[Index], r=0.002)
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_cer_ret_d[Index],a=a_fun, v=v_fun, t=t_fun, r=r_fun)
+  
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      end
+      sync()
+  end
+  $ 41 "Script: fun_soudure_lineaire.script"
+  def fun_soudure_lineaire(Index,table):
+      a_fun = 2
+      v_fun = 4
+      r_fun= 0.00
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+          movej(tab_lin_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_lin_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          movel(tab_lin_fin_g[Index],a=a_fun,v=vit_lin_g[Index],t=t_fun)
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_lin_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+  
+      else: #sinon table de droite
+  
+          movej(tab_lin_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_lin_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          movel(tab_lin_fin_d[Index],a=a_fun,v=vit_lin_d[Index],t=t_fun)
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_lin_ret_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+  
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      end
+      sync()
+  end
+  $ 42 "Script: fun_soudure_point.script"
+  def fun_soudure_point(Index,table):
+      a_fun = 0.5
+      v_fun = 1.1
+      r_fun= 0.00
+      t_fun = 0
+      if (table == 1): #si 1 -> Table de gauche
+          movej(tab_point_app_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+          set_digital_out(5,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_point_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          sleep(tps_point_g)                          #temps de soudure
+  
+          fun_fin_soudure(1)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_point_ret_g[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+          fun_deplacement_pose_inter(1)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      else: #sinon table de droite
+          movej(tab_point_app_d[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+          set_digital_out(6,True)                     #Allumer la lumiere pour dire que l'on soude
+          movej(tab_point_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r= r_fun)
+  
+          fun_activer_soudure()                         #appel de la fonction activer la soudure
+  
+          sleep(tps_point_d)                          #temps de soudure
+  
+          fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure
+  
+          movej(tab_point_ret_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
+          fun_deplacement_pose_inter(2)                     #appel de la fonction de déplacement en pose intermédiaire
+  
+      end
+      sync()
+  end
+  $ 43 "Pas_A_Pas"
+  $ 44 "Script: fun_ajouter_soudure.script"
+  def fun_ajouter_soudure(sens,soudureEnCours, index_soudure_point, index_soudure_lin,index_soudure_arc,index_soudure_cercle,table):
+      #pour le moment pas de vérif de trop de mouvements (doit etre inferiruer à 9par par type)
+  
+      if (table ==1):
+          nbSoudures = nbSoudure_glo_g
+      elif(table ==2):
+          nbSoudures = nbSoudure_glo_d
+      end
+      local nbDecalage = 0
+      local index = soudureEnCours
+      local typeSoudure = 0
+      local nb_soudure_type = 0
+      typeSoudure = fun_demande_type_soudure()
+  
+      if (typeSoudure == 1):
+        indexTypeSoudure = index_soudure_point
+        if (table ==1):
+            nb_soudure_type = nb_soud_point_g
+        elif(table ==2):
+            nb_soudure_type = nb_soud_point_d
+        end
+      elif (typeSoudure == 2):
+          indexTypeSoudure = index_soudure_lin
+          if (table ==1):
+              nb_soudure_type = nb_soud_lin_g
+          elif(table ==2):
+              nb_soudure_type = nb_soud_lin_d
+          end
+      elif(typeSoudure == 3):
+          indexTypeSoudure = index_soudure_arc
+          if (table ==1):
+              nb_soudure_type = nb_soud_arc_g
+          elif(table ==2):
+              nb_soudure_type = nb_soud_arc_d
+          end
+      elif(typeSoudure == 4):
+          indexTypeSoudure = index_soudure_cercle
+          if (table ==1):
+              nb_soudure_type = nb_soud_cer_g
+          elif(table ==2):
+              nb_soudure_type = nb_soud_cer_d
+          end
+      end
+  
+      if (sens == 2):  #AJOUTER AVANT
+  
+  
+          #pour les tableaux qui type & job
+          index_tab_typejob = nbSoudures -1
+          while(index_tab_typejob >= soudureEnCours ):
+              if (table ==1):
+                  tab_job_g[index_tab_typejob +1] = tab_job_g[index_tab_typejob]
+                  tab_type_g[index_tab_typejob +1] = tab_type_g[index_tab_typejob]
+              else:
+                  tab_job_d[index_tab_typejob +1] = tab_job_d[index_tab_typejob]
+                  tab_type_d[index_tab_typejob +1] = tab_type_d[index_tab_typejob]
+              end
+  
+              index_tab_typejob = index_tab_typejob - 1
+              sync()
+          end
+  
+          #pour les tableaux de positions
+          index_tab_pos = nb_soudure_type
+          while(index_tab_pos >= nb_soudure_type ):
+              fun_decaler_tableaux(index_tab_pos,typeSoudure,table)
+              index_tab_pos = index_tab_pos -1
+              sync()
+          end
+  
+          #maintenant enregistrer les infos à l'index : soudureEnCoursType
+  
+          fun_inserer_soudure(typeSoudure, indexTypeSoudure, table)
+          if (table ==1):
+              tab_type_g[soudureEnCours]= typeSoudure
+              tab_job_g[soudureEnCours] = fun_demande_job(typeSoudure)
+          elif(table ==2):
+              tab_type_d[soudureEnCours]= typeSoudure
+              tab_job_d[soudureEnCours] = fun_demande_job(typeSoudure)
+          end
+  
+  
+      elif (sens ==3): #AJOUTER APRES
+  
+         #pour les tableaux qui type & job
+         index_tab_typejob = nbSoudures
+         while(index_tab_typejob >= soudureEnCours ):
+              if (table ==1):
+                  tab_job_g[index_tab_typejob +1] = tab_job_g[index_tab_typejob]
+                  tab_type_g[index_tab_typejob +1] = tab_type_g[index_tab_typejob]
+              else:
+                  tab_job_d[index_tab_typejob +1] = tab_job_d[index_tab_typejob]
+                  tab_type_d[index_tab_typejob +1] = tab_type_d[index_tab_typejob]
+              end
+             index_tab_typejob = index_tab_typejob - 1
+             sync()
+         end
+  
+         #pour les tableaux de positions
+         index_tab_pos = nb_soudure_type
+         while(index_tab_pos >= nb_soudure_type ):
+             fun_decaler_tableaux(index_tab_pos,typeSoudure,table)
+             index_tab_pos = index_tab_pos -1
+             sync()
+         end
+  
+  
+         #maintenant enregistrer les infos à l'index : soudureEnCoursType
+         #incrémenter la soudureEnCours type
+         if (nb_soudure_type != 1): # dans le cas de la première l'incérement est deja a jour
+              nb_soudure_type = nb_soudure_type +1
+         end
+  
+         fun_inserer_soudure(typeSoudure, indexTypeSoudure, table)
+         if (table ==1):
+             tab_type_g[soudureEnCours+1]= typeSoudure
+             tab_job_g[soudureEnCours+1] = fun_demande_job(typeSoudure)
+         elif(table ==2):
+             tab_type_d[soudureEnCours+1]= typeSoudure
+             tab_job_d[soudureEnCours+1] = fun_demande_job(typeSoudure)
+         end
+  
+  
+      end
+  
+      sync()
+  
+      return typeSoudure
+      end
+  
+  $ 45 "Script: fun_decaler_tableau.script"
+  #type : 1=point 2=lineaire 3= arc de cercle 4=cercle
+  
+  #sens 2=avant 3=apres
+  
+  #table 1=gauche 2=droite
+  
+  def fun_decaler_tableaux( index_tab_pose,typeSoudure,table):
+  
+  
+  
+      if(table == 1): #table gauche
+  
+          if(typeSoudure ==1):
+              tab_point_app_g[index_tab_pose +1] = tab_point_app_g[index_tab_pose]
+              tab_point_deb_g[index_tab_pose +1] = tab_point_deb_g[index_tab_pose]
+              tab_point_ret_g[index_tab_pose +1] = tab_point_ret_g[index_tab_pose]
+          elif(typeSoudure == 2):
+              tab_lin_app_g[index_tab_pose +1]   = tab_lin_app_g[index_tab_pose]
+              tab_lin_deb_g[index_tab_pose +1]   = tab_lin_deb_g[index_tab_pose]
+              tab_lin_fin_g[index_tab_pose +1]   = tab_lin_fin_g[index_tab_pose]
+              tab_lin_ret_g[index_tab_pose +1]   = tab_lin_ret_g[index_tab_pose]
+              vit_lin_g[index_tab_pose +1]       = vit_lin_g[index_tab_pose]
+          elif(typeSoudure ==3):
+              tab_arc_app_g[index_tab_pose +1]   = tab_arc_app_g[index_tab_pose]
+              tab_arc_deb_g[index_tab_pose +1]   = tab_arc_deb_g[index_tab_pose]
+              tab_arc_mil_g[index_tab_pose +1]   = tab_arc_mil_g[index_tab_pose]
+              tab_arc_fin_g[index_tab_pose +1]   = tab_arc_fin_g[index_tab_pose]
+              tab_arc_ret_g[index_tab_pose +1]   = tab_arc_ret_g[index_tab_pose]
+              vit_arc_g[index_tab_pose +1]       = vit_arc_g[index_tab_pose]
+          elif(typeSoudure ==4):
+              tab_cer_app_g[index_tab_pose +1]   = tab_cer_app_g[index_tab_pose]
+              tab_cer_deb_g[index_tab_pose +1]   = tab_cer_deb_g[index_tab_pose]
+              tab_cer_quart_g[index_tab_pose +1] = tab_cer_quart_g[index_tab_pose]
+              tab_cer_mil_g[index_tab_pose +1]   = tab_cer_mil_g[index_tab_pose]
+              tab_cer_tro_g[index_tab_pose +1]   = tab_cer_tro_g[index_tab_pose]
+              tab_cer_fin_g[index_tab_pose +1]   = tab_cer_fin_g[index_tab_pose]
+              tab_cer_ret_g[index_tab_pose +1]   = tab_cer_ret_g[index_tab_pose]
+              vit_cer_g[index_tab_pose +1]       = vit_cer_g[index_tab_pose]
+          end
+  
+      elif(table == 2): #table droite
+  
+  
+          if(typeSoudure ==1):
+              tab_point_app_d[index_tab_pose +1] = tab_point_app_d[index_tab_pose]
+              tab_point_deb_d[index_tab_pose +1] = tab_point_deb_d[index_tab_pose]
+              tab_point_ret_d[index_tab_pose +1] = tab_point_ret_d[index_tab_pose]
+          elif(typeSoudure == 2):
+              tab_lin_app_d[index_tab_pose +1]   = tab_lin_app_d[index_tab_pose]
+              tab_lin_deb_d[index_tab_pose +1]   = tab_lin_deb_d[index_tab_pose]
+              tab_lin_fin_d[index_tab_pose +1]   = tab_lin_fin_d[index_tab_pose]
+              tab_lin_ret_d[index_tab_pose +1]   = tab_lin_ret_d[index_tab_pose]
+              vit_lin_d[index_tab_pose +1]       = vit_lin_d[index_tab_pose]
+          elif(typeSoudure ==3):
+              tab_arc_app_d[index_tab_pose +1]   = tab_arc_app_d[index_tab_pose]
+              tab_arc_deb_d[index_tab_pose +1]   = tab_arc_deb_d[index_tab_pose]
+              tab_arc_mil_d[index_tab_pose +1]   = tab_arc_mil_d[index_tab_pose]
+              tab_arc_fin_d[index_tab_pose +1]   = tab_arc_fin_d[index_tab_pose]
+              tab_arc_ret_d[index_tab_pose +1]   = tab_arc_ret_d[index_tab_pose]
+              vit_arc_d[index_tab_pose +1]       = vit_arc_d[index_tab_pose]
+          elif(typeSoudure ==4):
+              tab_cer_app_d[index_tab_pose +1]   = tab_cer_app_d[index_tab_pose]
+              tab_cer_deb_d[index_tab_pose +1]   = tab_cer_deb_d[index_tab_pose]
+              tab_cer_quart_d[index_tab_pose +1] = tab_cer_quart_d[index_tab_pose]
+              tab_cer_mil_d[index_tab_pose +1]   = tab_cer_mil_d[index_tab_pose]
+              tab_cer_tro_d[index_tab_pose +1]   = tab_cer_tro_d[index_tab_pose]
+              tab_cer_fin_d[index_tab_pose +1]   = tab_cer_fin_d[index_tab_pose]
+              tab_cer_ret_d[index_tab_pose +1]   = tab_cer_ret_d[index_tab_pose]
+              vit_cer_d[index_tab_pose +1]       = vit_cer_d[index_tab_pose]
+          end
+  
+  
+      end
+  
+  end
+  $ 46 "Script: fun_inserer_soudure.script"
+  def fun_inserer_soudure(type,index,table):
+      teach_mode()
+      #configurer une nouvelle soudure en fonction du type -> utiliser les fonction déjà développée
+      if (type == 1):
+          fun_config_soudure_point(index,table)
+      elif (type == 2):
+          fun_config_soudure_lineaire(index,table)
+      elif (type == 3):
+          fun_config_soudure_arc(index,table)
+      elif (type ==4):
+          fun_config_soudure_cercle(index,table)
+      end
+      end_teach_mode()
+      sync()
+  
+  end
+  $ 47 "Script: PasAPas_d.script"
+  #######################################-_-#############################################
+  def fun_Pas_A_Pas_d():
+  
+      global reglage_d = 0
+      global attente = False
+      global reconfig = 0
+      close_popup()
+  
+      fun_deplacement_pose_inter(2)
+  
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = nbSoudure_glo_d
+      local soudureEnCours = 0 #soudure en cours
+      local job = 0
+      local typeSoudure = 0
+      local TypeSoudureAjoutee = 0
+      local effectuerSoudure = False
+      local nouvelleSimulation = False
+  
+      while (soudureEnCours < nbSoudures):
+          job = tab_job_d[soudureEnCours]
+          fun_commande_job(job)
+  
+          typeSoudure = tab_type_d[soudureEnCours]
+          ###
+          # (1) PopUp demande simulation
+          ###
+          if (nouvelleSimulation == False):
+              effectuerSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,1) #appel de la fonction qui gère les PopUp
+          end
+  
+          if ((effectuerSoudure == True) or(nouvelleSimulation == True)):
+              ###
+              # (2) Simuler()
+              ###
+              nouvelleSimulation  = False
+              effectuerSoudure    = False
+  
+              #REALISATION DELA SOUDURE
+              fun_deplacement_pose_inter(2)
+              if (typeSoudure == 1 ):
+                  fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+              elif (typeSoudure == 2 ):
+                  fun_soudure_lineaire(index_soudure_lin,2)
+              elif (typeSoudure == 3 ):
+                  fun_soudure_arc(index_soudure_arc,2)
+              elif (typeSoudure == 4 ):
+                  fun_soudure_cercle(index_soudure_cer,2)
+              else:
+              end
+              #FIN DE LA REALISATION DE LA SOUDURE
+              sync()
+          end
+          ###
+          # (3)PopUp demande modification
+          ###
+          modifierSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,2) #appel de la fonction qui gère les PopUp
+  
+          if (modifierSoudure == True):
+              ###
+              # (4) Modifier()
+              ###
+              #fun_deplacement_pose_inter(2)
+              teach_mode()
+  
+              if (typeSoudure == 1 ):
+                  fun_config_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
+              elif (typeSoudure == 2 ):
+                  fun_config_soudure_lineaire(index_soudure_lin,2)
+              elif (typeSoudure == 3 ):
+                  fun_config_soudure_arc(index_soudure_arc,2)
+              elif (typeSoudure == 4 ):
+                  fun_config_soudure_cercle(index_soudure_cer,2)
+              else:
+              end
+              end_teach_mode()
+              sync()
+          end
+          # (5) PopUp demande ajout
+          ###
+          nouvelleSimulation = False
+          ajouterSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,3)
+          if ((ajouterSoudure == 2) or (ajouterSoudure == 3)):
+              ###
+              # (6) Ajouter()
+              ###
+              TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 2)
+  
+              if (TypeSoudureAjoutee != 5): #5 est le code retourné s'il n'y a pas d'ajout de soudure
+                  nbSoudures =  nbSoudures +1
+                  nbSoudure_glo_d = nbSoudures
+  
+  
+                  typeSoudure = tab_type_d[soudureEnCours]
+                  job = tab_job_d[soudureEnCours]
+  
+                  nouvelleSimulation = fun_PopUp_PaP(soudureEnCours,typeSoudure,4)
+  
+                  sync()
+              end
+              sync()
+          end
+  
+          if (nouvelleSimulation == True):
+              ###
+              #(2) refaire une simulation sur cette pièce
+              ###
+  
+              # pas d'incrément pour recommencer la boucle avec cette soudure
+              soudureEnCours = soudureEnCours
+          else:
+              soudureEnCours = soudureEnCours +1
+              if (typeSoudure == 1 )  :
+                  index_soudure_point =index_soudure_point +1
+              elif (typeSoudure == 2 ):
+                  index_soudure_lin = index_soudure_lin +1
+              elif (typeSoudure == 3 ):
+                  index_soudure_arc = index_soudure_arc +1
+              elif (typeSoudure == 4 ):
+                  index_soudure_cer = index_soudure_cer+ 1
+              else:
+              end
+  
+          end
+          sync()
+      end
+      sync()
+  end
+  
+  
+  
+  
+  
+  
+  
+  $ 48 "Script: PasAPas_g.script"
+  #######################################-_-#############################################
+  def fun_Pas_A_Pas_g():
+  
+      global reglage_d = 0
+      global attente = False
+      global reconfig = 0
+      close_popup()
+  
+      fun_deplacement_pose_inter(1)
+  
+      local index_soudure_point = 1
+      local index_soudure_lin = 1
+      local index_soudure_arc = 1
+      local index_soudure_cer = 1
+  
+      local nbSoudures = nbSoudure_glo_g
+      local soudureEnCours = 0 #soudure en cours
+      local job = 0
+      local typeSoudure = 0
+      local TypeSoudureAjoutee = 0
+      local effectuerSoudure = False
+      local nouvelleSimulation = False
+  
+      while (soudureEnCours < nbSoudures):
+          job = tab_job_g[soudureEnCours]
+          fun_commande_job(job)
+  
+          typeSoudure = tab_type_g[soudureEnCours]
+          ###
+          # (1) PopUp demande simulation
+          ###
+          if (nouvelleSimulation == False):
+              effectuerSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,1) #appel de la fonction qui gère les PopUp
+          end
+  
+          if ((effectuerSoudure == True) or(nouvelleSimulation == True)):
+              ###
+              # (2) Simuler()
+              ###
+              nouvelleSimulation  = False
+              effectuerSoudure    = False
+  
+              #REALISATION DELA SOUDURE
+              fun_deplacement_pose_inter(1)
+              if (typeSoudure == 1 ):
+                  fun_soudure_point(index_soudure_point,1) # ( , 2 pour signifier table de droite )
+              elif (typeSoudure == 2 ):
+                  fun_soudure_lineaire(index_soudure_lin,1)
+              elif (typeSoudure == 3 ):
+                  fun_soudure_arc(index_soudure_arc,1)
+              elif (typeSoudure == 4 ):
+                  fun_soudure_cercle(index_soudure_cer,1)
+              else:
+              end
+              #FIN DE LA REALISATION DE LA SOUDURE
+              sync()
+          end
+          ###
+          # (3)PopUp demande modification
+          ###
+          modifierSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,2) #appel de la fonction qui gère les PopUp
+  
+          if (modifierSoudure == True):
+              ###
+              # (4) Modifier()
+              ###
+              fun_deplacement_pose_inter(1)
+              #teach_mode()
+  
+              if (typeSoudure == 1 ):
+                  fun_config_soudure_point(index_soudure_point,1) # ( , 2 pour signifier table de droite )
+              elif (typeSoudure == 2 ):
+                  fun_config_soudure_lineaire(index_soudure_lin,1)
+              elif (typeSoudure == 3 ):
+                  fun_config_soudure_arc(index_soudure_arc,1)
+              elif (typeSoudure == 4 ):
+                  fun_config_soudure_cercle(index_soudure_cer,1)
+              else:
+              end
+             # end_teach_mode()
+              sync()
+          end
+          # (5) PopUp demande ajout
+          ###
+          nouvelleSimulation = False
+          ajouterSoudure = fun_PopUp_PaP(soudureEnCours,typeSoudure,3)
+          if ((ajouterSoudure == 2) or (ajouterSoudure == 3)):
+              ###
+              # (6) Ajouter()
+              ###
+              TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 1)
+  
+              if (TypeSoudureAjoutee != 5): #5 est le code retourné s'il n'y a pas d'ajout de soudure
+                  nbSoudures =  nbSoudures +1
+                  nbSoudure_glo_g = nbSoudures
+  
+  
+                  typeSoudure = tab_type_g[soudureEnCours]
+                  job = tab_job_g[soudureEnCours]
+  
+                  nouvelleSimulation = fun_PopUp_PaP(soudureEnCours,typeSoudure,4)
+  
+              sync()
+          end
+              sync()
+          end
+  
+          if (nouvelleSimulation == True):
+              ###
+              #(2) refaire une simulation sur cette pièce
+              ###
+  
+              # pas d'incrément pour recommencer la boucle avec cette soudure
+              soudureEnCours = soudureEnCours
+          else:
+          soudureEnCours = soudureEnCours +1
+              if (typeSoudure == 1 )  :
+                  index_soudure_point =index_soudure_point +1
+              elif (typeSoudure == 2 ):
+                  index_soudure_lin = index_soudure_lin +1
+              elif (typeSoudure == 3 ):
+                  index_soudure_arc = index_soudure_arc +1
+              elif (typeSoudure == 4 ):
+                  index_soudure_cer = index_soudure_cer+ 1
+              else:
+              end
+  
+          end
+          sync()
+      end
+      sync()
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  $ 49 "PopUps"
+  $ 50 "Configuration"
+  $ 51 "Script: popup_config.script"
+  
+  def pop_up_config():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Aucune table de configurée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 52 "Script: popup_config_d.script"
+  def pop_up_config_d():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Table droite configurée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 53 "Script: popup_config_g.script"
+  def pop_up_config_g():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Table droite configurée."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 54 "Script: popup_config_g_et_d.script"
+  def pop_up_config_g_et_d():
+      close_popup()
+      popup3 = "popup CONFIGURATION : Les deux tables sont configurées."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 55 "Execution"
+  $ 56 "Script: popup_deb_exe_d.script"
+  def pop_up_deb_exe_d():
+      close_popup()
+      popup3 = "popup Table droite, éxecution... Veillez à bien fermer la porte."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 57 "Script: popup_deb_exe_g.script"
+  def pop_up_deb_exe_g():
+      close_popup()
+      popup3 = "popup Table gauche, éxecution... Veillez à bien fermer la porte."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 58 "Script: popup_exe.script"
+  def pop_up_exe():
+      close_popup()
+      popup1 ="popup EXECUTION : Les deux tables sont prêtes à l'éxécution" #"popup Appuyer sur le bouton gauche ou droit pour commencer l'éxécution de la pièce sur la table associée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 59 "Script: popup_exe_d.script"
+  def pop_up_exe_d():
+      close_popup()
+      popup1 = "popup EXECUTION : Table droite prête à éxécution"#"popup Appuyer sur le bouton droit pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 60 "Script: popup_exe_g.script"
+  def pop_up_exe_g():
+      close_popup()
+      popup1 = "popup EXECUTION : Table gauche prête à éxécution"#"popup Appuyer sur le bouton gauche pour commencer l'éxécution de la pièce configurée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 61 "Script: popup_fermer_porte.script"
+  def pop_up_fermer_porte():
+      close_popup()
+      popup3 = "popup Fermer la porte pour éxecution."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 62 "Pas_A_Pas"
+  $ 63 "Script: fun_PopUp_PaP.script"
+  def fun_PopUp_PaP(index,type,numPopUP):
+      index = index +1
+      char_numeroDeSoudure = to_str(index)
+  
+      local resultat = False
+      local resultat2  = 0
+  
+      if (type == 1):
+  		char_soudure = "point"					#si type = 1, la demande sera sur une soudure point
+  	elif (type == 2):
+  		char_soudure = "lineaire"				#si type = 2, la demande sera sur une soudure linéaire
+  	elif (type == 3):
+  		char_soudure = "arc de cercle"			#si type = 3, la demande sera sur une soudure arc de cercle
+  	elif (type == 4):
+  		char_soudure = "cercle"					#si type = 4, la demande sera sur une soudure cercle
+  	else :
+  		char_soudure = "erreur de saisie"
+  	end
+  
+      if (numPopUP == 1):
+          resultat  = request_boolean_from_primary_client("Soudure numero : " + char_numeroDeSoudure + ", de type : "+ char_soudure + ". Voulez vous effectuer la soudure ?(securité desactivée) Appuyer sur non pour passer à la soudure suivante. ")
+          return resultat
+      elif (numPopUP ==2 ):
+          resultat = request_boolean_from_primary_client("Voulez vous modifier la soudure numéro :" + char_numeroDeSoudure + " ? Appuyez sur non pour continuer")
+          return resultat
+      elif (numPopUP ==3 ):
+          resultat2 = request_integer_from_primary_client("       1-> Point SUIVANT                     Ajouter :    2-> AVANT      3-> APRES")
+          return resultat2
+      elif (numPopUP ==4 ):
+           esultat = request_boolean_from_primary_client("Voulez vous refaire une simulation? Appuyez sur non pour continuer.")
+          return resultat
+      end
+  
+  
+  end
+  $ 64 "Script: popup_reg.script"
+  def pop_up_reg():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Aucune table n'est programmée"#"popup Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée. La gestion des modes configuration, éxécution et reglage se fait à l'aide des commutateurs superieurs."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 65 "Script: popup_reg_d.script"
+  def pop_up_reg_d():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Table droite programmée"#"popup La table droite est programmée. Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée. La gestion des modes programmation, éxécution et reglage se fait à l'aide des commutateurs superieurs."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 66 "Script: popup_reg_g.script"
+  def pop_up_reg_g():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Table gauche programmée"#"popup La table gauche est programmée. Appuyer sur le bouton gauche ou droite pour commencer mode pas a pas et le reglage d'une pièce sur la table associée. La gestion des modes programmation, éxécution et reglage se fait à l'aide des commutateurs superieurs."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 67 "Script: popup_reg_gd.script"
+  def pop_up_reg_gd():
+      close_popup()
+      popup3 = "popup PAS_A_PAS : Les deux tables sont programmées"#"popup Les deux tables sont programmées. Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée ou passez en mode éxécution à l'aide du commutateur superieur gauche pour effectuer un ou plusieurs cycle(s) de soudure(s)."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup3,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
+  $ 334 "Thread_1"
+  thread Thread_1():
+    while (True):
+      $ 335 "Test_Ordre_Marche"
+      $ 336 "Si Test_Ordre_Mar≟ True "
+      if (Test_Ordre_Mar ==   True  ):
+        $ 337 "Si config_d ≟ 1  or  config_g ≟ 1"
+        if (config_d  ==  1   or   config_g  ==  1):
+          $ 338 "Régler Ordre_Marche=On"
+          set_standard_digital_out(0, True)
+          $ 339 "Attendre: 0.5"
+          sleep(0.5)
+          $ 340 "Si Reponse_Ordre≟ False "
+          if (get_standard_digital_in(4) ==   False  ):
+            $ 341 "'Si aucune reponse n'a etait recue, arret du programme'"
+            # 'Si aucune reponse n'a etait recue, arret du programme'
+            $ 342 "close_popup()"
+            close_popup()
+            $ 343 "Pop-up: Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) "
+            popup("Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) ", "Erreur", False, True, blocking=False)
+            halt
+          end
+          $ 344 "Test_Ordre_Mar≔ False "
+          global Test_Ordre_Mar=  False  
+          $ 345 "sync()"
+          sync()
+        end
+      end
+      $ 346 "Erreur ordre marche pendant utilisation"
+      $ 347 "Si Arc_On≟ True   and Reponse_Arc≟ True  and Reponse_Ordre≟ False "
+      if (get_standard_digital_out(1) ==   True     and  get_standard_digital_in(5) ==   True    and  get_standard_digital_in(4) ==   False  ):
+        $ 348 "'Test pour savoir si ordre marche a ete coupe pendant utilisation'"
+        # 'Test pour savoir si ordre marche a ete coupe pendant utilisation'
+        $ 349 "close_popup()"
+        close_popup()
+        $ 350 "Pop-up: Defaut : Mise sous puissance coupee pendant la trajectoire"
+        popup("Defaut : Mise sous puissance coupee pendant la trajectoire", "Erreur", False, True, blocking=False)
+        halt
+      end
+      $ 351 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_1 = run Thread_1()
+  $ 352 "Thread_2"
+  thread Thread_2():
+    while (True):
+      $ 353 "mode_soudure"
+      $ 354 "Si Mode_soudure ≟  True "
+      if (get_configurable_digital_in(3)  ==    True  ):
+        $ 355 "Si Mode_soudure≟ True  and soudure_on ≟ True "
+        if (get_configurable_digital_in(3) ==   True    and  soudure_on  ==   True  ):
+          $ 356 "fin_soud≔0"
+          global fin_soud=0
+          $ 357 "Test_Ordre_Mar≔ True "
+          global Test_Ordre_Mar=  True  
+          $ 358 "Test_Job≔ True "
+          global Test_Job=  True  
+          $ 359 "Attendre Test_Ordre_Mar≟ False "
+          while (not(Test_Ordre_Mar ==   False  )):
+            sync()
+          end
+          $ 360 "Attendre Test_Job≟ False "
+          while (not(Test_Job ==   False  )):
+            sync()
+          end
+          $ 361 "Régler Arc_On=On"
+          set_standard_digital_out(1, True)
+          $ 362 "Test_Gaz≔ True "
+          global Test_Gaz=  True  
+          $ 363 "'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'"
+          # 'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'
+          $ 364 "Attendre Valide_Gaz≟ True "
+          while (not(Valide_Gaz ==   True  )):
+            sync()
+          end
+          $ 365 "'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'"
+          # 'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'
+        else:
+          $ 366 "SinonSi Mode_soudure ≟ True  and soudure_on ≟ False "
+          if (get_configurable_digital_in(3)  ==   True    and  soudure_on  ==   False  ):
+            $ 367 "'Attente post debit gaz'"
+            # 'Attente post debit gaz'
+            $ 368 "Régler Arc_On=Off"
+            set_standard_digital_out(1, False)
+            $ 369 "Test_Gaz≔ False "
+            global Test_Gaz=  False  
+            $ 370 "Boucle Reponse_Arc ≟ 1"
+            while (get_standard_digital_in(5)  ==  1):
+              $ 371 "fin_soud≔0"
+              global fin_soud=0
+              $ 372 "sync()"
+              sync()
+            end
+            $ 373 "fin_soud≔1"
+            global fin_soud=1
+          end
+        end
+      end
+      $ 374 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_2 = run Thread_2()
+  $ 375 "Thread_3"
+  thread Thread_3():
+    while (True):
+      $ 376 "led_cobot_2"
+      $ 377 "Si led_cobot ≟ True "
+      if (led_cobot  ==   True  ):
+        $ 378 "Si valider_bp_co ≟ True "
+        if (get_tool_digital_in(0)  ==   True  ):
+          $ 379 "Régler TO[1]=On"
+          set_tool_digital_out(1, True)
+          $ 380 "Attendre: 0.25"
+          sleep(0.25)
+          $ 381 "Régler TO[1]=Off"
+          set_tool_digital_out(1, False)
+          $ 382 "Attendre: 0.25"
+          sleep(0.25)
+          $ 383 "Régler TO[1]=On"
+          set_tool_digital_out(1, True)
+          $ 384 "Attendre: 0.25"
+          sleep(0.25)
+          $ 385 "Régler TO[1]=Off"
+          set_tool_digital_out(1, False)
+          $ 386 "Attendre: 0.25"
+          sleep(0.25)
+          $ 387 "Régler TO[1]=On"
+          set_tool_digital_out(1, True)
+          $ 388 "Attendre: 0.25"
+          sleep(0.25)
+          $ 389 "Régler TO[1]=Off"
+          set_tool_digital_out(1, False)
+          $ 390 "Attendre: 0.25"
+          sleep(0.25)
+          $ 391 "sync()"
+          sync()
+        end
+        $ 392 "sync()"
+        sync()
+      end
+      $ 393 "sync()"
+      sync()
+      $ 394 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_3 = run Thread_3()
+  $ 395 "Thread_4"
+  thread Thread_4():
+    while (True):
+      $ 396 "led_cobot"
+      $ 397 "Si led_cobot ≟ True "
+      if (led_cobot  ==   True  ):
+        $ 398 "Boucle led_cobot ≟  True "
+        while (led_cobot  ==    True  ):
+          $ 399 "Régler TO[0]=On"
+          set_tool_digital_out(0, True)
+          $ 400 "Attendre: 0.5"
+          sleep(0.5)
+          $ 401 "Régler TO[0]=Off"
+          set_tool_digital_out(0, False)
+          $ 402 "Attendre: 0.5"
+          sleep(0.5)
+          $ 403 "sync()"
+          sync()
+        end
+        $ 404 "sync()"
+        sync()
+      else:
+        $ 405 "Sinon" "noBreak"
+        $ 406 "Régler TO[0]=Off"
+        set_tool_digital_out(0, False)
+        $ 407 "Régler TO[1]=Off"
+        set_tool_digital_out(1, False)
+      end
+      $ 408 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_4 = run Thread_4()
+  $ 409 "Thread_5"
+  thread Thread_5():
+    while (True):
+      $ 410 "Test_Arc_On"
+      $ 411 "Erreur gaz pendant utilisation"
+      $ 412 "Timer_gaz"
+      $ 413 "Si Test_Gaz≟ True "
+      if (Test_Gaz ==   True  ):
+        $ 414 "Attendre: 1.0"
+        sleep(1.0)
+        $ 415 "Boucle Reponse_Arc≟ False  and Arc_On≟ True "
+        thread Thread_while_415():
+          while (True):
+            $ 416 "'La boucle permet d'activer le timer et tester deux condition pour les Defaults'"
+            # 'La boucle permet d'activer le timer et tester deux condition pour les Defaults'
+            $ 417 "timer_ret_gaz: Démarrer"
+            timer_ret_gaz_is_counting = True
+            $ 418 "Si timer_ret_gaz>0.5"
+            global thread_flag_418=0
+            thread Thread_if_418():
+              $ 419 "'Le timer permet de realiser une attente '"
+              # 'Le timer permet de realiser une attente '
+              $ 420 "close_popup()"
+              close_popup()
+              $ 421 "Pop-up: Defaut : Pas de retour flux, stabilisation gaz"
+              popup("Defaut : Pas de retour flux, stabilisation gaz", "Erreur", False, True, blocking=False)
+              halt
+              thread_flag_418 = 1
+            end
+            if (timer_ret_gaz>0.5):
+              global thread_handler_418=run Thread_if_418()
+              while (thread_flag_418 == 0):
+                if not(timer_ret_gaz>0.5):
+                  kill thread_handler_418
+                  thread_flag_418 = 2
+                else:
+                  sync()
+                end
+              end
+            else:
+              thread_flag_418 = 2
+            end
+            if (thread_flag_418 == 2):
+              $ 422 "SinonSi Reponse_Ordre≟ False "
+              if (get_standard_digital_in(4) ==   False  ):
+                $ 423 "'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'"
+                # 'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'
+                $ 424 "close_popup()"
+                close_popup()
+                $ 425 "Pop-up: Defaut : Perte retour de signal, mise sous puissance generateur"
+                popup("Defaut : Perte retour de signal, mise sous puissance generateur", "Erreur", False, True, blocking=False)
+                halt
+              end
+            end
+          end
+        end
+        if (get_standard_digital_in(5) ==   False    and  get_standard_digital_out(1) ==   True  ):
+          global thread_handler_415=run Thread_while_415()
+          while (get_standard_digital_in(5) ==   False    and  get_standard_digital_out(1) ==   True  ):
+            sync()
+          end
+          kill thread_handler_415
+        end
+        $ 426 "Valide_Gaz≔ True "
+        global Valide_Gaz=  True  
+        $ 427 "timer_ret_gaz: Réinitialiser"
+        timer_ret_gaz = 0
+      end
+      $ 428 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_5 = run Thread_5()
+  $ 429 "Thread_6"
+  thread Thread_6():
+    while (True):
+      $ 430 "Test_Job"
+      $ 431 "Si Test_Job≟ True "
+      if (Test_Job ==   True  ):
+        $ 435 "Test_Job≔ False "
+        global Test_Job=  False  
+      end
+      $ 436 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_6 = run Thread_6()
+  $ 437 "Thread_7"
+  thread Thread_7():
+    while (True):
+      $ 438 "secu"
+      $ 439 "Si SecuGaucheOk ≟  False  and secu_g ≟ 1"
+      if (get_configurable_digital_in(4)  ==    False    and  secu_g  ==  1):
+        $ 440 "close_popup()"
+        close_popup()
+        $ 441 "Pop-up: ATTENTION : Defaut carter !"
+        popup("ATTENTION : Defaut carter !", "Erreur", False, True, blocking=False)
+        halt
+      else:
+        $ 442 "SinonSi SecuDroiteOk ≟ False  and secu_d ≟ 1"
+        if (get_configurable_digital_in(5)  ==   False    and  secu_d  ==  1):
+          $ 443 "close_popup()"
+          close_popup()
+          $ 444 "Pop-up: ATTENTION : Defaut carter !"
+          popup("ATTENTION : Defaut carter !", "Erreur", False, True, blocking=False)
+          halt
+        end
+      end
+      $ 445 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_7 = run Thread_7()
+  $ 446 "Thread_8"
+  thread Thread_8():
+    while (True):
+      $ 447 "bloq_soud_arret"
+      $ 448 "Si Mode_soudure≟ False  and Test_Gaz ≟ True "
+      if (get_configurable_digital_in(3) ==   False    and  Test_Gaz  ==   True  ):
+        $ 449 "close_popup()"
+        close_popup()
+        $ 450 "Pop-up: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation."
+        popup("Defaut : L'ordre de soudure a ete coupe pendant l'utilisation.", "Erreur", False, True, blocking=False)
+        halt
+      end
+      $ 457 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_8 = run Thread_8()
+  $ 468 "Thread_10"
+  thread Thread_10():
+    while (True):
+      $ 469 "reglage"
+      $ 470 "Si safe_mode ≟ 1  and Mode_manu ≟  True "
+      if (safe_mode  ==  1   and  get_configurable_digital_in(7)  ==    True  ):
+        $ 471 "close_popup()"
+        close_popup()
+        $ 472 "Pop-up: STOP !!!!"
+        popup("STOP !!!!", "Erreur", False, True, blocking=False)
+        halt
+      end
+      $ 473 "sync()"
+      sync()
+      $ 474 "sync()"
+      sync()
+    end
+  end
+  threadId_Thread_10 = run Thread_10()
+  while (True):
+    $ 68 "Programme de robot"
+    $ 87 "safe_mode≔0"
+    global safe_mode=0
+    $ 88 "Deplacement vers position initial"
+    $ 90 "Régler Cmd_Carter_Bit1=Off"
+    set_configurable_digital_out(0, False)
+    $ 91 "Régler Cmd_Carter_Bit2=Off"
+    set_configurable_digital_out(1, False)
+    $ 92 "Boucle SecuGaucheOk≟ True  or SecuDroiteOk≟ True "
+    while (get_configurable_digital_in(4) ==   True    or  get_configurable_digital_in(5) ==   True  ):
+      $ 93 "sync()"
+      sync()
+      $ 94 "'clingottement pour signifier qu'il y  un defaut sur un des carters '"
+      # 'clingottement pour signifier qu'il y  un defaut sur un des carters '
+      $ 95 "Régler Dcy_Voyant=Off"
+      set_standard_digital_out(4, False)
+      $ 96 "Régler Led_Arret=Off"
+      set_configurable_digital_out(6, False)
+      $ 97 "Attendre: 0.5"
+      sleep(0.5)
+      $ 98 "Régler Dcy_Voyant=On"
+      set_standard_digital_out(4, True)
+      $ 99 "Régler Led_Arret=On"
+      set_configurable_digital_out(6, True)
+      $ 100 "Attendre: 0.5"
+      sleep(0.5)
+    end
+    $ 101 "Régler Led_Arret=Off"
+    set_configurable_digital_out(6, False)
+    $ 102 "Régler Dcy_Voyant=Off"
+    set_standard_digital_out(4, False)
+    $ 103 "Attendre: 2.0"
+    sleep(2.0)
+    $ 104 "'etre sur de l'ouverture complete du carter '"
+    # 'etre sur de l'ouverture complete du carter '
+    $ 105 "DéplacementL"
+    $ 106 "PointPassage_12" "breakAfter"
+    movel(pose_add(get_target_tcp_pose(), pose_sub(PointPassage_12_to_p, PointPassage_12_from_p)), a=0.01, v=2.0E-4)
+    $ 107 "'Pos_cobot a etait affectuer a la position init (l3)'"
+    # 'Pos_cobot a etait affectuer a la position init (l3)'
+    $ 108 "'Pos_cobot[2] correspond a la valeur Z de la postion init (l4)'"
+    # 'Pos_cobot[2] correspond a la valeur Z de la postion init (l4)'
+    $ 113 "angle_base≔get_actual_joint_positions()"
+    global angle_base= get_actual_joint_positions ()
+    $ 114 "Si angle_base[0] ≤0.7"
+    if (angle_base[0]  <= 0.7):
+      $ 115 "Si angle_base[0]≥1.6"
+      if (angle_base[0] >= 1.6):
+        $ 116 "Départ"
+        movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+      else:
+        $ 117 "SinonSi angle_base[0]>1.6"
+        if (angle_base[0]>1.6):
+          $ 118 "DéplacementA"
+          $ 119 "Point_init_D" "breakAfter"
+          movej(Point_init_D, a=1.3962634015954636, v=1.7453292519943295)
+          $ 120 "Point_avt_initD" "breakAfter"
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.7453292519943295)
+        else:
+          $ 121 "SinonSi angle_base[0]<0.7"
+          if (angle_base[0]<0.7):
+            $ 122 "DéplacementA"
+            $ 123 "Point_init_G" "breakAfter"
+            movej(Point_init_G, a=1.3962634015954636, v=1.7453292519943295)
+          end
+        end
+      end
+    else:
+      $ 124 "SinonSi angle_base[0]>1.6"
+      if (angle_base[0]>1.6):
+        $ 125 "DéplacementA"
+        $ 126 "Point_init_D" "breakAfter"
+        movej(Point_init_D, a=1.3962634015954636, v=1.7453292519943295)
+        $ 127 "Point_avt_initD" "breakAfter"
+        movej(Point_avt_initD, a=1.3962634015954636, v=1.7453292519943295)
+      else:
+        $ 128 "SinonSi angle_base[0]<0.7"
+        if (angle_base[0]<0.7):
+          $ 129 "DéplacementA"
+          $ 130 "Point_init_G" "breakAfter"
+          movej(Point_init_G, a=1.3962634015954636, v=1.7453292519943295)
+        end
+      end
+    end
+    $ 131 "Départ"
+    movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+    $ 132 "angle_base≔get_actual_joint_positions()"
+    global angle_base= get_actual_joint_positions ()
+    $ 133 "'mode config'"
+    # 'mode config'
+    $ 134 "Si Mode_manu ≟ False  and config_reglage ≟ False "
+    if (get_configurable_digital_in(7)  ==   False    and  get_standard_digital_in(7)  ==   False  ):
+      $ 135 "Si (config_g ≟ 1)  and  (config_d ≟ 1)"
+      if ((config_g  ==  1)   and   (config_d  ==  1)):
+        $ 136 "pop_up_config_g_et_d()"
+        pop_up_config_g_et_d()
+      else:
+        $ 137 "SinonSi (config_g ≟1)"
+        if ((config_g  == 1)):
+          $ 138 "pop_up_config_g()"
+          pop_up_config_g()
+        else:
+          $ 139 "SinonSi config_d ≟ 1"
+          if (config_d  ==  1):
+            $ 140 "pop_up_config_d()"
+            pop_up_config_d()
+          else:
+            $ 141 "SinonSi (config_g ≟ 0) and (config_d ≟ 0)"
+            if ((config_g  ==  0)  and  (config_d  ==  0)):
+              $ 142 "pop_up_config()"
+              pop_up_config()
+            end
+          end
+        end
+      end
+      $ 143 "boucle≔1"
+      global boucle=1
+      $ 144 "Boucle (Mode_manu ≟ False ) and (boucle ≟ 1)  and (config_reglage≟ False )"
+      while ((get_configurable_digital_in(7)  ==   False  )  and  (boucle  ==  1)   and  (get_standard_digital_in(7) ==   False  )):
+        $ 145 "Boucle Pret_Table_Droi≟ False  and Pret_Table_Gauc≟ False  and Mode_manu ≟  False  and config_reglage≟ False "
+        thread Thread_while_145():
+          while (True):
+            $ 146 "Régler Voyant_Table_Ga=On"
+            set_standard_digital_out(5, True)
+            $ 147 "Régler Voyant_Table_Dr=Off"
+            set_standard_digital_out(6, False)
+            $ 148 "Attendre: 0.5"
+            sleep(0.5)
+            $ 149 "Régler Voyant_Table_Ga=Off"
+            set_standard_digital_out(5, False)
+            $ 150 "Régler Voyant_Table_Dr=On"
+            set_standard_digital_out(6, True)
+            $ 151 "Attendre: 0.5"
+            sleep(0.5)
+            $ 152 "sync()"
+            sync()
+          end
+        end
+        if (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7) ==   False  ):
+          global thread_handler_145=run Thread_while_145()
+          while (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7) ==   False  ):
+            sync()
+          end
+          kill thread_handler_145
+        end
+        $ 153 "Si Pret_Table_Gauc ≟ True "
+        if (get_standard_digital_in(2)  ==   True  ):
+          $ 154 "Régler Voyant_Table_Ga=On"
+          set_standard_digital_out(5, True)
+          $ 155 "Régler Voyant_Table_Dr=Off"
+          set_standard_digital_out(6, False)
+          $ 156 "'plus de demande du nombre de point a saisir'"
+          # 'plus de demande du nombre de point a saisir'
+          $ 157 "DéplacementA"
+          $ 158 "Point_init_G" "breakAfter"
+          movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 159 "Point_Attente_G" "breakAfter"
+          movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 160 "Point_config_g" "breakAfter"
+          movej(Point_config_g, a=0.6981317007977318, v=0.5235987755982988)
+          $ 161 "led_cobot≔1"
+          global led_cobot=1
+          $ 162 "fun_config_g()"
+          fun_config_g()
+          $ 163 "led_cobot≔0"
+          global led_cobot=0
+          $ 164 "fun_valid_config_g()"
+          fun_valid_config_g()
+          $ 165 "DéplacementA"
+          $ 167 "Point_Attente_G" "breakAfter"
+          movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 168 "Point_init_G" "breakAfter"
+          movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 170 "Départ"
+          movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+        end
+        $ 171 "Si Pret_Table_Droi ≟ True "
+        if (get_standard_digital_in(3)  ==   True  ):
+          $ 172 "Régler Voyant_Table_Dr=On"
+          set_standard_digital_out(6, True)
+          $ 173 "Régler Voyant_Table_Ga=Off"
+          set_standard_digital_out(5, False)
+          $ 174 "DéplacementA"
+          $ 175 "Point_avt_initD" "breakAfter"
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 176 "Point_init_D" "breakAfter"
+          movej(Point_init_D, a=1.3962634015954636, v=1.0471975511965976)
+          $ 177 "Point_Attente_D" "breakAfter"
+          movej(Point_Attente_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 178 "Point_config_d" "breakAfter"
+          movej(Point_config_d, a=0.6981317007977318, v=0.5235987755982988)
+          $ 179 "led_cobot≔1"
+          global led_cobot=1
+          $ 180 "fun_config_d()"
+          fun_config_d()
+          $ 181 "led_cobot≔0"
+          global led_cobot=0
+          $ 182 "fun_valid_config_d()"
+          fun_valid_config_d()
+          $ 183 "DéplacementA"
+          $ 187 "Point_Attente_D" "breakAfter"
+          movej(Point_Attente_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 188 "Point_init_D" "breakAfter"
+          movej(Point_init_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 189 "Point_avt_initD" "breakAfter"
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 190 "Départ"
+          movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+        end
+      end
+    end
+    $ 191 "''Reg''"
+    # '"Reg"'
+    $ 192 "Si Mode_manu ≟ False  and config_reglage ≟ True "
+    if (get_configurable_digital_in(7)  ==   False    and  get_standard_digital_in(7)  ==   True  ):
+      $ 193 "Si (config_g ≟ 1)  and  (config_d ≟ 1)"
+      if ((config_g  ==  1)   and   (config_d  ==  1)):
+        $ 194 "pop_up_reg_gd()"
+        pop_up_reg_gd()
+        $ 195 "boucle≔1"
+        global boucle=1
+      else:
+        $ 196 "SinonSi config_g ≟ 1"
+        if (config_g  ==  1):
+          $ 197 "pop_up_reg_gd()"
+          pop_up_reg_gd()
+          $ 198 "boucle≔1"
+          global boucle=1
+        else:
+          $ 199 "SinonSi config_d ≟ 1"
+          if (config_d  ==  1):
+            $ 200 "pop_up_reg_d()"
+            pop_up_reg_d()
+            $ 201 "boucle≔1"
+            global boucle=1
+          else:
+            $ 202 "Sinon" "noBreak"
+            $ 203 "close_popup()"
+            close_popup()
+            $ 204 "Boucle config_reglage ≟ True "
+            while (get_standard_digital_in(7)  ==   True  ):
+              $ 205 "Pop-up: Aucune configuration n'est actuellement detectée."
+              popup("Aucune configuration n'est actuellement detectée.", "Erreur", False, True, blocking=True)
+            end
+          end
+        end
+      end
+      $ 206 "boucle≔1"
+      global boucle=1
+      $ 207 "Boucle (Mode_manu ≟ False ) and (boucle ≟ 1)  and (config_reglage≟ True )"
+      while ((get_configurable_digital_in(7)  ==   False  )  and  (boucle  ==  1)   and  (get_standard_digital_in(7) ==   True  )):
+        $ 208 "Boucle Pret_Table_Droi≟ False  and Pret_Table_Gauc≟ False  and Mode_manu ≟  False  and config_reglage ≟ True "
+        thread Thread_while_208():
+          while (True):
+            $ 209 "Si config_g ≟ 1"
+            if (config_g  ==  1):
+              $ 210 "Régler Voyant_Table_Ga=On"
+              set_standard_digital_out(5, True)
+            end
+            $ 211 "Si config_d ≟ 1"
+            if (config_d  ==  1):
+              $ 212 "Régler Voyant_Table_Dr=On"
+              set_standard_digital_out(6, True)
+            end
+            $ 213 "Attendre: 0.5"
+            sleep(0.5)
+            $ 214 "Régler Voyant_Table_Ga=Off"
+            set_standard_digital_out(5, False)
+            $ 215 "Régler Voyant_Table_Dr=Off"
+            set_standard_digital_out(6, False)
+            $ 216 "Attendre: 0.5"
+            sleep(0.5)
+          end
+        end
+        if (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7)  ==   True  ):
+          global thread_handler_208=run Thread_while_208()
+          while (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7)  ==    False    and  get_standard_digital_in(7)  ==   True  ):
+            sync()
+          end
+          kill thread_handler_208
+        end
+        $ 217 "Si Pret_Table_Gauc ≟ True "
+        if (get_standard_digital_in(2)  ==   True  ):
+          $ 218 "safe_mode≔1"
+          global safe_mode=1
+          $ 219 "Régler Voyant_Table_Ga=On"
+          set_standard_digital_out(5, True)
+          $ 220 "Régler Voyant_Table_Dr=Off"
+          set_standard_digital_out(6, False)
+          $ 221 "DéplacementA"
+          $ 222 "Point_init_G" "breakAfter"
+          movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 223 "Point_Attente_G" "breakAfter"
+          movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 224 "pose_inter_g" "breakAfter"
+          movej(pose_inter_g, a=0.6981317007977318, v=0.5235987755982988)
+          $ 225 "led_cobot≔1"
+          global led_cobot=1
+          $ 226 "fun_Pas_A_Pas_g()"
+          fun_Pas_A_Pas_g()
+          $ 227 "led_cobot≔0"
+          global led_cobot=0
+          $ 228 "safe_mode≔0"
+          global safe_mode=0
+          $ 229 "boucle≔0"
+          global boucle=0
+        end
+        $ 230 "Si Pret_Table_Droi ≟ True "
+        if (get_standard_digital_in(3)  ==   True  ):
+          $ 231 "safe_mode≔1"
+          global safe_mode=1
+          $ 232 "Régler Voyant_Table_Dr=On"
+          set_standard_digital_out(6, True)
+          $ 233 "Régler Voyant_Table_Ga=Off"
+          set_standard_digital_out(5, False)
+          $ 234 "DéplacementA"
+          $ 235 "Point_avt_initD" "breakAfter"
+          movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 236 "Point_init_D" "breakAfter"
+          movej(Point_init_D, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+          $ 237 "pose_inter_d" "breakAfter"
+          movej(pose_inter_d, a=0.6981317007977318, v=0.5235987755982988)
+          $ 238 "led_cobot≔1"
+          global led_cobot=1
+          $ 239 "fun_Pas_A_Pas_d()"
+          fun_Pas_A_Pas_d()
+          $ 240 "led_cobot≔0"
+          global led_cobot=0
+          $ 241 "safe_mode≔0"
+          global safe_mode=0
+          $ 242 "boucle≔0"
+          global boucle=0
+        end
+      end
+    end
+    $ 243 "'mode exe'"
+    # 'mode exe'
+    $ 244 "Si Mode_manu ≟ True "
+    if (get_configurable_digital_in(7)  ==   True  ):
+      $ 245 "Si (config_g ≟ 1)  and  (config_d ≟ 1)"
+      if ((config_g  ==  1)   and   (config_d  ==  1)):
+        $ 246 "pop_up_exe()"
+        pop_up_exe()
+        $ 247 "boucle≔1"
+        global boucle=1
+      else:
+        $ 248 "SinonSi config_g ≟ 1"
+        if (config_g  ==  1):
+          $ 249 "pop_up_exe_g()"
+          pop_up_exe_g()
+          $ 250 "boucle≔1"
+          global boucle=1
+        else:
+          $ 251 "SinonSi config_d ≟ 1"
+          if (config_d  ==  1):
+            $ 252 "pop_up_exe_d()"
+            pop_up_exe_d()
+            $ 253 "boucle≔1"
+            global boucle=1
+          else:
+            $ 254 "Sinon" "noBreak"
+            $ 255 "close_popup()"
+            close_popup()
+            $ 256 "Boucle Mode_manu ≟ True "
+            while (get_configurable_digital_in(7)  ==   True  ):
+              $ 257 "Pop-up: Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter."
+              popup("Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking=True)
+            end
+          end
+        end
+      end
+      $ 258 "Boucle ( Mode_manu ≟ True )  and (boucle ≟ 1)"
+      while (( get_configurable_digital_in(7)  ==   True  )   and  (boucle  ==  1)):
+        $ 259 "Boucle Pret_Table_Droi≟ False  and Pret_Table_Gauc≟ False  and Mode_manu≟ True "
+        thread Thread_while_259():
+          while (True):
+            $ 260 "Si config_g ≟ 1"
+            if (config_g  ==  1):
+              $ 261 "Régler Voyant_Table_Ga=On"
+              set_standard_digital_out(5, True)
+            end
+            $ 262 "Si config_d ≟ 1"
+            if (config_d  ==  1):
+              $ 263 "Régler Voyant_Table_Dr=On"
+              set_standard_digital_out(6, True)
+            end
+            $ 264 "Attendre: 0.5"
+            sleep(0.5)
+            $ 265 "Régler Voyant_Table_Ga=Off"
+            set_standard_digital_out(5, False)
+            $ 266 "Régler Voyant_Table_Dr=Off"
+            set_standard_digital_out(6, False)
+            $ 267 "Attendre: 0.5"
+            sleep(0.5)
+          end
+        end
+        if (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7) ==   True  ):
+          global thread_handler_259=run Thread_while_259()
+          while (get_standard_digital_in(3) ==   False    and  get_standard_digital_in(2) ==   False    and  get_configurable_digital_in(7) ==   True  ):
+            sync()
+          end
+          kill thread_handler_259
+        end
+        $ 268 "Si (Pret_Table_Gauc ≟ True ) and (config_g ≟ True )"
+        if ((get_standard_digital_in(2)  ==   True  )  and  (config_g  ==   True  )):
+          $ 269 "boucle_g≔1"
+          global boucle_g=1
+          $ 271 "Boucle boucle_g ≟ 1"
+          while (boucle_g  ==  1):
+            $ 272 "Régler Cmd_Carter_Bit1=On"
+            set_configurable_digital_out(0, True)
+            $ 273 "Régler Voyant_Table_Ga=On"
+            set_standard_digital_out(5, True)
+            $ 274 "Régler Voyant_Table_Dr=Off"
+            set_standard_digital_out(6, False)
+            $ 275 "Attendre: 0.25"
+            sleep(0.25)
+            $ 276 "Régler Voyant_Table_Ga=Off"
+            set_standard_digital_out(5, False)
+            $ 277 "Attendre: 0.25"
+            sleep(0.25)
+            $ 278 "Si SecuGaucheOk ≟  False "
+            if (get_configurable_digital_in(4)  ==    False  ):
+              $ 279 "Régler Voyant_Table_Ga=On"
+              set_standard_digital_out(5, True)
+              $ 281 "Si SecuGaucheOk ≟  False "
+              if (get_configurable_digital_in(4)  ==    False  ):
+                $ 282 "close_popup()"
+                close_popup()
+                $ 283 "Attendre SecuGaucheOk=HAUT"
+                while (get_configurable_digital_in(4) == False):
+                  sync()
+                end
+              end
+            end
+            $ 284 "Si SecuGaucheOk ≟  True "
+            if (get_configurable_digital_in(4)  ==    True  ):
+              $ 285 "secu_g≔1"
+              global secu_g=1
+              $ 286 "Régler Voyant_Table_Ga=On"
+              set_standard_digital_out(5, True)
+              $ 287 "DéplacementA"
+              $ 288 "Point_init_G" "breakAfter"
+              movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+              $ 290 "fun_execution_g()"
+              fun_execution_g()
+              $ 291 "DéplacementA"
+              $ 292 "Point_Attente_G" "breakAfter"
+              movej(Point_Attente_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+              $ 293 "Point_init_G" "breakAfter"
+              movej(Point_init_G, a=1.3962634015954636, v=1.0471975511965976, r=0.006)
+              $ 294 "Départ"
+              movej([0.7376820445060732, 1.3357652919721463, -2.8533326461405863, -0.44459326684985356, 1.9245067834854124, 4.003490924835204], a=1.3962634015954636, v=1.0471975511965976)
+              $ 295 "Régler Cmd_Carter_Bit1=Off"
+              set_configurable_digital_out(0, False)
+              $ 296 "secu_g≔0"
+              global secu_g=0
+              $ 297 "boucle_g≔0"
+              global boucle_g=0
+            end
+          end
+          $ 298 "boucle≔0"
+          global boucle=0
+        else:
+          $ 299 "SinonSi (Pret_Table_Gauc ≟ True ) and (config_g ≟ False )"
+          if ((get_standard_digital_in(2)  ==   True  )  and  (config_g  ==   False  )):
+            $ 300 "close_popup()"
+            close_popup()
+            $ 301 "Pop-up: Aucune programmation n'est actuellement detectée sur la table gauche, veillez à programmer une pièce avant de vouloir l'éxécuter."
+            popup("Aucune programmation n'est actuellement detectée sur la table gauche, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking=True)
+            $ 302 "boucle≔0"
+            global boucle=0
+          end
+        end
+        $ 303 "Si (Pret_Table_Droi ≟ True ) and (config_d ≟ True )"
+        if ((get_standard_digital_in(3)  ==   True  )  and  (config_d  ==   True  )):
+          $ 304 "boucle_d≔1"
+          global boucle_d=1
+          $ 305 "pop_up_deb_exe_d()"
+          pop_up_deb_exe_d()
+          $ 306 "Boucle boucle_d ≟ 1"
+          while (boucle_d  ==  1):
+            $ 307 "Régler Cmd_Carter_Bit2=On"
+            set_configurable_digital_out(1, True)
+            $ 308 "Régler Voyant_Table_Ga=Off"
+            set_standard_digital_out(5, False)
+            $ 309 "Régler Voyant_Table_Dr=On"
+            set_standard_digital_out(6, True)
+            $ 310 "Attendre: 0.25"
+            sleep(0.25)
+            $ 311 "Régler Voyant_Table_Dr=Off"
+            set_standard_digital_out(6, False)
+            $ 312 "Attendre: 0.25"
+            sleep(0.25)
+            $ 313 "Si SecuDroiteOk ≟  False "
+            if (get_configurable_digital_in(5)  ==    False  ):
+              $ 314 "Régler Voyant_Table_Dr=On"
+              set_standard_digital_out(6, True)
+              $ 315 "Attendre: 6.0"
+              sleep(6.0)
+              $ 316 "Si SecuDroiteOk ≟  False "
+              if (get_configurable_digital_in(5)  ==    False  ):
+                $ 317 "close_popup()"
+                close_popup()
+                $ 318 "Attendre SecuDroiteOk=HAUT"
+                while (get_configurable_digital_in(5) == False):
+                  sync()
+                end
+              end
+            end
+            $ 319 "Si SecuDroiteOk ≟  True "
+            if (get_configurable_digital_in(5)  ==    True  ):
+              $ 320 "secu_d≔1"
+              global secu_d=1
+              $ 321 "Régler Voyant_Table_Dr=On"
+              set_standard_digital_out(6, True)
+              $ 322 "DéplacementA"
+              $ 323 "Point_avt_initD" "breakAfter"
+              movej(Point_avt_initD, a=1.3962634015954636, v=1.0471975511965976)
+              $ 325 "fun_execution_d()"
+              fun_execution_d()
+              $ 326 "Régler Cmd_Carter_Bit2=Off"
+              set_configurable_digital_out(1, False)
+              $ 327 "secu_d≔0"
+              global secu_d=0
+              $ 328 "boucle_d≔0"
+              global boucle_d=0
+            end
+          end
+          $ 329 "boucle≔0"
+          global boucle=0
+        else:
+          $ 330 "SinonSi (Pret_Table_Droi ≟ True ) and (config_d ≟ False )"
+          if ((get_standard_digital_in(3)  ==   True  )  and  (config_d  ==   False  )):
+            $ 331 "close_popup()"
+            close_popup()
+            $ 332 "Pop-up: Aucune programmation n'est actuellement detectée sur la table droite, veillez à programmer une pièce avant de vouloir l'éxécuter."
+            popup("Aucune programmation n'est actuellement detectée sur la table droite, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking=True)
+            $ 333 "boucle≔0"
+            global boucle=0
+          end
+        end
+      end
+    end
+  end
+end
