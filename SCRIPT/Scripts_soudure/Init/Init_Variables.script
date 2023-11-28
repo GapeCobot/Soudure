@@ -45,7 +45,7 @@ global pose_depart = [0.7376820445060732, 1.3357652919721463, -2.853332646140586
 global vitesseHorsSoudure = 1
 global accelerationHorsSoudure = 0.6
 
-
+global debug = 0
 
 if ((nb_soud_point_g >= 1) or (nb_soud_lin_g >= 1) or (nb_soud_arc_g >= 1) or (nb_soud_cer_g >= 1)):
 	config_g = 1

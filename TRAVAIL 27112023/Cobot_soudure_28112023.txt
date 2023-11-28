@@ -58,14 +58,27 @@
          Script: diverses.script
          Script: general2.script
    Robot Program
-     'Script: general.script'
      General()
    Recopie_Table_Droite
-     'Path'
-     Popup: Recopie sur la table de droite 
+     'Popup: Recopie sur la table de droite '
+     MoveJ
+       App_RecopieD
+     fun_activer_soudure()
+     'Missing: Path'
+     'faire une recopie de mvt'
+     fun_fin_soudure(2)
+     MoveJ
+       Ret_RecopieD
    Recopie_Table_Gauche
-     'Path'
-     Popup: Recopie sur la table de gauche
+     'Popup: Recopie sur la table de gauche'
+     MoveJ
+       App_RecopieG
+     fun_activer_soudure()
+     'faire une recopie de mvt'
+     'Missing: Path'
+     fun_fin_soudure(1)
+     MoveJ
+       Ret_RecopieG
    Thread_1
      Test_Ordre_Marche
        If Test_Ordre_Mar≟ True 
@@ -161,12 +174,7 @@
              Valide_Gaz≔ True 
              timer_ret_gaz: Reset
      sync()
-   Thread_6
-     Test_Job
-       If Test_Job≟ True 
-         'If Program_Soudure≟1'
-         Test_Job≔ False 
-     sync()
+   'Thread_6'
    Thread_7
      secu
        If SecuGaucheOk ≟  False  and secu_g ≟ 1

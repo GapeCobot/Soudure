@@ -1,4 +1,5 @@
 def attente_carters_ouverts():
+    global debug = 2
     # vérifier que les carter sont ouverts,
     # sinon attendre en faisant clignoter les leds
 
@@ -20,6 +21,8 @@ def attente_carters_ouverts():
     set_configurable_digital_out(add_Led_Arret, False)
     sleep(2)
     sync()
+
+    global debug = 3
 
 end
 
@@ -152,61 +155,61 @@ def mode_Reglage():
             popup("Aucune configuration n'est actuellement detectée.", "Erreur", False, True, blocking = True)
         end
     end
-end
 
-end
-global boucle = 1
-while ((get_configurable_digital_in(add_ModeManu) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
-    thread Thread_while_208():
-        while (True):
-            if (config_g == 1):
-                set_standard_digital_out(add_VoyantTableGauche, True)
+
+
+    global boucle = 1
+    while ((get_configurable_digital_in(add_ModeManu) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
+        thread Thread_while_208():
+            while (True):
+                if (config_g == 1):
+                    set_standard_digital_out(add_VoyantTableGauche, True)
+                end
+                if (config_d == 1):
+                    set_standard_digital_out(add_VoyantTableDroite, True)
+                end
+                sleep(0.5)
+                set_standard_digital_out(add_VoyantTableGauche, False)
+                set_standard_digital_out(add_VoyantTableDroite, False)
+                sleep(0.5)
             end
-            if (config_d == 1):
-                set_standard_digital_out(add_VoyantTableDroite, True)
+        end
+        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+            global thread_handler_208 = run Thread_while_208()
+            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+                sync()
             end
-            sleep(0.5)
-            set_standard_digital_out(add_VoyantTableGauche, False)
+            kill thread_handler_208
+        end
+        if (get_standard_digital_in(adresse_bp_g) == True): #table gauche
+            global safe_mode = 1
+            set_standard_digital_out(add_VoyantTableGauche, True)
             set_standard_digital_out(add_VoyantTableDroite, False)
-            sleep(0.5)
+            movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_Attente_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(pose_inter_g, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            global led_cobot = 1
+            fun_Pas_A_Pas_g()
+            global led_cobot = 0
+            global safe_mode = 0
+            global boucle = 0
+        end
+        if (get_standard_digital_in(adresse_bp_d) == True): #table droite
+            global safe_mode = 1
+            set_standard_digital_out(add_VoyantTableDroite, True)
+            set_standard_digital_out(add_VoyantTableGauche, False)
+            movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
+            movej(pose_inter_d, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
+            global led_cobot = 1
+            fun_Pas_A_Pas_d()
+            global led_cobot = 0
+            global safe_mode = 0
+            global boucle = 0
         end
     end
-    if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
-        global thread_handler_208 = run Thread_while_208()
-        while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
-            sync()
-        end
-        kill thread_handler_208
-    end
-    if (get_standard_digital_in(adresse_bp_g) == True): #table gauche
-        global safe_mode = 1
-        set_standard_digital_out(add_VoyantTableGauche, True)
-        set_standard_digital_out(add_VoyantTableDroite, False)
-        movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
-        movej(Point_Attente_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
-        movej(pose_inter_g, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
-        global led_cobot = 1
-        fun_Pas_A_Pas_g()
-        global led_cobot = 0
-        global safe_mode = 0
-        global boucle = 0
-    end
-    if (get_standard_digital_in(adresse_bp_d) == True): #table droite
-        global safe_mode = 1
-        set_standard_digital_out(add_VoyantTableDroite, True)
-        set_standard_digital_out(add_VoyantTableGauche, False)
-        movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
-        movej(Point_init_D, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
-        movej(pose_inter_d, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
-        global led_cobot = 1
-        fun_Pas_A_Pas_d()
-        global led_cobot = 0
-        global safe_mode = 0
-        global boucle = 0
-    end
-end
 
-sync()
+    sync()
 end
 
 def mode_Execution():

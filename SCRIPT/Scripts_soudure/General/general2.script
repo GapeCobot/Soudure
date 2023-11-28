@@ -2,6 +2,7 @@ def General():
 
     while (True):
 
+      global debug = 1
         #INTIALISATION
         safe_mode = 0
         set_configurable_digital_out(add_CmdCarterBit1, False) #stop commande carter
@@ -9,7 +10,7 @@ def General():
 
         attente_carters_ouverts() #éviter un contact avec le bras
         # LIGNE 23 GENERAL
-
+        debug = 4 
         deplacement_depart_init() #premier déplacement à gérer en focntion de la position réel du robot lors de l'init
         #LIGNE 54 GENERAL
 
