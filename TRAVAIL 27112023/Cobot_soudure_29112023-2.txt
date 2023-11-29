@@ -24,10 +24,7 @@
          Script: execution_d.script
          Script: execution_g.script
          Script: fct_gestion_soudure.script
-         'Script: fun_activer_soudure.script'
-         'Script: fun_commande_job.script'
          Script: fun_deplacement_pose_inter.script
-         'Script: fun_fin_soudure.script'
          Script: fun_soudure_arc.script
          Script: fun_soudure_cercle.script
          Script: fun_soudure_lineaire.script
@@ -47,7 +44,7 @@
          Script: fcts_ralentir_fin_ligne.script
        General
          Script: diverses.script
-         Script: general2.script
+         Script: general.script
    Robot Program
      General()
    Recopie_Table_Droite

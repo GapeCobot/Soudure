@@ -167,39 +167,39 @@ def Cobot_soudure_291120232():
   end
   run Timer_Thread()
   def Recopie_Table_Droite():
-    $ 52 "Recopie_Table_Droite" "noBreak"
-    $ 54 "MoveJ"
-    $ 55 "App_RecopieD" "breakAfter"
+    $ 49 "Recopie_Table_Droite" "noBreak"
+    $ 51 "MoveJ"
+    $ 52 "App_RecopieD" "breakAfter"
     movej(get_inverse_kin(App_RecopieD_p, qnear=App_RecopieD_q), a=1.3962634015954636, v=1.0471975511965976)
-    $ 56 "Deb_RecopieD" "breakAfter"
+    $ 53 "Deb_RecopieD" "breakAfter"
     movej(get_inverse_kin(Deb_RecopieD_p, qnear=Deb_RecopieD_q), a=1.3962634015954636, v=1.0471975511965976)
-    $ 57 "fun_activer_soudure()"
+    $ 54 "fun_activer_soudure()"
     fun_activer_soudure()
-    $ 61 "'faire une recopie de mvt'"
+    $ 58 "'faire une recopie de mvt'"
     # 'faire une recopie de mvt'
-    $ 62 "fun_fin_soudure(2)"
+    $ 59 "fun_fin_soudure(2)"
     fun_fin_soudure(2)
-    $ 63 "MoveJ"
-    $ 64 "Ret_RecopieD" "breakAfter"
+    $ 60 "MoveJ"
+    $ 61 "Ret_RecopieD" "breakAfter"
     movej(get_inverse_kin(Ret_RecopieD_p, qnear=Ret_RecopieD_q), a=1.3962634015954636, v=1.0471975511965976)
-    $ 65 "sync()"
+    $ 62 "sync()"
     sync()
   end
   def Recopie_Table_Gauche():
-    $ 66 "Recopie_Table_Gauche" "noBreak"
-    $ 68 "MoveJ"
-    $ 69 "App_RecopieG" "breakAfter"
+    $ 63 "Recopie_Table_Gauche" "noBreak"
+    $ 65 "MoveJ"
+    $ 66 "App_RecopieG" "breakAfter"
     movej(get_inverse_kin(App_RecopieG_p, qnear=App_RecopieG_q), a=1.3962634015954636, v=1.0471975511965976)
-    $ 70 "Deb_RecopieG" "breakAfter"
+    $ 67 "Deb_RecopieG" "breakAfter"
     movej(get_inverse_kin(Deb_RecopieG_p, qnear=Deb_RecopieG_q), a=1.3962634015954636, v=1.0471975511965976)
-    $ 71 "fun_activer_soudure()"
+    $ 68 "fun_activer_soudure()"
     fun_activer_soudure()
-    $ 72 "'faire une recopie de mvt'"
+    $ 69 "'faire une recopie de mvt'"
     # 'faire une recopie de mvt'
-    $ 76 "fun_fin_soudure(1)"
+    $ 73 "fun_fin_soudure(1)"
     fun_fin_soudure(1)
-    $ 77 "MoveJ"
-    $ 78 "Ret_RecopieG" "breakAfter"
+    $ 74 "MoveJ"
+    $ 75 "Ret_RecopieG" "breakAfter"
     movej(get_inverse_kin(Ret_RecopieG_p, qnear=Ret_RecopieG_q), a=1.3962634015954636, v=1.0471975511965976)
   end
   $ 2 "BeforeStart"
@@ -496,10 +496,9 @@ def Cobot_soudure_291120232():
   $ 13 "Configuration"
   $ 14 "Script: config_d.script"
   def fun_config_d():
-  
      # teach_mode()
   
-          ################### RAZ_des_tableaux ###########################################
+      ######################## Initialisation #######################################
   
       fun_raz_d()
   
@@ -607,7 +606,7 @@ def Cobot_soudure_291120232():
                   popUp_tropSoudures()
               end
   
-          elif ( (type == 2) or (type ==5)):
+          elif ( (type == 2) or (type == 5)):
               if (nb_soud_lin_g <10):
                   ajout = True
                   fun_config_soudure_lineaire(index_soudure_lin,1, type)
@@ -649,10 +648,10 @@ def Cobot_soudure_291120232():
           sync()
           type = fun_demande_type_soudure()
       end
-  
-    # end_teach_mode()
-     global nbSoudure_glo_g = nbSoudures
+  #  end_teach_mode()
+     global nbSoudure_glo_d = nbSoudures
   end
+  
   $ 16 "Script: fun_config_soudure_arc.script"
   def fun_config_soudure_arc(index,table):
       teach_mode()
@@ -1021,7 +1020,7 @@ def Cobot_soudure_291120232():
   
       pop_up_deb_exe_d()
   
-      fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée
+      #fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée
   
       local nbSoudures = nbSoudure_glo_d
       local soudureEnCours = 0 #soudure en cours
@@ -1035,8 +1034,8 @@ def Cobot_soudure_291120232():
   
           #switch de tous les types avec appel aux fonctions correspondantes
           if (typeSoudure == 1 ):
-              fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
               #fun_soudure_point(index_soudure_point)
+              fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
               index_soudure_point = index_soudure_point + 1
           elif ((typeSoudure == 2 )or (typeSoudure ==5)):
               fun_soudure_lineaire(index_soudure_lin,2,typeSoudure)
@@ -1048,10 +1047,8 @@ def Cobot_soudure_291120232():
               fun_soudure_cercle(index_soudure_cercle,2)
               index_soudure_cercle = index_soudure_cercle +1
           elif (typeSoudure ==6):
-              #debugStr = "avant exe table droite"
               Recopie_Table_Droite() #appeler le sous prog
-              #debugStr = "apres recopie exe table droite"
-              fun_deplacement_pose_inter(2)
+              #fun_deplacement_pose_inter(2)
               sync()
   
           else:
@@ -1106,7 +1103,8 @@ def Cobot_soudure_291120232():
           index_soudure_cercle = index_soudure_cercle +1
       elif (typeSoudure ==6):
           Recopie_Table_Gauche()#appeler le sous prog
-          fun_deplacement_pose_inter(2)
+          #fun_deplacement_pose_inter(1)
+          sync()
   
       else:
       end
@@ -1172,7 +1170,7 @@ def Cobot_soudure_291120232():
   end
   #-
   
-  $ 28 "Script: fun_deplacement_pose_inter.script"
+  $ 26 "Script: fun_deplacement_pose_inter.script"
   def fun_deplacement_pose_inter(table):
       a_fun = 0.2
       v_fun = 1.1
@@ -1185,7 +1183,7 @@ def Cobot_soudure_291120232():
       end
       sync()
   end
-  $ 30 "Script: fun_soudure_arc.script"
+  $ 27 "Script: fun_soudure_arc.script"
   def fun_soudure_arc(Index,table):
       a_fun = 0.5
       v_fun = 1.1
@@ -1225,7 +1223,7 @@ def Cobot_soudure_291120232():
       end
       sync()
   end
-  $ 31 "Script: fun_soudure_cercle.script"
+  $ 28 "Script: fun_soudure_cercle.script"
   def fun_soudure_cercle(Index,table):
       a_fun = 0.5
       v_fun = 1.1
@@ -1266,7 +1264,7 @@ def Cobot_soudure_291120232():
       end
       sync()
   end
-  $ 32 "Script: fun_soudure_lineaire.script"
+  $ 29 "Script: fun_soudure_lineaire.script"
   def fun_soudure_lineaire(Index,table,typeSoudure):
       a_fun = 2
       v_fun = 4
@@ -1333,7 +1331,7 @@ def Cobot_soudure_291120232():
       end
       sync()
   end
-  $ 33 "Script: fun_soudure_point.script"
+  $ 30 "Script: fun_soudure_point.script"
   def fun_soudure_point(Index,table):
       a_fun = 0.5
       v_fun = 1.1
@@ -1370,8 +1368,8 @@ def Cobot_soudure_291120232():
       end
       sync()
   end
-  $ 34 "Pas_A_Pas"
-  $ 35 "Script: fun_ajouter_soudure.script"
+  $ 31 "Pas_A_Pas"
+  $ 32 "Script: fun_ajouter_soudure.script"
   def fun_ajouter_soudure(sens,soudureEnCours, index_soudure_point, index_soudure_lin,index_soudure_arc,index_soudure_cercle,table):
       #pour le moment pas de vérif de trop de mouvements (doit etre inferiruer à 9par par type)
   
@@ -1504,7 +1502,7 @@ def Cobot_soudure_291120232():
       return typeSoudure
       end
   
-  $ 36 "Script: fun_decaler_tableau.script"
+  $ 33 "Script: fun_decaler_tableau.script"
   #type : 1=point 2=lineaire 3= arc de cercle 4=cercle
   
   #sens 2=avant 3=apres
@@ -1580,7 +1578,7 @@ def Cobot_soudure_291120232():
       end
   
   end
-  $ 37 "Script: fun_inserer_soudure.script"
+  $ 34 "Script: fun_inserer_soudure.script"
   def fun_inserer_soudure(type,index,table):
       teach_mode()
       #configurer une nouvelle soudure en fonction du type -> utiliser les fonction déjà développée
@@ -1599,7 +1597,7 @@ def Cobot_soudure_291120232():
       sync()
   
   end
-  $ 38 "Script: PasAPas_d.script"
+  $ 35 "Script: PasAPas_d.script"
   #######################################-_-#############################################
   def fun_Pas_A_Pas_d():
   
@@ -1654,7 +1652,6 @@ def Cobot_soudure_291120232():
                   fun_soudure_cercle(index_soudure_cer,2)
               elif(typeSoudure ==6):
                   Recopie_Table_Droite()
-                  debugStr = "Apres recopie PaP "
               else:
               end
               #FIN DE LA REALISATION DE LA SOUDURE
@@ -1669,8 +1666,8 @@ def Cobot_soudure_291120232():
               ###
               # (4) Modifier()
               ###
-              #fun_deplacement_pose_inter(2)
-              teach_mode()
+              fun_deplacement_pose_inter(2)
+              #teach_mode()
   
               if (typeSoudure == 1 ):
                   fun_config_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
@@ -1684,7 +1681,7 @@ def Cobot_soudure_291120232():
                   #faire un popUp d'avertissement
               else:
               end
-              end_teach_mode()
+              #end_teach_mode()
               sync()
           end
           # (5) PopUp demande ajout
@@ -1744,7 +1741,7 @@ def Cobot_soudure_291120232():
   
   
   
-  $ 39 "Script: PasAPas_g.script"
+  $ 36 "Script: PasAPas_g.script"
   #######################################-_-#############################################
   def fun_Pas_A_Pas_g():
   
@@ -1841,7 +1838,7 @@ def Cobot_soudure_291120232():
               ###
               TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 1)
   
-              if (TypeSoudureAjoutee != 5): #5 est le code retourné s'il n'y a pas d'ajout de soudure
+              if (TypeSoudureAjoutee != 7): #5 est le code retourné s'il n'y a pas d'ajout de soudure
                   nbSoudures =  nbSoudures +1
                   nbSoudure_glo_g = nbSoudures
   
@@ -1864,10 +1861,10 @@ def Cobot_soudure_291120232():
               # pas d'incrément pour recommencer la boucle avec cette soudure
               soudureEnCours = soudureEnCours
           else:
-          soudureEnCours = soudureEnCours +1
+              soudureEnCours = soudureEnCours +1
               if (typeSoudure == 1 )  :
                   index_soudure_point =index_soudure_point +1
-              elif (typeSoudure == 2 ):
+              elif ((typeSoudure == 2 ) or (typeSoudure ==5)):
                   index_soudure_lin = index_soudure_lin +1
               elif (typeSoudure == 3 ):
                   index_soudure_arc = index_soudure_arc +1
@@ -1889,8 +1886,8 @@ def Cobot_soudure_291120232():
   
   
   
-  $ 40 "PopUps"
-  $ 41 "Script: Pops_up_PAsAPas.script"
+  $ 37 "PopUps"
+  $ 38 "Script: Pops_up_PAsAPas.script"
   def pop_up_reg_d():
       close_popup()
       popup3 = "popup PAS_A_PAS : Table droite programmée"#"popup La table droite est programmée. Appuyer sur le bouton gauche ou droite pour commencer le reglage d'une pièce sur la table associée. La gestion des modes programmation, éxécution et reglage se fait à l'aide des commutateurs superieurs."
@@ -1960,7 +1957,7 @@ def Cobot_soudure_291120232():
   
   
   end
-  $ 42 "Script: Pops_up_Execution.script"
+  $ 39 "Script: Pops_up_Execution.script"
   def pop_up_deb_exe_d():
       close_popup()
       popup3 = "popup Table droite, éxecution... Veillez à bien fermer la porte."
@@ -2016,7 +2013,7 @@ def Cobot_soudure_291120232():
       socket_send_line(popup1,"internal")     #Affichage message
       socket_send_byte(10,"internal")
   end
-  $ 43 "Script: Pops_up_Configuration.script"
+  $ 40 "Script: Pops_up_Configuration.script"
   def pop_up_config():
       close_popup()
       popup3 = "popup CONFIGURATION : Aucune table de configurée."
@@ -2204,8 +2201,8 @@ def Cobot_soudure_291120232():
       socket_send_byte(10,"internal")
   end
   #-
-  $ 44 "Mouvements soudures"
-  $ 45 "Script: fcts_balayage.script"
+  $ 41 "Mouvements soudures"
+  $ 42 "Script: fcts_balayage.script"
   def fct_determineAxeBalayage(p_start,p_stop):
   
       global  diff_x = norm(p_start[0]-p_stop[0])
@@ -2308,7 +2305,7 @@ def Cobot_soudure_291120232():
       return frequence
   
   end
-  $ 46 "Script: fcts_ralentir_fin_ligne.script"
+  $ 43 "Script: fcts_ralentir_fin_ligne.script"
   def fct_calcul_point_inter(p_debut,p_fin):
   
       local p_inter = p_fin
@@ -2329,8 +2326,8 @@ def Cobot_soudure_291120232():
     end
   
   
-  $ 47 "General"
-  $ 48 "Script: diverses.script"
+  $ 44 "General"
+  $ 45 "Script: diverses.script"
   def attente_carters_ouverts():
       global debug = 2
       # vérifier que les carter sont ouverts,
@@ -2358,6 +2355,7 @@ def Cobot_soudure_291120232():
       global debug = 3
   
   end
+  #-
   
   def deplacement_depart_init():
   
@@ -2393,10 +2391,7 @@ def Cobot_soudure_291120232():
       #global angle_base= get_actual_joint_positions ()
       sync()
   end
-  
-  
-  
-  
+  #-
   
   def mode_configuration():
       #nouveau
@@ -2467,9 +2462,7 @@ def Cobot_soudure_291120232():
   
       sync()
   end
-  
-  
-  
+  #-
   
   def mode_Reglage():
       #Pas à Pas
@@ -2544,6 +2537,7 @@ def Cobot_soudure_291120232():
   
       sync()
   end
+  #-
   
   def mode_Execution():
   
@@ -2666,7 +2660,8 @@ def Cobot_soudure_291120232():
       end
       sync()
   end
-  $ 49 "Script: general2.script"
+  #-
+  $ 46 "Script: general.script"
   def General():
   
       while (True):
@@ -2698,238 +2693,238 @@ def Cobot_soudure_291120232():
       end
   
   end
-  $ 79 "Thread_1"
+  $ 76 "Thread_1"
   thread Thread_1():
     while (True):
-      $ 80 "Test_Ordre_Marche"
-      $ 81 "If Test_Ordre_Mar≟ True "
+      $ 77 "Test_Ordre_Marche"
+      $ 78 "If Test_Ordre_Mar≟ True "
       if (Test_Ordre_Mar ==   True  ):
-        $ 82 "If config_d ≟ 1  or  config_g ≟ 1"
+        $ 79 "If config_d ≟ 1  or  config_g ≟ 1"
         if (config_d  ==  1   or   config_g  ==  1):
-          $ 83 "Set Ordre_Marche=On"
+          $ 80 "Set Ordre_Marche=On"
           set_standard_digital_out(0, True)
-          $ 84 "Wait: 0.5"
+          $ 81 "Wait: 0.5"
           sleep(0.5)
-          $ 85 "If Reponse_Ordre≟ False "
+          $ 82 "If Reponse_Ordre≟ False "
           if (get_standard_digital_in(4) ==   False  ):
-            $ 86 "'Si aucune reponse n'a etait recue, arret du programme'"
+            $ 83 "'Si aucune reponse n'a etait recue, arret du programme'"
             # 'Si aucune reponse n'a etait recue, arret du programme'
-            $ 87 "close_popup()"
+            $ 84 "close_popup()"
             close_popup()
-            $ 88 "Popup: Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) "
+            $ 85 "Popup: Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) "
             popup("Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) ", "Error", False, True, blocking=False)
             halt
           end
-          $ 89 "Test_Ordre_Mar≔ False "
+          $ 86 "Test_Ordre_Mar≔ False "
           global Test_Ordre_Mar=  False  
-          $ 90 "sync()"
+          $ 87 "sync()"
           sync()
         end
       end
-      $ 91 "Erreur ordre marche pendant utilisation"
-      $ 92 "If Arc_On≟ True   and Reponse_Arc≟ True  and Reponse_Ordre≟ False "
+      $ 88 "Erreur ordre marche pendant utilisation"
+      $ 89 "If Arc_On≟ True   and Reponse_Arc≟ True  and Reponse_Ordre≟ False "
       if (get_standard_digital_out(1) ==   True     and  get_standard_digital_in(5) ==   True    and  get_standard_digital_in(4) ==   False  ):
-        $ 93 "'Test pour savoir si ordre marche a ete coupe pendant utilisation'"
+        $ 90 "'Test pour savoir si ordre marche a ete coupe pendant utilisation'"
         # 'Test pour savoir si ordre marche a ete coupe pendant utilisation'
-        $ 94 "close_popup()"
+        $ 91 "close_popup()"
         close_popup()
-        $ 95 "Popup: Defaut : Mise sous puissance coupee pendant la trajectoire"
+        $ 92 "Popup: Defaut : Mise sous puissance coupee pendant la trajectoire"
         popup("Defaut : Mise sous puissance coupee pendant la trajectoire", "Error", False, True, blocking=False)
         halt
       end
-      $ 96 "sync()"
+      $ 93 "sync()"
       sync()
     end
   end
   threadId_Thread_1 = run Thread_1()
-  $ 97 "Thread_2"
+  $ 94 "Thread_2"
   thread Thread_2():
     while (True):
-      $ 98 "mode_soudure"
-      $ 99 "If Mode_soudure ≟  True "
+      $ 95 "mode_soudure"
+      $ 96 "If Mode_soudure ≟  True "
       if (get_configurable_digital_in(3)  ==    True  ):
-        $ 100 "If Mode_soudure≟ True  and soudure_on ≟ True "
+        $ 97 "If Mode_soudure≟ True  and soudure_on ≟ True "
         if (get_configurable_digital_in(3) ==   True    and  soudure_on  ==   True  ):
-          $ 101 "fin_soud≔0"
+          $ 98 "fin_soud≔0"
           global fin_soud=0
-          $ 102 "Test_Ordre_Mar≔ True "
+          $ 99 "Test_Ordre_Mar≔ True "
           global Test_Ordre_Mar=  True  
-          $ 103 "Test_Job≔ True "
+          $ 100 "Test_Job≔ True "
           global Test_Job=  True  
-          $ 104 "Wait Test_Ordre_Mar≟ False "
+          $ 101 "Wait Test_Ordre_Mar≟ False "
           while (not(Test_Ordre_Mar ==   False  )):
             sync()
           end
-          $ 105 "Wait Test_Job≟ False "
+          $ 102 "Wait Test_Job≟ False "
           while (not(Test_Job ==   False  )):
             sync()
           end
-          $ 106 "Set Arc_On=On"
+          $ 103 "Set Arc_On=On"
           set_standard_digital_out(1, True)
-          $ 107 "Test_Gaz≔ True "
+          $ 104 "Test_Gaz≔ True "
           global Test_Gaz=  True  
-          $ 108 "'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'"
+          $ 105 "'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'"
           # 'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'
-          $ 109 "Wait Valide_Gaz≟ True "
+          $ 106 "Wait Valide_Gaz≟ True "
           while (not(Valide_Gaz ==   True  )):
             sync()
           end
-          $ 110 "'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'"
+          $ 107 "'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'"
           # 'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'
         else:
-          $ 111 "ElseIf Mode_soudure ≟ True  and soudure_on ≟ False "
+          $ 108 "ElseIf Mode_soudure ≟ True  and soudure_on ≟ False "
           if (get_configurable_digital_in(3)  ==   True    and  soudure_on  ==   False  ):
-            $ 112 "'Attente post debit gaz'"
+            $ 109 "'Attente post debit gaz'"
             # 'Attente post debit gaz'
-            $ 113 "Set Arc_On=Off"
+            $ 110 "Set Arc_On=Off"
             set_standard_digital_out(1, False)
-            $ 114 "Test_Gaz≔ False "
+            $ 111 "Test_Gaz≔ False "
             global Test_Gaz=  False  
-            $ 115 "Loop Reponse_Arc ≟ 1"
+            $ 112 "Loop Reponse_Arc ≟ 1"
             while (get_standard_digital_in(5)  ==  1):
-              $ 116 "fin_soud≔0"
+              $ 113 "fin_soud≔0"
               global fin_soud=0
-              $ 117 "sync()"
+              $ 114 "sync()"
               sync()
             end
-            $ 118 "fin_soud≔1"
+            $ 115 "fin_soud≔1"
             global fin_soud=1
           end
         end
       end
-      $ 119 "sync()"
+      $ 116 "sync()"
       sync()
     end
   end
   threadId_Thread_2 = run Thread_2()
-  $ 120 "Thread_3"
+  $ 117 "Thread_3"
   thread Thread_3():
     while (True):
-      $ 121 "led_cobot_2"
-      $ 122 "If led_cobot ≟ True "
+      $ 118 "led_cobot_2"
+      $ 119 "If led_cobot ≟ True "
       if (led_cobot  ==   True  ):
-        $ 123 "If valider_bp_co ≟ True "
+        $ 120 "If valider_bp_co ≟ True "
         if (get_tool_digital_in(0)  ==   True  ):
-          $ 124 "Set TO[1]=On"
+          $ 121 "Set TO[1]=On"
           set_tool_digital_out(1, True)
-          $ 125 "Wait: 0.25"
+          $ 122 "Wait: 0.25"
           sleep(0.25)
-          $ 126 "Set TO[1]=Off"
+          $ 123 "Set TO[1]=Off"
           set_tool_digital_out(1, False)
-          $ 127 "Wait: 0.25"
+          $ 124 "Wait: 0.25"
           sleep(0.25)
-          $ 128 "Set TO[1]=On"
+          $ 125 "Set TO[1]=On"
           set_tool_digital_out(1, True)
-          $ 129 "Wait: 0.25"
+          $ 126 "Wait: 0.25"
           sleep(0.25)
-          $ 130 "Set TO[1]=Off"
+          $ 127 "Set TO[1]=Off"
           set_tool_digital_out(1, False)
-          $ 131 "Wait: 0.25"
+          $ 128 "Wait: 0.25"
           sleep(0.25)
-          $ 132 "Set TO[1]=On"
+          $ 129 "Set TO[1]=On"
           set_tool_digital_out(1, True)
-          $ 133 "Wait: 0.25"
+          $ 130 "Wait: 0.25"
           sleep(0.25)
-          $ 134 "Set TO[1]=Off"
+          $ 131 "Set TO[1]=Off"
           set_tool_digital_out(1, False)
-          $ 135 "Wait: 0.25"
+          $ 132 "Wait: 0.25"
           sleep(0.25)
-          $ 136 "sync()"
+          $ 133 "sync()"
           sync()
         end
-        $ 137 "sync()"
+        $ 134 "sync()"
         sync()
       end
-      $ 138 "sync()"
+      $ 135 "sync()"
       sync()
-      $ 139 "sync()"
+      $ 136 "sync()"
       sync()
     end
   end
   threadId_Thread_3 = run Thread_3()
-  $ 140 "Thread_4"
+  $ 137 "Thread_4"
   thread Thread_4():
     while (True):
-      $ 141 "led_cobot"
-      $ 142 "If led_cobot ≟ True "
+      $ 138 "led_cobot"
+      $ 139 "If led_cobot ≟ True "
       if (led_cobot  ==   True  ):
-        $ 143 "Loop led_cobot ≟  True "
+        $ 140 "Loop led_cobot ≟  True "
         while (led_cobot  ==    True  ):
-          $ 144 "Set TO[0]=On"
+          $ 141 "Set TO[0]=On"
           set_tool_digital_out(0, True)
-          $ 145 "Wait: 0.5"
+          $ 142 "Wait: 0.5"
           sleep(0.5)
-          $ 146 "Set TO[0]=Off"
+          $ 143 "Set TO[0]=Off"
           set_tool_digital_out(0, False)
-          $ 147 "Wait: 0.5"
+          $ 144 "Wait: 0.5"
           sleep(0.5)
-          $ 148 "sync()"
+          $ 145 "sync()"
           sync()
         end
-        $ 149 "sync()"
+        $ 146 "sync()"
         sync()
       else:
-        $ 150 "Else" "noBreak"
-        $ 151 "Set TO[0]=Off"
+        $ 147 "Else" "noBreak"
+        $ 148 "Set TO[0]=Off"
         set_tool_digital_out(0, False)
-        $ 152 "Set TO[1]=Off"
+        $ 149 "Set TO[1]=Off"
         set_tool_digital_out(1, False)
       end
-      $ 153 "sync()"
+      $ 150 "sync()"
       sync()
     end
   end
   threadId_Thread_4 = run Thread_4()
-  $ 154 "Thread_5"
+  $ 151 "Thread_5"
   thread Thread_5():
     while (True):
-      $ 155 "Test_Arc_On"
-      $ 156 "Erreur gaz pendant utilisation"
-      $ 157 "Timer_gaz"
-      $ 158 "If Test_Gaz≟ True "
+      $ 152 "Test_Arc_On"
+      $ 153 "Erreur gaz pendant utilisation"
+      $ 154 "Timer_gaz"
+      $ 155 "If Test_Gaz≟ True "
       if (Test_Gaz ==   True  ):
-        $ 159 "Wait: 1.0"
+        $ 156 "Wait: 1.0"
         sleep(1.0)
-        $ 160 "Loop Reponse_Arc≟ False  and Arc_On≟ True "
-        thread Thread_while_160():
+        $ 157 "Loop Reponse_Arc≟ False  and Arc_On≟ True "
+        thread Thread_while_157():
           while (True):
-            $ 161 "'La boucle permet d'activer le timer et tester deux condition pour les Defaults'"
+            $ 158 "'La boucle permet d'activer le timer et tester deux condition pour les Defaults'"
             # 'La boucle permet d'activer le timer et tester deux condition pour les Defaults'
-            $ 162 "timer_ret_gaz: Start"
+            $ 159 "timer_ret_gaz: Start"
             timer_ret_gaz_is_counting = True
-            $ 163 "If timer_ret_gaz>0.5"
-            global thread_flag_163=0
-            thread Thread_if_163():
-              $ 164 "'Le timer permet de realiser une attente '"
+            $ 160 "If timer_ret_gaz>0.5"
+            global thread_flag_160=0
+            thread Thread_if_160():
+              $ 161 "'Le timer permet de realiser une attente '"
               # 'Le timer permet de realiser une attente '
-              $ 165 "close_popup()"
+              $ 162 "close_popup()"
               close_popup()
-              $ 166 "Popup: Defaut : Pas de retour flux, stabilisation gaz"
+              $ 163 "Popup: Defaut : Pas de retour flux, stabilisation gaz"
               popup("Defaut : Pas de retour flux, stabilisation gaz", "Error", False, True, blocking=False)
               halt
-              thread_flag_163 = 1
+              thread_flag_160 = 1
             end
             if (timer_ret_gaz>0.5):
-              global thread_handler_163=run Thread_if_163()
-              while (thread_flag_163 == 0):
+              global thread_handler_160=run Thread_if_160()
+              while (thread_flag_160 == 0):
                 if not(timer_ret_gaz>0.5):
-                  kill thread_handler_163
-                  thread_flag_163 = 2
+                  kill thread_handler_160
+                  thread_flag_160 = 2
                 else:
                   sync()
                 end
               end
             else:
-              thread_flag_163 = 2
+              thread_flag_160 = 2
             end
-            if (thread_flag_163 == 2):
-              $ 167 "ElseIf Reponse_Ordre≟ False "
+            if (thread_flag_160 == 2):
+              $ 164 "ElseIf Reponse_Ordre≟ False "
               if (get_standard_digital_in(4) ==   False  ):
-                $ 168 "'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'"
+                $ 165 "'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'"
                 # 'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'
-                $ 169 "close_popup()"
+                $ 166 "close_popup()"
                 close_popup()
-                $ 170 "Popup: Defaut : Perte retour de signal, mise sous puissance generateur"
+                $ 167 "Popup: Defaut : Perte retour de signal, mise sous puissance generateur"
                 popup("Defaut : Perte retour de signal, mise sous puissance generateur", "Error", False, True, blocking=False)
                 halt
               end
@@ -2937,85 +2932,85 @@ def Cobot_soudure_291120232():
           end
         end
         if (get_standard_digital_in(5) ==   False    and  get_standard_digital_out(1) ==   True  ):
-          global thread_handler_160=run Thread_while_160()
+          global thread_handler_157=run Thread_while_157()
           while (get_standard_digital_in(5) ==   False    and  get_standard_digital_out(1) ==   True  ):
             sync()
           end
-          kill thread_handler_160
+          kill thread_handler_157
         end
-        $ 171 "Valide_Gaz≔ True "
+        $ 168 "Valide_Gaz≔ True "
         global Valide_Gaz=  True  
-        $ 172 "timer_ret_gaz: Reset"
+        $ 169 "timer_ret_gaz: Reset"
         timer_ret_gaz = 0
       end
-      $ 173 "sync()"
+      $ 170 "sync()"
       sync()
     end
   end
   threadId_Thread_5 = run Thread_5()
-  $ 182 "Thread_7"
+  $ 179 "Thread_7"
   thread Thread_7():
     while (True):
-      $ 183 "secu"
-      $ 184 "If SecuGaucheOk ≟  False  and secu_g ≟ 1"
+      $ 180 "secu"
+      $ 181 "If SecuGaucheOk ≟  False  and secu_g ≟ 1"
       if (get_configurable_digital_in(4)  ==    False    and  secu_g  ==  1):
-        $ 185 "close_popup()"
+        $ 182 "close_popup()"
         close_popup()
-        $ 186 "Popup: ATTENTION : Defaut carter !"
+        $ 183 "Popup: ATTENTION : Defaut carter !"
         popup("ATTENTION : Defaut carter !", "Error", False, True, blocking=False)
         halt
       else:
-        $ 187 "ElseIf SecuDroiteOk ≟ False  and secu_d ≟ 1"
+        $ 184 "ElseIf SecuDroiteOk ≟ False  and secu_d ≟ 1"
         if (get_configurable_digital_in(5)  ==   False    and  secu_d  ==  1):
-          $ 188 "close_popup()"
+          $ 185 "close_popup()"
           close_popup()
-          $ 189 "Popup: ATTENTION : Defaut carter !"
+          $ 186 "Popup: ATTENTION : Defaut carter !"
           popup("ATTENTION : Defaut carter !", "Error", False, True, blocking=False)
           halt
         end
       end
-      $ 190 "sync()"
+      $ 187 "sync()"
       sync()
     end
   end
   threadId_Thread_7 = run Thread_7()
-  $ 191 "Thread_8"
+  $ 188 "Thread_8"
   thread Thread_8():
     while (True):
-      $ 192 "bloq_soud_arret"
-      $ 193 "If Mode_soudure≟ False  and Test_Gaz ≟ True "
+      $ 189 "bloq_soud_arret"
+      $ 190 "If Mode_soudure≟ False  and Test_Gaz ≟ True "
       if (get_configurable_digital_in(3) ==   False    and  Test_Gaz  ==   True  ):
-        $ 194 "close_popup()"
+        $ 191 "close_popup()"
         close_popup()
-        $ 195 "Popup: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation."
+        $ 192 "Popup: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation."
         popup("Defaut : L'ordre de soudure a ete coupe pendant l'utilisation.", "Error", False, True, blocking=False)
         halt
       end
-      $ 202 "sync()"
+      $ 199 "sync()"
       sync()
     end
   end
   threadId_Thread_8 = run Thread_8()
-  $ 213 "Thread_10"
+  $ 210 "Thread_10"
   thread Thread_10():
     while (True):
-      $ 214 "reglage"
-      $ 215 "If safe_mode ≟ 1  and Mode_manu ≟  True "
+      $ 211 "reglage"
+      $ 212 "If safe_mode ≟ 1  and Mode_manu ≟  True "
       if (safe_mode  ==  1   and  get_configurable_digital_in(7)  ==    True  ):
-        $ 216 "close_popup()"
+        $ 213 "close_popup()"
         close_popup()
-        $ 217 "Popup: STOP !!!!"
+        $ 214 "Popup: STOP !!!!"
         popup("STOP !!!!", "Error", False, True, blocking=False)
         halt
       end
-      $ 218 "sync()"
+      $ 215 "sync()"
       sync()
-      $ 219 "sync()"
+      $ 216 "sync()"
       sync()
     end
   end
   threadId_Thread_10 = run Thread_10()
-  $ 50 "Robot Program"
-  $ 51 "General()"
+  $ 47 "Robot Program"
+  $ 48 "General()"
   General()
 end
