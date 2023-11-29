@@ -115,19 +115,12 @@
      led_cobot_2
        If led_cobot ≟ True 
          If valider_bp_co ≟ True 
-           Set TO[1]=On
-           Wait: 0.25
-           Set TO[1]=Off
-           Wait: 0.25
-           Set TO[1]=On
-           Wait: 0.25
-           Set TO[1]=Off
-           Wait: 0.25
-           Set TO[1]=On
-           Wait: 0.25
-           Set TO[1]=Off
-           Wait: 0.25
-           sync()
+           Loop 3 times
+             Set TO[1]=On
+             Wait: 0.25
+             Set TO[1]=Off
+             Wait: 0.25
+             sync()
          sync()
        sync()
      sync()
@@ -158,12 +151,15 @@
                  'Le timer permet de realiser une attente '
                  close_popup()
                  Popup: Defaut : Pas de retour flux, stabilisation gaz
+                 sync()
                ElseIf Reponse_Ordre≟ False 
                  'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'
                  close_popup()
                  Popup: Defaut : Perte retour de signal, mise sous puissance generateur
+                 sync()
              Valide_Gaz≔ True 
              timer_ret_gaz: Reset
+             sync()
      sync()
    'Thread_6'
    Thread_7
@@ -180,6 +176,7 @@
        If Mode_soudure≟ False  and Test_Gaz ≟ True 
          close_popup()
          Popup: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation.
+         sync()
      'freedrive_droit'
      sync()
    'Thread_9'
