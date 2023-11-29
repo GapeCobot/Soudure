@@ -35,7 +35,7 @@ def Cobot_soudure_29112023():
   set_tool_digital_output_mode(1, 2)
   set_tool_voltage(24)
   global validation_d=True
-  global tab_lin_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_fin_g=[p[0, 0, 0, 0, 0, 0], p[-0.77224, -0.27957, 0.71947, -0.0378, 0.8705, -1.38312], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global vit_arc_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global tab_arc_fin_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global vit_arc_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -43,7 +43,7 @@ def Cobot_soudure_29112023():
   global tab_arc_fin_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_point_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_point_app_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
-  global tab_lin_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_app_g=[p[0, 0, 0, 0, 0, 0], p[-0.77224, -0.27957, 0.71947, -0.0378, 0.8705, -1.38312], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_arc_app_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_lin_app_d=[p[0, 0, 0, 0, 0, 0], p[0.81547, -0.07462, 0.77482, -0.22358, 0.72957, -1.44247], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tps_point_g=0
@@ -67,7 +67,7 @@ def Cobot_soudure_29112023():
   global nb_soud_point_g=0
   global nb_soud_point_d=0
   global Def_Gaz_InTjt_1=0.0016
-  global vit_lin_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global vit_lin_g=[0, 0.005, 0.005, 0.005, 0, 0, 0, 0, 0, 0, 0]
   global vit_lin_d=[0, 0.005, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global safe_mode=0
   global tab_point_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
@@ -75,21 +75,21 @@ def Cobot_soudure_29112023():
   global tab_point_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tps_init_soud=1
   global nb_soud_arc_d=0
-  global tab_lin_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_ret_g=[p[0, 0, 0, 0, 0, 0], p[-0.77224, -0.27957, 0.71947, -0.0378, 0.8705, -1.38312], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global soudure_on=0
   global tab_arc_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global reconfig_g=0
   global tab_lin_ret_d=[p[0, 0, 0, 0, 0, 0], p[0.81547, -0.07462, 0.77482, -0.22358, 0.72957, -1.44247], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_arc_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global reconfig_d=0
-  global nbSoudure_glo_g=0
+  global nbSoudure_glo_g=3
   global nbSoudure_glo_d=2
-  global tab_type_g=[6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_type_g=[5, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global tab_point_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_type_d=[5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global tab_point_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_ret_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
-  global tab_lin_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global tab_lin_deb_g=[p[0, 0, 0, 0, 0, 0], p[-0.77224, -0.27957, 0.71947, -0.0378, 0.8705, -1.38312], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[-0.07845, -0.11506, 0.58035, -0.94062, 0.11408, -1.61058], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_arc_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_ret_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_lin_deb_d=[p[0, 0, 0, 0, 0, 0], p[0.81547, -0.07462, 0.77482, -0.22358, 0.72957, -1.44247], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
@@ -98,7 +98,7 @@ def Cobot_soudure_29112023():
   global tab_cer_quart_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_arc_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_tro_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
-  global nb_soud_lin_g=0
+  global nb_soud_lin_g=3
   global tab_arc_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_tro_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global nb_soud_lin_d=1
@@ -106,18 +106,20 @@ def Cobot_soudure_29112023():
   global vit_cer_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global tab_cer_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
-  global tab_job_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  global config_g=0
+  global tab_job_g=[1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global config_g=1
   global tab_job_d=[2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global config_d=1
   global tab_cer_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global validation_g=True
-  global debugStr="apres recopie exe table droite"
+  global debugStr="INITIALISE"
   global tab_lin_amp_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   global tab_lin_frq_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  global tab_lin_amp_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  global tab_lin_frq_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global tab_lin_amp_g=[0, 0.005, 0, 0.065, 0, 0, 0, 0, 0, 0, 0]
+  global tab_lin_frq_g=[0, 2, 0, 66, 0, 0, 0, 0, 0, 0, 0]
+  global amplitude_thr=0.1
+  global frequence_thr=1
   global Plan_1=p[0.2765977407058651,0.441662975488158,-0.354025576257956,0.010335746863727192,-2.2593603669607853,-2.1763123278249075]
   global Plan_2=p[-0.6850900144682162,0.05409388116672237,0.7275351534620245,-0.17766457951264733,3.135611439555076,0.015300324138438761]
   global Point_Attente_D=p[0.8075097707138287,-0.5559573939980813,0.6503504177938426,-0.016593826733406727,0.9796907122869005,-1.3148705972812706]
@@ -253,6 +255,9 @@ def Cobot_soudure_29112023():
   global accelerationHorsSoudure = 0.6
   
   global debug = 0
+  global debugStr = "INITIALISE"
+  global amplitude_thr = 0.1
+  global frequence_thr = 1
   
   if ((nb_soud_point_g >= 1) or (nb_soud_lin_g >= 1) or (nb_soud_arc_g >= 1) or (nb_soud_cer_g >= 1)):
   	config_g = 1
@@ -331,44 +336,6 @@ def Cobot_soudure_29112023():
       end
       sync()
   return(reponse)
-  end
-  $ 12 "Script: fun_demande().script"
-  #demande nombre soudures par type (compris entre 0 et 6)
-  
-  def fun_demande(type):
-  	if (1==type):
-  		soudure = "point"					#si type = 1, la demande sera sur une soudure point
-  	elif (2==type):
-  		soudure = "lineaire"				#si type = 2, la demande sera sur une soudure linéaire
-  	elif (3==type):
-  		soudure = "arc de cercle"			#si type = 3, la demande sera sur une soudure arc de cercle
-  	elif (4==type):
-  		soudure = "cercle"					#si type = 4, la demande sera sur une soudure cercle
-  	elif (5==type):
-  		soudure = "lineaire + balayage"
-  	else :
-  		return(False)
-  	end
-  
-  	nb_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ?")			#la demande
-  	if (nb_soud >6):																									#si la reponse est superieur a 6
-  		popup1 = "popup le robot ne peut pas effectuer plus de 6 soudures "+ soudure + " sur la même pièce, réessayer."	#popup
-  		socket_open("127.0.0.1",29999,"internal") # open internal socket
-  
-  		socket_send_line(popup1,"internal")         #Affichage Popup
-  
-  		socket_send_byte(10,"internal")
-  		sleep(5.0)
-  		closepop = "close popup"					#fermer popup
-  		socket_send_string(closepop,"internal")
-  		socket_send_byte(10,"internal")
-  		socket_close()
-  
-  		while(nb_soud >6):
-  			nb_soud = request_integer_from_primary_client("nombre de soudure(s) "+ soudure + " ? (compris entre 0 et 6 ;)")	#on redemande tant que le nombre est superieur a 6
-  		end
-  end
-  return(nb_soud)        #on retourne le nombre de soudure à effectuer dans le type
   end
   $ 13 "Script: fun_demande_vit.script"
   #demande nombre soudures par type (compris entre 0 et 6)
@@ -718,37 +685,6 @@ def Cobot_soudure_29112023():
   
       global nbSoudure_glo_g  = 0
   end
-  $ 19 "Demande"
-  $ 20 "Script: demande_d.script"
-  def fun_demande_d():
-  
-      close_popup()
-      nb_soud_point_d = fun_demande(1)
-      if (nb_soud_point_d > 0):
-              tps_point_d = request_float_from_primary_client("temps des soudures points ? (s)")
-      end
-      nb_soud_lin_d = fun_demande(2)
-      nb_soud_arc_d = fun_demande(3)
-      nb_soud_cer_d = fun_demande(4)
-  
-  end
-  $ 21 "Script: demande_g.script"
-  def fun_demande_g():
-       close_popup()
-       nb_soud_point_g = fun_demande(1)
-       nb_soud_lin_g = fun_demande(2)
-       if nb_soud_lin_g > 0:
-            vit_lin_g = fun_demande_vit(2)
-       end
-       nb_soud_arc_g = fun_demande(3)
-       if nb_soud_arc_g > 0:
-            vit_arc_g = fun_demande_vit(3)
-       end
-       nb_soud_cer_g = fun_demande(4)
-       if nb_soud_arc_g > 0:
-            vit_cer_g = fun_demande_vit(4)
-       end
-  end
   $ 22 "Configuration"
   $ 23 "Script: config_d.script"
   def fun_config_d():
@@ -786,7 +722,7 @@ def Cobot_soudure_29112023():
           elif ( (type == 2) or (type == 5)):
               if (nb_soud_lin_d <10):
                   ajout = True
-                  fun_config_soudure_lineaire(index_soudure_lin,2)
+                  fun_config_soudure_lineaire(index_soudure_lin,2, type)
                   index_soudure_lin = index_soudure_lin +1
               else:
                   ajout = False
@@ -866,7 +802,7 @@ def Cobot_soudure_29112023():
           elif ( (type == 2) or (type ==5)):
               if (nb_soud_lin_g <10):
                   ajout = True
-                  fun_config_soudure_lineaire(index_soudure_lin,1)
+                  fun_config_soudure_lineaire(index_soudure_lin,1, type)
                   index_soudure_lin = index_soudure_lin +1
               else:
                   ajout = False
@@ -1075,7 +1011,7 @@ def Cobot_soudure_29112023():
   
   end
   $ 27 "Script: fun_config_soudure_lineaire.script"
-  def fun_config_soudure_lineaire(index, table):
+  def fun_config_soudure_lineaire(index, table, type):
       teach_mode()
   
       if(table == 1):  # sur la table de gauche
@@ -1103,6 +1039,11 @@ def Cobot_soudure_29112023():
           end_teach_mode()
           vit_lin_g[index] = fun_demande_vit(2)
   
+          if (type == 5): #dans le cas du balayage
+              tab_lin_amp_g[index] = fct_demande_amplitude()
+              tab_lin_frq_g[index] = fct_demande_frequence()
+          end
+  
           nb_soud_lin_g = nb_soud_lin_g +1
   
       else: #sur la table de droite
@@ -1129,6 +1070,11 @@ def Cobot_soudure_29112023():
   
           end_teach_mode()
           vit_lin_d[index] = fun_demande_vit(2)
+  
+          if (type == 5): #dans le cas du balayage
+              tab_lin_amp_d[index] = fct_demande_amplitude()
+              tab_lin_frq_d[index] = fct_demande_frequence()
+          end
   
           nb_soud_lin_d = nb_soud_lin_d +1
       end
@@ -1273,12 +1219,7 @@ def Cobot_soudure_29112023():
       local index_soudure_arc = 1
       local index_soudure_cercle = 1
   
-      close_popup()
-      #config popup
-      popup1 = "popup Table droite, éxécution..."
-      socket_open("127.0.0.1",29999,"internal")
-      socket_send_line(popup1,"internal")
-      socket_send_byte(10,"internal")
+      pop_up_deb_exe_d()
   
       fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée
   
@@ -1307,9 +1248,9 @@ def Cobot_soudure_29112023():
               fun_soudure_cercle(index_soudure_cercle,2)
               index_soudure_cercle = index_soudure_cercle +1
           elif (typeSoudure ==6):
-              debugStr = "avant exe table droite"
+              #debugStr = "avant exe table droite"
               Recopie_Table_Droite() #appeler le sous prog
-              debugStr = "apres recopie exe table droite"
+              #debugStr = "apres recopie exe table droite"
               fun_deplacement_pose_inter(2)
               sync()
   
@@ -1318,6 +1259,7 @@ def Cobot_soudure_29112023():
           soudureEnCours = soudureEnCours +1
           sync()
       end
+          pop_up_exe_termine()
           #movej(anti_poq_d_1, a=1.4,v=1.1,t=0,r=0.005)
           #movej(anti_poq_d_2, a=1.4,v=1.1,t=0,r=0.005)
           movej(Point_Attente_D, a=0.8,v=1.05,t=0,r=0.005)
@@ -1334,12 +1276,7 @@ def Cobot_soudure_29112023():
   local index_soudure_arc = 1
   local index_soudure_cercle = 1
   
-  close_popup()
-  #config popup
-  #popup1 = "popup Table gauche, éxécution..."
-  #socket_open("127.0.0.1",29999,"internal")
-  #socket_send_line(popup1,"internal")
-  #socket_send_byte(10,"internal")
+  pop_up_deb_exe_g()
   
   #fun_deplacement_pose_inter(1)
   
@@ -1376,6 +1313,8 @@ def Cobot_soudure_29112023():
       soudureEnCours = soudureEnCours +1
       sync()
   end
+  
+      pop_up_exe_termine()
       #movej(anti_Poq_g, a=1.4,v=1.1,t=0,r=0.005)
       #movej(Point_init, a=1.4,v=1.1,t=0,r=0.005)
   
@@ -1544,7 +1483,7 @@ def Cobot_soudure_29112023():
           movej(tab_lin_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
   
           if (balayage == True):
-              fct_activerBalayage(tab_lin_deb_g[Index], tab_lin_fin_g[Index])
+              fct_activerBalayage(tab_lin_deb_g[Index], tab_lin_fin_g[Index],tab_lin_amp_g[Index],tab_lin_frq_g[Index])
           end
   
           fun_activer_soudure()                         #appel de la fonction activer la soudure
@@ -1570,7 +1509,7 @@ def Cobot_soudure_29112023():
           movej(tab_lin_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
   
           if (balayage == True):
-              fct_activerBalayage(tab_lin_deb_d[Index], tab_lin_fin_d[Index])
+              fct_activerBalayage(tab_lin_deb_d[Index], tab_lin_fin_d[Index],tab_lin_amp_d[Index],tab_lin_frq_d[Index])
           end
   
           fun_activer_soudure()                         #appel de la fonction activer la soudure
@@ -2265,6 +2204,14 @@ def Cobot_soudure_29112023():
       socket_send_line(popup1,"internal")     #Affichage message
       socket_send_byte(10,"internal")
   end
+  
+  def pop_up_exe_termine():
+      close_popup()
+      popup1 ="popup EXECUTION : La soudure est terminée" #"popup Appuyer sur le bouton gauche ou droit pour commencer l'éxécution de la pièce sur la table associée. La gestion des modes configuration et éxécution se fait à l'aide du commutateur réglage."
+      socket_open("127.0.0.1",29999,"internal") # open internal socket
+      socket_send_line(popup1,"internal")     #Affichage message
+      socket_send_byte(10,"internal")
+  end
   $ 52 "Script: Pops_up_Configuration.script"
   def pop_up_config():
       close_popup()
@@ -2362,9 +2309,11 @@ def Cobot_soudure_29112023():
   
   end
   
-  def fct_activerBalayage(p_start, p_stop):
+  def fct_activerBalayage(p_start, p_stop,amplitude, frequence):
   
       fct_determineAxeBalayage(p_start,p_stop)
+      amplitude_thr = amplitude
+      frequence_thr = frequence
       global thr_runBalayage = run runBalayage()
   
   end
@@ -2372,6 +2321,31 @@ def Cobot_soudure_29112023():
   def fct_desactiverBalayage():
   
       kill thr_runBalayage
+  
+  end
+  
+  def fct_demande_amplitude():
+  
+      amplitude = request_integer_from_primary_client("amplitude du balayage en mm :")
+      while (amplitude <=0):
+          amplitude = request_integer_from_primary_client("amplitude du balayage en mm :")
+      end
+  
+      amplitude = amplitude/1000
+  
+      return amplitude
+  
+  end
+  
+  
+  def fct_demande_frequence():
+  
+      frequence = request_float_from_primary_client("frequence du balayage en Hz :")
+      while (frequence <=0):
+          frequence = request_float_from_primary_client("frequence du balayage en Hz :")
+      end
+  
+      return frequence
   
   end
   $ 55 "Script: fcts_ralentir_fin_ligne.script"

@@ -22,7 +22,7 @@ def fun_soudure_lineaire(Index,table,typeSoudure):
         end 
         
         fun_activer_soudure()                         #appel de la fonction activer la soudure 
-        movel(tab_lin_fin_g[Index],a=a_fun,v=vit_lin_g[Index],t=t_fun)
+        movel(p_inter,a=a_fun,v=vit_lin_g[Index],t=t_fun)
         movel(tab_lin_fin_g[Index],a=a_fun,v=vitesse_lente,t=t_fun)
     
         fun_fin_soudure(1) 
@@ -49,7 +49,7 @@ def fun_soudure_lineaire(Index,table,typeSoudure):
     
         fun_activer_soudure()                         #appel de la fonction activer la soudure 
     
-        movel(tab_lin_fin_d[Index],a=a_fun,v=vit_lin_d[Index],t=t_fun)
+        movel(p_inter,a=a_fun,v=vit_lin_d[Index],t=t_fun)
         movel(tab_lin_fin_d[Index],a=a_fun,v=vitesse_lente,t=t_fun)
     
         fun_fin_soudure(2)                           #appel de la fonction désactiver la soudure

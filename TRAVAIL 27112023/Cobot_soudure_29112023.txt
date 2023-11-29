@@ -10,16 +10,14 @@
          Script: fin_soudure.script
          Script: fun_demande_job.script
          Script: fun_demande_type_soudure.script
-         Script: fun_demande().script
+         'Script: fun_demande().script'
          Script: fun_demande_vit.script
          Script: fun_front_down.script
          Script: fun_front_up.script
          Script: fun_popup_soud().script
          Script: fun_raz_d.script
          Script: fun_raz_g.script
-       Demande
-         Script: demande_d.script
-         Script: demande_g.script
+       'Demande'
        Configuration
          Script: config_d.script
          Script: config_g.script
