@@ -61,9 +61,11 @@ thread runBalayage():
 
 end
 
-def fct_activerBalayage(p_start, p_stop):
+def fct_activerBalayage(p_start, p_stop,amplitude, frequence):
 
     fct_determineAxeBalayage(p_start,p_stop)
+    amplitude_thr = amplitude
+    frequence_thr = frequence 
     global thr_runBalayage = run runBalayage() 
 
 end 
@@ -72,4 +74,29 @@ def fct_desactiverBalayage():
 
     kill thr_runBalayage
     
+end 
+
+def fct_demande_amplitude():
+
+    amplitude = request_integer_from_primary_client("amplitude du balayage en mm :")
+    while (amplitude <=0):
+        amplitude = request_integer_from_primary_client("amplitude du balayage en mm :")
+    end 
+
+    amplitude = amplitude/1000
+
+    return amplitude
+
+end 
+
+
+def fct_demande_frequence():
+
+    frequence = request_float_from_primary_client("frequence du balayage en Hz :")
+    while (frequence <=0):
+        frequence = request_float_from_primary_client("frequence du balayage en Hz :")
+    end 
+
+    return frequence
+
 end 

@@ -47,6 +47,9 @@ global vitesseHorsSoudure = 1
 global accelerationHorsSoudure = 0.6
 
 global debug = 0
+global debugStr = "INITIALISE"
+global amplitude_thr = 0.1 
+global frequence_thr = 1
 
 if ((nb_soud_point_g >= 1) or (nb_soud_lin_g >= 1) or (nb_soud_arc_g >= 1) or (nb_soud_cer_g >= 1)):
 	config_g = 1

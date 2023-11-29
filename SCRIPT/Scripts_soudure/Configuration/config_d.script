@@ -33,7 +33,7 @@ def fun_config_d():
         elif ( (type == 2) or (type == 5)):
             if (nb_soud_lin_d <10):
                 ajout = True
-                fun_config_soudure_lineaire(index_soudure_lin,2)
+                fun_config_soudure_lineaire(index_soudure_lin,2, type)
                 index_soudure_lin = index_soudure_lin +1
             else:
                 ajout = False

@@ -6,12 +6,7 @@ def fun_execution_d():
     local index_soudure_arc = 1
     local index_soudure_cercle = 1
 
-    close_popup()
-    #config popup
-    popup1 = "popup Table droite, éxécution..."
-    socket_open("127.0.0.1",29999,"internal") 
-    socket_send_line(popup1,"internal")
-    socket_send_byte(10,"internal")
+    pop_up_deb_exe_d()
 
     fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée 
 
@@ -40,8 +35,9 @@ def fun_execution_d():
             fun_soudure_cercle(index_soudure_cercle,2)
             index_soudure_cercle = index_soudure_cercle +1 
         elif (typeSoudure ==6):
+            #debugStr = "avant exe table droite"
             Recopie_Table_Droite() #appeler le sous prog 
-            debug = 5000
+            #debugStr = "apres recopie exe table droite"
             fun_deplacement_pose_inter(2)  
             sync()
             
@@ -50,6 +46,7 @@ def fun_execution_d():
         soudureEnCours = soudureEnCours +1 
         sync()
     end 
+        pop_up_exe_termine()
         #movej(anti_poq_d_1, a=1.4,v=1.1,t=0,r=0.005)
         #movej(anti_poq_d_2, a=1.4,v=1.1,t=0,r=0.005)    
         movej(Point_Attente_D, a=0.8,v=1.05,t=0,r=0.005)

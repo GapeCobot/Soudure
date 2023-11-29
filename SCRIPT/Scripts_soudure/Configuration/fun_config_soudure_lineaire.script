@@ -1,4 +1,4 @@
-def fun_config_soudure_lineaire(index, table):
+def fun_config_soudure_lineaire(index, table, type):
     teach_mode()
 
     if(table == 1):  # sur la table de gauche 
@@ -26,6 +26,11 @@ def fun_config_soudure_lineaire(index, table):
         end_teach_mode()
         vit_lin_g[index] = fun_demande_vit(2)
 
+        if (type == 5): #dans le cas du balayage 
+            tab_lin_amp_g[index] = fct_demande_amplitude()
+            tab_lin_frq_g[index] = fct_demande_frequence()
+        end 
+
         nb_soud_lin_g = nb_soud_lin_g +1 
 
     else: #sur la table de droite
@@ -52,6 +57,11 @@ def fun_config_soudure_lineaire(index, table):
 
         end_teach_mode()
         vit_lin_d[index] = fun_demande_vit(2)
+
+        if (type == 5): #dans le cas du balayage 
+            tab_lin_amp_d[index] = fct_demande_amplitude()
+            tab_lin_frq_d[index] = fct_demande_frequence()
+        end 
 
         nb_soud_lin_d = nb_soud_lin_d +1 
     end

@@ -1,0 +1,204 @@
+ Program
+   Init Variables
+   BeforeStart
+     fonctions
+       Init
+         Script: Init_Variables.script
+       Diverses
+         Script: close_popup.script
+         Script: debut_soud.script
+         Script: fin_soudure.script
+         Script: fun_demande_job.script
+         Script: fun_demande_type_soudure.script
+         Script: fun_demande().script
+         Script: fun_demande_vit.script
+         Script: fun_front_down.script
+         Script: fun_front_up.script
+         Script: fun_popup_soud().script
+         Script: fun_raz_d.script
+         Script: fun_raz_g.script
+       Demande
+         Script: demande_d.script
+         Script: demande_g.script
+       Configuration
+         Script: config_d.script
+         Script: config_g.script
+         Script: fun_config_soudure_arc.script
+         Script: fun_config_soudure_cercle.script
+         Script: fun_config_soudure_lineaire.script
+         Script: fun_config_soudure_point.script
+         Script: popUp_tropSoudures.script
+         Script: valid_config_d.script
+         Script: valid_config_g.script
+       Execution
+         Script: execution_d.script
+         Script: execution_g.script
+         Script: fun_activer_soudure.script
+         Script: fun_commande_job.script
+         Script: fun_deplacement_pose_inter.script
+         Script: fun_fin_soudure.script
+         Script: fun_soudure_arc.script
+         Script: fun_soudure_cercle.script
+         Script: fun_soudure_lineaire.script
+         Script: fun_soudure_point.script
+       Pas_A_Pas
+         Script: fun_ajouter_soudure.script
+         Script: fun_decaler_tableau.script
+         Script: fun_inserer_soudure.script
+         Script: PasAPas_d.script
+         Script: PasAPas_g.script
+       PopUps
+         Script: Pops_up_PAsAPas.script
+         Script: Pops_up_Execution.script
+         Script: Pops_up_Configuration.script
+       Mouvements soudures
+         Script: fcts_balayage.script
+         Script: fcts_ralentir_fin_ligne.script
+       General
+         Script: diverses.script
+         Script: general2.script
+   Robot Program
+     General()
+   Recopie_Table_Droite
+     'Popup: Recopie sur la table de droite '
+     MoveJ
+       App_RecopieD
+       Deb_RecopieD
+     fun_activer_soudure()
+     'Missing: Path'
+     'faire une recopie de mvt'
+     fun_fin_soudure(2)
+     MoveJ
+       Ret_RecopieD
+     sync()
+   Recopie_Table_Gauche
+     'Popup: Recopie sur la table de gauche'
+     MoveJ
+       App_RecopieG
+       Deb_RecopieG
+     fun_activer_soudure()
+     'faire une recopie de mvt'
+     'Missing: Path'
+     fun_fin_soudure(1)
+     MoveJ
+       Ret_RecopieG
+   Thread_1
+     Test_Ordre_Marche
+       If Test_Ordre_Mar≟ True 
+         If config_d ≟ 1  or  config_g ≟ 1
+           Set Ordre_Marche=On
+           Wait: 0.5
+           If Reponse_Ordre≟ False 
+             'Si aucune reponse n'a etait recue, arret du programme'
+             close_popup()
+             Popup: Defaut : L'Ordre marche a ete coupe ( le poste est peu-etre eteint ) 
+           Test_Ordre_Mar≔ False 
+           sync()
+       Erreur ordre marche pendant utilisation
+         If Arc_On≟ True   and Reponse_Arc≟ True  and Reponse_Ordre≟ False 
+           'Test pour savoir si ordre marche a ete coupe pendant utilisation'
+           close_popup()
+           Popup: Defaut : Mise sous puissance coupee pendant la trajectoire
+     sync()
+   Thread_2
+     mode_soudure
+       If Mode_soudure ≟  True 
+         If Mode_soudure≟ True  and soudure_on ≟ True 
+           fin_soud≔0
+           Test_Ordre_Mar≔ True 
+           Test_Job≔ True 
+           Wait Test_Ordre_Mar≟ False 
+           Wait Test_Job≟ False 
+           Set Arc_On=On
+           Test_Gaz≔ True 
+           'Test_Gaz permet de faire un appel dans le thread pour tester l'arriver gaz'
+           Wait Valide_Gaz≟ True 
+           'Valide_Gaz permet  de connaitre quand le traitement de l'arriver gaz est terminer ans le thread.'
+         ElseIf Mode_soudure ≟ True  and soudure_on ≟ False 
+           'Attente post debit gaz'
+           Set Arc_On=Off
+           Test_Gaz≔ False 
+           Loop Reponse_Arc ≟ 1
+             fin_soud≔0
+             sync()
+           fin_soud≔1
+     sync()
+   Thread_3
+     led_cobot_2
+       If led_cobot ≟ True 
+         If valider_bp_co ≟ True 
+           Set TO[1]=On
+           Wait: 0.25
+           Set TO[1]=Off
+           Wait: 0.25
+           Set TO[1]=On
+           Wait: 0.25
+           Set TO[1]=Off
+           Wait: 0.25
+           Set TO[1]=On
+           Wait: 0.25
+           Set TO[1]=Off
+           Wait: 0.25
+           sync()
+         sync()
+       sync()
+     sync()
+   Thread_4
+     led_cobot
+       If led_cobot ≟ True 
+         Loop led_cobot ≟  True 
+           Set TO[0]=On
+           Wait: 0.5
+           Set TO[0]=Off
+           Wait: 0.5
+           sync()
+         sync()
+       Else
+         Set TO[0]=Off
+         Set TO[1]=Off
+     sync()
+   Thread_5
+     Test_Arc_On
+       Erreur gaz pendant utilisation
+         Timer_gaz
+           If Test_Gaz≟ True 
+             Wait: 1.0
+             Loop Reponse_Arc≟ False  and Arc_On≟ True 
+               'La boucle permet d'activer le timer et tester deux condition pour les Defaults'
+               timer_ret_gaz: Start
+               If timer_ret_gaz>0.5
+                 'Le timer permet de realiser une attente '
+                 close_popup()
+                 Popup: Defaut : Pas de retour flux, stabilisation gaz
+               ElseIf Reponse_Ordre≟ False 
+                 'Cette condition nous permet de pouvoir tout couper ordre marche pendant la boucle.'
+                 close_popup()
+                 Popup: Defaut : Perte retour de signal, mise sous puissance generateur
+             Valide_Gaz≔ True 
+             timer_ret_gaz: Reset
+     sync()
+   'Thread_6'
+   Thread_7
+     secu
+       If SecuGaucheOk ≟  False  and secu_g ≟ 1
+         close_popup()
+         Popup: ATTENTION : Defaut carter !
+       ElseIf SecuDroiteOk ≟ False  and secu_d ≟ 1
+         close_popup()
+         Popup: ATTENTION : Defaut carter !
+     sync()
+   Thread_8
+     bloq_soud_arret
+       If Mode_soudure≟ False  and Test_Gaz ≟ True 
+         close_popup()
+         Popup: Defaut : L'ordre de soudure a ete coupe pendant l'utilisation.
+     'freedrive_droit'
+     sync()
+   'Thread_9'
+   Thread_10
+     reglage
+       If safe_mode ≟ 1  and Mode_manu ≟  True 
+         close_popup()
+         Popup: STOP !!!!
+       sync()
+     sync()

@@ -18,7 +18,7 @@ def fun_soudure_lineaire(Index,table,typeSoudure):
         movej(tab_lin_deb_g[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
     
         if (balayage == True):
-            fct_activerBalayage(tab_lin_deb_g[Index], tab_lin_fin_g[Index])
+            fct_activerBalayage(tab_lin_deb_g[Index], tab_lin_fin_g[Index],tab_lin_amp_g[Index],tab_lin_frq_g[Index])
         end 
         
         fun_activer_soudure()                         #appel de la fonction activer la soudure 
@@ -44,7 +44,7 @@ def fun_soudure_lineaire(Index,table,typeSoudure):
         movej(tab_lin_deb_d[Index],a=a_fun,v=v_fun,t=t_fun,r=r_fun)
 
         if (balayage == True):
-            fct_activerBalayage(tab_lin_deb_d[Index], tab_lin_fin_d[Index])
+            fct_activerBalayage(tab_lin_deb_d[Index], tab_lin_fin_d[Index],tab_lin_amp_d[Index],tab_lin_frq_d[Index])
         end 
     
         fun_activer_soudure()                         #appel de la fonction activer la soudure 
