@@ -8,7 +8,7 @@ def fun_execution_d():
 
     pop_up_deb_exe_d()
 
-    fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée 
+    #fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée 
 
     local nbSoudures = nbSoudure_glo_d 
     local soudureEnCours = 0 #soudure en cours 
@@ -22,8 +22,8 @@ def fun_execution_d():
 
         #switch de tous les types avec appel aux fonctions correspondantes 
         if (typeSoudure == 1 ):
-            fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
             #fun_soudure_point(index_soudure_point)
+            fun_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
             index_soudure_point = index_soudure_point + 1 
         elif ((typeSoudure == 2 )or (typeSoudure ==5)): 
             fun_soudure_lineaire(index_soudure_lin,2,typeSoudure)
@@ -35,10 +35,8 @@ def fun_execution_d():
             fun_soudure_cercle(index_soudure_cercle,2)
             index_soudure_cercle = index_soudure_cercle +1 
         elif (typeSoudure ==6):
-            #debugStr = "avant exe table droite"
             Recopie_Table_Droite() #appeler le sous prog 
-            #debugStr = "apres recopie exe table droite"
-            fun_deplacement_pose_inter(2)  
+            #fun_deplacement_pose_inter(2)  
             sync()
             
         else:

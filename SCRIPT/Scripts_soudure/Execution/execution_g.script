@@ -36,8 +36,9 @@ while (soudureEnCours<nbSoudures): #pour le moment début a 0 donc < (a voir si 
         index_soudure_cercle = index_soudure_cercle +1 
     elif (typeSoudure ==6):
         Recopie_Table_Gauche()#appeler le sous prog 
-        fun_deplacement_pose_inter(2) 
-        
+        #fun_deplacement_pose_inter(1) 
+        sync()
+    
     else:
     end 
     soudureEnCours = soudureEnCours +1 

@@ -52,7 +52,6 @@ def fun_Pas_A_Pas_d():
                 fun_soudure_cercle(index_soudure_cer,2)
             elif(typeSoudure ==6):
                 Recopie_Table_Droite()
-                debugStr = "Apres recopie PaP " 
             else:
             end 
             #FIN DE LA REALISATION DE LA SOUDURE 
@@ -67,8 +66,8 @@ def fun_Pas_A_Pas_d():
             ###
             # (4) Modifier()
             ###
-            #fun_deplacement_pose_inter(2) 
-            teach_mode()
+            fun_deplacement_pose_inter(2) 
+            #teach_mode()
             
             if (typeSoudure == 1 ):
                 fun_config_soudure_point(index_soudure_point,2) # ( , 2 pour signifier table de droite )
@@ -82,7 +81,7 @@ def fun_Pas_A_Pas_d():
                 #faire un popUp d'avertissement 
             else:
             end
-            end_teach_mode()
+            #end_teach_mode()
             sync()
         end
         # (5) PopUp demande ajout 

@@ -31,7 +31,7 @@ def fun_config_g():
                 popUp_tropSoudures()
             end
 
-        elif ( (type == 2) or (type ==5)): 
+        elif ( (type == 2) or (type == 5)): 
             if (nb_soud_lin_g <10):
                 ajout = True 
                 fun_config_soudure_lineaire(index_soudure_lin,1, type)
@@ -73,7 +73,7 @@ def fun_config_g():
         sync() 
         type = fun_demande_type_soudure()
     end 
-
-  # end_teach_mode()
-   global nbSoudure_glo_g = nbSoudures 
+#  end_teach_mode()
+   global nbSoudure_glo_d = nbSoudures 
 end 
+

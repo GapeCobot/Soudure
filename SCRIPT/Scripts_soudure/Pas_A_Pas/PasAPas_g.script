@@ -94,7 +94,7 @@ def fun_Pas_A_Pas_g():
             ###
             TypeSoudureAjoutee = fun_ajouter_soudure(ajouterSoudure, soudureEnCours,index_soudure_point,index_soudure_lin,index_soudure_arc,index_soudure_cer, 1)
 
-            if (TypeSoudureAjoutee != 5): #5 est le code retourné s'il n'y a pas d'ajout de soudure 
+            if (TypeSoudureAjoutee != 7): #5 est le code retourné s'il n'y a pas d'ajout de soudure 
                 nbSoudures =  nbSoudures +1 
                 nbSoudure_glo_g = nbSoudures
 
@@ -117,10 +117,10 @@ def fun_Pas_A_Pas_g():
             # pas d'incrément pour recommencer la boucle avec cette soudure 
             soudureEnCours = soudureEnCours 
         else:   
-        soudureEnCours = soudureEnCours +1 
+            soudureEnCours = soudureEnCours +1 
             if (typeSoudure == 1 )  :
                 index_soudure_point =index_soudure_point +1
-            elif (typeSoudure == 2 ): 
+            elif ((typeSoudure == 2 ) or (typeSoudure ==5)): 
                 index_soudure_lin = index_soudure_lin +1
             elif (typeSoudure == 3 ):
                 index_soudure_arc = index_soudure_arc +1
