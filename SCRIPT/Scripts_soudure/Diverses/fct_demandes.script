@@ -1,0 +1,66 @@
+
+def fun_demande_vit(type):
+    # -- Demande la vitesse de soudure pour le moment en cours d'enregistrement
+    # retourne la vitesse en m/s
+    if (1 == type):
+        soudure = "point"
+    elif (2 == type):
+        soudure = "lineaire"
+    elif (3 == type):
+        soudure = "arc de cercle"
+    elif (4 == type):
+        soudure = "cercle"
+    else :
+        return(False)
+    end
+
+        vit_soud = request_float_from_primary_client("vitesse de la soudure " + soudure + " ? (mm/s)")
+
+	sync()
+    return(vit_soud / 1000)
+end
+
+#-
+
+def fun_demande_job(type):
+	#demande le job à utiliser (mode de soudure régler sur le poste à souder) (compris entre  1 et 4 sur le poste a souder)
+	if (1==type):
+		soudure = "point"
+	elif (2==type):
+		soudure = "lineaire"
+	elif (3==type): 
+		soudure = "arc de cercle"
+	elif (4==type):
+		soudure = "cercle"
+	elif (5==type):
+		soudure = "lineaire + balayage"
+	elif (6==type):
+		soudure = "Recopie"
+	else :
+		return(False)
+	end
+
+  	job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+  
+  	while ((job!=4) and (job!=1) and (job!=2) and (job!=3)): #reboucler si mauvaise saisie 
+	  job = request_integer_from_primary_client("Mode du poste à souder pour soudure : "+ soudure + " ? [1-4]")
+	  sync()
+  	end 
+
+	sync()
+  	return(job)
+end
+#-
+
+def fun_demande_type_soudure():
+	#demande le type de soudure à enregistrer (entre 1 et 6, autre saisie = fin )
+    sync()
+	reponse = request_integer_from_primary_client("1->POINT     2->LINEAIRE    3->ARC    4->CERCLE  5->LINEAIRE BALAYAGE     6->RECOPIE     7->FIN")
+    sync()
+    if ((reponse == 0) or (reponse >= 7)):
+        reponse = 7 
+    end
+    sync()
+return(reponse)
+end
+

@@ -5,3 +5,10 @@ def fun_debut_soudure():
         Test_Gaz = True
     end
 end 
+
+def fin_soudure():
+    Arc_On = False
+    Test_Gaz = False
+    Test_Job = True
+    Test_Ordre_Mar = True
+end 

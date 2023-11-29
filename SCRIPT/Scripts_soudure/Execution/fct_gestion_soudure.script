@@ -1,0 +1,48 @@
+def fun_fin_soudure(table):
+    #desactiver la soudure 
+    soudure_on = 0 
+    while(fin_soud == 0):
+    end
+    set_digital_out(table+4,False)                 #eteindre la lumiere pour dire que l'on soude plus 
+    
+    #table +4 : les sorties numériques sont respectivements 5 table gauche & 6 table droite 
+    #le décalage permet d'écrire directement au bon endroit
+    sync()
+
+end 
+#- 
+
+def fun_activer_soudure():
+    #activer la soudure 
+    soudure_on = 1
+    sleep(tps_init_soud)
+    sync()
+end 
+#-
+
+def fun_commande_job(int):
+    #fonction ecriture des jobs vers rob3000 (choix du mode du poste à souder)
+    if (int == 1):
+        set_digital_out(2,True)
+        set_digital_out(3,False)
+
+    
+    elif(int == 2):
+        set_digital_out(2,False)
+        set_digital_out(3,True)
+
+    elif(int == 3):
+        set_digital_out(2,True)
+        set_digital_out(3,True)
+
+    elif(int == 4):
+        set_digital_out(2,False)
+        set_digital_out(3,False)
+    
+   # else:
+   #     set_digital_out(2,False)
+     #   set_digital_out(3,False)
+    end 
+end 
+#-
+

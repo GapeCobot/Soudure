@@ -1,5 +1,0 @@
-def fun_activer_soudure():
-    soudure_on = 1
-    sleep(tps_init_soud)
-    sync()
-end 

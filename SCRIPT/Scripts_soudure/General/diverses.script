@@ -25,6 +25,7 @@ def attente_carters_ouverts():
     global debug = 3
 
 end
+#-
 
 def deplacement_depart_init():
 
@@ -60,10 +61,7 @@ def deplacement_depart_init():
     #global angle_base= get_actual_joint_positions ()
     sync()
 end
-
-
-
-
+#-
 
 def mode_configuration():
     #nouveau
@@ -134,9 +132,7 @@ def mode_configuration():
 
     sync()
 end
-
-
-
+#-
 
 def mode_Reglage():
     #Pas à Pas
@@ -211,6 +207,7 @@ def mode_Reglage():
 
     sync()
 end
+#-
 
 def mode_Execution():
 
@@ -333,3 +330,4 @@ def mode_Execution():
     end
     sync()
 end
+#-

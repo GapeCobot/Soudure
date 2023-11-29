@@ -1,0 +1,35 @@
+def fun_front_up(add_bp):
+    #attente front montant sur add_bp
+    bp = get_digital_in(add_bp)
+    while bp :
+        bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 14
+        sync()
+        #attente relachement bouton
+    end
+    sync()
+    while not bp :                              #dans la boucle tant que l'entrée add_bp est a 0
+        bp = get_digital_in(add_bp)
+        sync()
+        #attente
+    end
+    sync()
+    return(False)
+end
+
+def fun_front_do(add_bp):
+    #attente front montant sur add_bp
+    bp = get_digital_in(add_bp)
+    while not bp :
+        bp = get_digital_in(add_bp)    #dans la boucle tant que l'entrée add_bp est a 1
+        sync()
+        #attente relachement bouton
+    end
+
+    while bp :                              #dans la boucle tant que l'entrée add_bp est a 0
+        bp = get_digital_in(add_bp)
+        sync()
+        #attente
+    end
+
+    return(False)
+end

@@ -8,18 +8,9 @@
          Script: fun_raz_g.script
        Diverses
          Script: close_popup.script
-         Script: debut_soud.script
-         Script: fin_soudure.script
-         Script: fun_demande_job.script
-         Script: fun_demande_type_soudure.script
-         'Script: fun_demande().script'
-         Script: fun_demande_vit.script
-         Script: fun_front_down.script
-         Script: fun_front_up.script
-         Script: fun_popup_soud().script
-         Script: fun_raz_d.script
-         Script: fun_raz_g.script
-       'Demande'
+         Script: fct_demandes.script
+         Script: fct_gestion_front_bp.script
+         Script: fct_gestion_soudure.script
        Configuration
          Script: config_d.script
          Script: config_g.script
@@ -27,16 +18,16 @@
          Script: fun_config_soudure_cercle.script
          Script: fun_config_soudure_lineaire.script
          Script: fun_config_soudure_point.script
-         Script: popUp_tropSoudures.script
          Script: valid_config_d.script
          Script: valid_config_g.script
        Execution
          Script: execution_d.script
          Script: execution_g.script
-         Script: fun_activer_soudure.script
-         Script: fun_commande_job.script
+         Script: fct_gestion_soudure.script
+         'Script: fun_activer_soudure.script'
+         'Script: fun_commande_job.script'
          Script: fun_deplacement_pose_inter.script
-         Script: fun_fin_soudure.script
+         'Script: fun_fin_soudure.script'
          Script: fun_soudure_arc.script
          Script: fun_soudure_cercle.script
          Script: fun_soudure_lineaire.script
