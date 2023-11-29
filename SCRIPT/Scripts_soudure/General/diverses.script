@@ -76,7 +76,7 @@ def mode_configuration():
         pop_up_config()
     end
 
-    while ((get_configurable_digital_in(add_ModeManu) == False  ) and (get_standard_digital_in(add_bp_ConfigReglage) == False  )):
+    while ((get_configurable_digital_in(add_ModeExe) == False  ) and (get_standard_digital_in(add_bp_ConfigReglage) == False  )):
         thread Thread_while_145():
             while (True):  # faire clignoter les voyants des tables, pour informer de l'attente d'une action
                 set_standard_digital_out(add_VoyantTableDroite, True)
@@ -88,9 +88,9 @@ def mode_configuration():
                 sync()
             end
         end
-        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
+        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
             global thread_handler_145 = run Thread_while_145()
-            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
+            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
                 sync()
             end
             kill thread_handler_145
@@ -155,7 +155,7 @@ def mode_Reglage():
 
 
     global boucle = 1
-    while ((get_configurable_digital_in(add_ModeManu) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
+    while ((get_configurable_digital_in(add_ModeExe) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
         thread Thread_while_208():
             while (True):
                 if (config_g == 1):
@@ -170,9 +170,9 @@ def mode_Reglage():
                 sleep(0.5)
             end
         end
-        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
             global thread_handler_208 = run Thread_while_208()
-            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
                 sync()
             end
             kill thread_handler_208
@@ -222,12 +222,12 @@ def mode_Execution():
         global boucle = 1
     else:
         close_popup()
-        while (get_configurable_digital_in(add_ModeManu) == True):
+        while (get_configurable_digital_in(add_ModeExe) == True):
             popup("Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
         end
     end
 
-    while (( get_configurable_digital_in(add_ModeManu) == True  ) and (boucle == 1)):
+    while (( get_configurable_digital_in(add_ModeExe) == True  ) and (boucle == 1)):
         thread Thread_while_259():
             while (True):
                 if (config_g == 1):
@@ -242,32 +242,33 @@ def mode_Execution():
                 sleep(0.5)
             end
         end
-        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == True):
+        if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == True):
             global thread_handler_259 = run Thread_while_259()
-            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == True):
+            while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == True):
                 sync()
             end
             kill thread_handler_259
         end
-        if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == True  )):
+        if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == True  )): #table de gauche 
+            pop_up_deb_exe_g()
             global boucle_g = 1
-            while (boucle_g == 1):
-                set_configurable_digital_out(add_CmdCarterBit1, True)
-                set_standard_digital_out(add_VoyantTableGauche, True)
+            while (boucle_g == 1):  #Boucler une fois, tant que la soudure n'est pas finie 
+                set_configurable_digital_out(add_CmdCarterBit1, True)#commande la fermeture du carter 
+
+                set_standard_digital_out(add_VoyantTableGauche, True) #commande des voyants
                 set_standard_digital_out(add_VoyantTableDroite, False)
                 sleep(0.25)
                 set_standard_digital_out(add_VoyantTableGauche, False)
                 sleep(0.25)
-                if (get_configurable_digital_in(add_SecuGaucheOk) == False):
+
+                if (get_configurable_digital_in(add_SecuGaucheOk) == False): #si les carter ne sont pas en position : voyant et attente 
                     set_standard_digital_out(add_VoyantTableGauche, True)
-                    if (get_configurable_digital_in(add_SecuGaucheOk) == False):
-                        close_popup()
-                        while (get_configurable_digital_in(add_SecuGaucheOk) == False):
-                            sync()
-                        end
+                    while (get_configurable_digital_in(add_SecuGaucheOk) == False):
+                        sync()
                     end
                 end
-                if (get_configurable_digital_in(add_SecuGaucheOk) == True):
+
+                if (get_configurable_digital_in(add_SecuGaucheOk) == True): # attente de la confirmation de la position du carter -> début soudure 
                     global secu_g = 1
                     set_standard_digital_out(add_VoyantTableGauche, True)
                     movej(Point_init_G, a = accelerationHorsSoudure, v = vitesseHorsSoudure, r = 0.006)
@@ -283,33 +284,32 @@ def mode_Execution():
             end
             global boucle = 0
         else:
-            if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == False  )):
+            if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == False  )): # si la table n'est pas enregistrée comme configurée 
                 close_popup()
                 popup("Aucune programmation n'est actuellement detectée sur la table gauche, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
                 global boucle = 0
             end
         end
-        if ((get_standard_digital_in(adresse_bp_d) == True  ) and (config_d == True  )):
+        if ((get_standard_digital_in(adresse_bp_d) == True  ) and (config_d == True  )):  #table de droite 
             global boucle_d = 1
             pop_up_deb_exe_d()
-            while (boucle_d == 1):
-                set_configurable_digital_out(add_CmdCarterBit2, True)
-                set_standard_digital_out(add_VoyantTableGauche, False)
+            while (boucle_d == 1):  #Boucler une fois, tant que la soudure n'est pas finie 
+                set_configurable_digital_out(add_CmdCarterBit2, True) #commande la fermeture du carter 
+
+                set_standard_digital_out(add_VoyantTableGauche, False)#commande des voyants
                 set_standard_digital_out(add_VoyantTableDroite, True)
                 sleep(0.25)
                 set_standard_digital_out(add_VoyantTableDroite, False)
                 sleep(0.25)
-                if (get_configurable_digital_in(add_SecuDroiteOK) == False):
+
+                if (get_configurable_digital_in(add_SecuDroiteOK) == False): #si les carter ne sont pas en position : voyant et attente 
                     set_standard_digital_out(add_VoyantTableDroite, True)
-                    sleep(6.0)
-                    if (get_configurable_digital_in(add_SecuDroiteOK) == False):
-                        close_popup()
-                        while (get_configurable_digital_in(add_SecuDroiteOK) == False):
-                            sync()
-                        end
+                    while (get_configurable_digital_in(add_SecuDroiteOK) == False):
+                        sync()
                     end
                 end
-                if (get_configurable_digital_in(add_SecuDroiteOK) == True):
+
+                if (get_configurable_digital_in(add_SecuDroiteOK) == True):# attente de la confirmation de la position du carter -> début soudure 
                     global secu_d = 1
                     set_standard_digital_out(add_VoyantTableDroite, True)
                     movej(Point_avt_initD, a = accelerationHorsSoudure, v = vitesseHorsSoudure)
@@ -321,7 +321,7 @@ def mode_Execution():
             end
             global boucle = 0
         else:
-            if ((get_standard_digital_in(adresse_bp_d) == True  ) and (config_d == False  )):
+            if ((get_standard_digital_in(adresse_bp_d) == True  ) and (config_d == False  )): # si la table n'est pas enregistrée comme configurée 
                 close_popup()
                 popup("Aucune programmation n'est actuellement detectée sur la table droite, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
                 global boucle = 0

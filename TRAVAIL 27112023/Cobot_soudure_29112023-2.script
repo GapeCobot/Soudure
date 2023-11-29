@@ -1,18 +1,12 @@
 def Cobot_soudure_291120232():
-  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
-  set_tool_output_mode(0)
-  set_tool_digital_output_mode(0, 2)
-  set_tool_digital_output_mode(1, 2)
-  set_tool_voltage(24)
-  step_count_b664547b_b573_42fc_b98c_c9ab4e88dc24 = 0.0
-  thread Step_Counter_Thread_ca657a6a_cc6d_439c_9481_f49c172217b5():
+  step_count_fdd0687d_6733_485d_b538_4faaa8f4031a = 0.0
+  thread Step_Counter_Thread_6f09cd09_f798_4b41_a178_fb3252e07c90():
     while (True):
-      step_count_b664547b_b573_42fc_b98c_c9ab4e88dc24 = step_count_b664547b_b573_42fc_b98c_c9ab4e88dc24 + 1.0
+      step_count_fdd0687d_6733_485d_b538_4faaa8f4031a = step_count_fdd0687d_6733_485d_b538_4faaa8f4031a + 1.0
       sync()
     end
   end
-  run Step_Counter_Thread_ca657a6a_cc6d_439c_9481_f49c172217b5()
-  set_target_payload(2.720000, [-0.067000, 0.195000, 0.106000], [0.008159, 0.008159, 0.008159, 0.000000, 0.000000, 0.000000])
+  run Step_Counter_Thread_6f09cd09_f798_4b41_a178_fb3252e07c90()
   set_safety_mode_transition_hardness(1)
   set_standard_analog_input_domain(0, 1)
   set_standard_analog_input_domain(1, 1)
@@ -33,6 +27,12 @@ def Cobot_soudure_291120232():
   set_runstate_standard_digital_output_to_value(7, 1)
   set_runstate_configurable_digital_output_to_value(6, 1)
   set_gravity([8.503688472232543E-16, -8.503688472232545E-16, -9.82])
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 2)
+  set_tool_digital_output_mode(1, 2)
+  set_tool_voltage(24)
+  set_target_payload(2.720000, [-0.067000, 0.195000, 0.106000], [0.008159, 0.008159, 0.008159, 0.000000, 0.000000, 0.000000])
   set_tcp(p[3.9268782491800464E-4,0.010870476277026558,0.31436572226962645,-0.5061477319867888,-0.4813511797025432,1.4393264113232132])
   global tab_lin_amp_g=[0, 0.005, 0, 0.065, 0, 0, 0, 0, 0, 0, 0]
   global validation_d=True
@@ -104,8 +104,8 @@ def Cobot_soudure_291120232():
   global tab_cer_quart_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_arc_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_tro_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
-  global nb_soud_lin_g=3
   global tab_arc_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
+  global nb_soud_lin_g=3
   global tab_cer_tro_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global nb_soud_lin_d=1
   global vit_cer_g=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -113,10 +113,10 @@ def Cobot_soudure_291120232():
   global tab_cer_deb_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_deb_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global amplitude_thr=0.1
-  global config_g=1
   global tab_job_g=[1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  global config_d=1
+  global config_g=1
   global tab_job_d=[2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  global config_d=1
   global tab_cer_mil_g=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global tab_cer_mil_d=[p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0], p[0, 0, 0, 0, 0, 0]]
   global validation_g=True
@@ -233,7 +233,7 @@ def Cobot_soudure_291120232():
   global add_SecuGaucheOk  = 4
   global add_SecuDroiteOK  = 5
   global add_Reserve  = 6
-  global add_ModeManu  = 7
+  global add_ModeExe  = 7
   
   #CONFIG CONFIGURABLE OUT
   global add_CmdCarterBit1 = 0
@@ -2406,7 +2406,7 @@ def Cobot_soudure_291120232():
           pop_up_config()
       end
   
-      while ((get_configurable_digital_in(add_ModeManu) == False  ) and (get_standard_digital_in(add_bp_ConfigReglage) == False  )):
+      while ((get_configurable_digital_in(add_ModeExe) == False  ) and (get_standard_digital_in(add_bp_ConfigReglage) == False  )):
           thread Thread_while_145():
               while (True):  # faire clignoter les voyants des tables, pour informer de l'attente d'une action
                   set_standard_digital_out(add_VoyantTableDroite, True)
@@ -2418,9 +2418,9 @@ def Cobot_soudure_291120232():
                   sync()
               end
           end
-          if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
+          if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
               global thread_handler_145 = run Thread_while_145()
-              while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
+              while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == False):
                   sync()
               end
               kill thread_handler_145
@@ -2485,7 +2485,7 @@ def Cobot_soudure_291120232():
   
   
       global boucle = 1
-      while ((get_configurable_digital_in(add_ModeManu) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
+      while ((get_configurable_digital_in(add_ModeExe) == False  ) and (boucle == 1) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
           thread Thread_while_208():
               while (True):
                   if (config_g == 1):
@@ -2500,9 +2500,9 @@ def Cobot_soudure_291120232():
                   sleep(0.5)
               end
           end
-          if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+          if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
               global thread_handler_208 = run Thread_while_208()
-              while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
+              while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == False and get_standard_digital_in(add_bp_ConfigReglage) == True):
                   sync()
               end
               kill thread_handler_208
@@ -2552,12 +2552,12 @@ def Cobot_soudure_291120232():
           global boucle = 1
       else:
           close_popup()
-          while (get_configurable_digital_in(add_ModeManu) == True):
+          while (get_configurable_digital_in(add_ModeExe) == True):
               popup("Aucune programmation n'est actuellement detectée, veillez à programmer une pièce avant de vouloir l'éxécuter.", "Erreur", False, True, blocking = True)
           end
       end
   
-      while (( get_configurable_digital_in(add_ModeManu) == True  ) and (boucle == 1)):
+      while (( get_configurable_digital_in(add_ModeExe) == True  ) and (boucle == 1)):
           thread Thread_while_259():
               while (True):
                   if (config_g == 1):
@@ -2572,9 +2572,9 @@ def Cobot_soudure_291120232():
                   sleep(0.5)
               end
           end
-          if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == True):
+          if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == True):
               global thread_handler_259 = run Thread_while_259()
-              while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeManu) == True):
+              while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == True):
                   sync()
               end
               kill thread_handler_259
@@ -2673,19 +2673,16 @@ def Cobot_soudure_291120232():
           set_configurable_digital_out(add_CmdCarterBit2, False)
   
           attente_carters_ouverts() #éviter un contact avec le bras
-          # LIGNE 23 GENERAL
-          debug = 4
+  
           deplacement_depart_init() #premier déplacement à gérer en focntion de la position réel du robot lors de l'init
-          #LIGNE 54 GENERAL
   
           # TEST DES MODES :
-  
           # lecture de la postion des Bps
-          if ((get_configurable_digital_in(add_ModeManu) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == False)):
+          if ((get_configurable_digital_in(add_ModeExe) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == False)):
               mode_configuration()#l 55-> 127
-          elif ((get_configurable_digital_in(add_ModeManu) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
+          elif ((get_configurable_digital_in(add_ModeExe) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
               mode_Reglage() #l 127 -> 199
-          elif (get_configurable_digital_in(add_ModeManu) == True):
+          elif (get_configurable_digital_in(add_ModeExe) == True):
               mode_Execution() #
           else:
               #faire erreur
@@ -2995,7 +2992,7 @@ def Cobot_soudure_291120232():
   thread Thread_10():
     while (True):
       $ 211 "reglage"
-      $ 212 "If safe_mode ≟ 1  and Mode_manu ≟  True "
+      $ 212 "If safe_mode ≟ 1  and Mode_Exe ≟  True "
       if (safe_mode  ==  1   and  get_configurable_digital_in(7)  ==    True  ):
         $ 213 "close_popup()"
         close_popup()

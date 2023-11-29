@@ -2,26 +2,23 @@ def General():
 
     while (True):
 
-      global debug = 1
+        global debug = 1
         #INTIALISATION
         safe_mode = 0
         set_configurable_digital_out(add_CmdCarterBit1, False) #stop commande carter
         set_configurable_digital_out(add_CmdCarterBit2, False)
 
         attente_carters_ouverts() #éviter un contact avec le bras
-        # LIGNE 23 GENERAL
-        debug = 4 
+
         deplacement_depart_init() #premier déplacement à gérer en focntion de la position réel du robot lors de l'init
-        #LIGNE 54 GENERAL
 
         # TEST DES MODES :
-
         # lecture de la postion des Bps
-        if ((get_configurable_digital_in(add_ModeManu) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == False)):
+        if ((get_configurable_digital_in(add_ModeExe) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == False)):
             mode_configuration()#l 55-> 127
-        elif ((get_configurable_digital_in(add_ModeManu) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
+        elif ((get_configurable_digital_in(add_ModeExe) == False) and (get_standard_digital_in(add_bp_ConfigReglage) == True  )):
             mode_Reglage() #l 127 -> 199
-        elif (get_configurable_digital_in(add_ModeManu) == True):
+        elif (get_configurable_digital_in(add_ModeExe) == True):
             mode_Execution() #
         else:
             #faire erreur

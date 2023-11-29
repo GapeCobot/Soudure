@@ -6,7 +6,7 @@ local index_soudure_lin = 1
 local index_soudure_arc = 1
 local index_soudure_cercle = 1
 
-pop_up_deb_exe_g()
+pop_up_exe_Encours()
 
 #fun_deplacement_pose_inter(1)
 
@@ -45,7 +45,7 @@ while (soudureEnCours<nbSoudures): #pour le moment début a 0 donc < (a voir si 
     sync()
 end 
 
-    pop_up_exe_termine()
+    
     #movej(anti_Poq_g, a=1.4,v=1.1,t=0,r=0.005)
     #movej(Point_init, a=1.4,v=1.1,t=0,r=0.005)
 
@@ -53,4 +53,6 @@ end
     #movej(Point_init_G, a=0.8,v=1.05,t=0,r=0.005)
    # movej(Point_init, a=0.8,v=1.05,t=0,r=0)
 
+   set_configurable_digital_out(add_CmdCarterBit1, False)
+   pop_up_exe_termine()
 end

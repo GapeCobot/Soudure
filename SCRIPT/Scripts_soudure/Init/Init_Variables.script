@@ -25,7 +25,7 @@ global add_ModeSoudure  = 3
 global add_SecuGaucheOk  = 4
 global add_SecuDroiteOK  = 5
 global add_Reserve  = 6
-global add_ModeManu  = 7
+global add_ModeExe  = 7
 
 #CONFIG CONFIGURABLE OUT 
 global add_CmdCarterBit1 = 0

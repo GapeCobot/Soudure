@@ -185,7 +185,7 @@
    'Thread_9'
    Thread_10
      reglage
-       If safe_mode ≟ 1  and Mode_manu ≟  True 
+       If safe_mode ≟ 1  and Mode_Exe ≟  True 
          close_popup()
          Popup: STOP !!!!
        sync()

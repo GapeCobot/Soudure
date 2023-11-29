@@ -6,7 +6,7 @@ def fun_execution_d():
     local index_soudure_arc = 1
     local index_soudure_cercle = 1
 
-    pop_up_deb_exe_d()
+    pop_up_exe_Encours()
 
     #fun_deplacement_pose_inter(2)    #deplacement dans la position intermédiaire enregistrée 
 
@@ -44,11 +44,14 @@ def fun_execution_d():
         soudureEnCours = soudureEnCours +1 
         sync()
     end 
-        pop_up_exe_termine()
+        
         #movej(anti_poq_d_1, a=1.4,v=1.1,t=0,r=0.005)
         #movej(anti_poq_d_2, a=1.4,v=1.1,t=0,r=0.005)    
         movej(Point_Attente_D, a=0.8,v=1.05,t=0,r=0.005)
         movej(Point_init_D, a=0.8,v=1.05,t=0,r=0.005)
         movej(Point_avt_initD, a=0.8,v=1.05,t=0,r=0.005)
         movej(Point_init, a=0.8,v=1.05,t=0,r=0)
+
+        set_configurable_digital_out(add_CmdCarterBit2, False)
+        pop_up_exe_termine()
 end 
