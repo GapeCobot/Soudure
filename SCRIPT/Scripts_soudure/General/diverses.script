@@ -242,6 +242,7 @@ def mode_Execution():
                 sleep(0.5)
             end
         end
+        
         if (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == True):
             global thread_handler_259 = run Thread_while_259()
             while (get_standard_digital_in(adresse_bp_d) == False and get_standard_digital_in(adresse_bp_g) == False and get_configurable_digital_in(add_ModeExe) == True):
@@ -249,6 +250,7 @@ def mode_Execution():
             end
             kill thread_handler_259
         end
+
         if ((get_standard_digital_in(adresse_bp_g) == True  ) and (config_g == True  )): #table de gauche 
             pop_up_deb_exe_g()
             global boucle_g = 1
