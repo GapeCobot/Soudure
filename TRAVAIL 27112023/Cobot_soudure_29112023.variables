@@ -1,5 +1,5 @@
 #
-#Wed Nov 29 09:39:42 CET 2023
+#Wed Nov 29 10:24:28 CET 2023
 tab_lin_amp_g=[0, 0.005, 0, 0.065, 0, 0, 0, 0, 0, 0, 0]
 validation_d=True
 tab_lin_amp_d=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
